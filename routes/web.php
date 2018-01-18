@@ -53,6 +53,8 @@ Route::delete('delete-announcement/{announcementId}','AnnouncementController@del
 Route::put('update-announcement/{announcementId}','AnnouncementController@update');
 Route::get('fetch-data-update/{announcementId}','AnnouncementController@fetchUpdate');
 
+Route::get('user-student-data/{username}','UserController@studentuserdata');
+Route::get('user-data','UserController@showAccounts');
 Route::get('generate-verification','VerificationController@generate');
 
 Route::get('verifsample','VerificationController@create')->name('generate-verification');

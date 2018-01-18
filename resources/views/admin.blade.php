@@ -559,94 +559,9 @@
           </div>
           <div class="user-main-content tab-content" id="news" >
             <span id="app"><announcementvue></announcementvue></span>
-
           </div>
           <div class="user-main-content tab-content" id="accounts">
-            <div class="content-container">
-              <div class="accounts-container">
-                <div class="content-header  z-depth-1">
-                  <label>Accounts</label>
-                  <input type="text" name="search" value="" placeholder="Search Account">
-                  <a href="#"><i class="material-icons">search</i></a>
-                </div>
-                <div class="accounts-content z-depth-1">
-                  <table class="bordered highlight ">
-                    <thead>
-                      <tr>
-                        {{-- <th>Student Name</th> --}}
-                        <th>Username</th>
-                        <th>Password</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($users as $user)
-                        <tr id="list-of-users" class="modal-trigger" href="#account">
-                          {{-- <td id="user-fullname">Ralph Dexter Bongato</td> --}}
-                          <td id="user-username">{{$user->username}}</td>
-                          <td id="user-password">{{$user->password}}</td>
-                        </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                  <div class="pagination-container">
-                    <ul class="pagination">
-                      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                      <li class="active"><a href="#!">1</a></li>
-                      <li class="waves-effect waves-light"><a href="#!">2</a></li>
-                      <li class="waves-effect waves-light"><a href="#!">3</a></li>
-                      <li class="waves-effect waves-light"><a href="#!">4</a></li>
-                      <li class="waves-effect waves-light"><a href="#!">5</a></li>
-                      <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                    </ul>
-                  </div>
-                  {{-- Account Modal --}}
-                  <form method="post">
-                    <div id="account" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <div class="modal-header light-blue darken-1">
-                          <h5>Account Details</h5>
-                        </div>
-                        <div class="modal-fields">
-                          <input type="hidden" name="_token" value="{{csrf_token()}}">
-                          {{-- <div class="input-field" >
-                            <input id="student-name" name="student-name" type="text" class="validate">
-                            <label for="student-name">Student Name</label>
-                          </div> --}}
-                          <div class="input-field" id="acccount-label-active" >
-                            <input id="student-username" name="student-username" type="text" class="validate">
-                            <label for="student-username" >Username</label>
-                          </div>
-                          <div class="input-field" id="acccount-label-active" >
-                            <input id="student-password" name="student-password" type="text" class="validate">
-                            <label for="student-password" >Password</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <a class="modal-action modal-close waves-effect waves-light btn light-blue darken-1 " id="saveChanges">Save Changes</a>
-                      </div>
-                    </div>
-                  </form>
-                  <script>
-                    $(document).ready(function(){
-                      $('.modal').modal();
-
-                        $(document).on('click','#list-of-users',function(event){
-
-                            var username = $(this).find('#user-username').text();
-                            var password = $(this).find('#user-password').text();
-
-                            $('#student-username').val(username);
-                            $('#student-password').val(password);
-
-                            $("#acccount-label-active").parent().find("label").addClass("active");
-
-                        });
-                    });
-                  </script>
-                </div>
-              </div>
-            </div>
+            <span id="account"><accountvue></accountvue></span>
           </div>
           <div class="user-main-content tab-content" id="verifications">
             <div class="content-container ">
@@ -829,6 +744,7 @@
               $('.modal').modal();
               $('select').material_select();
               $('ul.tabs').tabs();
+              $('.tooltipped').tooltip({delay: 50});
             });
         </script>
       @endsection

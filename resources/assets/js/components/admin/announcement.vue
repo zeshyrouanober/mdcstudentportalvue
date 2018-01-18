@@ -3,14 +3,15 @@
     <div class="news-container">
       <div class="news-header z-depth-1">
         <label class="light-blue-text text-darken-1">Announcement</label>
-        <a class="waves-effect waves-light btn light-blue darken-1 modal-trigger" v-on:click = "isUpdate = false" id="addnew" href="#announcement">Add New</a>
+        <a class="waves-effect waves-light btn light-blue darken-1 modal-trigger" v-on:click = "isUpdate = false, headerTitle = true" id="addnew" href="#announcement">Add New</a>
       </div>
     </div>
     <!--  Modal for the annnouncement  -->
       <div id="announcement" class="modal modal-fixed-footer">
         <div class="modal-content">
           <div class="modal-header light-blue darken-1">
-            <h4 id="announcement-header"></h4>
+            <h4 id="announcement-header" v-if="headerTitle == true" >Create Announcement</h4>
+            <h4 id="announcement-header" v-else>Update Announcement</h4>
           </div>
           <div class="modal-fields">
             <div class="input-field">
@@ -28,21 +29,22 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a class="modal-action modal-close waves-effect waves-light btn light-blue darken-1 createModalBtn" onclick="Materialize.toast('Created !', 3000, 'rounded');" v-on:click="addAnnouncement()">Announce</a>
-          <a  class="modal-action modal-close waves-effect waves-light btn  amber darken-1 deleteModalBtn" onclick="Materialize.toast('Deleted !', 3000, 'rounded')">Delete</a>
-          <a  class="modal-action modal-close waves-effect waves-light btn light-blue darken-1 editModalBtn" onclick="Materialize.toast('Updated !', 3000, 'rounded') " v-on:click="updateAnnouncement()">Save Changes</a>
+          <a class="modal-action modal-close waves-effect waves-light btn  amber lighten-1 )"><i class="material-icons">close</i></a>
+          <a class="modal-action modal-close waves-effect waves-light btn light-blue darken-1 " v-if = "headerTitle == true" onclick="Materialize.toast('Created !', 3000, 'rounded')" v-on:click="addAnnouncement()"><i class="material-icons">send</i></a>
+          <a  class="modal-action modal-close waves-effect waves-light btn light-blue darken-1 " v-else onclick="Materialize.toast('Updated !', 3000, 'rounded') " v-on:click="updateAnnouncement()"><i class="material-icons">edit</i></a>
         </div>
       </div>
     <div class="announcement-content " id="announcement-content">
         <div class="card blue-grey lighten-1" v-for="announce in announcement">
-          <div class="card-content white-text modal-trigger" href="#announcement" >
+          <div class="card-content white-text "  >
             <span class="card-title" id="view-title">{{announce.title}}</span>
             <p>{{announce.created_at}}</p><br>
             <p id="view-description">{{announce.description}}</p>
           </div>
           <div class="card-action">
-            <a href="#announcement" class="modal-trigger" v-on:click = "fetchUpdate(announce.id),isUpdate = true" id="announcementEditBtn" ><i class="material-icons">edit</i></a>
-            <a href="#" v-on:click.prevent = "deleteAnnouncement(announce.id)" id="announcementEditBtn" ><i class="material-icons">delete</i></a>
+            <a href="#announcement" class="modal-trigger" v-on:click = "fetchUpdate(announce.id),isUpdate = true , headerTitle = false" ><i class="material-icons">remove_red_eye</i></a>
+            <a href="#announcement" class="modal-trigger" v-on:click = "fetchUpdate(announce.id),isUpdate = true , headerTitle = false" ><i class="material-icons">edit</i></a>
+            <a href="#" v-on:click.prevent = "deleteAnnouncement(announce.id)" ><i class="material-icons">delete</i></a>
           </div>
         </div>
       </div>
@@ -58,7 +60,6 @@
 
 <script>
 import axios from 'axios';
-
     export default {
       data(){
         return {
@@ -70,8 +71,8 @@ import axios from 'axios';
           fetchupdate : [],
           isUpdate : false,
           updatetitle : '',
-          updateDescription : ''
-        }
+          updateDescription : '',
+          headerTitle : false        }
       },
       mounted () {
         this.showAnnouncement()

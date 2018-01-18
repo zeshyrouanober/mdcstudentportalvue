@@ -17,6 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('announcementvue',require('./components/admin/announcement.vue'));
+Vue.component('accountvue',require('./components/admin/account.vue'));
+
 const app = new Vue({
     el: '#app'
+});
+
+const account = new Vue({
+    el: '#account'
 });
