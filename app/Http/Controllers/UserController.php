@@ -21,7 +21,7 @@ class UserController extends Controller
     }
 
     public function showAccounts(){
-      $user = User::whereRaw('student_id <> ""')->with('student')->paginate(2);
+      $user = User::whereRaw('student_id <> ""')->with('student')->paginate(10);
       // Session::put('idnum',$user->student_id);
       $response = array('user' => $user);
       return response()->json($response);

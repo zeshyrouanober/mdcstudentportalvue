@@ -3,7 +3,7 @@
 @section('title','MDC | Portal')
 
 @section('body')
-    <div class="template-container">
+      <div class="template-container" >
         <div class="template-header">
             <div class="logo">
                 <img src="images/school-logo2.png" alt="" class="animated rollIn">
@@ -17,7 +17,7 @@
                 @section('side-nav')
                   @show
             </div>
-            <div class="template-content-content" >
+            <div class="template-content-content">
                 @section('content')
                   @show
             </div>

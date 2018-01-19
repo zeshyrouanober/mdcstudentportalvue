@@ -5,25 +5,31 @@ namespace App\Http\Controllers;
 use App\Student;
 use Illuminate\Http\Request;
 use Input;
+use Auth;
+use DB;
 
 class StudentController extends Controller
 {
-  public function update(Request $request){
+    public function index(){
+      return view('admin');
+    }
 
-    // $student = Student::find($request->id);
-    // $student->lname = $request->lastname;
-    // $student->fname = $request->firstname;
-    // $student->mi = $request->mi;
-    // $student->addb = $request->addressBaranggay;
-    // $student->addt = $request->addressTown;
-    // $student->addp = $request->addressProvince;
-    // $student->gender = $request->gender;
-    // $student->bdate = $request->birthday;
-    // $student->status = $request->status;
-    // $student->father = $request->father;
-    // $student->mother = $request->mother;
-    //
-    // $student->save();
+    public function showStudents(){
+      $student = Student::orderBy('idnum','asc')->paginate(100);
+      $response = array('student' => $student );
+      return response()->json($response);
+    }
 
-  }
+    public function listOfSubjectWithGrade(){
+      $currentSem =  DB::table('sub_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
+
+      $student =  Student::find(Auth::user()->username);
+
+      return $student->subjects(27)->get();
+
+    }
+
+    public function showSubjectTaken(){
+
+    }
 }

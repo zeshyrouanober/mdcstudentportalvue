@@ -14,15 +14,19 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+// ADMIN
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('announcementvue',require('./components/admin/announcement.vue'));
 Vue.component('accountvue',require('./components/admin/account.vue'));
+Vue.component('subjectvue',require('./components/admin/subject.vue'));
+Vue.component('studentvue',require('./components/admin/student.vue'));
+
+
+// STUDENT
+Vue.component('studentdashboardvue',require('./components/student/dashboard.vue'));
+Vue.component('updatesandannouncementvue',require('./components/student/updatesandannouncement.vue'));
+Vue.component('evaluationvue',require('./components/student/evaluation.vue'));
 
 const app = new Vue({
-    el: '#app'
-});
-
-const account = new Vue({
-    el: '#account'
+    el: '.app'
 });

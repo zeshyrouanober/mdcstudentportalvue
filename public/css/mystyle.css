@@ -58,6 +58,16 @@ border-spacing: 0;
     background-size: cover;
     display: flex;
 }
+/* Modal button customized */
+.modal .modal-footer #edit:hover{
+  background-color: #ffca28 !important;
+}
+.modal .modal-footer #close:hover{
+  background-color: #039be5 !important;
+}
+.modal .modal-footer #post:hover{
+  background-color: #00e676!important;
+}
 .rounded{
   border-radius: 70px!important;
   width: auto!important;
@@ -261,7 +271,7 @@ form .forgot-password{
     font-size: 40px;
     font-weight: normal;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    color: #039be5;
+    color: #1565c0;
     margin-left: 20px;
 }
 .template-content{
@@ -270,7 +280,7 @@ form .forgot-password{
 }
 .template-content-nav-bar{
     flex:.8;
-    background-color: #01579b;
+    background-color: #0d47a1;
 }
 .template-content-content{
     flex:10;
@@ -302,7 +312,7 @@ form .forgot-password{
   height: auto;
   display: flex;
   flex-direction: column;
-  background-color: #01579b;
+  background-color: #0d47a1;
   margin-top: 20px;
 }
 .student-nav .tabs .indicator{
@@ -314,51 +324,53 @@ form .forgot-password{
 .student-nav .tabs .tab a{
   display: flex;
   flex-direction: column;
-  border-left: 3px solid #01579b;
+  border-left: 3px solid #0d47a1;
 }
 .student-nav .tabs .tab a i{
-  color:#1565c0;
+  color:#ffffff;
+  margin-top: 10px;
   font-size: 25px;
 }
 .student-nav .tabs .tab a label{
-  color:#1565c0;
+  color:#ffffff;
   font-size: 13px;
   font-family:'Barlow Semi Condensed', sans-serif;
 }
 .student-nav .tab a:hover{
-  border-left: 3px solid #2196f3;
+  border-left: 3px solid #ffffff;
+  background-color: #1565c0!important;
 }
 .student-nav .tab a:hover i{
-  color:#2196f3;
+  color:#ffffff;
 }
 .student-nav .tab a:focus label{
   color:#bbdefb;
 }
 .student-nav .tab a:focus{
-  border-left: 3px solid #2196f3;
+  border-left: 3px solid #ffffff;
 }
 .student-nav .tab a:focus i{
-  color:#2196f3;
+  color:#ffffff;
 }
 .student-nav .tab a:hover label{
-  color:#bbdefb ;
+  color:#ffffff ;
 }
 .student-nav .tab a.active{
-  border-left: 3px solid #2196f3;
+  border-left: 3px solid #ffffff;
 }
 .student-nav .tab a.active i{
-  color:#2196f3;
+  color:#ffffff;
 }
 .student-nav .tab a.active label{
-  color:#bbdefb ;
+  color:#ffffff ;
 }
 .user-info{
-  flex:.7;
+  height: 50px!important;
   display: flex;
   align-items: center;
   padding-left: 10px;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  background-color: #039be5!important;
+  background-color: #1565c0!important;
 }
 .student-header{
   flex:1.2;
@@ -413,28 +425,37 @@ form .forgot-password{
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 3px;
-  background-color: #f5f5f5!important;
 }
 .user-main-content label{
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-size: 20px;
 }
-.user-main-content .grade-classes{
-  flex:2;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  border-radius: 3px;
+.dashboard-student-container{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-.user-main-content .news{
-  flex:1;
-  background-color: #ffffff;
-  border-radius: 3px;
-}
-.user-main-content .forums{
-  flex:1;
+.classes-grades{
+  flex: 1;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  border-radius: 3px;
+  padding: 5px;
+}
+.forums{
+  flex: 1;
+}
+.evaluation-container{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+.evaluation-container .evaluation{
+  flex:1;
+  padding: 5px;
+}
+span{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 .user-content .user-right-nav{
   flex:1;
@@ -447,6 +468,39 @@ form .forgot-password{
 }
 .user-right-nav .calendar{
   flex:1;
+}
+.update-announcement-container{
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.latest-update-header{
+  padding: 10px;
+}
+.latest-update-content{
+  display: flex;
+  flex-direction: column;
+  color:#37474f;
+  border-bottom: 1px solid #4527a0;
+  padding-bottom: 3px;
+}
+.latest-update-content .title{
+  padding: 3px 5px;
+  display: flex;
+}
+.latest-update-content .title h6{
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+.latest-update-content .title a{
+  flex:1;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 30px;
+}
+.latest-update-content .description{
+  padding: 5px 3px;
 }
 .user-right-nav .upcoming-events{
   flex:1;
@@ -768,7 +822,7 @@ thead{
   margin-bottom: 5px!important;
 }
 thead tr{
-  background-color:#039be5!important;
+  background-color:#039be5;
 }
 thead tr th{
   border-radius: 0px!important;
@@ -793,30 +847,50 @@ thead tr th{
   flex-direction: column;
   padding: 0px!important;
 }
-.modal.modal-fixed-footer #subject .modal-content{
-  height: auto!important;
-  overflow-y:inherit;
-}
-#subject .modal-content{
+#announcement .modal-content .modal-header{
   display: flex;
-  flex-direction: column;
-  padding: 0px!important;
-}
-#student .modal-content{
-  padding: 0px!important
-}
-#student .modal-content .modal-header{
-  display: flex;
-  padding: 10px!important;
   justify-content: center;
   color:#ffffff!important;
+  flex:1.5!important;
 }
+
 #account .modal-content{
   padding: 0px!important
 }
 #account .modal-content .modal-header{
   display: flex;
   padding: 10px!important;
+  justify-content: center;
+  color:#ffffff!important;
+}
+#subjectmodal .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#subjectmodal .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.6!important;
+}
+#updateSubjectModal .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#updateSubjectModal .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.6!important;
+}
+
+#showSubjectStudent .modal-content{
+  flex-direction: column;
+  padding: 0px!important;
+}
+#showSubjectStudent .modal-content .modal-header{
   justify-content: center;
   color:#ffffff!important;
 }
