@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="accounts-container">
+    <div class="content-container">
       <div class="content-header  z-depth-1">
         <label>Accounts</label>
         <input type="text" name="search" value="" placeholder="Search Account">
@@ -21,36 +21,39 @@
                 <td id="user-username">{{u.username}}</td>
                 <td id="user-password" type="password" >•••••••••••••••••••</td>
                 <td id="actions">
-                  <a href="#user" class="modal-trigger" ><i class="material-icons">remove_red_eye</i></a>
-                  <a href="#user" class="modal-trigger"><i class="material-icons" style="color:#fb8c00;">edit</i></a>
-                  <a href="#userinfo" class="modal-trigger" v-on:click="fetchStudentData(u.username)"><i class="material-icons" style="color:#01579b">account_circle</i></a>
+                  <a href="#userEdit" class="modal-trigger" v-on:click="fetchUserData(u.username),isUpdate = true" ><i class="material-icons" style="color:#fb8c00;">edit</i></a>
+                  <a href="#userinfo" class="modal-trigger" v-on:click="fetchUserData(u.username)"><i class="material-icons" style="color:#01579b">account_circle</i></a>
                 </td>
               </tr>
           </tbody>
         </table>
-        <div id="user" class="modal modal-fixed-footer">
+        <div id="userEdit" class="modal modal-fixed-footer">
           <div class="modal-content">
             <div class="modal-header light-blue darken-1">
-              <h5>View Account</h5>
+              <h5>Edit Account</h5>
             </div>
             <div class="modal-fields" >
               <div class="input-field" >
-                <input id="student-idnum" v-model="fetchStudent.username" name="student-idnum"type="text" class="validate" >
-                <label for="student-idnum">IDNumber</label>
+                <input id="student-idnum" disabled v-model="username = fetchUser.username" name="student-idnum"type="text" class="validate" >
+                <label for="student-idnum" :class="[isUpdate == true ? 'active' : '']" >IDNumber</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-lname" name="student-lname" type="text" class="validate">
-                <label for="student-lname" >Lastname</label>
+                <input id="password" required v-model="password" name="password" type="text" class="validate">
+                <label for="password" >New Password</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-fname" name="student-fname" type="text" class="validate">
-                <label for="student-fname" >Firstname</label>
+                <input id="passwordconfirmation" disabled  v-model="password" name="passwordconfirmation" type="text" class="validate">
+                <label for="passwordconfirmation":class="[isUpdate == true ? 'active' : '']" >Confirmed Password</label>
               </div>
+              <p>
+               <input type="checkbox" id="test6" v-on:click="isChecked = true"/>
+               <label for="test6" v-on:click="isChecked = true" >I review and remember</label>
+             </p>
             </div>
           </div>
           <div class="modal-footer">
-            <a id="close" class="waves-effect waves-light modal-close light-blue lighten-3 btn-flat" style="color:#ffffff;"><i class="material-icons">close</i></a>
-            <a id="edit" class="waves-effect waves-light modal-close amber lighten-3 btn-flat" style="color:#ffffff;"><i class="material-icons">edit</i></a>
+            <a id="close" class="waves-effect waves-light modal-close light-blue lighten-3 btn-flat " v-on:click="cleanFields()" style="color:#ffffff;"><i class="material-icons">close</i></a>
+            <a id="edit" class="waves-effect waves-light modal-close amber lighten-3 btn-flat " :class="[isChecked == true ? 'pulse' : 'disabled']"  v-on:click="updateUser()" style="color:#ffffff;"><i class="material-icons">edit</i></a>
           </div>
        </div>
       <div id="userinfo" class="modal modal-fixed-footer">
@@ -60,7 +63,7 @@
             </div>
             <div class="modal-fields" >
               <div class="input-field" >
-                <input id="student-idnum" v-model="fetchStudent.username" name="student-idnum"type="text" class="validate" >
+                <input id="student-idnum"  v-model ="idnum = user.idnum" name="student-idnum"type="text" class="validate" >
                 <label for="student-idnum">IDNumber</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
@@ -76,8 +79,12 @@
                 <label for="student-mi" >Middle Initial</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-course" name="student-course" type="text" class="validate">
-                <label for="student-course" >Course</label>
+                <input id="gender" name="gender" type="text" class="validate">
+                <label for="gender" >Gender</label>
+              </div>
+              <div class="input-field" id="acccount-label-active" >
+                <input id="student-add" name="student-add" type="text" class="validate">
+                <label for="student-add" >Address</label>
               </div>
             </div>
           </div>
@@ -102,12 +109,24 @@
 
   export default {
 
+
     data(){
       return{
         pagination:[],
         offset:4,
         user :[],
-        fetchStudent:[]
+        fetchUser:[],
+        isUpdate: false,
+        isChecked : false,
+        username:'',
+        password:'',
+        passwordconfirmation:'',
+        idnum : '',
+        fname : '',
+        lname : '',
+        mi : '',
+        gender : '',
+        address : '',
       }
     },
 
@@ -125,12 +144,33 @@
         });
       },
 
-      fetchStudentData(username){
+      fetchUserData(username){
         var vm = this;
         axios.get('user-student-data/' + username).then(function(response){
-          vm.fetchStudent = response.data.user.data;
+          vm.fetchUser = response.data[0];
           console.log(response);
         });
+      },
+
+      updateUser(){
+        var vm = this;
+        axios.put(`update-user/` + this.fetchUser.username,{
+          'username' : this.fetchUser.username,
+          'password' : this.password,
+          'passwordconfirmation' : this.passwordconfirmation
+        }).then(function(response){
+          Materialize.toast('Updated !', 3000, 'rounded');
+          vm.showAccounts();
+          console.log(response);
+        }).catch(function(error){
+          Materialize.toast('Something went wrong !', 3000, 'rounded');
+          console.log(error);
+        });
+      },
+
+      cleanFields(){
+        this.password = '';
+        this.isChecked = false;
       },
 
       changepage(next){

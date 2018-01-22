@@ -12,11 +12,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="subject in takenSubject">
-            <td>{{subject.descript}}</td>
-            <td>{{subject.pivot.mgrade}}</td>
-            <td>{{subject.pivot.fgrade}}</td>
-            <td>{{subject.pivot.rating}}</td>
+          <tr v-for="takensubject in takensubjects">
+            <td>{{takensubject.descript}}</td>
+            <td>{{takensubject.pivot.mgrade}}</td>
+            <td>{{takensubject.pivot.fgrade}}</td>
+            <td>{{takensubject.pivot.rating}}</td>
           </tr>
         </tbody>
       </table>
@@ -30,23 +30,22 @@ import axios from 'axios';
 export default {
   data(){
     return{
-      takenSubject:[],
+      takensubjects:[],
     }
   },
 
-  mounted(){
-    this.showSubjectTaken();
+  created(){
+    this.showTakenSubjects();
   },
-  props:['user'],
 
   methods:{
-    showSubjectTaken(){
+    showTakenSubjects(){
       var vm = this;
       axios.get(`show-subject-taken`).then(function(response){
-        vm.takenSubject = response.data;
+        vm.takensubjects = response.data[0].subjects_taken;
         console.log(response);
       });
     }
   }
-
 }
+</script>

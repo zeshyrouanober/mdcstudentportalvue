@@ -3,10 +3,8 @@
     @section('side-nav')
         <div class="student-nav">
           <div class="avatar">
-              {{-- @foreach ($student as $stud) --}}
-                <i class="material-icons">face</i>
-                <label>Admin</label>
-              {{-- @endforeach --}}
+              <i class="material-icons">face</i>
+              <label>Admin</label>
           </div>
             <ul class="tabs">
               <li class="tab">
@@ -89,73 +87,7 @@
       <span class="app">
       <div class="user-content">
           <div class="user-main-content tab-content" id="dashboard">
-            <div class="content-container">
-              <div class="dashboard-content-up">
-                <div class="number">
-                  <div class="counter-container z-depth-1 teal">
-                    <div class="title z-depth-1 ">
-                      <div class="title-content">
-                        <label>Users</label>
-                      </div>
-                      <div class="space"><a><i class="material-icons user">remove_red_eye</i></a></div>
-                    </div>
-                    <div class="icon">
-                        <div class="icon-content">
-                          <i class="material-icons">account_circle</i>
-                        </div>
-                    </div>
-                    <div class="counter">
-                      <div class="counter-content">
-                        <h3 class="counters" data-count="150">0</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="number">
-                  <div class="counter-container z-depth-1 amber">
-                    <div class="title z-depth-1 ">
-                      <div class="title-content">
-                        <label>Subjects</label>
-                      </div>
-                      <div class="space"><a><i class="material-icons subject">remove_red_eye</i></a></div>
-                    </div>
-                    <div class="icon">
-                        <div class="icon-content">
-                          <i class="material-icons">subject</i>
-                        </div>
-                    </div>
-                    <div class="counter">
-                      <div class="counter-content">
-                        <h3 class="counters" data-count="120">0</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="number">
-                  <div class="counter-container z-depth-1 purple ">
-                    <div class="title z-depth-1">
-                      <div class="title-content ">
-                        <label>Students</label>
-                      </div>
-                      <div class="space"><a><i class="material-icons student">remove_red_eye</i></a></div>
-                    </div>
-                    <div class="icon">
-                        <div class="icon-content">
-                          <i class="material-icons">people</i>
-                        </div>
-                    </div>
-                    <div class="counter">
-                      <div class="counter-content">
-                        <h3 class="counters" data-count="250">0</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="dashboard-content-down z-depth-1">
-
-              </div>
-            </div>
+            <admindashboardvue></admindashboardvue>
           </div>
           <div class="user-main-content tab-content" id="subjects">
             <subjectvue></subjectvue>
@@ -175,140 +107,7 @@
             <accountvue></accountvue>
           </div>
           <div class="user-main-content tab-content" id="verifications">
-            <div class="content-container ">
-              <form method="post">
-                <div class="content-header z-depth-1">
-                  <label class="verification">Verifications </label>
-                  <input type="text" name="numberVerification" id="number-of-verification" placeholder="Please provide only number">
-                  <a class="waves-effect waves-light btn blue darken-1 generate">Generate</a>
-                </div>
-              </form>
-              <div class="verification-tab z-depth-1">
-               <div class="tabs-container">
-                 <ul class="tabs">
-                   <li class="tab"><a href="#verification" class="active" >Verifications</a></li>
-                   <li class="tab"><a href="#activated">Activated</a></li>
-                   <li class="tab"><a href="#notactivated">Not Activated</a></li>
-                 </ul>
-               </div>
-               <div id="verification">
-                  <div class="verification-list">
-                    <table class="striped">
-                      <thead>
-                        <tr>
-                          <th>Verification</th>
-                          <th>Status</th>
-                          <th>Activate by</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>asldkfjdkfldk </td>
-                          <td>Used</td>
-                          <td>Zeshyrou B. Anober</td>
-                        </tr>
-                        <tr>
-                          <td>asldkfjdkfldk </td>
-                          <td>Not Used</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>asldkfjdkfldk </td>
-                          <td>Not Used</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>asldkfjdkfldk </td>
-                          <td>Used</td>
-                          <td>Zeshyrou B. Anober</td>
-                        </tr>
-                        <tr>
-                          <td>asldkfjdkfldk </td>
-                          <td>Used</td>
-                          <td>Zeshyrou B. Anober</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-               </div>
-               <div id="activated">
-                 <div class="verification-list">
-                   <table class="striped">
-                     <thead>
-                       <tr>
-                           <th>Verification</th>
-                           <th>Status</th>
-                           <th>Activate by</th>
-                       </tr>
-                     </thead>
-                     <tbody>
-                       <tr>
-                         <td>asdfkdjudlk</td>
-                         <td>used</td>
-                         <td>Jeronie Rulone</td>
-                       </tr>
-                       <tr>
-                         <td>asdfkdjudlk</td>
-                         <td>used</td>
-                         <td>Jeronie Rulone</td>
-                       </tr>
-                       <tr>
-                         <td>asdfkdjudlk</td>
-                         <td>used</td>
-                         <td>Jeronie Rulone</td>
-                       </tr>
-                       <tr>
-                         <td>asdfkdjudlk</td>
-                         <td>used</td>
-                         <td>Jeronie Rulone</td>
-                       </tr>
-                     </tbody>
-                   </table>
-                 </div>
-               </div>
-               <div id="notactivated">
-                 <div class="verification-list">
-                   <table class="striped">
-                     <thead>
-                       <tr>
-                           <th>Verification</th>
-                           <th>Status</th>
-                       </tr>
-                     </thead>
-                     <tbody>
-                       <tr>
-                         <td>asdjkhfdiufknlkiw</td>
-                         <td>Not used</td>
-                       </tr>
-                       <tr>
-                         <td>asdjkhfdiufknlkiw</td>
-                         <td>Not used</td>
-                       </tr>
-                       <tr>
-                         <td>asdjkhfdiufknlkiw</td>
-                         <td>Not used</td>
-                       </tr>
-                       <tr>
-                         <td>asdjkhfdiufknlkiw</td>
-                         <td>Not used</td>
-                       </tr>
-                     </tbody>
-                   </table>
-                 </div>
-               </div>
-               <div class="pagination-container">
-                 <ul class="pagination">
-                   <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                   <li class="active"><a href="#!">1</a></li>
-                   <li class="waves-effect waves-light"><a href="#!">2</a></li>
-                   <li class="waves-effect waves-light"><a href="#!">3</a></li>
-                   <li class="waves-effect waves-light"><a href="#!">4</a></li>
-                   <li class="waves-effect waves-light"><a href="#!">5</a></li>
-                   <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                 </ul>
-               </div>
-             </div>
-           </div>
+            <verificationvue></verificationvue>
          </div>
           <div class="user-right-nav">
               <div class="side-nav-container">
@@ -324,6 +123,13 @@
           </div>
       </div>
       </span>
+      @if (Session::has('message'))
+        <script type="text/javascript">
+          $(document).ready(function(){
+               Materialize.toast('Welcome', 3000, 'rounded');
+          });
+        </script>
+      @endif
       @section('javascript')
         <script type="text/javascript">
             $(document).ready(function(){
@@ -334,9 +140,7 @@
             });
         </script>
       @endsection
-    @endsection
-    @section('footer')
-      <footer class="page-footer  light-blue darken-1" >
+      <footer class="page-footer  blue darken-3" >
         <div class="container">
           <div class="row">
             <div class="col l5 s12 info">
@@ -363,4 +167,7 @@
           </div>
         </div>
       </footer>
+    @endsection
+    @section('footer')
+
     @endsection

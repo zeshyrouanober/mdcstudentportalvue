@@ -161,4 +161,12 @@
             </div>
           </div>
         </footer>
+        
+        @if (Session::has('message'))
+          <script type="text/javascript">
+            $(document).ready(function(){
+                 Materialize.toast('Welcome', 3000, 'rounded');
+            });
+          </script>
+        @endif
     @endsection

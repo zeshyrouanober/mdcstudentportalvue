@@ -32,6 +32,10 @@ class UserController extends Controller
       return User::where('username',$username)->get();
     }
 
+    public function updateUser(Request $request , $username){
+      User::where('username',$username)->update(['username'=>$request->username, 'password' => bcrypt($request->passwordconfirmation)]);
+    }
+
     public function create()
     {
         //

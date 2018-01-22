@@ -48,6 +48,8 @@ Route::get('update-student','StudentController@update');
 Route::get('student-data', 'StudentController@showStudents');
 Route::get('list-of-subject-with-grade','StudentController@listOfSubjectWithGrade');
 Route::get('show-subject-taken','StudentController@showSubjectTaken');
+Route::get('fetch-student/{idnum}','StudentController@fetchStudent');
+Route::put('update-student/{idnum}','StudentController@updateStudent');
 
 //Subject
 Route::get('subject-data','SubjectController@showSubjects');
@@ -55,6 +57,8 @@ Route::get('fetch-subject-update/{subjectCode}','SubjectController@fetchUpdate')
 Route::put('update-subject/{subjectCode}','SubjectController@update');
 Route::get('list-of-student/{subjectCode}','SubjectController@listOfStudent');
 Route::get('show-announcement','AnnouncementController@showAnnouncement');
+
+
 
 //Announcement
 Route::get('view-announcement','AnnouncementController@index');
@@ -67,7 +71,8 @@ Route::get('fetch-data-update/{announcementId}','AnnouncementController@fetchUpd
 //Users
 Route::get('user-student-data/{username}','UserController@studentuserdata');
 Route::get('user-data','UserController@showAccounts');
-Route::get('generate-verification','VerificationController@generate');
+Route::put('update-user/{username}','UserController@updateUser');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');
+Route::get('generate-verification','VerificationController@generate');

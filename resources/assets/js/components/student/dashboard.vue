@@ -2,7 +2,7 @@
   <div class="dashboard-student-container ">
     <div class="classes-grades z-depth-1" >
       <a class="btn-floating right "><i class="material-icons">print</i></a>
-      <h6>Grade by Subjects</h6>
+      <h6 class="tabs-content-header">Grade by Subjects</h6>
       <table class="striped">
         <thead>
           <tr>

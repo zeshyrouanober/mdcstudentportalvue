@@ -24,7 +24,7 @@
             <td>
               <a href="#subjectmodal" class="modal-trigger" v-on:click = "fetchUpdate(s.sub_code),isUpdate = true"><i class="material-icons">remove_red_eye</i></a>
               <a href="#updateSubjectModal" class="modal-trigger" v-on:click = "fetchUpdate(s.sub_code),isUpdate = true"><i class="material-icons" style="color:#fb8c00;">edit</i></a>
-              <a href="#showSubjectStudent" class="modal-trigger" v-on:click = "listOfStudent(s.sub_code,s.descript)"><i class="material-icons" style="color:#fb8c00;">people</i></a>
+              <a href="#showSubjectStudent" class="modal-trigger" v-on:click = "listOfStudent(s.sub_code,s.descript)"><i class="material-icons" style="color:#009688;">people</i></a>
             </td>
           </tr>
         </tbody>
@@ -66,7 +66,7 @@
             <label for="subject-code" :class="[isUpdate == true ? 'active' : ' ']">Subject Code</label>
           </div>
           <div class="input-field" id="acccount-label-active" >
-            <input id="subject-name"  v-model="updateName = fetchDataUpdate.name"name="subject-name" type="text" class="validate">
+            <input id="subject-name"  v-model="updateName = fetchDataUpdate.name" name="subject-name" type="text" class="validate">
             <label for="subject-name" :class="[isUpdate == true ? 'active' : ' ']">Name</label>
           </div>
           <div class="input-field" id="acccount-label-active" >

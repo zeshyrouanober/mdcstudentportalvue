@@ -16,10 +16,12 @@ window.Vue = require('vue');
  */
 // ADMIN
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('admindashboardvue',require('./components/admin/admindashboard.vue'));
 Vue.component('announcementvue',require('./components/admin/announcement.vue'));
 Vue.component('accountvue',require('./components/admin/account.vue'));
 Vue.component('subjectvue',require('./components/admin/subject.vue'));
 Vue.component('studentvue',require('./components/admin/student.vue'));
+Vue.component('verificationvue',require('./components/admin/verification.vue'));
 
 
 // STUDENT

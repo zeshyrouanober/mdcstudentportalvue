@@ -40,6 +40,13 @@
       </div>
    </div>
 </div>
+@if (Session::has('verif'))
+  <script type="text/javascript">
+      $(document).ready(function(){
+         Materialize.toast('Verified', 3000, 'rounded');
+      });
+  </script>
+@endif
 <script type="text/javascript">
   $(document).ready(function(){
       $('#next').on('click',function(){

@@ -36,7 +36,9 @@ class VerificationController extends Controller
           if ($status == 0 ) {
             $status = DB::table('verifications')->where('verification',$requestData)->update(['status' => 1]);
             // Alert::success('You can now continue','Verification Success !')->persistent('close');
-            return view('/signup');
+
+            return view('/signup')->with('verif','Verified');
+
           }else {
             // Alert::warning('Verification already used !','Oppsss..!')->persistent('close');
             return redirect('/verification');

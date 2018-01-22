@@ -81,7 +81,8 @@ class HomeController extends Controller
       $credentials = array('username' => $username,'password' => $request->input('passwordSignIn') );
 
       if (Auth::attempt($credentials)) {
-        return redirect('dashboard');
+
+        return redirect('dashboard')->with('message','Welcome');
       }else {
         return redirect()->back();
       }

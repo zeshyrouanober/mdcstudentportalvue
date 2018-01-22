@@ -5,8 +5,8 @@
     </div>
     <div class="latest-update-content" v-for="announce in announcement">
       <div class="title">
-        <h6>{{announce.title}} {{announce.created_at}}</h6>
-        <i class="material-icons">remove_red_eye</i>
+        <h5>{{announce.title}}</h5>
+        <h6>{{announce.created_at}}</h6>
       </div>
       <div class="description">
         <p>{{announce.description}}</p>

@@ -59,6 +59,9 @@ border-spacing: 0;
     display: flex;
 }
 /* Modal button customized */
+.modal .modal-footer{
+  padding-right: 20px!important;
+}
 .modal .modal-footer #edit:hover{
   background-color: #ffca28 !important;
 }
@@ -483,21 +486,21 @@ span{
   color:#37474f;
   border-bottom: 1px solid #4527a0;
   padding-bottom: 3px;
+  padding: 10px;
 }
 .latest-update-content .title{
-  padding: 3px 5px;
   display: flex;
 }
-.latest-update-content .title h6{
+.latest-update-content .title h5{
   flex: 3;
   display: flex;
   justify-content: flex-start;
 }
-.latest-update-content .title a{
+.latest-update-content .title h6{
   flex:1;
   display: flex;
   justify-content: flex-end;
-  font-size: 30px;
+  font-size: 13px;
 }
 .latest-update-content .description{
   padding: 5px 3px;
@@ -833,6 +836,33 @@ thead tr th{
   padding: 5px;
   background-color: #ffffff;
 }
+#userEdit .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#userEdit .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.4!important;
+}
+#userinfo .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#userinfo .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  height: 90px;
+  width: 100%;
+  position: absolute;
+}
+#userinfo .modal-fields{
+  padding-top: 90px!important;
+}
 .news-container .news-header{
   padding: 10px;
 }
@@ -893,6 +923,39 @@ thead tr th{
 #showSubjectStudent .modal-content .modal-header{
   justify-content: center;
   color:#ffffff!important;
+}
+
+#viewStudent .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#viewStudent .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+#viewStudent .modal-fields{
+  padding-top: 60px!important;
+}
+#updateStudent .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#updateStudent .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+#updateStudent .modal-fields{
+  padding-top: 60px!important;
 }
 .modal-content .modal-header{
   flex:1;

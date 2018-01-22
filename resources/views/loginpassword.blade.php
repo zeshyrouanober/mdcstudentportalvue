@@ -48,10 +48,10 @@
 <script type="text/javascript">
   $(document).ready(function(){
       $('#next').on('click',function(){
-          if(($.trim($('#password').val()) != '') && ($.trim($('#passwordconfirmation').val()) != '') ){
+          // if(($.trim($('#password').val()) != '') && ($.trim($('#passwordconfirmation').val()) != '') ){
             $('.progress').css("display","flex");
             $('.indeterminate').css("display","flex");
-         }
+         // }
       });
   });
 </script>
