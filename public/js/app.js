@@ -44455,65 +44455,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "modal modal-fixed-footer", attrs: { id: "userinfo" } },
-        [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-fields" }, [
-              _c("div", { staticClass: "input-field" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: (_vm.idnum = _vm.user.idnum),
-                      expression: "idnum = user.idnum"
-                    }
-                  ],
-                  staticClass: "validate",
-                  attrs: {
-                    id: "student-idnum",
-                    name: "student-idnum",
-                    type: "text"
-                  },
-                  domProps: { value: (_vm.idnum = _vm.user.idnum) },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        (_vm.idnum = _vm.user),
-                        "idnum",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "student-idnum" } }, [
-                  _vm._v("IDNumber")
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
-              _vm._m(8)
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(9)
-        ]
-      )
+      _vm._m(3)
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "pagination-container" }, [
@@ -44645,113 +44587,147 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header light-blue darken-1" }, [
-      _c("h5", [_vm._v("User Basic Details")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "input-field", attrs: { id: "acccount-label-active" } },
+      { staticClass: "modal modal-fixed-footer", attrs: { id: "userinfo" } },
       [
-        _c("input", {
-          staticClass: "validate",
-          attrs: { id: "student-lname", name: "student-lname", type: "text" }
-        }),
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-header light-blue darken-1" }, [
+            _c("h5", [_vm._v("User Basic Details")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-fields" }, [
+            _c("div", { staticClass: "input-field" }, [
+              _c("input", {
+                staticClass: "validate",
+                attrs: {
+                  id: "student-idnum",
+                  name: "student-idnum",
+                  type: "text"
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "student-idnum" } }, [
+                _vm._v("IDNumber")
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "input-field",
+                attrs: { id: "acccount-label-active" }
+              },
+              [
+                _c("input", {
+                  staticClass: "validate",
+                  attrs: {
+                    id: "student-lname",
+                    name: "student-lname",
+                    type: "text"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "student-lname" } }, [
+                  _vm._v("Lastname")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "input-field",
+                attrs: { id: "acccount-label-active" }
+              },
+              [
+                _c("input", {
+                  staticClass: "validate",
+                  attrs: {
+                    id: "student-fname",
+                    name: "student-fname",
+                    type: "text"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "student-fname" } }, [
+                  _vm._v("Firstname")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "input-field",
+                attrs: { id: "acccount-label-active" }
+              },
+              [
+                _c("input", {
+                  staticClass: "validate",
+                  attrs: { id: "student-mi", name: "student-mi", type: "text" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "student-mi" } }, [
+                  _vm._v("Middle Initial")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "input-field",
+                attrs: { id: "acccount-label-active" }
+              },
+              [
+                _c("input", {
+                  staticClass: "validate",
+                  attrs: { id: "gender", name: "gender", type: "text" }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "gender" } }, [_vm._v("Gender")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "input-field",
+                attrs: { id: "acccount-label-active" }
+              },
+              [
+                _c("input", {
+                  staticClass: "validate",
+                  attrs: {
+                    id: "student-add",
+                    name: "student-add",
+                    type: "text"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "student-add" } }, [
+                  _vm._v("Address")
+                ])
+              ]
+            )
+          ])
+        ]),
         _vm._v(" "),
-        _c("label", { attrs: { for: "student-lname" } }, [_vm._v("Lastname")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-field", attrs: { id: "acccount-label-active" } },
-      [
-        _c("input", {
-          staticClass: "validate",
-          attrs: { id: "student-fname", name: "student-fname", type: "text" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "student-fname" } }, [_vm._v("Firstname")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-field", attrs: { id: "acccount-label-active" } },
-      [
-        _c("input", {
-          staticClass: "validate",
-          attrs: { id: "student-mi", name: "student-mi", type: "text" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "student-mi" } }, [
-          _vm._v("Middle Initial")
+        _c("div", { staticClass: "modal-footer" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "waves-effect waves-light modal-close light-blue lighten-2 btn-flat",
+              staticStyle: { color: "#ffffff" },
+              attrs: { id: "close" }
+            },
+            [_c("i", { staticClass: "material-icons" }, [_vm._v("close")])]
+          )
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-field", attrs: { id: "acccount-label-active" } },
-      [
-        _c("input", {
-          staticClass: "validate",
-          attrs: { id: "gender", name: "gender", type: "text" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "gender" } }, [_vm._v("Gender")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-field", attrs: { id: "acccount-label-active" } },
-      [
-        _c("input", {
-          staticClass: "validate",
-          attrs: { id: "student-add", name: "student-add", type: "text" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "student-add" } }, [_vm._v("Address")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "a",
-        {
-          staticClass:
-            "waves-effect waves-light modal-close light-blue lighten-2 btn-flat",
-          staticStyle: { color: "#ffffff" },
-          attrs: { id: "close" }
-        },
-        [_c("i", { staticClass: "material-icons" }, [_vm._v("close")])]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -47520,38 +47496,12 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+var _computed;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -47649,7 +47599,142 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      pagination: [],
+      verifications: [],
+      offset: 4,
+      notactivated: [],
+      notactivatedpagination: [],
+      activated: [],
+      activatedpagination: [],
+      generate: ''
+    };
+  },
+  mounted: function mounted() {
+    this.showVerifications();
+  },
+
+
+  methods: {
+    showVerifications: function showVerifications(page) {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-verifications?page=' + page).then(function (response) {
+        vm.verifications = response.data.verifications.data;
+        vm.pagination = response.data.verifications;
+        console.log(response);
+      });
+    },
+    changepage: function changepage(next) {
+      this.pagination.current_page = next;
+      this.showVerifications(next);
+    },
+    changepageNotActivated: function changepageNotActivated(next) {
+      this.notactivatedpagination.current_page = next;
+      this.notActivatedVerifications(next);
+    },
+    changepageActivated: function changepageActivated(next) {
+      this.activatedpagination.current_page = next;
+      this.activatedVerifications(next);
+    },
+    notActivatedVerifications: function notActivatedVerifications(page) {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('not-activated?page=' + page).then(function (response) {
+        vm.notactivated = response.data.notactivatedverifications.data;
+        vm.notactivatedpagination = response.data.notactivatedverifications;
+        console.log(response);
+      });
+    },
+    activatedVerifications: function activatedVerifications(page) {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('activated?page=' + page).then(function (response) {
+        vm.activated = response.data.activatedverifications.data;
+        vm.activatedpagination = response.data.activatedverifications;
+        console.log(response);
+      });
+    },
+    generatedVerification: function generatedVerification() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('generate-verification', {
+        'generate': this.generate
+      }).then(function (response) {
+        console.log(response);
+        vm.showVerifications();
+        vm.generate = '';
+        Materialize.toast('Generated Successfully', 3000, 'rounded');
+      });
+    }
+  },
+
+  computed: (_computed = {
+    isActive: function isActive() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+      var from = this.pagination.current_page - this.offset;
+      if (from < 1) {
+        from = 1;
+      }
+      var to = from + this.offset * 2;
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+      var pagesArray = [];
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+      return pagesArray;
+    }
+
+  }, _defineProperty(_computed, 'isActive', function isActive() {
+    return this.notactivatedpagination.current_page;
+  }), _defineProperty(_computed, 'pagesNumberNA', function pagesNumberNA() {
+    if (!this.notactivatedpagination.to) {
+      return [];
+    }
+    var from = this.notactivatedpagination.current_page - this.offset;
+    if (from < 1) {
+      from = 1;
+    }
+    var to = from + this.offset * 2;
+    if (to >= this.notactivatedpagination.last_page) {
+      to = this.notactivatedpagination.last_page;
+    }
+    var pagesArray = [];
+    while (from <= to) {
+      pagesArray.push(from);
+      from++;
+    }
+    return pagesArray;
+  }), _defineProperty(_computed, 'isActive', function isActive() {
+    return this.activatedpagination.current_page;
+  }), _defineProperty(_computed, 'pagesNumberA', function pagesNumberA() {
+    if (!this.activatedpagination.to) {
+      return [];
+    }
+    var from = this.activatedpagination.current_page - this.offset;
+    if (from < 1) {
+      from = 1;
+    }
+    var to = from + this.offset * 2;
+    if (to >= this.activatedpagination.last_page) {
+      to = this.activatedpagination.last_page;
+    }
+    var pagesArray = [];
+    while (from <= to) {
+      pagesArray.push(from);
+      from++;
+    }
+    return pagesArray;
+  }), _computed)
+
+});
 
 /***/ }),
 /* 59 */
@@ -47659,231 +47744,439 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content-container " }, [
+    _c("div", { staticClass: "content-header z-depth-1" }, [
+      _c("label", { staticClass: "verification" }, [_vm._v("Verifications ")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.generate,
+            expression: "generate"
+          }
+        ],
+        attrs: {
+          type: "text",
+          name: "numberVerification",
+          required: "",
+          id: "number-of-verification",
+          placeholder: "Please provide only number"
+        },
+        domProps: { value: _vm.generate },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.generate = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "waves-effect waves-light btn blue darken-1 generate",
+          on: {
+            click: function($event) {
+              _vm.generatedVerification()
+            }
+          }
+        },
+        [_vm._v("Generate")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "verification-tab z-depth-1" }, [
+      _c("div", { staticClass: "tabs-container" }, [
+        _c("ul", { staticClass: "tabs" }, [
+          _c("li", { staticClass: "tab" }, [
+            _c(
+              "a",
+              {
+                staticClass: "active",
+                attrs: { href: "#verification" },
+                on: {
+                  click: function($event) {
+                    _vm.showVerifications()
+                  }
+                }
+              },
+              [_vm._v("Verifications")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "tab" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#notactivated" },
+                on: {
+                  click: function($event) {
+                    _vm.notActivatedVerifications()
+                  }
+                }
+              },
+              [_vm._v("Not Activated")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "tab" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#activated" },
+                on: {
+                  click: function($event) {
+                    _vm.activatedVerifications()
+                  }
+                }
+              },
+              [_vm._v("Activated")]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "verification" } }, [
+        _c("div", { staticClass: "verification-list" }, [
+          _c("table", { staticClass: "striped" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.verifications, function(ver) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(ver.verification))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(ver.status))])
+                ])
+              })
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "pagination-container" }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _vm.pagination.current_page > 1
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepage(_vm.pagination.current_page - 1)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_left")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.pagesNumber, function(page) {
+                return _c(
+                  "li",
+                  {
+                    staticClass: "waves-effect waves-light",
+                    class: [page == _vm.isActive ? "active blue" : ""]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepage(page)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(page))]
+                    )
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm.pagination.current_page < _vm.pagination.last_page
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepage(_vm.pagination.current_page + 1)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_right")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "notactivated" } }, [
+        _c("div", { staticClass: "verification-list" }, [
+          _c("table", { staticClass: "striped" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.notactivated, function(na) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(na.verification))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(na.status))])
+                ])
+              })
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "pagination-container" }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _vm.notactivatedpagination.current_page > 1
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageNotActivated(
+                              _vm.notactivatedpagination.current_page - 1
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_left")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.pagesNumberNA, function(page) {
+                return _c(
+                  "li",
+                  {
+                    staticClass: "waves-effect waves-light",
+                    class: [page == _vm.isActive ? "active blue" : ""]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageNotActivated(page)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(page))]
+                    )
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm.notactivatedpagination.current_page <
+              _vm.notactivatedpagination.last_page
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageNotActivated(
+                              _vm.notactivatedpagination.current_page + 1
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_right")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "activated" } }, [
+        _c("div", { staticClass: "verification-list" }, [
+          _c("table", { staticClass: "striped" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.activated, function(ac) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(ac.verification))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(ac.status))])
+                ])
+              })
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "pagination-container" }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _vm.activatedpagination.current_page > 1
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageActivated(
+                              _vm.activatedpagination.current_page - 1
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_left")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.pagesNumberA, function(page) {
+                return _c(
+                  "li",
+                  {
+                    staticClass: "waves-effect waves-light",
+                    class: [page == _vm.isActive ? "active blue" : ""]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageActivated(page)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(page))]
+                    )
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm.activatedpagination.current_page <
+              _vm.activatedpagination.last_page
+                ? _c("li", { staticClass: "waves-effect waves-light" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.changepageActivated(
+                              _vm.activatedpagination.current_page + 1
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("chevron_right")
+                        ])
+                      ]
+                    )
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-container " }, [
-      _c("form", { attrs: { method: "post" } }, [
-        _c("div", { staticClass: "content-header z-depth-1" }, [
-          _c("label", { staticClass: "verification" }, [
-            _vm._v("Verifications ")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "text",
-              name: "numberVerification",
-              id: "number-of-verification",
-              placeholder: "Please provide only number"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "waves-effect waves-light btn blue darken-1 generate"
-            },
-            [_vm._v("Generate")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "verification-tab z-depth-1" }, [
-        _c("div", { staticClass: "tabs-container" }, [
-          _c("ul", { staticClass: "tabs" }, [
-            _c("li", { staticClass: "tab" }, [
-              _c(
-                "a",
-                { staticClass: "active", attrs: { href: "#verification" } },
-                [_vm._v("Verifications")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "tab" }, [
-              _c("a", { attrs: { href: "#activated" } }, [_vm._v("Activated")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "tab" }, [
-              _c("a", { attrs: { href: "#notactivated" } }, [
-                _vm._v("Not Activated")
-              ])
-            ])
-          ])
-        ]),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Verifications")]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "verification" } }, [
-          _c("div", { staticClass: "verification-list" }, [
-            _c("table", { staticClass: "striped" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("Verification")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Status")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("td", [_vm._v("asldkfjdkfldk ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asldkfjdkfldk ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not Used")]),
-                  _vm._v(" "),
-                  _c("td")
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asldkfjdkfldk ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not Used")]),
-                  _vm._v(" "),
-                  _c("td")
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asldkfjdkfldk ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asldkfjdkfldk ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Used")])
-                ])
-              ])
-            ])
-          ])
-        ]),
+        _c("th", [_vm._v("Status")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Verification")]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "activated" } }, [
-          _c("div", { staticClass: "verification-list" }, [
-            _c("table", { staticClass: "striped" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("Verification")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Status")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("td", [_vm._v("asdfkdjudlk")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdfkdjudlk")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdfkdjudlk")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdfkdjudlk")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("used")])
-                ])
-              ])
-            ])
-          ])
-        ]),
+        _c("th", [_vm._v("Status")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Verification")]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "notactivated" } }, [
-          _c("div", { staticClass: "verification-list" }, [
-            _c("table", { staticClass: "striped" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("Verification")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Status")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("td", [_vm._v("asdjkhfdiufknlkiw")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdjkhfdiufknlkiw")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdjkhfdiufknlkiw")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not used")])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v("asdjkhfdiufknlkiw")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Not used")])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pagination-container" }, [
-          _c("ul", { staticClass: "pagination" }, [
-            _c("li", { staticClass: "disabled" }, [
-              _c("a", { attrs: { href: "#!" } }, [
-                _c("i", { staticClass: "material-icons" }, [
-                  _vm._v("chevron_left")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "active" }, [
-              _c("a", { attrs: { href: "#!" } }, [_vm._v("1")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "waves-effect waves-light" }, [
-              _c("a", { attrs: { href: "#!" } }, [_vm._v("2")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "waves-effect waves-light" }, [
-              _c("a", { attrs: { href: "#!" } }, [_vm._v("3")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "waves-effect waves-light" }, [
-              _c("a", { attrs: { href: "#!" } }, [_vm._v("4")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "waves-effect waves-light" }, [
-              _c("a", { attrs: { href: "#!" } }, [_vm._v("5")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "waves-effect waves-light" }, [
-              _c("a", { attrs: { href: "#!" } }, [
-                _c("i", { staticClass: "material-icons" }, [
-                  _vm._v("chevron_right")
-                ])
-              ])
-            ])
-          ])
-        ])
+        _c("th", [_vm._v("Status")])
       ])
     ])
   }

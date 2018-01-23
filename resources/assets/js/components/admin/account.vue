@@ -63,7 +63,7 @@
             </div>
             <div class="modal-fields" >
               <div class="input-field" >
-                <input id="student-idnum"  v-model ="idnum = user.idnum" name="student-idnum"type="text" class="validate" >
+                <input id="student-idnum"  name="student-idnum"type="text" class="validate" >
                 <label for="student-idnum">IDNumber</label>
               </div>
               <div class="input-field" id="acccount-label-active" >

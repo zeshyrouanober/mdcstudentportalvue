@@ -284,6 +284,7 @@ form .forgot-password{
 .template-content-nav-bar{
     flex:.8;
     background-color: #0d47a1;
+
 }
 .template-content-content{
     flex:10;
@@ -318,6 +319,7 @@ form .forgot-password{
   background-color: #0d47a1;
   margin-top: 20px;
 }
+
 .student-nav .tabs .indicator{
   display: none;
 }

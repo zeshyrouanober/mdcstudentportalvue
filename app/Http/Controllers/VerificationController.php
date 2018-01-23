@@ -48,12 +48,31 @@ class VerificationController extends Controller
             return redirect('/verification');
         }
       }
+
       public function generate(Request $request){
-        $length = intval($request->numberOfVerification);
+        $length = intval($request->generate);
         for ($i=0; $i < $length ; $i++) {
           $generatedVerification = new Verification;
           $generatedVerification->verification = str_random(25);
           $generatedVerification->save();
         }
+      }
+
+      public function showVerifications(){
+        $verifications = Verification::orderBy('id','asc')->paginate(20);
+        $response = array('verifications' => $verifications);
+        return response()->json($response);
+      }
+
+      public function notActivated(){
+        $notactivatedverifications = Verification::where('status','0')->orderBy('id','asc')->paginate(20);
+        $response = array('notactivatedverifications' => $notactivatedverifications);
+        return response()->json($response);
+      }
+
+      public function activated(){
+        $activatedverifications = Verification::where('status','1')->orderBy('id','asc')->paginate(20);
+        $response = array('activatedverifications' => $activatedverifications);
+        return response()->json($response);
       }
 }

@@ -38,7 +38,6 @@ Route::post('sign-in','HomeController@passwordSignIn')->name('passwordSignIn');
 Route::post('log-out','HomeController@logOut');
 Route::post('sign-up','VerificationController@verify')->name('verify');
 
-// Route::get('dashboard','TodosController@create');
 
 Route::get('/dashboard','HomeController@index');
 Route::get('update-student','StudentController@update');
@@ -75,4 +74,7 @@ Route::put('update-user/{username}','UserController@updateUser');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');
-Route::get('generate-verification','VerificationController@generate');
+Route::post('generate-verification','VerificationController@generate');
+Route::get('show-verifications','VerificationController@showVerifications');
+Route::get('not-activated','VerificationController@notActivated');
+Route::get('activated','VerificationController@activated');
