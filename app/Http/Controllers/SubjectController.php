@@ -15,7 +15,7 @@ class SubjectController extends Controller
     }
 
     public function showSubjects(){
-      $subject = Subject::orderBy('sub_code','asc')->paginate(10);
+      $subject = Subject::orderBy('sub_code','asc')->paginate(20);
       $response = array('subject' => $subject );
       return response()->json($response);
     }
@@ -30,6 +30,10 @@ class SubjectController extends Controller
 
     public function listOfStudent($subjectCode){
       $subject =  Subject::find($subjectCode);
-      return $subject->students()->paginate(10);
+      return $subject->students()->paginate(50);
+    }
+
+    public function counters(){
+      return Subject::count();
     }
 }

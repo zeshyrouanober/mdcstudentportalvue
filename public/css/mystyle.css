@@ -58,6 +58,11 @@ border-spacing: 0;
     background-size: cover;
     display: flex;
 }
+/* Event Calendar Customize */
+.events-wrapper{
+  background-color: rgb(21, 101, 192)!important;
+  border-radius:0px!important;
+}
 /* Modal button customized */
 .modal .modal-footer{
   padding-right: 20px!important;
@@ -92,6 +97,7 @@ border-spacing: 0;
 #error{
   display: none;
 }
+
 .content{
     flex:.35;
     display: flex;
@@ -295,13 +301,16 @@ form .forgot-password{
     flex:.5;
     background: url(/images/bg3.jpg) center repeat;
 }
-
+.student-nav{
+  flex:1;
+  justify-content: flex-start;
+}
 .student-nav .avatar{
   display: flex;
   justify-content: center;
-  padding: 5px;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 25px;
 }
 .avatar i{
   font-size: 57px;
@@ -317,9 +326,7 @@ form .forgot-password{
   display: flex;
   flex-direction: column;
   background-color: #0d47a1;
-  margin-top: 20px;
 }
-
 .student-nav .tabs .indicator{
   display: none;
 }
@@ -331,14 +338,28 @@ form .forgot-password{
   flex-direction: column;
   border-left: 3px solid #0d47a1;
 }
+.student-nav .tabs #usertab a{
+  display: flex;
+  flex-direction: column;
+}
 .student-nav .tabs .tab a i{
   color:#ffffff;
   margin-top: 10px;
   font-size: 25px;
 }
+.student-nav .tabs #usertab a i{
+  color:#ffffff;
+  font-size:70px;
+  margin-top: 0px!important;
+}
 .student-nav .tabs .tab a label{
   color:#ffffff;
   font-size: 13px;
+  font-family:'Barlow Semi Condensed', sans-serif;
+}
+.student-nav .tabs #usertab a label{
+  color:#ffffff;
+  font-size: 20px;
   font-family:'Barlow Semi Condensed', sans-serif;
 }
 .student-nav .tab a:hover{
@@ -369,6 +390,27 @@ form .forgot-password{
 .student-nav .tab a.active label{
   color:#ffffff ;
 }
+
+.student-nav #usertab a:hover{
+  background-color: rgba(13, 71, 161, 0) !important;
+}
+.student-nav #usertab a:hover{
+  border-left:3px solid rgba(13, 71, 161, 0) ;
+}
+.student-nav #usertab a:hover i{
+  color:#ffffff;
+}
+.student-nav #usertab a:focus label{
+  color:#bbdefb;
+}
+.student-nav #usertab a:focus{
+  border-left:3px solid rgba(13, 71, 161, 0) ;
+}
+.student-nav #usertab a.active{
+  border-left:3px solid rgba(13, 71, 161, 0) ;
+}
+
+
 .user-info{
   height: 50px!important;
   display: flex;
@@ -473,7 +515,10 @@ span{
 }
 .user-right-nav .calendar{
   flex:1;
+  display: flex!important;
+  flex-direction: column;
 }
+
 .update-announcement-container{
   display: flex;
   flex-direction: column;
@@ -493,117 +538,30 @@ span{
 .latest-update-content .title{
   display: flex;
 }
-.latest-update-content .title h5{
+.latest-update-content .title label{
   flex: 3;
   display: flex;
   justify-content: flex-start;
 }
-.latest-update-content .title h6{
-  flex:1;
-  display: flex;
-  justify-content: flex-end;
-  font-size: 13px;
-}
 .latest-update-content .description{
   padding: 5px 3px;
+}
+.title .announe-title{
+  color:#757575;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.description label{
+  color: #9e9e9e ;
+}
+.user-right-nav{
+  background-color:#fafafa ;
 }
 .user-right-nav .upcoming-events{
   flex:1;
 }
 .user-right-nav .todos{
   flex: 1;
-  padding: 20px;
 }
-.todos-header i{
-  color: #0d47a1;
-}
-.todos-header label{
-  font-size: 15px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-}
-.todos-body{
-  padding: 10px!important;
-}
-.todos-description label{
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-size: 15px;
-}
-.todos-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-.todos-button a{
-  margin-left: 5px!important;
-}
-.todos .todos-content{
-  margin-top: 20px;
-}
-.todos #todosModal{
-  padding: 5px!important;
-  border: 1px solid #e4e4e4;
-}
-#todosModal .modal-content label{
-  font-size: 30px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  color:#039be5 ;
-}
-.picker { outline: none; }
-.picker__weekday-display {  font-family: 'Barlow Semi Condensed', sans-serif;}
-.picker__date-display { font-family: 'Barlow Semi Condensed', sans-serif; background-color:#0F74BD!important ; }
-.picker__nav--prev:hover { background-color: #e8eaf6!important ; }
-.picker__nav--next:hover { background-color: #e8eaf6!important  ;}
-.picker__nav--prev:before {
-  border-left: 0;
-  border-right:   0.75em solid #0F74BD!important;
-}
-.picker__nav--next:before {
-  border-right: 0;
-  border-left:  0.75em solid #0F74BD!important;
-}
-.picker__today { color: #0F74BD!important; }
-.picker__clear { /* If you want to customize */ }
-.btn-flat{
-  background-color: #ffffff!important;
-}
-.picker__close { color: #15F384; }
-.btn-flat.picker__today:active { background-color: #ffffff!important; }
-.btn-flat.picker__close:active { background-color: #ffffff!important }
-.btn-flat.picker__clear:active { background-color: #ffffff!important}
-.picker__day { /* If you want to customize */ }
-.picker__day:hover { /* If you want to customize */ }
-.picker__day--infocus:hover { color: #0F74BD!important; font-weight: 700;}
-.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
-    color: #ffffff!important;
-    font-weight: 700;
-}
-.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: #0F74BD; color:#ffffff; }
-/* Today */
-.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: #0F74BD; color:#ffffff;}
-.clockpicker-tick.active, .clockpicker-tick:hover {
-  background-color: #90caf9!important;
-  color: #ffffff;
-}
-.picker__select--month {
-  font-size: 15px!important;
-}
-.picker__select--year {
-  font-size: 15px!important;
-  width: 40px;
-}
-/* .clockpicker-tick.active {
-  color: #ffffff;
-}
-.clockpicker-canvas-bg{
-  fill:#0F74BD!important;
-}
-.clockpicker-canvas line{
-  stroke:#0F74BD!important;
-  stroke-width:2px;
-}
-.clockpicker-canvas-bearing {
-  fill:#0F74BD!important;
-} */
 
 .modal-content .modal-fields{
   padding: 10px 50px 10px 50px;
@@ -625,9 +583,26 @@ span{
 }
 .dashboard-content-down{
   display: flex;
+  flex-direction: column;
+}
+.school-calendar{
+  display: flex;
+  padding: 5px;
+
+}
+.school-calendar h5{
+  flex: 1;
+}
+
+.school-calendar a:hover{
+  background-color: #039be5!important;
+}
+.school-calendar a:hover .material-icons{
+  color: #ffffff!important;
 }
 .dashboard-content-up{
   display: flex;
+  flex-wrap: wrap;
 }
 .dashboard-content-up .number{
   flex:1;
@@ -682,6 +657,10 @@ span{
 }
 .title a:hover .material-icons{
   color: #ffffff!important;
+}
+.calendar-container{
+  display: flex;
+  flex-direction: column;
 }
 .counter-container .icon{
   flex:2;
@@ -865,6 +844,38 @@ thead tr th{
 #userinfo .modal-fields{
   padding-top: 90px!important;
 }
+#profile .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#profile .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:1;
+}
+#profile .modal-content .profile-content{
+  display: flex;
+  flex:5;
+}
+.profile-picture{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.modal-fields{
+  flex:1;
+  padding:40px;
+}
+.profile-picture .picture-container{
+  flex:4;
+  background-color: blue;
+}
+.profile-picture form{
+  flex:1;
+}
 .news-container .news-header{
   padding: 10px;
 }
@@ -991,6 +1002,84 @@ thead tr th{
 .card-action a:hover{
   color:#b3e5fc!important;
 }
+.user-profile-container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
+}
+.user-profile-details{
+  display: flex;
+  justify-content: center;
+}
+.user-picture{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+}
+.user-picture .header{
+  margin: inherit;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+.user-picture img{
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  margin: auto;
+}
+.user-picture label{
+  margin: auto;
+}
+.user-details{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.user-details label{
+  padding-bottom: 10px;
+}
+
+.account-details{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.account-content{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  margin-right: 5px;
+}
+.account-content .header{
+  margin: inherit;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+.right-profile{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+}
+.right-profile-one .header{
+  margin: inherit;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+.right-profile-one{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  margin-bottom:  10px;
+}
 .pagination-container{
   display: flex;
   justify-content: center;
@@ -1022,7 +1111,7 @@ thead tr th{
   font-family: 'Shadows Into Light', cursive;
 }
 .page-footer .links ul li{
-  border-left: 2px solid #039be5;
+  border-left: 2px solid #1565c0;
 }
 .page-footer .links ul li:hover{
   border-left: 2px solid #ffffff;

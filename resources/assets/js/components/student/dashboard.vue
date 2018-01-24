@@ -2,7 +2,7 @@
   <div class="dashboard-student-container ">
     <div class="classes-grades z-depth-1" >
       <a class="btn-floating right "><i class="material-icons">print</i></a>
-      <h6 class="tabs-content-header">Grade by Subjects</h6>
+      <label class="tabs-content-header">Present Subject</label>
       <table class="striped">
         <thead>
           <tr>
@@ -25,17 +25,20 @@
       </table>
     </div>
     <div class="forums z-depth-1" >
-      <h1>Forums</h1>
+
     </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+
+
     export default {
       data(){
         return{
           subjects:[],
+
         }
       },
       mounted(){

@@ -5,11 +5,11 @@
     </div>
     <div class="latest-update-content" v-for="announce in announcement">
       <div class="title">
-        <h5>{{announce.title}}</h5>
-        <h6>{{announce.created_at}}</h6>
+        <label class="announe-title">{{announce.title}}</label>
+        <label class="announe-title">{{announce.created_at}}</label>
       </div>
       <div class="description">
-        <p>{{announce.description}}</p>
+        <label>{{announce.description}}</label>
       </div>
     </div>
   </div>

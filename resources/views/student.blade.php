@@ -2,39 +2,30 @@
   @extends('layouts.template')
     @section('side-nav')
         <div class="student-nav">
-          <div class="avatar">
-                <i class="material-icons">face</i>
-                <label>{{Auth::user()->username}}</label>
-          </div>
             <ul class="tabs">
+              <li class="tab" id="usertab" class="active">
+                <div class="avatar">
+                  <a href="#userprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><i class="material-icons">face</i>
+                    <label>{{Auth::user()->username}}</label>
+                  </a>
+                </div>
+              </li>
               <li class="tab">
-                <a href="#dashboard" class="active">
+                <a href="#dashboard" >
                   <i class="material-icons ">dashboard</i>
                   <label>Dashboard</label>
                 </a>
               </li>
               <li class="tab">
-                <a href="#academics">
-                  <i class="material-icons">school</i>
-                  <label>Academics</label>
-                </a>
-              </li>
-              <li class="tab">
                 <a href="#evaluation">
-                  <i class="material-icons">school</i>
-                  <label>Evaluation</label>
+                  <i class="material-icons">subject</i>
+                  <label>Subjects</label>
                 </a>
               </li>
               <li class="tab">
                 <a href="#calendar">
                   <i class="material-icons">today</i>
                   <label>Calendar</label>
-                </a>
-              </li>
-              <li class="tab">
-                <a href="#news">
-                  <i class="material-icons">theaters</i>
-                  <label>News</label>
                 </a>
               </li>
             </ul>
@@ -73,21 +64,18 @@
           <div class="user-main-content tab-content" id="dashboard">
             <studentdashboardvue :user="{{Auth::user()}}"></studentdashboardvue>
           </div>
-          <div class="user-main-content tab-content" id="academics">
-              <h1>Academics</h1>
-          </div>
           <div class="user-main-content tab-content" id="evaluation">
             <evaluationvue :user="{{Auth::user()}}"></evaluationvue>
           </div>
           <div class="user-main-content tab-content" id="calendar">
-              <h1>Calendar</h1>
+            <calendarvue></calendarvue>
           </div>
-          <div class="user-main-content tab-content" id="news">
-              <h1>News</h1>
+          <div class="user-main-content tab-content" id="userprofile">
+            <userprofilevue></userprofilevue>
           </div>
           <div class="user-right-nav">
             <div class="side-nav-container">
-              <div class="calendar z-depth-1">
+              <div class="calendar z-depth-1 ">
                 <updatesandannouncementvue></updatesandannouncementvue>
               </div>
             </div>
@@ -98,38 +86,7 @@
             </div>
             <div class="side-nav-container">
               <div class="todos z-depth-1 ">
-                  <div class="todos-header ">
-                    <i class="material-icons">event_note</i>
-                    <label>My Todos</label>
-                    <a class="btn-floating btn-small green accent-3 right tooltipped waves-effect waves-light btn modal-trigger" data-position="left" data-delay="50" data-tooltip="Create a todo" href="#todosModal" >
-                      <i class=" material-icons">add</i>
-                    </a>
-                  </div>
-                  <div class="todos-content">
-                    <ul class="collapsible" data-collapsible="accordion">
-                       <li>
-                         <div class="collapsible-header "><i class="material-icons">event_note</i></div>
-                         <div class="collapsible-body todos-body">
-                           <label>Date</label>
-                           <div class="todos-description">
-                             <label>Description</label>
-                           </div>
-                           <div class="todos-button">
-                             <span>
-                               <a class="btn-floating btn-small  indigo accent-4 waves-light">
-                                 <i class="material-icons">mode_edit</i>
-                               </a>
-                             </span>
-                             <span>
-                               <a class="btn-floating btn-small  red  waves-effect waves-light">
-                                 <i class="material-icons">delete</i>
-                               </a>
-                             </span>
-                           </div>
-                         </div>
-                       </li>
-                      </ul>
-                  </div>
+                <h4>Todos</h4>
               </div>
             </div>
           </div>
@@ -161,7 +118,7 @@
             </div>
           </div>
         </footer>
-        
+
         @if (Session::has('message'))
           <script type="text/javascript">
             $(document).ready(function(){
@@ -169,4 +126,32 @@
             });
           </script>
         @endif
+        @section('javascript')
+          <script type="text/javascript">
+              $(document).ready(function(){
+                $('.modal').modal();
+                $('select').material_select();
+                $('ul.tabs').tabs();
+                $('.tooltipped').tooltip({delay: 50});
+                $('.counters').each(function() {
+                     var $this = $(this),
+                         countTo = $this.attr('data-count');
+                     $({ countNum: $this.text()}).animate({
+                       countNum: countTo
+                     },
+                     {
+                       duration: 5000,
+                       easing:'linear',
+                       step: function() {
+                         $this.text(Math.floor(this.countNum));
+                       },
+                       complete: function() {
+                         $this.text(this.countNum);
+                         //alert('finished');
+                       }
+                     });
+                 });
+              });
+          </script>
+        @endsection
     @endsection

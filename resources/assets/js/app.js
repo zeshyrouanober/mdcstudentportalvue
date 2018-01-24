@@ -22,12 +22,16 @@ Vue.component('accountvue',require('./components/admin/account.vue'));
 Vue.component('subjectvue',require('./components/admin/subject.vue'));
 Vue.component('studentvue',require('./components/admin/student.vue'));
 Vue.component('verificationvue',require('./components/admin/verification.vue'));
+Vue.component('schoolcalendarvue',require('./components/admin/schoolcalendar.vue'));
 
 
 // STUDENT
 Vue.component('studentdashboardvue',require('./components/student/dashboard.vue'));
 Vue.component('updatesandannouncementvue',require('./components/student/updatesandannouncement.vue'));
 Vue.component('evaluationvue',require('./components/student/evaluation.vue'));
+Vue.component('userprofilevue',require('./components/student/userprofile.vue'));
+Vue.component('calendarvue',require('./components/student/calendar.vue'));
+
 
 const app = new Vue({
     el: '.app'

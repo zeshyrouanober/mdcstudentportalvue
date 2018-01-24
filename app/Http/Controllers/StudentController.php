@@ -15,7 +15,7 @@ class StudentController extends Controller
     }
 
     public function showStudents(){
-      $student = Student::orderBy('lname','asc')->paginate(10);
+      $student = Student::orderBy('lname','asc')->paginate(20);
       $response = array('student' => $student );
       return response()->json($response);
     }
@@ -52,5 +52,9 @@ class StudentController extends Controller
         'father'  => $request->father,
         'base_rate' => $request->base_rate
       ]);
+    }
+
+    public function counters(){
+      return Student::count();
     }
 }

@@ -3,9 +3,43 @@
     @section('side-nav')
         <div class="student-nav">
           <div class="avatar">
-              <i class="material-icons">face</i>
+              <a href="#profile" class="modal-trigger tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><i class="material-icons">face</i></a>
               <label>Admin</label>
           </div>
+          <div id="profile" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <div class="modal-header light-blue darken-1">
+                <h5>My Profile</h5>
+              </div>
+              <div class="profile-content">
+                <div class="profile-picture">
+
+                </div>
+                <div class="modal-fields" >
+                  <div class="input-field" >
+                    <input id="student-idnum"  name="student-idnum"type="text" class="validate" >
+                    <label for="student-idnum" >Username</label>
+                  </div>
+                  <div class="input-field" id="acccount-label-active" >
+                    <input id="password"  name="password" type="text" class="validate">
+                    <label for="password" >New Password</label>
+                  </div>
+                  <div class="input-field" id="acccount-label-active" >
+                    <input id="passwordconfirmation" name="passwordconfirmation" type="text" class="validate">
+                    <label for="passwordconfirmation" >Confirmed Password</label>
+                  </div>
+                  <p>
+                   <input type="checkbox" id="test6"/>
+                   <label for="test6"  >I review and remember</label>
+                 </p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a id="close" class="waves-effect waves-light modal-close light-blue lighten-3 btn-flat " style="color:#ffffff;"><i class="material-icons">close</i></a>
+              <a id="edit" class="waves-effect waves-light modal-close amber lighten-3 btn-flat "   style="color:#ffffff;"><i class="material-icons">edit</i></a>
+            </div>
+         </div>
             <ul class="tabs">
               <li class="tab">
                 <a href="#dashboard"  >
@@ -112,7 +146,7 @@
           <div class="user-right-nav">
               <div class="side-nav-container">
                 <div class="calendar z-depth-1">
-                  <h4>SideBar 1</h4>
+                  <schoolcalendarvue></schoolcalendarvue>
                 </div>
               </div>
               <div class="side-nav-container">
@@ -137,6 +171,24 @@
               $('select').material_select();
               $('ul.tabs').tabs();
               $('.tooltipped').tooltip({delay: 50});
+              $('.counters').each(function() {
+                   var $this = $(this),
+                       countTo = $this.attr('data-count');
+                   $({ countNum: $this.text()}).animate({
+                     countNum: countTo
+                   },
+                   {
+                     duration: 5000,
+                     easing:'linear',
+                     step: function() {
+                       $this.text(Math.floor(this.countNum));
+                     },
+                     complete: function() {
+                       $this.text(this.countNum);
+                       //alert('finished');
+                     }
+                   });
+               });
             });
         </script>
       @endsection
@@ -163,8 +215,11 @@
         <div class="footer-copyright">
           <div class="container">
             MDC Student Portal © 2017 Copyright
-          <a class="grey-text text-lighten-4 right animated jello" href="#!">Sign Out <i class="material-icons">transfer_within_a_station</i></a>
-          </div>
+          <a class="grey-text text-lighten-4 right animated jello" href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit()">Sign Out <i class="material-icons">transfer_within_a_station</i></a>
+          <form id="logoutform"  method="post" style="display:none;" action="log-out">
+            {{ csrf_field() }}
+          </form>
+        </div>
         </div>
       </footer>
     @endsection
