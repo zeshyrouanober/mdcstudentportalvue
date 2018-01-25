@@ -50,7 +50,9 @@ Route::get('show-subject-taken','StudentController@showSubjectTaken');
 Route::get('fetch-student/{idnum}','StudentController@fetchStudent');
 Route::put('update-student/{idnum}','StudentController@updateStudent');
 Route::get('student-counters','StudentController@counters');
-
+Route::post('create-todo','TodosController@create');
+Route::get('todos-data','TodosController@index');
+Route::delete('delete-todo/{id}','TodosController@delete');
 
 //Subject
 Route::get('subject-data','SubjectController@showSubjects');

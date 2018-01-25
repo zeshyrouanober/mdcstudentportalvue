@@ -30,8 +30,8 @@
         </div>
         <div class="modal-footer">
           <a id= "close" class="modal-action modal-close waves-effect waves-light light-blue lighten-2 btn-flat" style="color:#ffffff;"><i class="material-icons">close</i></a>
-          <a id="post" class="modal-action modal-close waves-effect waves-light green accent-2 btn-flat" style="color:#ffffff;" v-if = "headerTitle == true" onclick="Materialize.toast('Created !', 3000, 'rounded')" v-on:click="addAnnouncement()"><i class="material-icons">send</i></a>
-          <a id="edit" class="modal-action modal-close waves-effect waves-light amber lighten-2 btn-flat" style="color:#ffffff;" v-else onclick="Materialize.toast('Updated !', 3000, 'rounded') " v-on:click="updateAnnouncement()"><i class="material-icons">edit</i></a>
+          <a id="post" class="modal-action modal-close waves-effect waves-light green accent-2 btn-flat" style="color:#ffffff;" v-if = "headerTitle == true" v-on:click="addAnnouncement()"><i class="material-icons">send</i></a>
+          <a id="edit" class="modal-action modal-close waves-effect waves-light amber lighten-2 btn-flat" style="color:#ffffff;" v-else  v-on:click="updateAnnouncement()"><i class="material-icons">edit</i></a>
         </div>
       </div>
     <div class="announcement-content " id="announcement-content">
@@ -86,6 +86,7 @@ import axios from 'axios';
           }).then(function(response){
             console.log(response);
             vm.showAnnouncement();
+            Materialize.toast('Created !', 3000, 'rounded');
           }).catch(function(error){
             console.log(error);
           });
@@ -120,6 +121,7 @@ import axios from 'axios';
             'description' : this.updateDescription
           }).then(function(response){
             vm.showAnnouncement();
+            Materialize.toast('Updated !', 3000, 'rounded');
           }).catch(function(error){
             console.log(error);
           });

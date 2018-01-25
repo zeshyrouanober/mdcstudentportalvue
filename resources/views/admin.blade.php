@@ -94,8 +94,20 @@
           </div>
         {{-- @endforeach --}}
           <div class="time-out">
-              <i class="material-icons">notifications_active</i>
-              <label>{{ date('m-d-Y h:i') }}</label>
+              {{-- <label>{{ date('m-d-Y h:i') }}</label> --}}
+              <label>
+                <label id="time"></label>
+                <script type="text/javascript">
+                var timestamp = '<?=time();?>';
+                  function updateTime(){
+                    $('#time').html(Date(timestamp));
+                    timestamp++;
+                  }
+                $(function(){
+                  setInterval(updateTime, 1000);
+                });
+                </script>
+              </label>
               <ul id='dropdown1' class='dropdown-content' >
                 <li><a href="" onclick="event.preventDefault(); document.getElementById('logoutform').submit()" >Sign Out</a></li>
               </ul>

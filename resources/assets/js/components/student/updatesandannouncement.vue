@@ -6,7 +6,7 @@
     <div class="latest-update-content" v-for="announce in announcement">
       <div class="title">
         <label class="announe-title">{{announce.title}}</label>
-        <label class="announe-title">{{announce.created_at}}</label>
+        <p class="blue-text text-darken-1">{{announce.created_at}}</p>
       </div>
       <div class="description">
         <label>{{announce.description}}</label>

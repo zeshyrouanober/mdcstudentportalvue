@@ -12,6 +12,7 @@ Use Alert;
 Use Materialize;
 Use View;
 use Auth;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -48,11 +49,11 @@ class HomeController extends Controller
             $credentials = array('username' => $user->username , 'password' => $password);
 
             if (Auth::attempt($credentials)) {
-              return redirect('dashboard');
+              $dateTime = Carbon::now();
+              return redirect('dashboard')->with('dateTime',$dateTime->toDateTimeString());
             }else {
               return redirect()->back();
             }
-
           }
         }else{
           $notification =  array('message' => 'Password dont match' );
@@ -81,7 +82,6 @@ class HomeController extends Controller
       $credentials = array('username' => $username,'password' => $request->input('passwordSignIn') );
 
       if (Auth::attempt($credentials)) {
-
         return redirect('dashboard')->with('message','Welcome');
       }else {
         return redirect()->back();

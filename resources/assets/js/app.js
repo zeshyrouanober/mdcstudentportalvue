@@ -31,6 +31,8 @@ Vue.component('updatesandannouncementvue',require('./components/student/updatesa
 Vue.component('evaluationvue',require('./components/student/evaluation.vue'));
 Vue.component('userprofilevue',require('./components/student/userprofile.vue'));
 Vue.component('calendarvue',require('./components/student/calendar.vue'));
+Vue.component('upcomingeventsvue',require('./components/student/upcomingevents.vue'));
+Vue.component('todosvue',require('./components/student/todos.vue'));
 
 
 const app = new Vue({

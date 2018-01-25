@@ -29,12 +29,12 @@
         </div>
         <div class="input-field">
            <i class="material-icons prefix">lock_open</i>
-           <input id="icon_prefix" type="text" class="validate">
+           <input id="icon_prefix" type="password" class="validate">
            <label for="icon_prefix">New Password</label>
        </div>
        <div class="input-field">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" type="password" class="validate">
           <label for="icon_prefix">Confirm Password</label>
         </div>
         <button class="btn waves-effect waves-light right" type="submit" name="action">update

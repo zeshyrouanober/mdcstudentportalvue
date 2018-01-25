@@ -81,12 +81,12 @@
             </div>
             <div class="side-nav-container">
               <div class="upcoming-events z-depth-1">
-                <h4>Upcoming events</h4>
+                <upcomingeventsvue></upcomingeventsvue>
               </div>
             </div>
             <div class="side-nav-container">
               <div class="todos z-depth-1 ">
-                <h4>Todos</h4>
+                <todosvue></todosvue>
               </div>
             </div>
           </div>

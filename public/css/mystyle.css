@@ -481,11 +481,26 @@ form .forgot-password{
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 }
 .classes-grades{
   flex: 1;
   margin-bottom: 10px;
   padding: 5px;
+}
+.student-dashboard-counter{
+  display: flex;
+  margin-bottom: 30px;
+}
+.present-subjects{
+  margin-right: 5px;
+}
+.taken-subjects{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.your-status{
+  margin-left: 5px;
 }
 .forums{
   flex: 1;
@@ -550,6 +565,9 @@ span{
   color:#757575;
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
+.latest-update-content .title p{
+  font-size: 12px!important;
+}
 .description label{
   color: #9e9e9e ;
 }
@@ -562,12 +580,70 @@ span{
 .user-right-nav .todos{
   flex: 1;
 }
-
+.todos-container{
+}
+.todos-label{
+  font-size: 18px;
+  color: #ffffff!important;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+.todos-header a{
+  display: flex;
+  justify-content: flex-end;
+}
+.todos-header{
+  padding: 10px;
+  display: flex;
+  font-family: 'Barlow Semi Condensed', sans-serif!important;
+}
+.collection{
+  border: none!important;
+  margin: 0px!important;
+}
+.todos-content{
+  padding: 0px ;
+}
+.collection .collection-item{
+  border-bottom: 1px solid #4caf50!important;
+}
+.collection p{
+  font-size: 12px;
+}
+.collection #todo-date{
+  font-size: 12px;
+}
+.collection .collection-item.avatar{
+  min-height: 50px!important;
+}
+#todos .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#todos .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:1!important;
+}
+#todos .modal-content .modal-fields{
+  display: flex;
+  justify-content: center;
+  color:#4caf50!important;
+  flex:3!important;
+  flex-direction: column;
+}
 .modal-content .modal-fields{
   padding: 10px 50px 10px 50px;
 }
 .modal-fields label{
   font-size: 15px!important;
+}
+.modal-footer #cancel{
+  color:#757575;
 }
 /* ADMIN CSS */
 .content-container{

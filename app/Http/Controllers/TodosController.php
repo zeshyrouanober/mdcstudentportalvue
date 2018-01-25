@@ -5,30 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Todo;
 use Session;
+use Auth;
 
 class TodosController extends Controller
 {
+    public function index(){
+      $todos = Todo::where('student_id',Auth::user()->username)->orderBy('id','desc')->paginate(10);
+
+      $response = array('todos' => $todos );
+      return response()->json($response);
+    }
+
     public function create(Request $request){
+      $todo = new Todo;
+      $todo->title = $request->title;
+      $todo->description = $request->description;
+      $todo->student_id = Auth::user()->username;
+      $todo->save();
+    }
 
-        if ($request->ajax()) {
-
-          $title = $request->title;
-          $description = $request->description;
-          $date = $request->date;
-          // $time = $request->time;
-
-          $todo = new Todo;
-          $todo->title = $title;
-          $todo->description = $description;
-          $todo->date =$date;
-          // $todo->time = $time;
-          $todo->student_id = Session::get('username');
-          $todo->save();
-
-          $todos = DB::table('todos')->where('student_id',Session::get('username'))->get();
-
-          return View::make('dashboard')->with('todos',$todos);
-
-        }
+    public function delete($id){
+      Todo::where('id',$id)->delete();
     }
 }
