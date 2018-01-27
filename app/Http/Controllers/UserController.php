@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Session;
 use App\Student;
+use Auth;
+use Hash;
+use Materialize;
+use Alert;
 
 class UserController extends Controller
 {
@@ -40,6 +44,15 @@ class UserController extends Controller
 
       return response()->json($response);
 
+    }
+
+    public function studentUserUpdate(Request $request){
+
+      if (Hash::check($request->currentPassword, Auth::user()->password)) {
+        if ($request->newPassword == $request->confirmPassword) {
+          User::where('username',Auth::user()->username)->update(['password' => bcrypt($request->confirmPassword)]);
+        }
+      }
     }
 
     public function counters(){

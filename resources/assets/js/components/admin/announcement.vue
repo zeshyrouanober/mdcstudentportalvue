@@ -102,7 +102,6 @@ import axios from 'axios';
           axios.get(`announcement-data?page=` + page).then(function(response){
             vm.announcement = response.data.announcement.data;
             vm.pagination = response.data.announcement;
-            console.log(response);
           });
         },
 

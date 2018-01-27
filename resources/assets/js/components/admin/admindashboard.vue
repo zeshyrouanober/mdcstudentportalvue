@@ -67,7 +67,7 @@
         <h5>School Year Calendar</h5>
         <a href="#calendar" class="btn-floating btn-small waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
       </div>
-      <vue-event-calendar :events="demoEvents"></vue-event-calendar>
+      <vue-event-calendar :events="demoEvents"  ></vue-event-calendar>
 
       <div id="calendar" class="modal modal-fixed-footer">
         <div class="modal-content">
@@ -115,21 +115,18 @@
         title:'',
         date:'',
         description:'',
-
+        events:[],
 
         demoEvents: [{
           date: '2018/01/12', // Required
           title: 'Foo' // Required
-        }, {
-          date: '2018/01/15',
-          title: 'Bar',
-          desc: 'description',
         }]
       }
     },
 
     mounted(){
       this.userCounters()
+      this.showEvents()
     },
 
     methods:{
@@ -142,18 +139,29 @@
       },
 
       addEvent(){
-          var vm = this;
-          axios.post(`add-event`,{
-            'title' : this.title,
-            'description' : this.description,
-            'date' : $('#date-event').val()
-          }).then(function(response){
-            console.log(response);
-          }).catch(function(error){
-            console.log(error);
-          });
+        var vm = this;
+        axios.post(`create-event`,{
+          'title' : this.title,
+          'description' : this.description,
+          'date' : $('#date-event').val()
+        }).then(function(response){
+          console.log(response);
+        }).catch(function(error){
+          console.log(error);
+        });
+      },
+
+      showEvents(){
+        var vm = this;
+        axios.get(`show-events`).then(function(response){
+          // vm.events = response.data.eventTitle;
+          console.log(response);
+        });
       }
-    }
+
+
+      }
+
   }
 
 

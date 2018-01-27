@@ -19,25 +19,25 @@
         <label class="header">Update your account</label>
           <div class="input-field">
            <i class="material-icons prefix">account_circle</i>
-           <input id="icon_prefix" type="text" class="validate">
-           <label for="icon_prefix" >Username</label>
+           <input id="username" disabled type="text" v-model="username" class="validate">
+           <!-- <label for="username" :class="[isUpdate == true ? 'active' : '']" >Username</label> -->
          </div>
          <div class="input-field">
             <i class="material-icons prefix">lock</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Current Password</label>
+            <input id="currentpassword"  required v-model="currentPassword"type="text" class="validate">
+            <label for="currentpassword">Current Password</label>
         </div>
         <div class="input-field">
            <i class="material-icons prefix">lock_open</i>
-           <input id="icon_prefix" type="password" class="validate">
-           <label for="icon_prefix">New Password</label>
+           <input id="password" required v-model="newPassword" name="password" type="password" class="validate">
+           <label for="password">New Password</label>
        </div>
        <div class="input-field">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="icon_prefix" type="password" class="validate">
-          <label for="icon_prefix">Confirm Password</label>
+          <input id="password_confirmation" required v-model="confirmPassword" name="password_confirmation" type="password" class="validate">
+          <label for="password_confirmation">Confirm Password</label>
         </div>
-        <button class="btn waves-effect waves-light right" type="submit" name="action">update
+        <button class="btn waves-effect waves-light light-blue" v-on:click="userUpdate()">update
           <i class="material-icons right">send</i>
         </button>
       </div>
@@ -47,11 +47,11 @@
         </div>
         <div class="right-profile-one  z-depth-1">
           <label class="header">Something to put</label>
-
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -62,7 +62,11 @@
         student: [],
         course:[],
         year : '',
-        isUpdate:false
+        username:'',
+        isUpdate:false,
+        currentPassword:'',
+        newPassword:'',
+        confirmPassword:''
       }
     },
 
@@ -79,8 +83,25 @@
           vm.student = response.data.student;
           vm.course = response.data.course[0].cr_acrnm;
           vm.year = response.data.course[0].pivot.year;
+          vm.username = response.data.student.idnum;
         });
-      }
+      },
+
+      userUpdate(){
+        var vm = this;
+        axios.put(`student-user-update`,{
+          'currentPassword' : this.currentPassword,
+          'newPassword' : this.newPassword,
+          'confirmPassword' : this.confirmPassword
+        }).then(function(response){
+          console.log(response);
+          vm.currentPassword = '';
+          vm.newPassword = '';
+          vm.confirmPassword = '';
+        }).catch(function(error){
+          console.log(error);
+        });
+      },
 
     }
   }

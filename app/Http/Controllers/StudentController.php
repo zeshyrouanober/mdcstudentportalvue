@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Input;
 use Auth;
 use DB;
+use PDF;
+
 
 class StudentController extends Controller
 {
@@ -40,7 +42,6 @@ class StudentController extends Controller
       $response = array('student' => $student,'course' => $course );
 
       return response()->json($response);
-
     }
 
     public function studentStatus(){
@@ -55,6 +56,11 @@ class StudentController extends Controller
 
     }
 
+    public function studentGradePDF(){
+      $data = ['name' => 'Zeshyrou'];
+      $pdf = PDF::loadView('pdf/grade',compact('data'));
+      return $pdf->download('grade.pdf');
+    }
 
     public function fetchStudent($idnum){
       return Student::where('idnum',$idnum)->get();

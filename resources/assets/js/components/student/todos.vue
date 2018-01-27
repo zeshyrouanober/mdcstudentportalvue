@@ -12,7 +12,7 @@
             <label class="grey-text text-darken-1">{{todo.title}}</label>
             <label id="todo-date"class="right">
               {{todo.created_at}}
-              <a href="#" v-on:click.prevent="deleteTodo(todo.id)" class="red" style="margin-left:10px;"><i class="material-icons" style="font-size:10px;padding:3px;">close</i></a>
+              <a href="#" v-on:click.prevent="deleteTodo(todo.id)" style="margin-left:10px;"><i class="material-icons amber" style="font-size:10px;">close</i></a>
             </label>
             <p class="grey-text text-darken-1">{{todo.description}}</p>
           </div>

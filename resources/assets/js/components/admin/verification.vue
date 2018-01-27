@@ -121,7 +121,6 @@
         axios.get(`show-verifications?page=` + page).then(function(response){
           vm.verifications = response.data.verifications.data;
           vm.pagination = response.data.verifications;
-          console.log(response);
         });
       },
 

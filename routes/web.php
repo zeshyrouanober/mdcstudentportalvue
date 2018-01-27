@@ -46,7 +46,7 @@ Route::get('update-student','StudentController@update');
 //Student
 Route::get('student-course', 'StudentController@studentCourse');
 Route::get('student-dashboard-status','StudentController@studentStatus');
-
+Route::get('student-grade-pdf','StudentController@studentGradePDF')->name('grade-pdf');
 
 Route::get('student-data', 'StudentController@showStudents');
 Route::get('list-of-subject-with-grade','StudentController@listOfSubjectWithGrade');
@@ -68,8 +68,9 @@ Route::get('subject-counters','SubjectController@counters');
 
 
 //School Events
-Route::post('add-event','CalendarController@create');
-Route::get('show-upcomingevents','CalendarController@showUpcomingEvents');
+Route::get('show-upcomingevents','EventController@showUpcomingEvents');
+Route::post('create-event','EventController@create');
+Route::get('show-events','EventController@show');
 
 //Announcement
 Route::get('view-announcement','AnnouncementController@index');
@@ -85,7 +86,7 @@ Route::get('user-data','UserController@showAccounts');
 Route::put('update-user/{username}','UserController@updateUser');
 Route::get('user-counters','UserController@counters');
 Route::get('user-information/{username}','UserController@userInformation');
-
+Route::put('student-user-update','UserController@studentUserUpdate');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');

@@ -153,7 +153,6 @@
             axios.get(`subject-data?search=`+this.search+`&page=` + page).then(function(response){
               vm.subject = response.data.subject.data;
               vm.pagination = response.data.subject;
-              console.log(response);
             });
           },
 

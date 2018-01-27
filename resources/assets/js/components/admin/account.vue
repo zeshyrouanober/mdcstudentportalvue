@@ -161,7 +161,6 @@
         axios.get(`user-data?search=`+this.search+`&page=` + page).then(function(response){
           vm.user = response.data.user.data;
           vm.pagination = response.data.user;
-          console.log(response);
         });
       },
 
@@ -169,7 +168,6 @@
         var vm = this;
         axios.get('user-student-data/' + username).then(function(response){
           vm.fetchUser = response.data[0];
-          console.log(response);
         });
       },
 
@@ -182,7 +180,6 @@
         }).then(function(response){
           Materialize.toast('Updated !', 3000, 'rounded');
           vm.showAccounts();
-          console.log(response);
         }).catch(function(error){
           Materialize.toast('Something went wrong !', 3000, 'rounded');
           console.log(error);
@@ -203,7 +200,6 @@
           vm.course = response.data.course[0].course;
           vm.year = response.data.course[0].pivot.year;
 
-          console.log(response);
         });
       },
 

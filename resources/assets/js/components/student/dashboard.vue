@@ -25,7 +25,7 @@
       <div class="classes-grades-header light-blue">
         <!-- <a class="btn-floating right "><i class="material-icons">print</i></a> -->
         <label class="tabs-content-header">Present Subjects</label>
-        <a href="#" class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
+        <a href="" v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
 
       </div>
       <div class="classes-grades-content">
@@ -65,7 +65,10 @@
           major:'',
           status:'',
           course:'',
-          year:''
+          year:'',
+          rating:'',
+          weightedAverage:'',
+          numberOfSubject:''
         }
       },
       mounted(){
@@ -79,6 +82,8 @@
           var vm = this;
           axios.get(`list-of-subject-with-grade`).then(function(response){
             vm.subjects = response.data;
+            vm.numberOfSubject = vm.subjects.length;
+            console.log(response);
           });
         },
 
@@ -90,6 +95,13 @@
             vm.major = response.data.course[0].major;
             vm.status = response.data.course[0].pivot.en_status;
             console.log(response);
+          });
+        },
+
+        gradePDF(){
+          var vm = this;
+          axios.get(`student-grade-pdf`).then(function(response){
+            Materialize.toast('Downloaded',1000,'rounded');
           });
         }
 

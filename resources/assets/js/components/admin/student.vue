@@ -236,7 +236,6 @@ export default {
       axios.get(`student-data?search=`+this.search+`&page=`+ page).then(function(response){
         vm.student = response.data.student.data;
         vm.pagination = response.data.student;
-        console.log(response);
       });
     },
 
