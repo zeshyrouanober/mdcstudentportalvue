@@ -36,7 +36,6 @@ export default {
       axios.get(`show-announcement`).then(function(response){
         vm.announcement = response.data.announcement.data;
         vm.pagination = response.data;
-        console.log(response);
       });
     }
   }

@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="icon" href="images/school-logo.jpg">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed|Shadows+Into+Light|Quicksand" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSS CDN's -->

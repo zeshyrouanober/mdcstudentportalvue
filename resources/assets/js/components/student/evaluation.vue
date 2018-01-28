@@ -1,25 +1,29 @@
 <template lang="html">
   <div class="evaluation-container">
-    <div class="evaluation z-depth-1">
-      <h6>Taken Subjects</h6>
-      <table class="striped">
-        <thead>
-          <tr>
-            <th>Subject</th>
-            <th>Midterm</th>
-            <th>Final</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="takensubject in takensubjects">
-            <td>{{takensubject.descript}}</td>
-            <td>{{takensubject.pivot.mgrade}}</td>
-            <td>{{takensubject.pivot.fgrade}}</td>
-            <td>{{takensubject.pivot.rating}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="evaluation z-depth-2">
+      <div class="evaluation-header light-blue ">
+          <label>Taken Subjects</label>
+      </div>
+      <div class="evaluation-content">
+        <table class="striped" style="background-color:#ffffff">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Midterm</th>
+              <th>Final</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="takensubject in takensubjects">
+              <td>{{takensubject.descript}}</td>
+              <td>{{takensubject.pivot.mgrade}}</td>
+              <td>{{takensubject.pivot.fgrade}}</td>
+              <td>{{takensubject.pivot.rating}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +47,6 @@ export default {
       var vm = this;
       axios.get(`show-subject-taken`).then(function(response){
         vm.takensubjects = response.data[0].subjects_taken;
-        console.log(response);
       });
     }
   }

@@ -41,6 +41,8 @@ content: none;
 table {
 border-collapse: collapse;
 border-spacing: 0;
+font-family: 'Quicksand', sans-serif!important;
+
 }
 * {
   box-sizing: border-box;
@@ -93,6 +95,8 @@ border-spacing: 0;
     flex:1;
     display: flex;
     justify-content: center;
+    font-family: 'Quicksand', sans-serif!important;
+
 }
 #error{
   display: none;
@@ -102,7 +106,6 @@ border-spacing: 0;
     flex:.35;
     display: flex;
     flex-direction: column;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: normal;
     /* background-color: rgb(255, 251, 251); */
     background: url(/images/bg3.jpg) no-repeat center !important;
@@ -113,7 +116,6 @@ border-spacing: 0;
     display: flex;
     font-size: 10px;
     flex-direction: column;
-    background-color: #039be5;
 }
 .content .progress{
     border-radius: 0px!important;
@@ -121,7 +123,6 @@ border-spacing: 0;
     margin: 0px;
     flex:.13;
     display: none;
-    background-color: #039be5;
 }
 .progress .indeterminate{
     background-color: #ffffff!important;
@@ -133,10 +134,15 @@ border-spacing: 0;
     display: flex;
     font-size: 15px;
     align-items: center;
+    font-family: 'Quicksand', sans-serif!important;
+}
+.name{
+  font-family: 'Quicksand', sans-serif!important;
 }
 .school h1{
     color: #ffffff;
     font-size: 20px!important;
+    font-family: 'Quicksand', sans-serif!important;
 }
 .content-title .title{
     flex:1;
@@ -149,9 +155,11 @@ border-spacing: 0;
     display: flex;
     font-size: 17px;
     color: #ffffff;
+    font-weight: normal;
+    font-family: 'Quicksand', sans-serif!important;
 }
 .title .material-icons{
-  color: #039be5;
+  color: #1565c0;
 }
 .title .stud_info{
   flex:3;
@@ -174,52 +182,52 @@ border-spacing: 0;
     background-color: #ffffff;
 }
 .focus{
-  color: #039be5 !important;
+  color: #1565c0 !important;
 }
 textarea:focus {
-  border-bottom: 1px solid #039be5 !important;
-  box-shadow: 0 1px 0 0 #039be5 !important;
-  color:#039be5!important;
+  border-bottom: 1px solid #1565c0 !important;
+  box-shadow: 0 1px 0 0 #1565c0 !important;
+  color:#1565c0!important;
 }
 textarea:focus + label{
-  color: #039be5 !important;
+  color: #1565c0 !important;
 }
 
 input[type=text]{
-  color:#039be5!important;
+  color:#1565c0!important;
 }
 .focus{
   display: none;
 }
 input[type=text]:focus{
-   border-bottom: 1px solid #039be5 !important;
-   box-shadow: 0 1px 0 0 #039be5 !important;
-   color:#039be5!important;
+   border-bottom: 1px solid #1565c0 !important;
+   box-shadow: 0 1px 0 0 #1565c0 !important;
+   color:#1565c0!important;
 }
 .input-field input[type=text]:focus + label{
-  color: #039be5 !important;
+  color: #1565c0 !important;
 }
 .input-field input[type=text]:focus{
-   border-bottom: 1px solid #039be5 !important;
-   box-shadow: 0 1px 0 0 #039be5 !important;
+   border-bottom: 1px solid #1565c0 !important;
+   box-shadow: 0 1px 0 0 #1565c0 !important;
    color:#4285f4;
 }
 .input-field input[type=text]{
-  color:#039be5;
+  color:#1565c0;
 }
 .input-field input[type=password]:focus + label{
-  color: #039be5 !important;
+  color: #1565c0 !important;
 }
 .input-field input[type=password]:focus{
-   border-bottom: 1px solid #039be5 !important;
-   box-shadow: 0 1px 0 0 #039be5 !important;
+   border-bottom: 1px solid #1565c0 !important;
+   box-shadow: 0 1px 0 0 #1565c0 !important;
    color:#4285f4;
 }
 .input-field input[type=password]{
-  color:#039be5;
+  color:#1565c0;
 }
 form button {
-  background-color: #039be5!important;
+  background-color: #1565c0!important;
 }
 form .forgot-password{
     font-size:13px;
@@ -279,7 +287,7 @@ form .forgot-password{
 .system-info h1{
     font-size: 40px;
     font-weight: normal;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Quicksand', sans-serif!important;
     color: #1565c0;
     margin-left: 20px;
 }
@@ -288,9 +296,7 @@ form .forgot-password{
     background-color:#ffff;
 }
 .template-content-nav-bar{
-    flex:.8;
     background-color: #0d47a1;
-
 }
 .template-content-content{
     flex:10;
@@ -310,16 +316,16 @@ form .forgot-password{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
 }
 .avatar i{
   font-size: 57px;
   color: #ffffff;
 }
 .avatar label{
-  font-family:'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
   color:#4285f4;
-  font-size: 15px;
+  font-size: 18px!important;
 }
 .student-nav .tabs{
   height: auto;
@@ -355,12 +361,12 @@ form .forgot-password{
 .student-nav .tabs .tab a label{
   color:#ffffff;
   font-size: 13px;
-  font-family:'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .student-nav .tabs #usertab a label{
   color:#ffffff;
   font-size: 20px;
-  font-family:'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .student-nav .tab a:hover{
   border-left: 3px solid #ffffff;
@@ -416,7 +422,7 @@ form .forgot-password{
   display: flex;
   align-items: center;
   padding-left: 10px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
   background-color: #1565c0!important;
 }
 .student-header{
@@ -424,14 +430,14 @@ form .forgot-password{
   display: flex;
   align-items: center;
   padding-left: 10px;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
   background-color: #039be5!important;
 }
 .user-info .name{
   flex: 1;
 }
 .user-info .name label{
-  font-size: 20px;
+  font-size: 15px;
   color:#ffffff;
 }
 .user-info .time-out{
@@ -440,6 +446,7 @@ form .forgot-password{
   justify-content: flex-end;
   color:#ffffff;
   align-items: center;
+  padding-right: 5px;
 }
 .user-info .time-out label{
   color: #ffffff;
@@ -450,6 +457,7 @@ form .forgot-password{
 }
 .user-info .time-out a{
   color: #ffffff;
+  margin-left: 5px;
 }
 .user-info .dropdown-content{
   background-color: #01579b;
@@ -474,19 +482,53 @@ form .forgot-password{
   border-radius: 3px;
 }
 .user-main-content label{
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
   font-size: 20px;
 }
 .dashboard-student-container{
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .classes-grades{
   flex: 1;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.classes-grades thead th{
+  border-bottom: 1px solid #039be5;
+  color: #039be5;
+}
+.classes-grades-header{
+  padding: 15px;
+}
+.classes-grades-header label{
+  color: #ffffff!important;
+  margin-right: 5px;
+}
+.classes-grades-content{
+  padding: 1px;
+}
+.student-status{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.student-status-up{
+  display: flex;
+}
+.student-status-up label{
+  flex: 1;
   padding: 5px;
+  font-size: 15px;
+}
+.student-status-up label b{
+  font-weight: normal!important;
+  color: #039be5;
+  text-transform: uppercase;
 }
 .student-dashboard-counter{
   display: flex;
@@ -509,10 +551,25 @@ form .forgot-password{
   flex:1;
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 .evaluation-container .evaluation{
   flex:1;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.evaluation-header{
+  padding: 20px;
+}
+.evaluation-header label{
+  color:#ffffff;
+}
+.evaluation-content{
+  padding: 2px;
+}
+.evaluation-content thead th{
+  border-bottom: 1px solid #039be5;
+  color: #039be5;
 }
 span{
   display: flex;
@@ -540,7 +597,8 @@ span{
   color: #ffffff;
 }
 .latest-update-header{
-  padding: 10px;
+  padding: 15px;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .latest-update-content{
   display: flex;
@@ -549,6 +607,8 @@ span{
   border-bottom: 1px solid #4527a0;
   padding-bottom: 3px;
   padding: 10px;
+  font-family: 'Quicksand', sans-serif!important;
+
 }
 .latest-update-content .title{
   display: flex;
@@ -563,7 +623,7 @@ span{
 }
 .title .announe-title{
   color:#757575;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .latest-update-content .title p{
   font-size: 12px!important;
@@ -581,9 +641,10 @@ span{
   flex: 1;
 }
 .todos-container{
+  font-family: 'Quicksand', sans-serif!important;
 }
 .todos-label{
-  font-size: 18px;
+  font-size: 15px!important;
   color: #ffffff!important;
   margin-right: 5px;
   display: flex;
@@ -597,7 +658,6 @@ span{
 .todos-header{
   padding: 10px;
   display: flex;
-  font-family: 'Barlow Semi Condensed', sans-serif!important;
 }
 .collection{
   border: none!important;
@@ -609,11 +669,15 @@ span{
 .collection .collection-item{
   border-bottom: 1px solid #4caf50!important;
 }
+.collection label{
+  font-size: 14px!important;
+
+}
 .collection p{
   font-size: 12px;
 }
 .collection #todo-date{
-  font-size: 12px;
+  font-size: 10px!important;
 }
 .collection .collection-item.avatar{
   min-height: 50px!important;
@@ -630,6 +694,24 @@ span{
   flex:1!important;
 }
 #todos .modal-content .modal-fields{
+  display: flex;
+  justify-content: center;
+  color:#4caf50!important;
+  flex:3!important;
+  flex-direction: column;
+}
+#calendar .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#calendar .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.8!important;
+}
+#calendar .modal-content .modal-fields{
   display: flex;
   justify-content: center;
   color:#4caf50!important;
@@ -729,7 +811,7 @@ span{
   font-size: 40px;
 }
 .title #add:hover{
-  background-color: #039be5!important;
+  background-color: #1565c0!important;
 }
 .title a:hover .material-icons{
   color: #ffffff!important;
@@ -795,15 +877,17 @@ span{
   flex:5;
   padding-right: 10px!important;
 }
-.content-header a{
+.content-header i{
   flex:1;
   text-align: center;
   align-items: center;
   justify-content: flex-start;
   margin: auto;
 }
-.content-header a i{
+.content-header  i{
   font-size: 50px;
+  color: #039be5;
+
 }
 .content-header .generate{
   flex:2;
@@ -832,7 +916,6 @@ span{
   color:#039be5!important;
 }
 .student-list{
-  padding: 10px;
   display: flex;
   background-color: #ffffff!important;
   flex-direction: column;
@@ -858,6 +941,7 @@ span{
 }
 .tabs-container .tabs{
   display: flex;
+  background-color: #039be5!important;
 }
 .tabs .tab{
   flex:1;
@@ -866,32 +950,38 @@ span{
   color: #b3e5fc!important;
 }
 .tabs .tab a:hover{
-  color:#29b6f6!important;
+  color:#ffffff!important;
 }
 .tabs .tab a:focus{
-  color:#29b6f6!important;
+  color:#ffffff!important;
 }
 .verification-list{
   background-color: #ffffff;
-  padding: 10px;
+}
+.verification-list thead th{
+  border-bottom: 1px solid #039be5;
+  color: #039be5;
 }
 .verification-tab .tabs .indicator{
-  background-color: #039be5!important;
+  background-color: #ffffff!important;
 }
 thead{
   margin-bottom: 5px!important;
 }
-thead tr{
+/* thead tr{
   background-color:#039be5;
-}
+} */
 thead tr th{
   border-radius: 0px!important;
-  color: #ffffff!important;
+  color: #039be5!important;
 }
 .accounts-content{
   margin-top:20px;
-  padding: 5px;
   background-color: #ffffff;
+}
+.accounts-content thead th{
+  border-bottom: 1px solid #039be5;
+  color: #039be5;
 }
 #userEdit .modal-content{
   display: flex;
@@ -918,7 +1008,7 @@ thead tr th{
   position: absolute;
 }
 #userinfo .modal-fields{
-  padding-top: 90px!important;
+  padding-top: 100px!important;
 }
 #profile .modal-content{
   display: flex;
@@ -1107,6 +1197,7 @@ thead tr th{
 }
 .user-picture label{
   margin: auto;
+  font-size: 15px;
 }
 .user-details{
   flex: 2;
@@ -1116,6 +1207,7 @@ thead tr th{
 }
 .user-details label{
   padding-bottom: 10px;
+  font-size: 15px;
 }
 
 .account-details{
@@ -1177,7 +1269,7 @@ thead tr th{
   color:#ffffff!important;
 }
 .page-footer{
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .page-footer .info p{
   padding-top: 10px;

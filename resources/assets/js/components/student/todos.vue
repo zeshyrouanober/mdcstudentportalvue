@@ -70,7 +70,6 @@ import axios from 'axios';
         var vm = this;
         axios.get(`todos-data`).then(function(response){
           vm.todos = response.data.todos.data;
-          console.log(response);
         });
       },
 

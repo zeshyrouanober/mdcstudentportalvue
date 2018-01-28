@@ -7,9 +7,9 @@
    <div class="bg1">
      <div class="log-in-container ">
         <div class="content  z-depth-5">
-            <div class="content-title">
+            <div class="content-title blue darken-3">
                 @foreach ($student as $stud)
-                <div class="progress">
+                <div class="progress blue darken-3">
                     <div class="indeterminate"></div>
                 </div>
                 <div class="school">
@@ -40,7 +40,7 @@
                 </button>
               </form>
             </div>
-            <div class="name">
+            <div class="name blue darken-3">
                 <label>MDC,Tubigon,Bohol.</label>
             </div>
         </div>

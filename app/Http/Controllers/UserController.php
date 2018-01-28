@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Session;
-
+use App\Student;
 
 class UserController extends Controller
 {
@@ -16,8 +16,8 @@ class UserController extends Controller
         return view('admin');
     }
 
-    public function showAccounts(){
-      $user = User::whereRaw('student_id <> ""')->with('student')->paginate(10);
+    public function showAccounts(Request $request){
+      $user = User::whereRaw('student_id <> ""')->with('student')->where('username','LIKE','%'.$request->search.'%')->paginate(10);
       // Session::put('idnum',$user->student_id);
       $response = array('user' => $user);
       return response()->json($response);
@@ -30,6 +30,16 @@ class UserController extends Controller
 
     public function updateUser(Request $request , $username){
       User::where('username',$username)->update(['username'=>$request->username , 'password' => bcrypt($request->password)]);
+    }
+
+    public function userInformation($username){
+      $student =  Student::find($username);
+
+      $course = $student->course(27)->get();
+      $response = array('student' => $student,'course' => $course );
+
+      return response()->json($response);
+
     }
 
     public function counters(){

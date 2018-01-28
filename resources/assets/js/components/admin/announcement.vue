@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="content-container" id="content-container">
     <div class="news-container">
-      <div class="news-header z-depth-1">
+      <div class="news-header z-depth-2">
         <label class="light-blue-text text-darken-1">Announcement</label>
         <a class="waves-effect waves-light btn light-blue darken-1 modal-trigger" v-on:click = "isUpdate = false, headerTitle = true" id="addnew" href="#announcement">Add New</a>
       </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
     <div class="announcement-content " id="announcement-content">
-        <div class="card blue-grey lighten-1" v-for="announce in announcement">
+        <div class="card blue-grey lighten-1 " v-for="announce in announcement">
           <div class="card-content white-text "  >
             <span class="card-title" id="view-title">{{announce.title}}</span>
             <p>{{announce.created_at}}</p><br>

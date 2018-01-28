@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="content-container">
-    <div class="content-header z-depth-1">
+    <div class="content-header z-depth-2">
       <label>Subjects</label>
-      <input type="text" name="search" value="" placeholder="Search Subject">
-      <a href="#"><i class="material-icons">search</i></a>
+      <input type="text" name="search" value="" v-model="search" v-on:keyup="showSubjects(1)" placeholder="Search Subject">
+      <i class="material-icons">search</i>
     </div>
     <div class="departmentOption"></div>
-    <div class="student-list z-depth-1">
+    <div class="student-list z-depth-2">
       <table class="striped">
         <thead>
           <tr>
@@ -138,7 +138,8 @@
             updateDescription:'',
             students:[],
             selectedSubject:'',
-            headerTitle:false
+            headerTitle:false,
+            search:''
 
           }
         },
@@ -149,7 +150,7 @@
         methods:{
           showSubjects(page){
             var vm = this;
-            axios.get('subject-data?page=' + page).then(function(response){
+            axios.get(`subject-data?search=`+this.search+`&page=` + page).then(function(response){
               vm.subject = response.data.subject.data;
               vm.pagination = response.data.subject;
               console.log(response);

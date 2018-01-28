@@ -1,12 +1,12 @@
 <template lang="html">
     <div class="content-container">
-      <div class="content-header  z-depth-1">
+      <div class="content-header  z-depth-2">
         <label>Accounts</label>
-        <input type="text" name="search" value="" placeholder="Search Account">
-        <a href="#"><i class="material-icons">search</i></a>
+        <input type="text" name="search" v-model="search" v-on:keyup.enter="showAccounts(1)" value="" placeholder="Search Account">
+        <i class="material-icons">search</i>
       </div>
-      <div class="accounts-content z-depth-1">
-        <table class="bordered ">
+      <div class="accounts-content z-depth-2">
+        <table class="striped">
           <thead>
             <tr>
               <th>Student Name</th>
@@ -22,7 +22,7 @@
                 <td id="user-password" type="password" >•••••••••••••••••••</td>
                 <td id="actions">
                   <a href="#userEdit" class="modal-trigger" v-on:click="fetchUserData(u.username),isUpdate = true" ><i class="material-icons" style="color:#fb8c00;">edit</i></a>
-                  <a href="#userinfo" class="modal-trigger" v-on:click="fetchUserData(u.username)"><i class="material-icons" style="color:#01579b">account_circle</i></a>
+                  <a href="#userinfo" class="modal-trigger" v-on:click="userInformation(u.username),isUpdate = true"><i class="material-icons" style="color:#01579b">account_circle</i></a>
                 </td>
               </tr>
           </tbody>
@@ -63,28 +63,44 @@
             </div>
             <div class="modal-fields" >
               <div class="input-field" >
-                <input id="student-idnum"  name="student-idnum"type="text" class="validate" >
-                <label for="student-idnum">IDNumber</label>
+                <input id="student-idnum"  disabled v-model="idnum" name="student-idnum" type="text" class="validate" >
+                <label for="student-idnum" :class="[isUpdate == true ? 'active' : ' ']" >Id Number</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-lname" name="student-lname" type="text" class="validate">
-                <label for="student-lname" >Lastname</label>
+                <input id="student-lname" disabled v-model="lname" name="student-lname" type="text" class="validate">
+                <label for="student-lname" :class="[isUpdate == true ? 'active' : '']"  >Lastname</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-fname" name="student-fname" type="text" class="validate">
-                <label for="student-fname" >Firstname</label>
+                <input id="student-fname" disabled v-model="fname" name="student-fname" type="text" class="validate">
+                <label for="student-fname" :class="[isUpdate == true ? 'active' : '']"  >Firstname</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-mi" name="student-mi" type="text" class="validate">
-                <label for="student-mi" >Middle Initial</label>
+                <input id="student-mi" disabled v-model="mi" name="student-mi" type="text" class="validate">
+                <label for="student-mi" :class="[isUpdate == true ? 'active' : '']" >Middle Initial</label>
+              </div>
+              <div class="input-field" disabled id="acccount-label-active" >
+                <input id="gender" v-model="gender" name="gender" type="text" class="validate">
+                <label for="gender" :class="[isUpdate == true ? 'active' : '']" >Gender</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="gender" name="gender" type="text" class="validate">
-                <label for="gender" >Gender</label>
+                <input id="course"  disabled v-model="course" name="course" type="text" class="validate">
+                <label for="course" :class="[isUpdate == true ? 'active' : '']"  >Course</label>
               </div>
               <div class="input-field" id="acccount-label-active" >
-                <input id="student-add" name="student-add" type="text" class="validate">
-                <label for="student-add" >Address</label>
+                <input id="year" disabled v-model="year" name="year" type="text" class="validate">
+                <label for="year" :class="[isUpdate == true ? 'active' : '']" >Year</label>
+              </div>
+              <div class="input-field" id="acccount-label-active" >
+                <input id="addb" disabled v-model="addb " name="addb" type="text" class="validate">
+                <label for="addb" :class="[isUpdate == true ? 'active' : '']" >Baranggay</label>
+              </div>
+              <div class="input-field" id="acccount-label-active" >
+                <input id="addt" disabled v-model="addt " name="addt" type="text" class="validate">
+                <label for="addt" :class="[isUpdate == true ? 'active' : '']" >Town</label>
+              </div>
+              <div class="input-field" id="acccount-label-active" >
+                <input id="addp" disabled v-model="addp " name="addp" type="text" class="validate">
+                <label for="addp" :class="[isUpdate == true ? 'active' : '']" >Province</label>
               </div>
             </div>
           </div>
@@ -121,12 +137,17 @@
         username:'',
         password:'',
         passwordconfirmation:'',
-        idnum : '',
-        fname : '',
-        lname : '',
-        mi : '',
-        gender : '',
-        address : '',
+        search:'',
+        idnum:'',
+        lname:'',
+        fname:'',
+        addb:'',
+        addt:'',
+        addp:'',
+        gender:'',
+        course:'',
+        mi:'',
+        year:''
       }
     },
 
@@ -137,7 +158,7 @@
     methods:{
       showAccounts(page){
         var vm = this;
-        axios.get(`user-data?page=` + page).then(function(response){
+        axios.get(`user-data?search=`+this.search+`&page=` + page).then(function(response){
           vm.user = response.data.user.data;
           vm.pagination = response.data.user;
           console.log(response);
@@ -165,6 +186,24 @@
         }).catch(function(error){
           Materialize.toast('Something went wrong !', 3000, 'rounded');
           console.log(error);
+        });
+      },
+
+      userInformation(username){
+        var vm = this;
+        axios.get(`user-information/` + username).then(function(response){
+          vm.idnum = response.data.student.idnum;
+          vm.fname = response.data.student.fname;
+          vm.lname = response.data.student.lname;
+          vm.mi = response.data.student.mi;
+          vm.addb = response.data.student.addb;
+          vm.addt = response.data.student.addt;
+          vm.addp = response.data.student.addp;
+          vm.gender = response.data.student.gender;
+          vm.course = response.data.course[0].course;
+          vm.year = response.data.course[0].pivot.year;
+
+          console.log(response);
         });
       },
 

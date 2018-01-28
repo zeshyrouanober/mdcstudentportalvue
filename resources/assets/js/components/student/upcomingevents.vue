@@ -1,12 +1,45 @@
 <template lang="html">
-  <h5>Upcoming events</h5>
+  <div class="update-announcement-container">
+    <div class="latest-update-header teal darken-1">
+      <h6>Upcoming events</h6>
+    </div>
+    <div class="latest-update-content" v-for="ue in upcomingevents">
+      <div class="title">
+        <label class="announe-title">{{ue.eventTitle}}</label>
+        <p class="blue-text text-darken-1">{{ue.eventDate}}</p>
+      </div>
+      <div class="description">
+        <label>{{ue.eventDescription}}</label>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  
+  data(){
+    return{
+      upcomingevents:[],
+      pagination:[],
+    }
+  },
+
+  mounted(){
+    this.showUpcomingEvents();
+  },
+
+  methods:{
+    showUpcomingEvents(){
+      var vm = this;
+      axios.get(`show-upcomingevents`).then(function(response){
+        vm.upcomingevents = response.data.upcomingevents.data;
+        vm.pagination = response.data;
+      });
+    }
+  }
+
+
 }
 </script>
-
-<style lang="css">
-</style>

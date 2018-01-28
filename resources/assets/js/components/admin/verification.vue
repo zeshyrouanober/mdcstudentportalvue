@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="content-container ">
 
-      <div class="content-header z-depth-1">
+      <div class="content-header z-depth-2">
         <label class="verification">Verifications </label>
         <input type="text" v-model="generate" name="numberVerification" required id="number-of-verification" placeholder="Please provide only number">
-        <a class="waves-effect waves-light btn blue darken-1 generate" v-on:click="generatedVerification()" >Generate</a>
+        <a class="waves-effect waves-light btn blue darken-1 generate " style="margin:auto; margin-left:5px!important; margin-right:5px!important;" v-on:click="generatedVerification()" >Generate</a>
       </div>
 
-    <div class="verification-tab z-depth-1">
+    <div class="verification-tab z-depth-2">
      <div class="tabs-container">
        <ul class="tabs">
          <li class="tab"><a href="#verification" class="active" v-on:click="showVerifications()" >Verifications</a></li>
@@ -27,7 +27,8 @@
             <tbody>
               <tr v-for="ver in verifications">
                 <td>{{ver.verification}}</td>
-                <td>{{ver.status}}</td>
+                <td >{{ver.status}}</td>
+
               </tr>
             </tbody>
           </table>
@@ -45,14 +46,14 @@
          <table class="striped">
            <thead>
              <tr>
-                 <th>Verification</th>
+                 <th>Verifications</th>
                  <th>Status</th>
              </tr>
            </thead>
            <tbody>
              <tr v-for="na in notactivated">
                <td>{{na.verification}}</td>
-               <td>{{na.status}}</td>
+               <td>Available</td>
              </tr>
            </tbody>
          </table>
@@ -70,14 +71,14 @@
          <table class="striped">
            <thead>
              <tr>
-                 <th>Verification</th>
+                 <th>Verifications</th>
                  <th>Status</th>
              </tr>
            </thead>
            <tbody>
              <tr v-for="ac in activated">
                <td>{{ac.verification}}</td>
-               <td>{{ac.status}}</td>
+               <td>Activated</td>
              </tr>
            </tbody>
          </table>
@@ -106,7 +107,8 @@
         notactivatedpagination:[],
         activated:[],
         activatedpagination:[],
-        generate:''
+        generate:'',
+        status:''
       }
     },
     mounted(){

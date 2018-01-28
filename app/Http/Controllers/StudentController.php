@@ -14,8 +14,8 @@ class StudentController extends Controller
       return view('admin');
     }
 
-    public function showStudents(){
-      $student = Student::orderBy('lname','asc')->paginate(20);
+    public function showStudents(Request $request){
+      $student = Student::orderBy('lname','asc')->with('studentcourse')->where('fname','LIKE','%'.$request->search.'%')->orWhere('lname','LIKE','%'.$request->search.'%')->paginate(20);
       $response = array('student' => $student );
       return response()->json($response);
     }
@@ -24,13 +24,37 @@ class StudentController extends Controller
       $currentSem =  DB::table('sub_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
       $student =  Student::find(Auth::user()->username);
       return $student->subjects(27)->get();
-
     }
 
     public function showSubjectTaken(){
       $response = Student::where('idnum',Auth::user()->username)->with('subjectsTaken')->get();
       return response()->json($response);
     }
+
+    public function studentCourse(){
+      $currentSem =  DB::table('stud_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
+
+      $student =  Student::find(Auth::user()->username);
+
+      $course = $student->course(27)->get();
+      $response = array('student' => $student,'course' => $course );
+
+      return response()->json($response);
+
+    }
+
+    public function studentStatus(){
+      $currentSem =  DB::table('stud_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
+
+      $student =  Student::find(Auth::user()->username);
+
+      $course = $student->course(27)->get();
+      $response = array('course' => $course );
+
+      return response()->json($response);
+
+    }
+
 
     public function fetchStudent($idnum){
       return Student::where('idnum',$idnum)->get();

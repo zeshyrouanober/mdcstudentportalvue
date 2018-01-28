@@ -59,12 +59,12 @@
                   <label>Students</label>
                 </a>
               </li>
-              <li class="tab">
+              {{-- <li class="tab">
                 <a href="#grades">
                   <i class="material-icons">assignment</i>
                   <label>Grades</label>
                 </a>
-              </li>
+              </li> --}}
               <li class="tab">
                 <a href="#news">
                   <i class="material-icons">theaters</i>
@@ -73,13 +73,13 @@
               </li>
               <li class="tab">
                 <a href="#accounts">
-                  <i class="material-icons">theaters</i>
+                  <i class="material-icons">account_circle</i>
                   <label>Accounts</label>
                 </a>
               </li>
               <li class="tab" >
                 <a href="#verifications" id="veriftab">
-                  <i class="material-icons">theaters</i>
+                  <i class="material-icons">verified_user</i>
                   <label>Verification</label>
                 </a>
               </li>
@@ -87,7 +87,7 @@
         </div>
     @endsection
     @section('content')
-      <div class="user-info">
+      <div class="user-info ">
         {{-- @foreach ($student as $stud) --}}
           <div class="name">
               <label>Justice League</label>
@@ -95,26 +95,21 @@
         {{-- @endforeach --}}
           <div class="time-out">
               {{-- <label>{{ date('m-d-Y h:i') }}</label> --}}
-              <label>
                 <label id="time"></label>
                 <script type="text/javascript">
-                var timestamp = '<?=time();?>';
-                  function updateTime(){
-                    $('#time').html(Date(timestamp));
-                    timestamp++;
-                  }
-                $(function(){
-                  setInterval(updateTime, 1000);
-                });
+                  var timestamp = '<?=time('d m y');?>';
+                    function updateTime(){
+                      $('#time').html(Date(timestamp));
+                      timestamp++;
+                    }
+                  $(function(){
+                    setInterval(updateTime, 1000);
+                  });
                 </script>
-              </label>
-              <ul id='dropdown1' class='dropdown-content' >
-                <li><a href="" onclick="event.preventDefault(); document.getElementById('logoutform').submit()" >Sign Out</a></li>
-              </ul>
+              <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit()"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Logout">exit_to_app</i></a>
               <form id="logoutform"  method="post" style="display:none;" action="log-out">
                 {{ csrf_field() }}
               </form>
-              <a href="#!" class="dropdown" data-activates="dropdown1"><i class="material-icons">arrow_drop_down</i></a>
           </div>
           <script type="text/javascript">
             $(document).ready(function(){
@@ -141,11 +136,11 @@
           <div class="user-main-content tab-content" id="students">
             <studentvue></studentvue>
           </div>
-          <div class="user-main-content tab-content" id="grades">
+          {{-- <div class="user-main-content tab-content" id="grades">
             <div class="content-container z-depth-1">
               <label>Grades</label>
             </div>
-          </div>
+          </div> --}}
           <div class="user-main-content tab-content" id="news" >
             <announcementvue></announcementvue>
           </div>
@@ -186,7 +181,7 @@
               $('.counters').each(function() {
                    var $this = $(this),
                        countTo = $this.attr('data-count');
-                   $({ countNum: $this.text()}).animate({
+                   $({ countNum: $this.val()}).animate({
                      countNum: countTo
                    },
                    {
@@ -197,10 +192,20 @@
                      },
                      complete: function() {
                        $this.text(this.countNum);
-                       //alert('finished');
                      }
                    });
                });
+
+              $('.datepicker').pickadate({
+                selectMonths: true,
+                selectYears: 15,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false,
+                format: 'yyyy-mm-dd'
+              });
+
             });
         </script>
       @endsection

@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="content-container">
-    <div class="content-header z-depth-1">
+    <div class="content-header z-depth-2">
       <label>Students</label>
-      <input type="text" name="search" value="" placeholder="Search Student">
-      <a href="#"><i class="material-icons">search</i></a>
+      <input type="text" name="search" value="" v-model="search" v-on:keyup.enter="showStudents(1)" placeholder="Search Student">
+      <i class="material-icons">search</i>
     </div>
     <div class="departmentOption"></div>
-    <div class="student-list z-depth-1">
+    <div class="student-list z-depth-2">
       <div class="select-container">
         <div class="input-field">
           <select>
@@ -32,13 +32,15 @@
         </div>
       </div>
 
-      <table class="bordered highlight">
+      <table class="striped">
         <thead>
           <tr>
             <th>Student ID</th>
             <th>Lastname</th>
             <th>Firstname</th>
             <th>MI</th>
+            <th>Course</th>
+            <th>Year</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -48,6 +50,8 @@
             <td>{{stud.lname}}</td>
             <td>{{stud.fname}}</td>
             <td>{{stud.mi}}</td>
+            <td v-if = "stud.studentcourse[0] != null">{{stud.studentcourse[stud.studentcourse.length - 1].cr_acrnm}}</td>
+            <td v-if = "stud.studentcourse[0] != null">{{stud.studentcourse[stud.studentcourse.length - 1].pivot.year}}</td>
             <td id="actions">
               <a href="#viewStudent" class="modal-trigger" v-on:click="fetchUpdate(stud.idnum),isUpdate = true" ><i class="material-icons">remove_red_eye</i></a>
               <a href="#updateStudent" class="modal-trigger" v-on:click="fetchUpdate(stud.idnum),isUpdate = true" ><i class="material-icons" style="color:#fb8c00;">edit</i></a>
@@ -216,7 +220,8 @@ export default {
         status:'',
         father:'',
         mother:'',
-        base_rate: ''
+        base_rate: '',
+        search:''
     }
   },
 
@@ -228,7 +233,7 @@ export default {
   methods:{
     showStudents(page){
       var vm = this;
-      axios.get(`student-data?page=` + page).then(function(response){
+      axios.get(`student-data?search=`+this.search+`&page=`+ page).then(function(response){
         vm.student = response.data.student.data;
         vm.pagination = response.data.student;
         console.log(response);

@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Subject_Enroll extends Model
+class Stud_Enroll extends Model
 {
-    protected $table = 'sub_enrol';
+
+    protected $table = 'stud_enrol';
     protected $increment = false;
     public $timestamps = false;
 

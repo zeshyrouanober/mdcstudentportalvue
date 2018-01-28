@@ -14,8 +14,8 @@ class SubjectController extends Controller
       return view('admin');
     }
 
-    public function showSubjects(){
-      $subject = Subject::orderBy('sub_code','asc')->paginate(20);
+    public function showSubjects(Request $request){
+      $subject = Subject::orderBy('sub_code','asc')->where('name','LIKE','%'.$request->search.'%')->orWhere('descript','LIKE','%'.$request->search.'%')->paginate(20);
       $response = array('subject' => $subject );
       return response()->json($response);
     }

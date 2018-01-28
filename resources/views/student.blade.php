@@ -3,7 +3,7 @@
     @section('side-nav')
         <div class="student-nav">
             <ul class="tabs">
-              <li class="tab" id="usertab" class="active">
+              <li class="tab" id="usertab" >
                 <div class="avatar">
                   <a href="#userprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><i class="material-icons">face</i>
                     <label>{{Auth::user()->username}}</label>
@@ -11,7 +11,7 @@
                 </div>
               </li>
               <li class="tab">
-                <a href="#dashboard" >
+                <a href="#dashboard" class="active" >
                   <i class="material-icons ">dashboard</i>
                   <label>Dashboard</label>
                 </a>
@@ -37,14 +37,21 @@
               <label>{{Auth::user()->student->fname}} {{Auth::user()->student->lname}} </label>
           </div>
           <div class="time-out">
-              <label>{{ date('m-d-Y h:i') }}</label>
-              <ul id='dropdown1' class='dropdown-content' >
-                <li><a href="" onclick="event.preventDefault(); document.getElementById('logoutform').submit()" >Sign Out</a></li>
-              </ul>
-              <form id="logoutform"  method="post" style="display:none;" action="log-out">
-                {{ csrf_field() }}
-              </form>
-              <a href="#!" class="dropdown" data-activates="dropdown1"><i class="material-icons">arrow_drop_down</i></a>
+            <label id="time"></label>
+            <script type="text/javascript">
+              var timestamp = '<?=time('d m y');?>';
+                function updateTime(){
+                  $('#time').html(Date(timestamp));
+                  timestamp++;
+                }
+              $(function(){
+                setInterval(updateTime, 1000);
+              });
+            </script>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit()"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Logout">exit_to_app</i></a>
+            <form id="logoutform"  method="post" style="display:none;" action="log-out">
+              {{ csrf_field() }}
+            </form>
           </div>
           <script type="text/javascript">
             $(document).ready(function(){
@@ -75,17 +82,17 @@
           </div>
           <div class="user-right-nav">
             <div class="side-nav-container">
-              <div class="calendar z-depth-1 ">
+              <div class="calendar z-depth-2 ">
                 <updatesandannouncementvue></updatesandannouncementvue>
               </div>
             </div>
             <div class="side-nav-container">
-              <div class="upcoming-events z-depth-1">
+              <div class="upcoming-events z-depth-2">
                 <upcomingeventsvue></upcomingeventsvue>
               </div>
             </div>
             <div class="side-nav-container">
-              <div class="todos z-depth-1 ">
+              <div class="todos z-depth-2 ">
                 <todosvue></todosvue>
               </div>
             </div>
@@ -133,24 +140,24 @@
                 $('select').material_select();
                 $('ul.tabs').tabs();
                 $('.tooltipped').tooltip({delay: 50});
-                $('.counters').each(function() {
-                     var $this = $(this),
-                         countTo = $this.attr('data-count');
-                     $({ countNum: $this.text()}).animate({
-                       countNum: countTo
-                     },
-                     {
-                       duration: 5000,
-                       easing:'linear',
-                       step: function() {
-                         $this.text(Math.floor(this.countNum));
-                       },
-                       complete: function() {
-                         $this.text(this.countNum);
-                         //alert('finished');
-                       }
-                     });
-                 });
+                // $('.counters').each(function() {
+                //      var $this = $(this),
+                //          countTo = $this.attr('data-count');
+                //      $({ countNum: $this.text()}).animate({
+                //        countNum: countTo
+                //      },
+                //      {
+                //        duration: 5000,
+                //        easing:'linear',
+                //        step: function() {
+                //          $this.text(Math.floor(this.countNum));
+                //        },
+                //        complete: function() {
+                //          $this.text(this.countNum);
+                //          //alert('finished');
+                //        }
+                //      });
+                //  });
               });
           </script>
         @endsection
