@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
 use App\Student;
 use Illuminate\Http\Request;
 use Input;
@@ -25,7 +26,7 @@ class StudentController extends Controller
     public function listOfSubjectWithGrade(){
       $currentSem =  DB::table('sub_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
       $student =  Student::find(Auth::user()->username);
-      return $student->subjects(27)->get();
+      return $student->subjects(23)->get();
     }
 
     public function showSubjectTaken(){
@@ -57,7 +58,15 @@ class StudentController extends Controller
     }
 
     public function studentGradePDF(){
-      $pdf = PDF::loadView('pdf/grade')->setPaper('letter');
+      $currentSem =  DB::table('sub_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
+      $student =  Student::find(Auth::user()->username);
+
+      $course = $student->course(23)->get();
+      $subjects = $student->subjects(23)->get();
+      $response = array('student' => $student,'course' => $course , 'subjects' => $subjects);
+
+      // return $response;
+      $pdf = PDF::loadView('pdf/grade',compact('course','subjects','student'))->setPaper('letter');
       return $pdf->save('gradepdf')->download('grade.pdf');
     }
 

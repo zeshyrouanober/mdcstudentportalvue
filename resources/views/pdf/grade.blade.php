@@ -17,15 +17,14 @@
         <br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="student-info">
           <div class="name-address">
-            <label>Name : ANOBER, ZESHYROU B.</label>
-            <label class="student-no">Student No : 9036 </label>
+            <label>Name : {{$student->fname}} , {{$student->lname}} {{$student->mi}}</label>
+            <label class="student-no">Student No : {{$student->idnum}}</label>
           </div>
           <div class="idnum-course">
-            <label>Adress :  SAN VICENTE SUR, SAGBAYAN,BOHOL.</label>
-            <label class="course-year">Course & Year : BSIT - 4</label>
+            <label>Adress :  {{$student->addb}} , {{$student->addt}} ,{{$student->addp}}.</label>
+            <label class="course-year">Course & Year : {{$course[0]->cr_acrnm}} - {{$course[0]->pivot->year}}</label>
           </div>
         </div>
-        <br>
         <div class="student-acad">
           <table >
             <thead>
@@ -39,70 +38,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
-              <tr >
-                <td>Sacraments</td>
-                <td class="center">3.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td class="center">1.0</td>
-                <td>Tocmaya Tamsiloy</td>
-              </tr>
+              @foreach ($subjects as $sub)
+                <tr>
+                  <td>{{$sub->descript}}</td>
+                  <td class="center">3.0</td>
+                  <td class="center">{{$sub->pivot->mgrade}}</td>
+                  <td class="center">{{$sub->pivot->fgrade}}</td>
+                  <td class="center">{{$sub->pivot->rating}}</td>
+                  <td>Tocmaya Tamsiloy</td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
           <br>
@@ -123,8 +68,8 @@
           </div>
         </div>
         <div class="parents-basic-info">
-            <label>Name of Father : ALIMOKON PUNAY</label><br>
-            <label>Address : SAN VICENTE SUR, SAGBAYAN,BOHOL.</label>
+            <label>Name of Father : {{$student->father}}</label><br>
+            <label>Address : {{$student->addb}},{{$student->addt}},{{$student->addp}}.</label>
         </div>
       </div>
   </body>
@@ -152,10 +97,10 @@
       margin: 0px;
     }
     .name-address .student-no{
-      margin-left:350px;
+      padding-left: 338px;
     }
     .idnum-course .course-year{
-      margin-left: 195px;
+      padding-left: 185px;
     }
     table{
       display: table;
@@ -163,24 +108,31 @@
     }
     table thead{
       border-bottom: 1px solid black;
+      font-size: 14px;
+      font-weight: 200!important;
     }
     table thead .center-class{
-      padding-left: 80px!important;
-      padding-right: 80px!important;
+      padding-left: 130px!important;
+      padding-right: 130px!important;
     }
     table thead .center{
-      padding-left: 10px!important;
-      padding-right: 10px!important;
+      padding-left: 5px!important;
+      padding-right: 5px!important;
       text-align: center;
     }
     table thead .center-ins{
-      padding-left: 60px!important;
-      padding-right: 60px!important;
+      padding-left: 40px!important;
+      padding-right: 40px!important;
     }
     table tbody tr .center{
       padding-left: 10px!important;
       padding-right: 10px!important;
       text-align: center;
+    }
+    table tbody tr td{
+      font-size: 11px;
+      font-weight: normal;
+      padding:3px 0px;
     }
     .student-grade-pdf .prepared{
       display:inline-flex;
