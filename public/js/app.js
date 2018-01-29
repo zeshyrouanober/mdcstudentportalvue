@@ -50833,6 +50833,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     gradePDF: function gradePDF() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('student-grade-pdf').then(function (response) {
+        location.href = "student-grade-pdf";
         Materialize.toast('Downloaded', 1000, 'rounded');
       });
     }
@@ -50880,7 +50881,6 @@ var render = function() {
           "a",
           {
             staticClass: "btn-floating waves-effect waves-light ",
-            attrs: { href: "" },
             on: {
               click: function($event) {
                 _vm.gradePDF()

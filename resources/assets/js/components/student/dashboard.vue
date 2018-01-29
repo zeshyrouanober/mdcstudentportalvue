@@ -25,7 +25,7 @@
       <div class="classes-grades-header light-blue">
         <!-- <a class="btn-floating right "><i class="material-icons">print</i></a> -->
         <label class="tabs-content-header">Present Subjects</label>
-        <a href="" v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
+        <a  v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
 
       </div>
       <div class="classes-grades-content">
@@ -101,6 +101,7 @@
         gradePDF(){
           var vm = this;
           axios.get(`student-grade-pdf`).then(function(response){
+            location.href="student-grade-pdf";
             Materialize.toast('Downloaded',1000,'rounded');
           });
         }

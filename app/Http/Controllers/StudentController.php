@@ -57,9 +57,8 @@ class StudentController extends Controller
     }
 
     public function studentGradePDF(){
-      $data = ['name' => 'Zeshyrou'];
-      $pdf = PDF::loadView('pdf/grade',compact('data'));
-      return $pdf->download('grade.pdf');
+      $pdf = PDF::loadView('pdf/grade')->setPaper('letter');
+      return $pdf->save('gradepdf')->download('grade.pdf');
     }
 
     public function fetchStudent($idnum){

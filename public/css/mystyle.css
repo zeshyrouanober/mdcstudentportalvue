@@ -193,6 +193,14 @@ textarea:focus + label{
   color: #0288d1 !important;
 }
 
+input{
+  font-family: 'Quicksand', sans-serif!important;
+}
+
+input::placeholder{
+  font-family: 'Quicksand', sans-serif!important;
+}
+
 input[type=text]{
   color:#0288d1!important;
 }
@@ -1155,6 +1163,7 @@ thead tr th{
 }
 .announcement-content{
   padding: 10px!important;
+  font-family: 'Quicksand', sans-serif!important;
 }
 .card-content .card-title p{
   font-size: 10px!important;
