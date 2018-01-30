@@ -50062,6 +50062,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vm.generate = '';
         Materialize.toast('Generated Successfully', 3000, 'rounded');
       });
+    },
+    verificationPDF: function verificationPDF() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('generate-verification-pdf').then(function (response) {
+        location.href = "generate-verification-pdf";
+        Materialize.toast('Downloaded', 1000, 'rounded');
+      });
     }
   },
 
@@ -50144,6 +50151,19 @@ var render = function() {
   return _c("div", { staticClass: "content-container " }, [
     _c("div", { staticClass: "content-header z-depth-2" }, [
       _c("label", { staticClass: "verification" }, [_vm._v("Verifications ")]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn-floating waves-effect waves-light ",
+          on: {
+            click: function($event) {
+              _vm.verificationPDF()
+            }
+          }
+        },
+        [_c("i", { staticClass: "material-icons" }, [_vm._v("print")])]
+      ),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -51431,6 +51451,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51443,7 +51493,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       isUpdate: false,
       currentPassword: '',
       newPassword: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      avatar: ''
     };
   },
   mounted: function mounted() {
@@ -51475,6 +51526,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (error) {
         console.log(error);
       });
+    },
+    updateAvatar: function updateAvatar() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('update-avatar', {
+        'avatar': this.avatar
+      }).then(function (response) {
+        console.log(response);
+      });
     }
   }
 });
@@ -51492,7 +51551,9 @@ var render = function() {
       _c("div", { staticClass: "user-picture " }, [
         _c("label", { staticClass: "header" }, [_vm._v("Basic profile")]),
         _vm._v(" "),
-        _c("img", { attrs: { src: "images/uploads/avatar.jpg", alt: "" } }),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "images/uploads/default.png", alt: "" } }),
         _vm._v(" "),
         _c("label", [_vm._v(_vm._s(_vm.student.idnum))])
       ]),
@@ -51519,6 +51580,8 @@ var render = function() {
         ])
       ])
     ]),
+    _vm._v(" "),
+    _vm._m(1),
     _vm._v(" "),
     _c("div", { staticClass: "account-details " }, [
       _c("div", { staticClass: "account-content z-depth-1" }, [
@@ -51671,11 +51734,103 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(2)
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "tooltipped modal-trigger",
+        attrs: {
+          href: "#avatar",
+          "data-position": "bottom",
+          "data-delay": "50",
+          "data-tooltip": "Update your photo"
+        }
+      },
+      [
+        _c("i", { staticClass: "material-icons blue-text" }, [
+          _vm._v("settings")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal modal-fixed-footer", attrs: { id: "avatar" } },
+      [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-header light-blue " }, [
+            _c("h4", { attrs: { id: "todos-header " } }, [
+              _vm._v("Update Avatar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-fields" }, [
+            _c("div", { staticClass: "input-field" }, [
+              _c("div", { staticClass: "preview" }, [
+                _c("img", {
+                  attrs: { src: "images/uploads/default.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-file-container" }, [
+                _c("div", { staticClass: "file-field input-field" }, [
+                  _c(
+                    "div",
+                    { staticClass: "btn-flat light-blue center white-text" },
+                    [
+                      _c("span", [_vm._v("Select file")]),
+                      _vm._v(" "),
+                      _c("input", { attrs: { type: "file" } })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "file-path-wrapper" }, [
+                    _c("input", {
+                      staticClass: "file-path validate",
+                      attrs: { type: "text" }
+                    })
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "modal-footer" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-flat waves-effect waves-light white modal-close",
+              attrs: { id: "cancel" }
+            },
+            [_vm._v("Cancel")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-flat waves-effect waves-light modal-close white-text light-blue"
+            },
+            [_vm._v("Add")]
+          )
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -55,6 +55,10 @@ class UserController extends Controller
       }
     }
 
+    public function updateAvatar(Request $request){
+      return $request->all();
+    }
+
     public function counters(){
       return User::count();
     }

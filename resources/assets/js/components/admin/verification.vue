@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="content-container ">
-
       <div class="content-header z-depth-2">
         <label class="verification">Verifications </label>
+        <a  v-on:click="verificationPDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
+
         <input type="text" v-model="generate" name="numberVerification" required id="number-of-verification" placeholder="Please provide only number">
         <a class="waves-effect waves-light btn blue darken-1 generate " style="margin:auto; margin-left:5px!important; margin-right:5px!important;" v-on:click="generatedVerification()" >Generate</a>
       </div>
-
     <div class="verification-tab z-depth-2">
      <div class="tabs-container">
        <ul class="tabs">
@@ -166,6 +166,14 @@
          vm.showVerifications();
          vm.generate = '';
          Materialize.toast('Generated Successfully',3000,'rounded');
+       });
+     },
+
+     verificationPDF(){
+       var vm = this;
+       axios.get(`generate-verification-pdf`).then(function(response){
+         location.href="generate-verification-pdf";
+         Materialize.toast('Downloaded',1000,'rounded');
        });
      }
 

@@ -10,6 +10,7 @@ use Input;
 use App\Verification;
 use Alert;
 use Auth;
+use PDF;
 
 class VerificationController extends Controller
 {
@@ -74,5 +75,11 @@ class VerificationController extends Controller
         $activatedverifications = Verification::where('status','1')->orderBy('id','asc')->paginate(20);
         $response = array('activatedverifications' => $activatedverifications);
         return response()->json($response);
+      }
+
+      public function verificationPDF(){
+        
+        $pdf = PDF::loadView('pdf/verificationPdf')->setPaper('legal');
+        return $pdf->save('verification')->download('verification.pdf');
       }
 }

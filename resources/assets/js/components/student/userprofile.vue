@@ -3,7 +3,8 @@
     <div class="user-profile-details z-depth-1">
       <div class="user-picture ">
           <label class="header">Basic profile</label>
-          <img src="images/uploads/avatar.jpg" alt="">
+          <a href="#avatar" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
+          <img src="images/uploads/default.png" alt="" >
           <label >{{student.idnum}}</label>
       </div>
       <div class="user-details ">
@@ -14,6 +15,35 @@
           <label >{{student.addb}},{{student.addt}},{{student.addp}}</label>
       </div>
     </div>
+    <div id="avatar" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <div class="modal-header light-blue ">
+          <h4 id="todos-header ">Update Avatar</h4>
+        </div>
+        <div class="modal-fields">
+          <div class="input-field">
+            <div class="preview">
+              <img src="images/uploads/default.png" alt="">
+            </div>
+            <div class="input-file-container">
+                <div class="file-field input-field">
+                  <div class="btn-flat light-blue center white-text">
+                    <span>Select file</span>
+                    <input type="file">
+                  </div>
+                   <div class="file-path-wrapper">
+                     <input class="file-path validate" type="text">
+                   </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
+        <a class="btn btn-flat waves-effect waves-light modal-close white-text light-blue">Update</a>
+      </div>
+  </div>
     <div class="account-details ">
       <div class="account-content z-depth-1">
         <label class="header">Update your account</label>
@@ -66,7 +96,8 @@
         isUpdate:false,
         currentPassword:'',
         newPassword:'',
-        confirmPassword:''
+        confirmPassword:'',
+        avatar:''
       }
     },
 
@@ -103,6 +134,15 @@
         });
       },
 
+      updateAvatar(){
+        var vm = this;
+        axios.get(`update-avatar`,{
+          'avatar' : this.avatar
+        }).then(function(response){
+          console.log(response);
+        });
+      }
     }
   }
+
 </script>

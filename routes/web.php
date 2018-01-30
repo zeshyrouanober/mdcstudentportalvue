@@ -87,6 +87,7 @@ Route::put('update-user/{username}','UserController@updateUser');
 Route::get('user-counters','UserController@counters');
 Route::get('user-information/{username}','UserController@userInformation');
 Route::put('student-user-update','UserController@studentUserUpdate');
+Route::get('update-avatar','UserController@updateAvatar');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');
@@ -94,3 +95,4 @@ Route::post('generate-verification','VerificationController@generate');
 Route::get('show-verifications','VerificationController@showVerifications');
 Route::get('not-activated','VerificationController@notActivated');
 Route::get('activated','VerificationController@activated');
+Route::get('generate-verification-pdf','VerificationController@verificationPDF');

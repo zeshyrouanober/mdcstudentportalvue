@@ -726,6 +726,34 @@ span{
   flex:3!important;
   flex-direction: column;
 }
+#avatar .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#avatar .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.8!important;
+}
+#avatar .modal-content .modal-fields{
+  display: flex;
+  justify-content: center;
+  color:#4caf50!important;
+  flex:3!important;
+}
+#avatar .modal-content .modal-fields .input-field{
+  display: flex;
+  flex-direction: column;
+}
+#avatar .modal-content .modal-fields .input-field .preview{
+  flex:7;
+  display: flex;
+}
+#avatar .modal-content .modal-fields .input-field .input-file-container{
+  flex:1;
+}
 .modal-content .modal-fields{
   padding: 10px 50px 10px 50px;
 }
@@ -1185,6 +1213,7 @@ thead tr th{
 .user-profile-details{
   display: flex;
   justify-content: center;
+  padding: 5px;
 }
 .user-picture{
   flex: 1;
@@ -1197,6 +1226,9 @@ thead tr th{
   margin: inherit;
   padding-bottom: 10px;
   font-size: 15px;
+}
+.user-picture a{
+  padding-left: 45px;
 }
 .user-picture img{
   width: 150px;
