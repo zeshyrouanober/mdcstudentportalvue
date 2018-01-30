@@ -5,7 +5,7 @@
             <ul class="tabs">
               <li class="tab" id="usertab" >
                 <div class="avatar">
-                  <a href="#userprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><i class="material-icons">face</i>
+                  <a href="#userprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/storage/avatars/{{Auth::user()->avatar}}" alt="">
                     <label>{{Auth::user()->username}}</label>
                   </a>
                 </div>
@@ -78,7 +78,7 @@
             <calendarvue></calendarvue>
           </div>
           <div class="user-main-content tab-content" id="userprofile">
-            <userprofilevue></userprofilevue>
+            <userprofilevue :user="{{Auth::user()}}"></userprofilevue>
           </div>
           <div class="user-right-nav">
             <div class="side-nav-container">

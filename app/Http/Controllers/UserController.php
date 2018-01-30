@@ -11,6 +11,7 @@ use Auth;
 use Hash;
 use Materialize;
 use Alert;
+use Image;
 
 class UserController extends Controller
 {
@@ -56,8 +57,18 @@ class UserController extends Controller
     }
 
     public function updateAvatar(Request $request){
-      return $request->all();
-    }
+
+        $image = $request->get('image');
+        $filename = time() . '.' . ('png');
+        Image::make($image)->save(public_path('/storage/avatars/').$filename);
+
+        $user = Auth::user();
+        $user->avatar = $filename;
+        $user->update();
+
+      }
+
+
 
     public function counters(){
       return User::count();

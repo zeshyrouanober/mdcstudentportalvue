@@ -325,15 +325,20 @@ form .forgot-password{
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  text-align: center;
 }
-.avatar i{
-  font-size: 57px;
-  color: #ffffff;
+.avatar img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 5px;
 }
 .avatar label{
   font-family: 'Quicksand', sans-serif!important;
   color:#4285f4;
-  font-size: 18px!important;
+  font-size: 15px!important;
+  margin-bottom: 3px;
 }
 .student-nav .tabs{
   height: auto;
@@ -747,9 +752,13 @@ span{
   display: flex;
   flex-direction: column;
 }
-#avatar .modal-content .modal-fields .input-field .preview{
+#avatar .modal-content .modal-fields .input-field .preview {
   flex:7;
   display: flex;
+}
+#avatar .modal-content .modal-fields .input-field .preview img{
+  width: 300px;
+  height: 250px;
 }
 #avatar .modal-content .modal-fields .input-field .input-file-container{
   flex:1;

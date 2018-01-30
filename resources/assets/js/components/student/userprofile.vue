@@ -4,7 +4,7 @@
       <div class="user-picture ">
           <label class="header">Basic profile</label>
           <a href="#avatar" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
-          <img src="images/uploads/default.png" alt="" >
+          <img :src="'/storage/avatars/' + user.avatar + ''" alt="" >
           <label >{{student.idnum}}</label>
       </div>
       <div class="user-details ">
@@ -15,35 +15,35 @@
           <label >{{student.addb}},{{student.addt}},{{student.addp}}</label>
       </div>
     </div>
-    <div id="avatar" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <div class="modal-header light-blue ">
-          <h4 id="todos-header ">Update Avatar</h4>
-        </div>
-        <div class="modal-fields">
-          <div class="input-field">
-            <div class="preview">
-              <img src="images/uploads/default.png" alt="">
-            </div>
-            <div class="input-file-container">
-                <div class="file-field input-field">
-                  <div class="btn-flat light-blue center white-text">
-                    <span>Select file</span>
-                    <input type="file">
-                  </div>
-                   <div class="file-path-wrapper">
-                     <input class="file-path validate" type="text">
+      <div id="avatar" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="modal-header light-blue ">
+            <h4 id="todos-header ">Update Avatar</h4>
+          </div>
+          <div class="modal-fields">
+            <div class="input-field">
+              <div class="preview">
+                <img :src="image" alt="">
+              </div>
+              <div class="input-file-container">
+                  <div class="file-field input-field">
+                    <div class="btn-flat light-blue center white-text">
+                        <span>Select file</span>
+                        <input type="file" @change="onFileChange"  >
+                    </div>
+                     <div class="file-path-wrapper">
+                       <input class="file-path validate"  type="text">
+                     </div>
                    </div>
-                 </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
+          <a class="btn btn-flat waves-effect waves-light modal-close white-text light-blue" v-on:click="updateAvatar()">Update</a>
+        </div>
       </div>
-      <div class="modal-footer">
-        <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
-        <a class="btn btn-flat waves-effect waves-light modal-close white-text light-blue">Update</a>
-      </div>
-  </div>
     <div class="account-details ">
       <div class="account-content z-depth-1">
         <label class="header">Update your account</label>
@@ -97,7 +97,7 @@
         currentPassword:'',
         newPassword:'',
         confirmPassword:'',
-        avatar:''
+        image:''
       }
     },
 
@@ -105,6 +105,8 @@
       isUpdate:true,
       this.studentAcademicDetails()
     },
+
+    props:['user'],
 
     methods:{
 
@@ -136,11 +138,32 @@
 
       updateAvatar(){
         var vm = this;
-        axios.get(`update-avatar`,{
-          'avatar' : this.avatar
+        axios.post(`update-avatar`,{
+          'image' : this.image
         }).then(function(response){
           console.log(response);
+          Materialize.toast('Uploaded' , 3000,'rounded');
         });
+      },
+
+      onFileChange(e) {
+        var files = e.target.files || e.dataTransfer.files;
+        if (!files.length)
+          return;
+        this.createImage(files[0]);
+      },
+      createImage(file) {
+        var image = new Image();
+        var reader = new FileReader();
+        var vm = this;
+
+        reader.onload = (e) => {
+          vm.image = e.target.result;
+      };
+        reader.readAsDataURL(file);
+      },
+      removeImage: function (e) {
+        this.image = '';
       }
     }
   }

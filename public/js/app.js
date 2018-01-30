@@ -51494,13 +51494,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       currentPassword: '',
       newPassword: '',
       confirmPassword: '',
-      avatar: ''
+      image: ''
     };
   },
   mounted: function mounted() {
     isUpdate: true, this.studentAcademicDetails();
   },
 
+
+  props: ['user'],
 
   methods: {
     studentAcademicDetails: function studentAcademicDetails() {
@@ -51529,11 +51531,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     updateAvatar: function updateAvatar() {
       var vm = this;
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('update-avatar', {
-        'avatar': this.avatar
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('update-avatar', {
+        'image': this.image
       }).then(function (response) {
         console.log(response);
+        Materialize.toast('Uploaded', 3000, 'rounded');
       });
+    },
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.createImage(files[0]);
+    },
+    createImage: function createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = function (e) {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+
+    removeImage: function removeImage(e) {
+      this.image = '';
     }
   }
 });
@@ -51553,7 +51575,9 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
-        _c("img", { attrs: { src: "images/uploads/default.png", alt: "" } }),
+        _c("img", {
+          attrs: { src: "/storage/avatars/" + _vm.user.avatar + "", alt: "" }
+        }),
         _vm._v(" "),
         _c("label", [_vm._v(_vm._s(_vm.student.idnum))])
       ]),
@@ -51581,7 +51605,68 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c(
+      "div",
+      { staticClass: "modal modal-fixed-footer", attrs: { id: "avatar" } },
+      [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-fields" }, [
+            _c("div", { staticClass: "input-field" }, [
+              _c("div", { staticClass: "preview" }, [
+                _c("img", { attrs: { src: _vm.image, alt: "" } })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-file-container" }, [
+                _c("div", { staticClass: "file-field input-field" }, [
+                  _c(
+                    "div",
+                    { staticClass: "btn-flat light-blue center white-text" },
+                    [
+                      _c("span", [_vm._v("Select file")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: { type: "file" },
+                        on: { change: _vm.onFileChange }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "modal-footer" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-flat waves-effect waves-light white modal-close",
+              attrs: { id: "cancel" }
+            },
+            [_vm._v("Cancel")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-flat waves-effect waves-light modal-close white-text light-blue",
+              on: {
+                click: function($event) {
+                  _vm.updateAvatar()
+                }
+              }
+            },
+            [_vm._v("Update")]
+          )
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "account-details " }, [
       _c("div", { staticClass: "account-content z-depth-1" }, [
@@ -51734,7 +51819,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(3)
     ])
   ])
 }
@@ -51765,71 +51850,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "modal modal-fixed-footer", attrs: { id: "avatar" } },
-      [
-        _c("div", { staticClass: "modal-content" }, [
-          _c("div", { staticClass: "modal-header light-blue " }, [
-            _c("h4", { attrs: { id: "todos-header " } }, [
-              _vm._v("Update Avatar")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-fields" }, [
-            _c("div", { staticClass: "input-field" }, [
-              _c("div", { staticClass: "preview" }, [
-                _c("img", {
-                  attrs: { src: "images/uploads/default.png", alt: "" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "input-file-container" }, [
-                _c("div", { staticClass: "file-field input-field" }, [
-                  _c(
-                    "div",
-                    { staticClass: "btn-flat light-blue center white-text" },
-                    [
-                      _c("span", [_vm._v("Select file")]),
-                      _vm._v(" "),
-                      _c("input", { attrs: { type: "file" } })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "file-path-wrapper" }, [
-                    _c("input", {
-                      staticClass: "file-path validate",
-                      attrs: { type: "text" }
-                    })
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "modal-footer" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "btn btn-flat waves-effect waves-light white modal-close",
-              attrs: { id: "cancel" }
-            },
-            [_vm._v("Cancel")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "btn btn-flat waves-effect waves-light modal-close white-text light-blue"
-            },
-            [_vm._v("Add")]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "modal-header light-blue " }, [
+      _c("h4", { attrs: { id: "todos-header " } }, [_vm._v("Update Avatar")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path validate",
+        attrs: { type: "text" }
+      })
+    ])
   },
   function() {
     var _vm = this

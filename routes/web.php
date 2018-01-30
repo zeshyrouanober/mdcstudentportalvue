@@ -87,7 +87,7 @@ Route::put('update-user/{username}','UserController@updateUser');
 Route::get('user-counters','UserController@counters');
 Route::get('user-information/{username}','UserController@userInformation');
 Route::put('student-user-update','UserController@studentUserUpdate');
-Route::get('update-avatar','UserController@updateAvatar');
+Route::post('update-avatar','UserController@updateAvatar');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');
