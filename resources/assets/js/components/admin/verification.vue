@@ -2,8 +2,7 @@
   <div class="content-container ">
       <div class="content-header z-depth-2">
         <label class="verification">Verifications </label>
-        <a  v-on:click="verificationPDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
-
+        <a id="verificationpdf"  v-on:click="verificationPDF()"  class="btn-floating waves-effect waves-light"><i class="material-icons">print</i></a>
         <input type="text" v-model="generate" name="numberVerification" required id="number-of-verification" placeholder="Please provide only number">
         <a class="waves-effect waves-light btn blue darken-1 generate " style="margin:auto; margin-left:5px!important; margin-right:5px!important;" v-on:click="generatedVerification()" >Generate</a>
       </div>

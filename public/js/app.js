@@ -46422,7 +46422,7 @@ var render = function() {
               _vm._v(" "),
               _c("p", [
                 _c("input", {
-                  attrs: { type: "checkbox", id: "test6" },
+                  attrs: { type: "checkbox", id: "checkbox-account" },
                   on: {
                     click: function($event) {
                       _vm.isChecked = true
@@ -46433,7 +46433,7 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    attrs: { for: "test6" },
+                    attrs: { for: "checkbox-account" },
                     on: {
                       click: function($event) {
                         _vm.isChecked = true
@@ -49994,7 +49994,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50155,7 +50154,8 @@ var render = function() {
       _c(
         "a",
         {
-          staticClass: "btn-floating waves-effect waves-light ",
+          staticClass: "btn-floating waves-effect waves-light",
+          attrs: { id: "verificationpdf" },
           on: {
             click: function($event) {
               _vm.verificationPDF()
@@ -51481,6 +51481,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51494,7 +51495,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       currentPassword: '',
       newPassword: '',
       confirmPassword: '',
-      image: ''
+      image: '',
+      imagePreview: false
     };
   },
   mounted: function mounted() {
@@ -51536,6 +51538,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (response) {
         console.log(response);
         Materialize.toast('Uploaded', 3000, 'rounded');
+        window.location.reload();
       });
     },
     onFileChange: function onFileChange(e) {
@@ -51573,7 +51576,28 @@ var render = function() {
       _c("div", { staticClass: "user-picture " }, [
         _c("label", { staticClass: "header" }, [_vm._v("Basic profile")]),
         _vm._v(" "),
-        _vm._m(0),
+        _c(
+          "a",
+          {
+            staticClass: "tooltipped modal-trigger",
+            attrs: {
+              href: "#avatar",
+              "data-position": "bottom",
+              "data-delay": "50",
+              "data-tooltip": "Update your photo"
+            },
+            on: {
+              click: function($event) {
+                _vm.imagePreview = true
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("settings")
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c("img", {
           attrs: { src: "/storage/avatars/" + _vm.user.avatar + "", alt: "" }
@@ -51610,19 +51634,33 @@ var render = function() {
       { staticClass: "modal modal-fixed-footer", attrs: { id: "avatar" } },
       [
         _c("div", { staticClass: "modal-content" }, [
-          _vm._m(1),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "modal-fields" }, [
             _c("div", { staticClass: "input-field" }, [
               _c("div", { staticClass: "preview" }, [
-                _c("img", { attrs: { src: _vm.image, alt: "" } })
+                _vm.imagePreview == true
+                  ? _c("img", {
+                      attrs: {
+                        src: "/storage/avatars/" + _vm.user.avatar + "",
+                        alt: ""
+                      }
+                    })
+                  : _c("img", { attrs: { src: _vm.image, alt: "" } })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "input-file-container" }, [
                 _c("div", { staticClass: "file-field input-field" }, [
                   _c(
                     "div",
-                    { staticClass: "btn-flat light-blue center white-text" },
+                    {
+                      staticClass: "btn-flat light-blue center white-text",
+                      on: {
+                        click: function($event) {
+                          _vm.imagePreview = false
+                        }
+                      }
+                    },
                     [
                       _c("span", [_vm._v("Select file")]),
                       _vm._v(" "),
@@ -51633,7 +51671,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ])
               ])
             ])
@@ -51819,33 +51857,11 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(2)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "tooltipped modal-trigger",
-        attrs: {
-          href: "#avatar",
-          "data-position": "bottom",
-          "data-delay": "50",
-          "data-tooltip": "Update your photo"
-        }
-      },
-      [
-        _c("i", { staticClass: "material-icons blue-text" }, [
-          _vm._v("settings")
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

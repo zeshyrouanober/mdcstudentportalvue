@@ -3,8 +3,8 @@
     <div class="user-profile-details z-depth-1">
       <div class="user-picture ">
           <label class="header">Basic profile</label>
-          <a href="#avatar" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
-          <img :src="'/storage/avatars/' + user.avatar + ''" alt="" >
+          <a href="#avatar" class="tooltipped modal-trigger" v-on:click="imagePreview = true"data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
+          <img :src="'/storage/avatars/' + user.avatar + ''" alt="">
           <label >{{student.idnum}}</label>
       </div>
       <div class="user-details ">
@@ -23,11 +23,12 @@
           <div class="modal-fields">
             <div class="input-field">
               <div class="preview">
-                <img :src="image" alt="">
+                <img v-if="imagePreview == true" :src="'/storage/avatars/' + user.avatar + ''" alt="" >
+                <img v-else :src="image" alt="">
               </div>
               <div class="input-file-container">
                   <div class="file-field input-field">
-                    <div class="btn-flat light-blue center white-text">
+                    <div class="btn-flat light-blue center white-text" v-on:click="imagePreview = false">
                         <span>Select file</span>
                         <input type="file" @change="onFileChange"  >
                     </div>
@@ -97,7 +98,8 @@
         currentPassword:'',
         newPassword:'',
         confirmPassword:'',
-        image:''
+        image:'',
+        imagePreview:false,
       }
     },
 
@@ -143,6 +145,7 @@
         }).then(function(response){
           console.log(response);
           Materialize.toast('Uploaded' , 3000,'rounded');
+          window.location.reload();
         });
       },
 

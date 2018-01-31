@@ -46,8 +46,8 @@
                 <label for="passwordconfirmation":class="[isUpdate == true ? 'active' : '']" >Confirmed Password</label>
               </div>
               <p>
-               <input type="checkbox" id="test6" v-on:click="isChecked = true"/>
-               <label for="test6" v-on:click="isChecked = true" >I review and remember</label>
+               <input type="checkbox" id="checkbox-account" v-on:click="isChecked = true"/>
+               <label for="checkbox-account" v-on:click="isChecked = true" >I review and remember</label>
              </p>
             </div>
           </div>
