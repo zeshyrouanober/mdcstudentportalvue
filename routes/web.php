@@ -22,9 +22,9 @@ Route::get('student-dashboard',function(){
   return view('student');
 });
 
-Route::get('verification',function(){
+Route::get('verification-index',function(){
   return view('verification');
-});
+})->name('verification-index');
 
 Route::get('sign-up', function () {
     return view('signup');
@@ -47,7 +47,6 @@ Route::get('update-student','StudentController@update');
 Route::get('student-course', 'StudentController@studentCourse');
 Route::get('student-dashboard-status','StudentController@studentStatus');
 Route::get('student-grade-pdf','StudentController@studentGradePDF')->name('grade-pdf');
-
 Route::get('student-data', 'StudentController@showStudents');
 Route::get('list-of-subject-with-grade','StudentController@listOfSubjectWithGrade');
 Route::get('show-subject-taken','StudentController@showSubjectTaken');

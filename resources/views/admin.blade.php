@@ -3,8 +3,9 @@
     @section('side-nav')
         <div class="student-nav">
           <div class="avatar">
-              <a href="#profile" class="modal-trigger tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><i class="material-icons">face</i></a>
-              <label>Admin</label>
+            <a class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/images/school-logo2.png" alt=""><br>
+              <label>{{Auth::user()->username}}</label>
+            </a>
           </div>
           <div id="profile" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -47,6 +48,12 @@
                   <label>Dashboard</label>
                 </a>
               </li>
+              <li class="tab">
+                <a href="#accounts">
+                  <i class="material-icons">account_circle</i>
+                  <label>Accounts</label>
+                </a>
+              </li>
               <li class="tab" >
                 <a href="#subjects">
                   <i class="material-icons" >subject</i>
@@ -69,12 +76,6 @@
                 <a href="#news">
                   <i class="material-icons">theaters</i>
                   <label>Announcement</label>
-                </a>
-              </li>
-              <li class="tab">
-                <a href="#accounts">
-                  <i class="material-icons">account_circle</i>
-                  <label>Accounts</label>
                 </a>
               </li>
               <li class="tab" >

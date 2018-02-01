@@ -9,17 +9,14 @@
           <thead>
             <tr>
               <th>Subject</th>
-              <th>Midterm</th>
-              <th>Final</th>
-              <th>Rating</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="takensubject in takensubjects">
               <td>{{takensubject.descript}}</td>
-              <td>{{takensubject.pivot.mgrade}}</td>
-              <td>{{takensubject.pivot.fgrade}}</td>
-              <td>{{takensubject.pivot.rating}}</td>
+              <td class="green-text" v-if="takensubject.pivot.rating <= 2.0 ">Passed</td>
+              <td v-else class="red-text">Failed</td>
             </tr>
           </tbody>
         </table>
@@ -35,6 +32,7 @@ export default {
   data(){
     return{
       takensubjects:[],
+      rating:0
     }
   },
 
@@ -46,7 +44,7 @@ export default {
     showTakenSubjects(){
       var vm = this;
       axios.get(`show-subject-taken`).then(function(response){
-        vm.takensubjects = response.data[0].subjects_taken;
+          vm.takensubjects = response.data[0].subjects_taken;
       });
     }
   }

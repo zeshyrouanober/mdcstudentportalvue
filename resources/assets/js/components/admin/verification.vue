@@ -1,17 +1,19 @@
 <template lang="html">
   <div class="content-container ">
-      <div class="content-header z-depth-2">
-        <label class="verification">Verifications </label>
-        <a id="verificationpdf"  v-on:click="verificationPDF()"  class="btn-floating waves-effect waves-light"><i class="material-icons">print</i></a>
-        <input type="text" v-model="generate" name="numberVerification" required id="number-of-verification" placeholder="Please provide only number">
-        <a class="waves-effect waves-light btn blue darken-1 generate " style="margin:auto; margin-left:5px!important; margin-right:5px!important;" v-on:click="generatedVerification()" >Generate</a>
-      </div>
+    <div class="content-header z-depth-2">
+      <label class="verification">Verifications </label>
+      <input type="number" v-model="generate" name="numberVerification" required id="number-of-verification" >
+      <a class="waves-effect waves-light btn blue darken-1 generate " style="margin:auto; margin-left:5px!important; margin-right:5px!important;" v-on:click="generatedVerification()" >Generate</a>
+    </div>
+    <div class="pdf-button-container">
+      <a id="verificationpdf"  v-on:click="verificationPDF()"  class="btn-floating waves-effect right waves-light tooltipped" data-position="top" data-delay="50" data-tooltip="Print Verification" ><i class="material-icons">picture_as_pdf</i></a>
+    </div>
     <div class="verification-tab z-depth-2">
      <div class="tabs-container">
        <ul class="tabs">
-         <li class="tab"><a href="#verification" class="active" v-on:click="showVerifications()" >Verifications</a></li>
-         <li class="tab"><a href="#notactivated"  v-on:click="notActivatedVerifications()" >Not Activated</a></li>
-         <li class="tab"><a href="#activated" v-on:click="activatedVerifications()">Activated</a></li>
+         <li class="tab"><a href="#verification" class="active" v-on:click="showVerifications()" >Verifications   ( {{allverifications}} ) </a></li>
+         <li class="tab"><a href="#notactivated"  v-on:click="notActivatedVerifications()" >Available  ( {{availableverifications}} )</a></li>
+         <li class="tab"><a href="#activated" v-on:click="activatedVerifications()">Activated ( {{activatedverifications}} )</a></li>
        </ul>
      </div>
      <div id="verification">
@@ -26,7 +28,8 @@
             <tbody>
               <tr v-for="ver in verifications">
                 <td>{{ver.verification}}</td>
-                <td >{{ver.status}}</td>
+                <td v-if="ver.status == 1" class="blue-text">Activated</td>
+                <td v-else class="green-text">Available</td>
 
               </tr>
             </tbody>
@@ -52,7 +55,7 @@
            <tbody>
              <tr v-for="na in notactivated">
                <td>{{na.verification}}</td>
-               <td>Available</td>
+               <td class="green-text">Available</td>
              </tr>
            </tbody>
          </table>
@@ -77,7 +80,7 @@
            <tbody>
              <tr v-for="ac in activated">
                <td>{{ac.verification}}</td>
-               <td>Activated</td>
+               <td class="blue-text">Activated</td>
              </tr>
            </tbody>
          </table>
@@ -107,11 +110,16 @@
         activated:[],
         activatedpagination:[],
         generate:'',
-        status:''
+        status:'',
+        allverifications:'',
+        availableverifications:'',
+        activatedverifications:''
       }
     },
     mounted(){
       this.showVerifications();
+      this.notActivatedVerifications();
+      this.activatedVerifications();
     },
 
     methods:{
@@ -120,6 +128,8 @@
         axios.get(`show-verifications?page=` + page).then(function(response){
           vm.verifications = response.data.verifications.data;
           vm.pagination = response.data.verifications;
+          vm.allverifications = response.data.verifCount;
+          console.log(response);
         });
       },
 
@@ -143,7 +153,7 @@
        axios.get(`not-activated?page=` + page).then(function(response){
          vm.notactivated = response.data.notactivatedverifications.data;
          vm.notactivatedpagination = response.data.notactivatedverifications;
-         console.log(response);
+         vm.availableverifications = response.data.countNotActVerifications;
        });
      },
 
@@ -152,7 +162,7 @@
        axios.get(`activated?page=` + page).then(function(response){
          vm.activated = response.data.activatedverifications.data;
          vm.activatedpagination = response.data.activatedverifications;
-         console.log(response);
+         vm.activatedverifications = response.data.countActVerifications;
        });
      },
 
@@ -163,6 +173,8 @@
        }).then(function(response){
          console.log(response);
          vm.showVerifications();
+         vm.notActivatedVerifications();
+         vm.activatedVerifications();
          vm.generate = '';
          Materialize.toast('Generated Successfully',3000,'rounded');
        });

@@ -16,7 +16,7 @@
                 </div>
                 <div class="title">
                     <label>Sign In to your account</label>
-                     <a href="verification" id="add" class="btn btn-floating btn-large waves-effect waves-light white pulse" ><i class="material-icons">edit</i></a>
+                     <a href="verification-index" id="add" class="btn btn-floating btn-large waves-effect waves-light white pulse" ><i class="material-icons">edit</i></a>
                 </div>
             </div>
             <div class="content-content">

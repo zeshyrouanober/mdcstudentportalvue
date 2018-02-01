@@ -28,6 +28,18 @@
                   <label>Calendar</label>
                 </a>
               </li>
+              <li class="tab">
+                <a href="#faqs">
+                  <i class="material-icons">info_outline</i>
+                  <label>faqs</label>
+                </a>
+              </li>
+              <li class="tab">
+                <a href="#help">
+                  <i class="material-icons">help_outline</i>
+                  <label>Help</label>
+                </a>
+              </li>
             </ul>
         </div>
     @endsection
@@ -80,6 +92,12 @@
           <div class="user-main-content tab-content" id="userprofile">
             <userprofilevue :user="{{Auth::user()}}"></userprofilevue>
           </div>
+          <div class="user-main-content tab-content" id="faqs">
+            <label>school faqs</label>
+          </div>
+          <div class="user-main-content tab-content" id="help">
+            <label>Helps</label>
+          </div>
           <div class="user-right-nav">
             <div class="side-nav-container">
               <div class="calendar z-depth-2 ">
@@ -110,10 +128,8 @@
               <div class="col l4 offset-l2 s12 links">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Academics</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Evaluation</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">School Calendar</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">News</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">mdc.com.ph</a></li>
+
                 </ul>
               </div>
             </div>

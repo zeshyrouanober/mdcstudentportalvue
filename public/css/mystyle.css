@@ -548,13 +548,16 @@ form .forgot-password{
   margin-bottom: 30px;
 }
 .present-subjects{
+  flex: 1;
   margin-right: 5px;
 }
 .taken-subjects{
+  flex: 1;
   margin-left: 5px;
   margin-right: 5px;
 }
 .your-status{
+  flex: 1;
   margin-left: 5px;
 }
 .forums{
@@ -807,6 +810,65 @@ span{
   display: flex;
   flex-wrap: wrap;
 }
+.student-widget{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.student-widget .my-widget{
+  flex: 1;
+  display: flex;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 20px;
+}
+.dashboard-content-up .my-widget{
+  flex: 1;
+  display: flex;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 20px;
+}
+.my-widget .widget-container{
+  flex: 1;
+  display: flex;
+}
+.widget-container .widget-icon{
+  flex: 1;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.widget-icon i{
+  font-size: 40px!important;
+}
+.widget-container .widget-content{
+  flex:2.5;
+  display: flex;
+  flex-direction: column;
+}
+.widget-content .widget-title{
+  flex:1;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px;
+}
+.widget-content .widget-data{
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.widget-title label{
+  flex: 1;
+  font-size: 15px!important;
+}
+.widget-data label{
+  font-size: 35px!important;
+}
 .dashboard-content-up .number{
   flex:1;
   display: flex;
@@ -911,15 +973,16 @@ span{
   color: #039be5;
 }
 .content-header .verification{
-  flex:1;
+  flex:9;
   text-align: center;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 10px;
+  padding: 20px 10px 20px 10px ;
   color: #039be5;
+
 }
 .content-header input{
-  flex:5;
+  flex:2;
   padding-right: 10px!important;
 }
 .content-header i{
@@ -938,6 +1001,9 @@ span{
   flex:2;
   margin-left: 10px;
   margin-right: 10px;
+}
+.pdf-button-container{
+  padding-top: 10px;
 }
 .departmentOption{
   padding: 10px;

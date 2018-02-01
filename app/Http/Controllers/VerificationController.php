@@ -61,25 +61,28 @@ class VerificationController extends Controller
 
       public function showVerifications(){
         $verifications = Verification::orderBy('id','asc')->paginate(20);
-        $response = array('verifications' => $verifications);
+        $verifCount = Verification::count();
+        $response = array('verifications' => $verifications,'verifCount' => $verifCount);
         return response()->json($response);
       }
 
       public function notActivated(){
         $notactivatedverifications = Verification::where('status','0')->orderBy('id','asc')->paginate(20);
-        $response = array('notactivatedverifications' => $notactivatedverifications);
+        $countNotActVerifications = Verification::where('status','0')->count();
+        $response = array('notactivatedverifications' => $notactivatedverifications,'countNotActVerifications' => $countNotActVerifications);
         return response()->json($response);
       }
 
       public function activated(){
         $activatedverifications = Verification::where('status','1')->orderBy('id','asc')->paginate(20);
-        $response = array('activatedverifications' => $activatedverifications);
+        $countActVerifications = Verification::where('status','1')->count();
+        $response = array('activatedverifications' => $activatedverifications,'countActVerifications' => $countActVerifications);
         return response()->json($response);
       }
 
       public function verificationPDF(){
-        
-        $pdf = PDF::loadView('pdf/verificationPdf')->setPaper('legal');
-        return $pdf->save('verification')->download('verification.pdf');
+        $availableVerifications = Verification::where('status' , '0')->get();
+        $pdf = PDF::loadView('pdf/verificationPDF',compact('availableVerifications'))->setPaper('legal');
+        return $pdf->save('verification')->stream('verification.pdf');
       }
 }

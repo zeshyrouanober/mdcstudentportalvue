@@ -145,7 +145,7 @@
         }).then(function(response){
           console.log(response);
           Materialize.toast('Uploaded' , 3000,'rounded');
-          window.location.reload();
+          location.reload();
         });
       },
 

@@ -14,14 +14,14 @@
                 <div class="school">
                     <h1>MDC Student Portal</h1>
                 </div>
-                    <div class="title">
-                        @foreach ($student as $stud)
-                          <label class="stud_info">{{$stud->lname}}, {{$stud->fname}} </label>
-                        @endforeach
-                        @foreach ($user as $u)
-                          <label class="stud_id">{{$u->username}}</label>
-                        @endforeach
-                    </div>
+                <div class="title">
+                    @foreach ($student as $stud)
+                      <label class="stud_info">{{$stud->lname}}, {{$stud->fname}} </label>
+                    @endforeach
+                    @foreach ($user as $u)
+                      <label class="stud_id">{{$u->username}}</label>
+                    @endforeach
+                </div>
             </div>
             <div class="content-content">
               <form class="col s12"  method="post" action="{{route('passwordSignIn')}}">

@@ -44315,6 +44315,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44325,6 +44370,8 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
   data: function data() {
     return {
       userCounter: '',
+      subjectCounter: '',
+      studentCounter: '',
       dataCount: true,
       title: '',
       date: '',
@@ -44339,6 +44386,8 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
   },
   mounted: function mounted() {
     this.userCounters();
+    this.subjectCounters();
+    this.studentCounters();
     this.showEvents();
   },
 
@@ -44348,6 +44397,20 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('user-counters').then(function (response) {
         vm.userCounter = response.data;
+        console.log(response);
+      });
+    },
+    subjectCounters: function subjectCounters() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('subject-counters').then(function (response) {
+        vm.subjectCounter = response.data;
+        console.log(response);
+      });
+    },
+    studentCounters: function studentCounters() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('student-counters').then(function (response) {
+        vm.studentCounter = response.data;
         console.log(response);
       });
     },
@@ -44933,13 +44996,61 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content-container" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "dashboard-content-up" }, [
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "teal-text" }, [
+                _vm._v(_vm._s(_vm.userCounter))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "indigo-text" }, [
+                _vm._v(_vm._s(_vm.subjectCounter))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "amber-text" }, [
+                _vm._v(_vm._s(_vm.studentCounter))
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "dashboard-content-down z-depth-2" },
       [
-        _vm._m(1),
+        _vm._m(6),
         _vm._v(" "),
         _c("vue-event-calendar", { attrs: { events: _vm.demoEvents } }),
         _vm._v(" "),
@@ -44951,7 +45062,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
+              _vm._m(7),
               _vm._v(" "),
               _c("div", { staticClass: "modal-fields" }, [
                 _c("div", { staticClass: "input-field" }, [
@@ -45095,110 +45206,50 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dashboard-content-up" }, [
-      _c("div", { staticClass: "number" }, [
-        _c("div", { staticClass: "counter-container z-depth-2 teal" }, [
-          _c("div", { staticClass: "title z-depth-1 " }, [
-            _c("div", { staticClass: "title-content" }, [
-              _c("label", [_vm._v("Users")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "space" }, [
-              _c("a", [
-                _c("i", { staticClass: "material-icons user" }, [
-                  _vm._v("remove_red_eye")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "icon" }, [
-            _c("div", { staticClass: "icon-content" }, [
-              _c("i", { staticClass: "material-icons" }, [
-                _vm._v("account_circle")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "counter" }, [
-            _c("div", { staticClass: "counter-content" }, [
-              _c(
-                "h3",
-                { staticClass: "counters", attrs: { "data-count": "120" } },
-                [_vm._v("0")]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "number" }, [
-        _c("div", { staticClass: "counter-container z-depth-2 amber" }, [
-          _c("div", { staticClass: "title z-depth-1 " }, [
-            _c("div", { staticClass: "title-content" }, [
-              _c("label", [_vm._v("Subjects")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "space" }, [
-              _c("a", [
-                _c("i", { staticClass: "material-icons subject" }, [
-                  _vm._v("remove_red_eye")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "icon" }, [
-            _c("div", { staticClass: "icon-content" }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("subject")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "counter" }, [
-            _c("div", { staticClass: "counter-content" }, [
-              _c(
-                "h3",
-                { staticClass: "counters", attrs: { "data-count": "120" } },
-                [_vm._v("0")]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "number" }, [
-        _c("div", { staticClass: "counter-container z-depth-2 purple " }, [
-          _c("div", { staticClass: "title z-depth-1" }, [
-            _c("div", { staticClass: "title-content " }, [
-              _c("label", [_vm._v("Students")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "space" }, [
-              _c("a", [
-                _c("i", { staticClass: "material-icons student" }, [
-                  _vm._v("remove_red_eye")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "icon" }, [
-            _c("div", { staticClass: "icon-content" }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("people")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "counter" }, [
-            _c("div", { staticClass: "counter-content" }, [
-              _c(
-                "h3",
-                { staticClass: "counters", attrs: { "data-count": "250" } },
-                [_vm._v("0")]
-              )
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "widget-icon teal" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [
+        _vm._v("account_circle")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "teal-text" }, [_vm._v("Users")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-icon indigo" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("subject")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "indigo-text" }, [_vm._v("Subjects")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-icon amber" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("people")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "amber-text" }, [_vm._v("Students")])
     ])
   },
   function() {
@@ -46451,7 +46502,7 @@ var render = function() {
               "a",
               {
                 staticClass:
-                  "waves-effect waves-light modal-close light-blue lighten-3 btn-flat ",
+                  "waves-effect waves-light modal-close light-blue  btn-flat ",
                 staticStyle: { color: "#ffffff" },
                 attrs: { id: "close" },
                 on: {
@@ -46467,7 +46518,7 @@ var render = function() {
               "a",
               {
                 staticClass:
-                  "waves-effect waves-light modal-close amber lighten-3 btn-flat ",
+                  "waves-effect waves-light modal-close amber  btn-flat ",
                 class: [_vm.isChecked == true ? "pulse" : "disabled"],
                 staticStyle: { color: "#ffffff" },
                 attrs: { id: "edit" },
@@ -49994,6 +50045,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50007,11 +50061,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       activated: [],
       activatedpagination: [],
       generate: '',
-      status: ''
+      status: '',
+      allverifications: '',
+      availableverifications: '',
+      activatedverifications: ''
     };
   },
   mounted: function mounted() {
     this.showVerifications();
+    this.notActivatedVerifications();
+    this.activatedVerifications();
   },
 
 
@@ -50021,6 +50080,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-verifications?page=' + page).then(function (response) {
         vm.verifications = response.data.verifications.data;
         vm.pagination = response.data.verifications;
+        vm.allverifications = response.data.verifCount;
+        console.log(response);
       });
     },
     changepage: function changepage(next) {
@@ -50040,7 +50101,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('not-activated?page=' + page).then(function (response) {
         vm.notactivated = response.data.notactivatedverifications.data;
         vm.notactivatedpagination = response.data.notactivatedverifications;
-        console.log(response);
+        vm.availableverifications = response.data.countNotActVerifications;
       });
     },
     activatedVerifications: function activatedVerifications(page) {
@@ -50048,7 +50109,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('activated?page=' + page).then(function (response) {
         vm.activated = response.data.activatedverifications.data;
         vm.activatedpagination = response.data.activatedverifications;
-        console.log(response);
+        vm.activatedverifications = response.data.countActVerifications;
       });
     },
     generatedVerification: function generatedVerification() {
@@ -50058,6 +50119,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         console.log(response);
         vm.showVerifications();
+        vm.notActivatedVerifications();
+        vm.activatedVerifications();
         vm.generate = '';
         Materialize.toast('Generated Successfully', 3000, 'rounded');
       });
@@ -50151,20 +50214,6 @@ var render = function() {
     _c("div", { staticClass: "content-header z-depth-2" }, [
       _c("label", { staticClass: "verification" }, [_vm._v("Verifications ")]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn-floating waves-effect waves-light",
-          attrs: { id: "verificationpdf" },
-          on: {
-            click: function($event) {
-              _vm.verificationPDF()
-            }
-          }
-        },
-        [_c("i", { staticClass: "material-icons" }, [_vm._v("print")])]
-      ),
-      _vm._v(" "),
       _c("input", {
         directives: [
           {
@@ -50175,11 +50224,10 @@ var render = function() {
           }
         ],
         attrs: {
-          type: "text",
+          type: "number",
           name: "numberVerification",
           required: "",
-          id: "number-of-verification",
-          placeholder: "Please provide only number"
+          id: "number-of-verification"
         },
         domProps: { value: _vm.generate },
         on: {
@@ -50211,6 +50259,27 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
+    _c("div", { staticClass: "pdf-button-container" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn-floating waves-effect right waves-light tooltipped",
+          attrs: {
+            id: "verificationpdf",
+            "data-position": "top",
+            "data-delay": "50",
+            "data-tooltip": "Print Verification"
+          },
+          on: {
+            click: function($event) {
+              _vm.verificationPDF()
+            }
+          }
+        },
+        [_c("i", { staticClass: "material-icons" }, [_vm._v("picture_as_pdf")])]
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "verification-tab z-depth-2" }, [
       _c("div", { staticClass: "tabs-container" }, [
         _c("ul", { staticClass: "tabs" }, [
@@ -50226,7 +50295,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Verifications")]
+              [
+                _vm._v(
+                  "Verifications   ( " + _vm._s(_vm.allverifications) + " ) "
+                )
+              ]
             )
           ]),
           _vm._v(" "),
@@ -50241,7 +50314,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Not Activated")]
+              [
+                _vm._v(
+                  "Available  ( " + _vm._s(_vm.availableverifications) + " )"
+                )
+              ]
             )
           ]),
           _vm._v(" "),
@@ -50256,7 +50333,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Activated")]
+              [
+                _vm._v(
+                  "Activated ( " + _vm._s(_vm.activatedverifications) + " )"
+                )
+              ]
             )
           ])
         ])
@@ -50273,7 +50354,13 @@ var render = function() {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(ver.verification))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(ver.status))])
+                  ver.status == 1
+                    ? _c("td", { staticClass: "blue-text" }, [
+                        _vm._v("Activated")
+                      ])
+                    : _c("td", { staticClass: "green-text" }, [
+                        _vm._v("Available")
+                      ])
                 ])
               })
             )
@@ -50370,7 +50457,7 @@ var render = function() {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(na.verification))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v("Available")])
+                  _c("td", { staticClass: "green-text" }, [_vm._v("Available")])
                 ])
               })
             )
@@ -50472,7 +50559,7 @@ var render = function() {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(ac.verification))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v("Activated")])
+                  _c("td", { staticClass: "blue-text" }, [_vm._v("Activated")])
                 ])
               })
             )
@@ -50808,6 +50895,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50889,7 +51012,55 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "student-widget" }, [
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "teal-text" }, [
+                _vm._v(_vm._s(_vm.userCounter))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "indigo-text" }, [
+                _vm._v(_vm._s(_vm.subjectCounter))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-widget " }, [
+        _c("div", { staticClass: "widget-container z-depth-1" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-content" }, [
+            _vm._m(6),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-data " }, [
+              _c("label", { staticClass: "amber-text" }, [
+                _vm._v(_vm._s(_vm.studentCounter))
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "classes-grades z-depth-2" }, [
       _c("div", { staticClass: "classes-grades-header light-blue" }, [
@@ -50919,7 +51090,7 @@ var render = function() {
             staticStyle: { "background-color": "#ffffff" }
           },
           [
-            _vm._m(2),
+            _vm._m(7),
             _vm._v(" "),
             _c(
               "tbody",
@@ -50957,18 +51128,50 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "student-dashboard-counter" }, [
-      _c("div", { staticClass: "present-subjects z-depth-1" }, [
-        _c("h3", [_vm._v("Present Subjects")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "taken-subjects z-depth-1" }, [
-        _c("h3", [_vm._v("Taken Subjects")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "your-status z-depth-1" }, [
-        _c("h3", [_vm._v(" Student Status ")])
+    return _c("div", { staticClass: "widget-icon teal" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [
+        _vm._v("account_circle")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "teal-text" }, [_vm._v("Users")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-icon indigo" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("subject")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "indigo-text" }, [_vm._v("Subjects")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-icon amber" }, [
+      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("people")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "widget-title " }, [
+      _c("label", { staticClass: "amber-text" }, [_vm._v("Students")])
     ])
   },
   function() {
@@ -51236,16 +51439,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      takensubjects: []
+      takensubjects: [],
+      rating: 0
     };
   },
   created: function created() {
@@ -51291,11 +51492,11 @@ var render = function() {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(takensubject.descript))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(takensubject.pivot.mgrade))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(takensubject.pivot.fgrade))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(takensubject.pivot.rating))])
+                  takensubject.pivot.rating <= 2.0
+                    ? _c("td", { staticClass: "green-text" }, [
+                        _vm._v("Passed")
+                      ])
+                    : _c("td", { staticClass: "red-text" }, [_vm._v("Failed")])
                 ])
               })
             )
@@ -51322,11 +51523,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Subject")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Midterm")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Final")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Rating")])
+        _c("th", [_vm._v("Status")])
       ])
     ])
   }
@@ -51538,7 +51735,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (response) {
         console.log(response);
         Materialize.toast('Uploaded', 3000, 'rounded');
-        window.location.reload();
+        location.reload();
       });
     },
     onFileChange: function onFileChange(e) {
@@ -52431,7 +52628,7 @@ var render = function() {
                       _c(
                         "i",
                         {
-                          staticClass: "material-icons amber",
+                          staticClass: "material-icons amber white-text",
                           staticStyle: { "font-size": "10px" }
                         },
                         [_vm._v("close")]

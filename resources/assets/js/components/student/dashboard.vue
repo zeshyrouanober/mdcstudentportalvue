@@ -10,15 +10,51 @@
         <label>Academic Standing : <b>GOOD</b></label>
       </div>
     </div>
-    <div class="student-dashboard-counter">
-      <div class="present-subjects z-depth-1">
-        <h3>Present Subjects</h3>
+    <div class="student-widget">
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon teal">
+            <i class="material-icons white-text">account_circle</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="teal-text">Users</label>
+            </div>
+            <div class="widget-data ">
+              <label class="teal-text">{{userCounter}}</label>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="taken-subjects z-depth-1">
-        <h3>Taken Subjects</h3>
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon indigo">
+            <i class="material-icons white-text">subject</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="indigo-text">Subjects</label>
+            </div>
+            <div class="widget-data ">
+              <label class="indigo-text">{{subjectCounter}}</label>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="your-status z-depth-1">
-        <h3> Student Status </h3>
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon amber">
+            <i class="material-icons white-text">people</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="amber-text">Students</label>
+            </div>
+            <div class="widget-data ">
+              <label class="amber-text">{{studentCounter}}</label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="classes-grades z-depth-2" >

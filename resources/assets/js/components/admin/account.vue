@@ -52,8 +52,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <a id="close" class="waves-effect waves-light modal-close light-blue lighten-3 btn-flat " v-on:click="cleanFields()" style="color:#ffffff;"><i class="material-icons">close</i></a>
-            <a id="edit" class="waves-effect waves-light modal-close amber lighten-3 btn-flat " :class="[isChecked == true ? 'pulse' : 'disabled']"  v-on:click="updateUser()" style="color:#ffffff;"><i class="material-icons">edit</i></a>
+            <a id="close" class="waves-effect waves-light modal-close light-blue  btn-flat " v-on:click="cleanFields()" style="color:#ffffff;"><i class="material-icons">close</i></a>
+            <a id="edit" class="waves-effect waves-light modal-close amber  btn-flat " :class="[isChecked == true ? 'pulse' : 'disabled']"  v-on:click="updateUser()" style="color:#ffffff;"><i class="material-icons">edit</i></a>
           </div>
        </div>
       <div id="userinfo" class="modal modal-fixed-footer">

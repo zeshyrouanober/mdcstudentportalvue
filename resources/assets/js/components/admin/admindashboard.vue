@@ -1,7 +1,52 @@
 <template lang="html">
   <div class="content-container">
     <div class="dashboard-content-up">
-      <div class="number">
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon teal">
+            <i class="material-icons white-text">account_circle</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="teal-text">Users</label>
+            </div>
+            <div class="widget-data ">
+              <label class="teal-text">{{userCounter}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon indigo">
+            <i class="material-icons white-text">subject</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="indigo-text">Subjects</label>
+            </div>
+            <div class="widget-data ">
+              <label class="indigo-text">{{subjectCounter}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-widget ">
+        <div class="widget-container z-depth-1">
+          <div class="widget-icon amber">
+            <i class="material-icons white-text">people</i>
+          </div>
+          <div class="widget-content">
+            <div class="widget-title ">
+              <label class="amber-text">Students</label>
+            </div>
+            <div class="widget-data ">
+              <label class="amber-text">{{studentCounter}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="number">
         <div class="counter-container z-depth-2 teal">
           <div class="title z-depth-1 ">
             <div class="title-content">
@@ -60,7 +105,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="dashboard-content-down z-depth-2">
       <div class="school-calendar z-depth-1">
@@ -111,6 +156,8 @@
     data(){
       return{
         userCounter : '',
+        subjectCounter : '',
+        studentCounter : '',
         dataCount : true,
         title:'',
         date:'',
@@ -126,6 +173,8 @@
 
     mounted(){
       this.userCounters()
+      this.subjectCounters()
+      this.studentCounters()
       this.showEvents()
     },
 
@@ -134,6 +183,22 @@
         var vm = this;
         axios.get(`user-counters`).then(function(response){
           vm.userCounter = response.data;
+          console.log(response);
+        });
+      },
+
+      subjectCounters(){
+        var vm = this;
+        axios.get(`subject-counters`).then(function(response){
+          vm.subjectCounter = response.data;
+          console.log(response);
+        });
+      },
+
+      studentCounters(){
+        var vm = this;
+        axios.get(`student-counters`).then(function(response){
+          vm.studentCounter = response.data;
           console.log(response);
         });
       },
