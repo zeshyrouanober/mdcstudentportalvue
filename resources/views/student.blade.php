@@ -145,7 +145,7 @@
         @if (Session::has('message'))
           <script type="text/javascript">
             $(document).ready(function(){
-                 Materialize.toast('Welcome', 3000, 'rounded');
+                 Materialize.toast('Welcome', 3000, 'rounded light-blue lighten-1');
             });
           </script>
         @endif

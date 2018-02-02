@@ -176,7 +176,7 @@
          vm.notActivatedVerifications();
          vm.activatedVerifications();
          vm.generate = '';
-         Materialize.toast('Generated Successfully',3000,'rounded');
+         Materialize.toast('Verifications generated !',3000,'rounded light-blue lighten-1');
        });
      },
 
@@ -184,7 +184,7 @@
        var vm = this;
        axios.get(`generate-verification-pdf`).then(function(response){
          location.href="generate-verification-pdf";
-         Materialize.toast('Downloaded',1000,'rounded');
+         Materialize.toast('Verification downloaded !',3000,'rounded light-blue lighten-1');
        });
      }
 

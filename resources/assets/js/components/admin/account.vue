@@ -178,10 +178,10 @@
           'password' : this.password,
           'passwordconfirmation' : this.passwordconfirmation
         }).then(function(response){
-          Materialize.toast('Updated !', 3000, 'rounded');
+          Materialize.toast('User Updated !',3000,'rounded light-blue lighten-1');
           vm.showAccounts();
         }).catch(function(error){
-          Materialize.toast('Something went wrong !', 3000, 'rounded');
+          Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
           console.log(error);
         });
       },

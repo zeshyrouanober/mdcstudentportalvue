@@ -266,11 +266,12 @@ export default {
         'base_rate' : this.fetchDataUpdate.base_rate
 
       }).then(function(response){
-        Materialize.toast('Updated !',3000,'rounded');
+        Materialize.toast('Student Updated !',3000,'rounded light-blue lighten-1');
         vm.showStudents();
         console.log(response);
       }).catch(function(error){
-        Materialize.toast('Something went wrong !' , 3000, 'rounded');
+        Materialize.toast('Student deleted !',3000,'rounded red lighten-1');
+        vm.showStudents();
         console.log(error);
       });
     },

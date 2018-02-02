@@ -80,10 +80,10 @@ import axios from 'axios';
           'description' : this.description
         }).then(function(response){
           vm.showTodos();
-          Materialize.toast('Todo created !' ,3000,'rounded');
+          Materialize.toast('Todo Created !',3000,'rounded light-blue lighten-1');
           console.log(response);
         }).catch(function(error){
-          Materialize.toast('Something went wrong !' ,3000,'rounded');
+          Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
           console.log(error);
         });
       },
@@ -93,7 +93,7 @@ import axios from 'axios';
           var vm = this;
           axios.delete(`delete-todo/` + id).then(function(response){
             vm.showTodos();
-            Materialize.toast('Todo deleted !',3000,'rounded');
+            Materialize.toast('Todo deleted !',3000,'rounded light-blue lighten-1');
           }).catch(function(error){
             console.log(error);
           });

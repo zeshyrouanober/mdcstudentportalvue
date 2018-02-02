@@ -44360,6 +44360,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -44376,12 +44379,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
       title: '',
       date: '',
       description: '',
-      events: [],
-
-      demoEvents: [{
-        date: '2018/01/12', // Required
-        title: 'Foo' // Required
-      }]
+      eventsCalendar: []
     };
   },
   mounted: function mounted() {
@@ -44422,14 +44420,18 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
         'date': $('#date-event').val()
       }).then(function (response) {
         console.log(response);
+        Materialize.toast('Event Created !', 3000, 'rounded light-blue lighten-1');
+        vm.showEvents();
       }).catch(function (error) {
         console.log(error);
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
+        vm.showEvents();
       });
     },
     showEvents: function showEvents() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-events').then(function (response) {
-        // vm.events = response.data.eventTitle;
+        vm.eventsCalendar = response.data;
         console.log(response);
       });
     }
@@ -45052,7 +45054,7 @@ var render = function() {
       [
         _vm._m(6),
         _vm._v(" "),
-        _c("vue-event-calendar", { attrs: { events: _vm.demoEvents } }),
+        _c("vue-event-calendar", { attrs: { events: _vm.eventsCalendar } }),
         _vm._v(" "),
         _c(
           "div",
@@ -45135,7 +45137,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "input-field" }, [
                   _c("i", { staticClass: "material-icons prefix" }, [
-                    _vm._v("description")
+                    _vm._v("date_range")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -45432,8 +45434,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (response) {
         console.log(response);
         vm.showAnnouncement();
-        Materialize.toast('Created !', 3000, 'rounded');
+        Materialize.toast('Announcement created !', 3000, 'rounded light-blue lighten-1');
       }).catch(function (error) {
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
+        vm.showAnnouncement();
         console.log(error);
       });
     },
@@ -45462,8 +45466,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'description': this.updateDescription
       }).then(function (response) {
         vm.showAnnouncement();
-        Materialize.toast('Updated !', 3000, 'rounded');
+        Materialize.toast('Announcement updated !', 3000, 'rounded light-blue lighten-1');
       }).catch(function (error) {
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
+        vm.showAnnouncement();
         console.log(error);
       });
     },
@@ -45472,6 +45478,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var vm = this;
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('delete-announcement/' + id).then(function (response) {
           vm.showAnnouncement();
+          Materialize.toast('Announcement deleted !', 3000, 'rounded light-blue lighten-1');
         }).catch(function (error) {
           console.log(error);
         });
@@ -46156,10 +46163,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'password': this.password,
         'passwordconfirmation': this.passwordconfirmation
       }).then(function (response) {
-        Materialize.toast('Updated !', 3000, 'rounded');
+        Materialize.toast('User Updated !', 3000, 'rounded light-blue lighten-1');
         vm.showAccounts();
       }).catch(function (error) {
-        Materialize.toast('Something went wrong !', 3000, 'rounded');
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
         console.log(error);
       });
     },
@@ -47357,9 +47364,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'name': this.updateName,
         'descript': this.updateDescription
       }).then(function (response) {
-        Materialize.toast('Updated !', 3000, 'rounded');
+        Materialize.toast('Subject Updated !', 3000, 'rounded light-blue lighten-1');
         vm.showSubjects();
       }).catch(function (error) {
+        Materialize.toast('Subject Deleted !', 3000, 'rounded red lighten-1');
+        vm.showSubjects();
         console.log(error);
       });
     },
@@ -48393,11 +48402,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'base_rate': this.fetchDataUpdate.base_rate
 
       }).then(function (response) {
-        Materialize.toast('Updated !', 3000, 'rounded');
+        Materialize.toast('Student Updated !', 3000, 'rounded light-blue lighten-1');
         vm.showStudents();
         console.log(response);
       }).catch(function (error) {
-        Materialize.toast('Something went wrong !', 3000, 'rounded');
+        Materialize.toast('Student deleted !', 3000, 'rounded red lighten-1');
+        vm.showStudents();
         console.log(error);
       });
     },
@@ -50122,14 +50132,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vm.notActivatedVerifications();
         vm.activatedVerifications();
         vm.generate = '';
-        Materialize.toast('Generated Successfully', 3000, 'rounded');
+        Materialize.toast('Verifications generated !', 3000, 'rounded light-blue lighten-1');
       });
     },
     verificationPDF: function verificationPDF() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('generate-verification-pdf').then(function (response) {
         location.href = "generate-verification-pdf";
-        Materialize.toast('Downloaded', 1000, 'rounded');
+        Materialize.toast('Verification downloaded !', 3000, 'rounded light-blue lighten-1');
       });
     }
   },
@@ -50977,7 +50987,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('student-grade-pdf').then(function (response) {
         location.href = "student-grade-pdf";
-        Materialize.toast('Downloaded', 1000, 'rounded');
+        Materialize.toast('Grade downloaded !', 3000, 'rounded light-blue lighten-1');
       });
     }
   }
@@ -51063,7 +51073,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "classes-grades z-depth-2" }, [
-      _c("div", { staticClass: "classes-grades-header light-blue" }, [
+      _c("div", { staticClass: "classes-grades-header blue darken-3" }, [
         _c("label", { staticClass: "tabs-content-header" }, [
           _vm._v("Present Subjects")
         ]),
@@ -51724,7 +51734,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         vm.currentPassword = '';
         vm.newPassword = '';
         vm.confirmPassword = '';
+        Materialize.toast('Successfully updated !', 3000, 'rounded light-blue lighten-1');
       }).catch(function (error) {
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
         console.log(error);
       });
     },
@@ -51734,7 +51746,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'image': this.image
       }).then(function (response) {
         console.log(response);
-        Materialize.toast('Uploaded', 3000, 'rounded');
+        Materialize.toast('Avatar uploaded !', 3000, 'rounded light-blue lighten-1');
         location.reload();
       });
     },
@@ -52367,16 +52379,16 @@ var render = function() {
         return _c("div", { staticClass: "latest-update-content" }, [
           _c("div", { staticClass: "title" }, [
             _c("label", { staticClass: "announe-title" }, [
-              _vm._v(_vm._s(ue.eventTitle))
+              _vm._v(_vm._s(ue.title))
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "blue-text text-darken-1" }, [
-              _vm._v(_vm._s(ue.eventDate))
+              _vm._v(_vm._s(ue.date))
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "description" }, [
-            _c("label", [_vm._v(_vm._s(ue.eventDescription))])
+            _c("label", [_vm._v(_vm._s(ue.desc))])
           ])
         ])
       })
@@ -52538,10 +52550,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'description': this.description
       }).then(function (response) {
         vm.showTodos();
-        Materialize.toast('Todo created !', 3000, 'rounded');
+        Materialize.toast('Todo Created !', 3000, 'rounded light-blue lighten-1');
         console.log(response);
       }).catch(function (error) {
-        Materialize.toast('Something went wrong !', 3000, 'rounded');
+        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
         console.log(error);
       });
     },
@@ -52550,7 +52562,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var vm = this;
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('delete-todo/' + id).then(function (response) {
           vm.showTodos();
-          Materialize.toast('Todo deleted !', 3000, 'rounded');
+          Materialize.toast('Todo deleted !', 3000, 'rounded light-blue lighten-1');
         }).catch(function (error) {
           console.log(error);
         });

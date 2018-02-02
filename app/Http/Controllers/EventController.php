@@ -19,16 +19,17 @@ class EventController extends Controller
   public function create(Request $request){
 
     $event = new Event;
-    $event->eventTitle = $request->title;
-    $event->eventDescription = $request->description;
-    $event->eventDate = $request->date;
+    $event->title = $request->title;
+    $event->desc = $request->description;
+    $event->date = $request->date;
 
     $event->save();
 
   }
 
   public function show(){
-    return Event::all();
+    $event = Event::all();
+    return $event;
   }
 
 }

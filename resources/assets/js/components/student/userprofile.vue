@@ -133,7 +133,9 @@
           vm.currentPassword = '';
           vm.newPassword = '';
           vm.confirmPassword = '';
+          Materialize.toast('Successfully updated !',3000,'rounded light-blue lighten-1');
         }).catch(function(error){
+          Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
           console.log(error);
         });
       },
@@ -144,7 +146,7 @@
           'image' : this.image
         }).then(function(response){
           console.log(response);
-          Materialize.toast('Uploaded' , 3000,'rounded');
+          Materialize.toast('Avatar uploaded !',3000,'rounded light-blue lighten-1');
           location.reload();
         });
       },

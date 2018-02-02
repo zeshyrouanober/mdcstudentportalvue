@@ -112,7 +112,10 @@
         <h5>School Year Calendar</h5>
         <a href="#calendar" class="btn-floating btn-small waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
       </div>
-      <vue-event-calendar :events="demoEvents"  ></vue-event-calendar>
+
+      <vue-event-calendar :events="eventsCalendar"  >
+
+      </vue-event-calendar>
 
       <div id="calendar" class="modal modal-fixed-footer">
         <div class="modal-content">
@@ -131,7 +134,7 @@
               <label for="event-description"  id="label-desc" >Description</label>
             </div>
             <div class="input-field">
-              <i class="material-icons prefix" >description</i>
+              <i class="material-icons prefix" >date_range</i>
               <input id="date-event" type="text" v-model="date" class="datepicker">
               <label for="date-event"  id="label-desc" >Date</label>
             </div>
@@ -152,6 +155,7 @@
   import vueEventCalendar from 'vue-event-calendar';
   Vue.use(vueEventCalendar, {locale: 'en',color: 'rgb(21, 101, 192)'});
 
+
   export default {
     data(){
       return{
@@ -162,12 +166,7 @@
         title:'',
         date:'',
         description:'',
-        events:[],
-
-        demoEvents: [{
-          date: '2018/01/12', // Required
-          title: 'Foo' // Required
-        }]
+        eventsCalendar:[],
       }
     },
 
@@ -179,6 +178,8 @@
     },
 
     methods:{
+
+
       userCounters(){
         var vm = this;
         axios.get(`user-counters`).then(function(response){
@@ -205,27 +206,29 @@
 
       addEvent(){
         var vm = this;
-        axios.post(`create-event`,{
-          'title' : this.title,
-          'description' : this.description,
-          'date' : $('#date-event').val()
-        }).then(function(response){
-          console.log(response);
-        }).catch(function(error){
-          console.log(error);
-        });
+          axios.post(`create-event`,{
+            'title' : this.title,
+            'description' : this.description,
+            'date' : $('#date-event').val()
+          }).then(function(response){
+            console.log(response);
+            Materialize.toast('Event Created !',3000,'rounded light-blue lighten-1');
+            vm.showEvents();
+          }).catch(function(error){
+            console.log(error);
+            Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
+            vm.showEvents();
+          });
       },
 
       showEvents(){
         var vm = this;
         axios.get(`show-events`).then(function(response){
-          // vm.events = response.data.eventTitle;
+          vm.eventsCalendar = response.data;
           console.log(response);
         });
       }
-
-
-      }
+    }
 
   }
 

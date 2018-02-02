@@ -86,8 +86,10 @@ import axios from 'axios';
           }).then(function(response){
             console.log(response);
             vm.showAnnouncement();
-            Materialize.toast('Created !', 3000, 'rounded');
+            Materialize.toast('Announcement created !',3000,'rounded light-blue lighten-1');
           }).catch(function(error){
+            Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
+            vm.showAnnouncement();
             console.log(error);
           });
         },
@@ -120,8 +122,10 @@ import axios from 'axios';
             'description' : this.updateDescription
           }).then(function(response){
             vm.showAnnouncement();
-            Materialize.toast('Updated !', 3000, 'rounded');
+            Materialize.toast('Announcement updated !',3000,'rounded light-blue lighten-1');
           }).catch(function(error){
+            Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
+            vm.showAnnouncement();
             console.log(error);
           });
         },
@@ -131,6 +135,7 @@ import axios from 'axios';
             var vm = this;
             axios.delete(`delete-announcement/` + id ).then(function(response){
               vm.showAnnouncement();
+              Materialize.toast('Announcement deleted !',3000,'rounded light-blue lighten-1');
             }).catch(function(error){
               console.log(error);
             });

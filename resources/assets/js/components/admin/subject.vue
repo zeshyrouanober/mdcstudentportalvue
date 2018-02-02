@@ -177,9 +177,11 @@
               'name' : this.updateName,
               'descript' : this.updateDescription
            }).then(function(response){
-             Materialize.toast('Updated !', 3000, 'rounded');
+             Materialize.toast('Subject Updated !',3000,'rounded light-blue lighten-1');
              vm.showSubjects();
            }).catch(function(error){
+             Materialize.toast('Subject Deleted !',3000,'rounded red lighten-1');
+             vm.showSubjects();
              console.log(error);
            });
          },

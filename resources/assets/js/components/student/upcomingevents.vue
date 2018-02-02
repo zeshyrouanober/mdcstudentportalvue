@@ -5,11 +5,11 @@
     </div>
     <div class="latest-update-content" v-for="ue in upcomingevents">
       <div class="title">
-        <label class="announe-title">{{ue.eventTitle}}</label>
-        <p class="blue-text text-darken-1">{{ue.eventDate}}</p>
+        <label class="announe-title">{{ue.title}}</label>
+        <p class="blue-text text-darken-1">{{ue.date}}</p>
       </div>
       <div class="description">
-        <label>{{ue.eventDescription}}</label>
+        <label>{{ue.desc}}</label>
       </div>
     </div>
   </div>
