@@ -8,6 +8,7 @@
           <label >{{student.idnum}}</label>
       </div>
       <div class="user-details ">
+          <label>{{major}}</label>
           <label >{{student.fname}} {{student.lname}}</label>
           <label >{{course}} - {{year}}</label>
           <label >{{student.bdate}}</label>
@@ -53,22 +54,27 @@
            <input id="username" disabled type="text" v-model="username" class="validate">
            <!-- <label for="username" :class="[isUpdate == true ? 'active' : '']" >Username</label> -->
          </div>
-         <div class="input-field">
-            <i class="material-icons prefix">lock</i>
-            <input id="currentpassword"  required v-model="currentPassword"type="text" class="validate">
-            <label for="currentpassword">Current Password</label>
+         <div class="input-field" id="currentPassword">
+            <div class="field">
+              <i class="material-icons prefix">lock</i>
+              <input id="currentpassword"  required v-model="currentPassword" type="password" class="validate">
+              <label for="currentpassword">Current Password</label>
+            </div>
+            <div class="currentBtn">
+              <a  v-on:click="userCurrentPassword()" class="btn small blue darken-1">Confirm</a>
+            </div>
         </div>
         <div class="input-field">
            <i class="material-icons prefix">lock_open</i>
-           <input id="password" required v-model="newPassword" name="password" type="password" class="validate">
-           <label for="password">New Password</label>
+           <input id="password" disabled required v-model="newPassword" name="password" type="password"  class="validate ">
+           <label for="password" >New Password</label>
        </div>
        <div class="input-field">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="password_confirmation" required v-model="confirmPassword" name="password_confirmation" type="password" class="validate">
+          <input id="password_confirmation" disabled required v-model="confirmPassword" name="password_confirmation" type="password" class="validate">
           <label for="password_confirmation">Confirm Password</label>
         </div>
-        <button class="btn waves-effect waves-light light-blue" v-on:click="userUpdate()">update
+        <button class="btn waves-effect waves-light blue darken-1 disabled" id="updateBtn" v-on:click="userUpdate()">update
           <i class="material-icons right">send</i>
         </button>
       </div>
@@ -93,6 +99,7 @@
         student: [],
         course:[],
         year : '',
+        major:'',
         username:'',
         isUpdate:false,
         currentPassword:'',
@@ -104,40 +111,72 @@
     },
 
     mounted(){
-      isUpdate:true,
       this.studentAcademicDetails()
     },
 
     props:['user'],
 
     methods:{
-
       studentAcademicDetails(){
         var vm = this;
         axios.get(`student-course`).then(function(response){
           vm.student = response.data.student;
           vm.course = response.data.course[0].cr_acrnm;
           vm.year = response.data.course[0].pivot.year;
+          vm.major = response.data.course[0].major;
           vm.username = response.data.student.idnum;
         });
       },
 
+      userCurrentPassword(){
+        var vm = this;
+        if (this.currentPassword != '') {
+          axios.post(`verify-current-password`,{
+            'currentPassword' : this.currentPassword,
+          }).then(function(response){
+            if (response.data == true) {
+              console.log(response);
+              Materialize.toast('Password verified !',3000,'rounded light-blue lighten-1');
+              $('#password').prop("disabled",false);
+              $('#password_confirmation').prop("disabled",false);
+              $('#updateBtn').removeClass("disabled");
+              }else{
+              console.log(response);
+              $('#currentpassword').addClass("invalid").removeClass("valid");
+              Materialize.toast('Invalid password !',3000,'rounded red lighten-1');
+            }
+          }).catch(function(error){
+            Materialize.toast('Something went wrong !',3000,'rounded red lighten-1');
+          });
+        }else{
+          Materialize.toast('Fields required !',3000,'rounded red lighten-1');
+        }
+      },
+
       userUpdate(){
         var vm = this;
-        axios.put(`student-user-update`,{
-          'currentPassword' : this.currentPassword,
-          'newPassword' : this.newPassword,
-          'confirmPassword' : this.confirmPassword
-        }).then(function(response){
-          console.log(response);
-          vm.currentPassword = '';
-          vm.newPassword = '';
-          vm.confirmPassword = '';
-          Materialize.toast('Successfully updated !',3000,'rounded light-blue lighten-1');
-        }).catch(function(error){
-          Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
-          console.log(error);
-        });
+        if (this.currentPassword == '' || this.newPassword == '' || this.confirmPassword == '') {
+          Materialize.toast('Fields required !',3000,'rounded red lighten-1');
+        }else {
+          if (this.newPassword == this.confirmPassword) {
+            axios.put(`student-user-update`,{
+                'newPassword' : this.newPassword,
+                'confirmPassword' : this.confirmPassword
+            }).then(function(response){
+              vm.currentPassword = '';
+              $('#password').prop("disabled",true);
+              $('#password_confirmation').prop("disabled",true);
+              $('#updateBtn').addClass("disabled");
+              Materialize.toast('Successfully updated !',3000,'rounded light-blue lighten-1');
+            });
+          }else {
+            vm.newPassword = '';
+            vm.confirmPassword = '';
+            $('#password').addClass("invalid").removeClass("valid");
+            $('#password_confirmation').addClass("invalid").removeClass("valid");
+            Materialize.toast('Password dont match !',3000,'rounded red lighten-1');
+          }
+        }
       },
 
       updateAvatar(){

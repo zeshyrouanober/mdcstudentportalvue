@@ -2,7 +2,7 @@
     <div class="content-container">
       <div class="content-header  z-depth-2">
         <label>Accounts</label>
-        <input type="text" name="search" v-model="search" v-on:keyup.enter="showAccounts(1)" value="" placeholder="Search Account">
+        <input type="text" name="search" v-model="search" v-on:keyup="showAccounts(1)" value="" placeholder="Search Account">
         <i class="material-icons">search</i>
       </div>
       <div class="accounts-content z-depth-2">

@@ -130,6 +130,11 @@ font-family: 'Quicksand', sans-serif!important;
     font-size: 10px;
     flex-direction: column;
 }
+.content .avatar-container img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
 .content .progress{
     border-radius: 0px!important;
     padding: 0px;
@@ -153,9 +158,16 @@ font-family: 'Quicksand', sans-serif!important;
   font-family: 'Quicksand', sans-serif!important;
 }
 .school h1{
+    flex: 2;
     color: #ffffff;
     font-size: 20px!important;
     font-family: 'Quicksand', sans-serif!important;
+}
+.school .avatar-container{
+  flex:2;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 50px;
 }
 .content-title .title{
     flex:1;
@@ -175,14 +187,16 @@ font-family: 'Quicksand', sans-serif!important;
   color: #1565c0;
 }
 .title .stud_info{
-  flex:3;
+  flex:4;
   font-size: 17px;
   color: #ffffff;
 }
 .title .stud_id{
   flex:1;
   font-size: 17px;
+  display: flex;
   color: #ffffff;
+  padding-left: 50px;
 }
 .title a{
   flex:.9;
@@ -806,10 +820,10 @@ span{
 }
 .school-calendar{
   display: flex;
-  padding: 5px;
+  padding: 25px 20px;
 
 }
-.school-calendar h5{
+.school-calendar label{
   flex: 1;
 }
 
@@ -880,7 +894,7 @@ span{
   font-size: 15px!important;
 }
 .widget-data label{
-  font-size: 35px!important;
+  font-size: 30px!important;
 }
 .dashboard-content-up .number{
   flex:1;
@@ -1323,6 +1337,7 @@ thead tr th{
   height: 150px;
   border-radius: 100px;
   margin: auto;
+  padding: 5px;
 }
 .user-picture label{
   margin: auto;
@@ -1337,8 +1352,16 @@ thead tr th{
 .user-details label{
   padding-bottom: 10px;
   font-size: 15px;
+  text-transform: uppercase;
 }
-
+#currentPassword{
+  display: flex;
+  flex-direction: column;
+}
+#currentPassword .currentBtn{
+  display: flex;
+  justify-content: flex-end;
+}
 .account-details{
   margin-top: 20px;
   display: flex;
@@ -1376,6 +1399,65 @@ thead tr th{
   padding: 10px;
   flex-direction: column;
   margin-bottom:  10px;
+}
+.faqs-container{
+  display: flex;
+  flex-direction: column;
+}
+.faqs-container .header-container{
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.faqs-container .system-identification-container{
+  display: flex;
+  flex-direction: column;
+}
+.system-identification-container .system-header{
+  display: flex;
+  flex-direction: column;
+}
+.system-identification-container .system-name{
+  font-size:25px!important;
+  font-weight: 4400;
+  padding: 15px;
+}
+.system-identification-container .left-title{
+  padding: 10px;
+  font-size: 14px!important;
+}
+.system-identification-container .system-meaning{
+  flex: 1;
+  font-weight: normal;
+  font-size: 16px!important;
+  padding: 25px 40px;
+  font-family: sans-serif;
+  word-spacing: 2px ;
+  line-height: 25px;
+}
+.system-identification-container .system-content{
+  flex: 6;
+  padding: 0px 40px;
+}
+.system-content .collapsible{
+  border:none!important;
+  border-color: none!important;
+  box-shadow: none!important;
+}
+.collapsible .collapsible-header .faqs-question{
+  font-size: 16px!important;
+}
+.collapsible .collapsible-body .faqs-answer{
+  font-size: 15px!important;
+  line-height: 20px;
+}
+.tips-container{
+  padding: 10px 40px;
+  padding-bottom: 20px;
+}
+.tips-container label{
+  line-height: 20px;
+  font-size: 15px;
 }
 .pagination-container{
   display: flex;

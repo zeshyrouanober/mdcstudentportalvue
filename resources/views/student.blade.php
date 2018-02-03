@@ -11,7 +11,7 @@
                 </div>
               </li>
               <li class="tab">
-                <a href="#dashboard" class="active" >
+                <a href="#dashboard"  >
                   <i class="material-icons ">dashboard</i>
                   <label>Dashboard</label>
                 </a>
@@ -29,7 +29,7 @@
                 </a>
               </li>
               <li class="tab">
-                <a href="#faqs">
+                <a href="#faqs" class="active">
                   <i class="material-icons">info_outline</i>
                   <label>faqs</label>
                 </a>
@@ -93,12 +93,12 @@
             <userprofilevue :user="{{Auth::user()}}"></userprofilevue>
           </div>
           <div class="user-main-content tab-content" id="faqs">
-            <label>school faqs</label>
+            <faqsvue></faqsvue>
           </div>
           <div class="user-main-content tab-content" id="help">
-            <label>Helps</label>
+            <helpvue></helpvue>
           </div>
-          <div class="user-right-nav">
+          <div class="user-right-nav white">
             <div class="side-nav-container">
               <div class="calendar z-depth-2 ">
                 <updatesandannouncementvue></updatesandannouncementvue>
@@ -156,6 +156,7 @@
                 $('select').material_select();
                 $('ul.tabs').tabs();
                 $('.tooltipped').tooltip({delay: 50});
+                $('.collapsible').collapsible();
                 // $('.counters').each(function() {
                 //      var $this = $(this),
                 //          countTo = $this.attr('data-count');

@@ -3,7 +3,7 @@
     @section('side-nav')
         <div class="student-nav">
           <div class="avatar">
-            <a class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/images/school-logo2.png" alt=""><br>
+            <a class="tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/images/school-logo2.png" alt=""><br>
               <label>{{Auth::user()->username}}</label>
             </a>
           </div>
@@ -168,7 +168,7 @@
       @if (Session::has('message'))
         <script type="text/javascript">
           $(document).ready(function(){
-               Materialize.toast('Welcome', 3000, 'rounded');
+               Materialize.toast('Welcome', 3000, 'rounded light-blue');
           });
         </script>
       @endif
@@ -222,10 +222,7 @@
             <div class="col l4 offset-l2 s12 links">
               <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Academics</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Evaluation</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">School Calendar</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">News</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">mdc.com.ph</a></li>
               </ul>
             </div>
           </div>

@@ -92,6 +92,18 @@ class StudentController extends Controller
       ]);
     }
 
+    public function currentSubject(){
+      $currentSem =  DB::table('sub_enrol')->orderBy('sem_code','desc')->take(1)->value('sem_code');
+      $student =  Student::find(Auth::user()->username);
+      $subjectLenght =  $student->subjects(23)->get();
+      return $subjectLenght->count();
+    }
+
+    public function takenSubject(){
+      $response = Student::where('idnum',Auth::user()->username)->with('subjectsTaken')->get();
+      return response()->json($response);
+    }
+
     public function counters(){
       return Student::count();
     }

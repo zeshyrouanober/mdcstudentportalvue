@@ -43,7 +43,7 @@
 </div>
 <script>
   @if(Session::has('message'))
-       Materialize.toast('{{Session::get('message')}}', 3000, 'rounded');
+       Materialize.toast('Account Updated !', 3000, 'rounded');
   @endif
 </script>
 <script>

@@ -42,7 +42,6 @@ Route::post('sign-up','VerificationController@verify')->name('verify');
 Route::get('/dashboard','HomeController@index');
 Route::get('update-student','StudentController@update');
 
-
 //Student
 Route::get('student-course', 'StudentController@studentCourse');
 Route::get('student-dashboard-status','StudentController@studentStatus');
@@ -56,6 +55,9 @@ Route::get('student-counters','StudentController@counters');
 Route::post('create-todo','TodosController@create');
 Route::get('todos-data','TodosController@index');
 Route::delete('delete-todo/{id}','TodosController@delete');
+Route::get('count-current-subject','StudentController@currentSubject');
+Route::get('count-taken-subjects','StudentController@takenSubject');
+
 
 //Subject
 Route::get('subject-data','SubjectController@showSubjects');
@@ -87,6 +89,7 @@ Route::get('user-counters','UserController@counters');
 Route::get('user-information/{username}','UserController@userInformation');
 Route::put('student-user-update','UserController@studentUserUpdate');
 Route::post('update-avatar','UserController@updateAvatar');
+Route::post('verify-current-password','UserController@verifyCurrentPassword');
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');

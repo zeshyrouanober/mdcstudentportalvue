@@ -6,7 +6,7 @@
     </div>
     <div class="todos-content">
       <ul class="collection">
-       <li class="collection-item avatar" v-for="todo in todos">
+       <li class="collection-item avatar " v-for="todo in todos">
           <i class="material-icons circle green">assignment</i>
           <div class="collection-content">
             <label class="grey-text text-darken-1">{{todo.title}}</label>

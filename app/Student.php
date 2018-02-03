@@ -29,7 +29,7 @@ class Student extends Model
     }
 
     public function subjectsTaken(){
-      return $this->belongsToMany('App\Subject','sub_enrol','idnum','sub_code')->withPivot('mgrade','fgrade','rating','sem_code');
+      return $this->belongsToMany('App\Subject','sub_enrol','idnum','sub_code')->withPivot('mgrade','fgrade','rating','sem_code')->orderBy('descript','asc');
     }
 
     public function course($currentSem){

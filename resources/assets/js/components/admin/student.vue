@@ -2,7 +2,7 @@
   <div class="content-container">
     <div class="content-header z-depth-2">
       <label>Students</label>
-      <input type="text" name="search" value="" v-model="search" v-on:keyup.enter="showStudents(1)" placeholder="Search Student">
+      <input type="text" name="search" value="" v-model="search" v-on:keyup="showStudents(1)" placeholder="Search Student">
       <i class="material-icons">search</i>
     </div>
     <div class="departmentOption"></div>

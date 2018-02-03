@@ -11,8 +11,14 @@
                 <div class="progress blue darken-3">
                     <div class="indeterminate"></div>
                 </div>
-                <div class="school">
+                <div class="school ">
                     <h1>MDC Student Portal</h1>
+                    <div class="avatar-container">
+                        @foreach ($user as $u )
+                          <img id="student-avatar" src="/storage/avatars/{{$u->avatar}}" alt="">
+                        @endforeach
+                        <img id="admin-avatar" src="images/school-logo2.png" alt="">
+                    </div>
                 </div>
                 <div class="title">
                     @foreach ($student as $stud)
@@ -53,6 +59,12 @@
             $('.indeterminate').css("display","flex");
          // }
       });
+
+      if ($('.student_info').text() != null) {
+        $('#admin-avatar').css("display","none");
+      }else{
+        $('#admin-avatar').css("display","flex");
+      }
   });
 </script>
 @endsection

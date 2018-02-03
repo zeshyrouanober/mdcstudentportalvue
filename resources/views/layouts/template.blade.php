@@ -17,7 +17,7 @@
                 @section('side-nav')
                   @show
             </div>
-            <div class="template-content-content">
+            <div class="template-content-content grey lighten-4">
                 @section('content')
                   @show
             </div>

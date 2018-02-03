@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="calendar-container z-depth-2">
-    <div class="school-calendar z-depth-1">
-      <h5>School Year Calendar</h5>
+    <div class="school-calendar white darken-3 z-depth-1 ">
+      <label class="blue-text">School Year Calendar</label>
     </div>
-    <vue-event-calendar :events="demoEvents"></vue-event-calendar>
+    <vue-event-calendar :events="eventsCalendar"></vue-event-calendar>
 
   </div>
 </template>
@@ -19,31 +19,22 @@ export default {
   data(){
     return{
 
-      events:[{
-        date:'',
-        title:'',
-        description:''
-      }],
+      eventsCalendar:[],
 
-      demoEvents: [{
-        date: '2018/01/12', // Required
-        title: 'Foo' // Required
-      }, {
-        date: '2018/01/15',
-        title: 'Bar',
-        desc: 'description',
-      }]
     }
+  },
+
+  mounted(){
+    this.showEvents();
   },
 
   methods:{
 
-    addEvent(){
+    showEvents(){
       var vm = this;
-      axios.post(`add-event`).then(function(response){
+      axios.get(`show-events`).then(function(response){
+        vm.eventsCalendar = response.data;
         console.log(response);
-      }).catch(function(error){
-        console.log(error);
       });
     }
 

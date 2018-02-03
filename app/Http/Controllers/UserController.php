@@ -47,13 +47,18 @@ class UserController extends Controller
 
     }
 
-    public function studentUserUpdate(Request $request){
+    public function verifyCurrentPassword(Request $request){
+        if (Hash::check($request->currentPassword, Auth::user()->password)) {
+          return 'true';
+        }else {
+          return 'false';
+        }
+    }
 
-      if (Hash::check($request->currentPassword, Auth::user()->password)) {
+    public function studentUserUpdate(Request $request){
         if ($request->newPassword == $request->confirmPassword) {
           User::where('username',Auth::user()->username)->update(['password' => bcrypt($request->confirmPassword)]);
         }
-      }
     }
 
     public function updateAvatar(Request $request){

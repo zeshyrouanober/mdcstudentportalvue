@@ -1,5 +1,5 @@
 <template lang="html">
-  <h6>sidenav</h6>
+  <h6>sidebar 1</h6>
 </template>
 
 <script>

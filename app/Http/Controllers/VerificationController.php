@@ -83,6 +83,6 @@ class VerificationController extends Controller
       public function verificationPDF(){
         $availableVerifications = Verification::where('status' , '0')->get();
         $pdf = PDF::loadView('pdf/verificationPDF',compact('availableVerifications'))->setPaper('legal');
-        return $pdf->save('verification')->stream('verification.pdf');
+        return $pdf->save('verification')->download('verification.pdf');
       }
 }

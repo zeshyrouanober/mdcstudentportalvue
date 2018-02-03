@@ -2253,6 +2253,8 @@ Vue.component('userprofilevue', __webpack_require__(78));
 Vue.component('calendarvue', __webpack_require__(81));
 Vue.component('upcomingeventsvue', __webpack_require__(84));
 Vue.component('todosvue', __webpack_require__(87));
+Vue.component('faqsvue', __webpack_require__(98));
+Vue.component('helpvue', __webpack_require__(99));
 
 var app = new Vue({
   el: '.app'
@@ -45259,7 +45261,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "school-calendar z-depth-1" }, [
-      _c("h5", [_vm._v("School Year Calendar")]),
+      _c("label", [_vm._v("School Year Calendar")]),
       _vm._v(" "),
       _c(
         "a",
@@ -45277,7 +45279,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header light-blue " }, [
-      _c("h4", { attrs: { id: "todos-header " } }, [_vm._v("Add an Event")])
+      _c("h4", { attrs: { id: "todos-header " } }, [_vm._v("Add Event")])
     ])
   }
 ]
@@ -46251,12 +46253,6 @@ var render = function() {
         domProps: { value: _vm.search },
         on: {
           keyup: function($event) {
-            if (
-              !("button" in $event) &&
-              _vm._k($event.keyCode, "enter", 13, $event.key)
-            ) {
-              return null
-            }
             _vm.showAccounts(1)
           },
           input: function($event) {
@@ -48473,12 +48469,6 @@ var render = function() {
         domProps: { value: _vm.search },
         on: {
           keyup: function($event) {
-            if (
-              !("button" in $event) &&
-              _vm._k($event.keyCode, "enter", 13, $event.key)
-            ) {
-              return null
-            }
             _vm.showStudents(1)
           },
           input: function($event) {
@@ -50782,7 +50772,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h6", [_vm._v("sidenav")])
+  return _c("h6", [_vm._v("sidebar 1")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50954,12 +50944,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       year: '',
       rating: '',
       weightedAverage: '',
-      numberOfSubject: ''
+      currentSubject: '',
+      takenSubjects: ''
     };
   },
   mounted: function mounted() {
     this.showSubjectsWithGrade();
     this.studentStatus();
+    this.currentSubjectCount();
+    this.takenSubjectCount();
   },
 
   props: ['user'],
@@ -50970,7 +50963,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('list-of-subject-with-grade').then(function (response) {
         vm.subjects = response.data;
         vm.numberOfSubject = vm.subjects.length;
-        console.log(response);
       });
     },
     studentStatus: function studentStatus() {
@@ -50980,7 +50972,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         vm.year = response.data.course[0].pivot.year;
         vm.major = response.data.course[0].major;
         vm.status = response.data.course[0].pivot.en_status;
-        console.log(response);
       });
     },
     gradePDF: function gradePDF() {
@@ -50988,6 +50979,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('student-grade-pdf').then(function (response) {
         location.href = "student-grade-pdf";
         Materialize.toast('Grade downloaded !', 3000, 'rounded light-blue lighten-1');
+      });
+    },
+    currentSubjectCount: function currentSubjectCount() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('count-current-subject').then(function (response) {
+        vm.currentSubject = response.data;
+      });
+    },
+    takenSubjectCount: function takenSubjectCount() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('count-taken-subjects').then(function (response) {
+        vm.takenSubjects = response.data[0].subjects_taken.length;
       });
     }
   }
@@ -51002,7 +51005,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "dashboard-student-container " }, [
-    _c("div", { staticClass: "student-status z-depth-1" }, [
+    _c("div", { staticClass: "student-status white z-depth-1" }, [
       _c("div", { staticClass: "student-status-up" }, [
         _c("label", [_vm._v("Major : "), _c("b", [_vm._v(_vm._s(_vm.major))])]),
         _vm._v(" "),
@@ -51024,7 +51027,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "student-widget" }, [
       _c("div", { staticClass: "my-widget " }, [
-        _c("div", { staticClass: "widget-container z-depth-1" }, [
+        _c("div", { staticClass: "widget-container white z-depth-1" }, [
           _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "widget-content" }, [
@@ -51032,7 +51035,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "widget-data " }, [
               _c("label", { staticClass: "teal-text" }, [
-                _vm._v(_vm._s(_vm.userCounter))
+                _vm._v(_vm._s(_vm.currentSubject))
               ])
             ])
           ])
@@ -51040,7 +51043,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "my-widget " }, [
-        _c("div", { staticClass: "widget-container z-depth-1" }, [
+        _c("div", { staticClass: "widget-container white z-depth-1" }, [
           _vm._m(3),
           _vm._v(" "),
           _c("div", { staticClass: "widget-content" }, [
@@ -51048,28 +51051,14 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "widget-data " }, [
               _c("label", { staticClass: "indigo-text" }, [
-                _vm._v(_vm._s(_vm.subjectCounter))
+                _vm._v(_vm._s(_vm.takenSubjects))
               ])
             ])
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "my-widget " }, [
-        _c("div", { staticClass: "widget-container z-depth-1" }, [
-          _vm._m(5),
-          _vm._v(" "),
-          _c("div", { staticClass: "widget-content" }, [
-            _vm._m(6),
-            _vm._v(" "),
-            _c("div", { staticClass: "widget-data " }, [
-              _c("label", { staticClass: "amber-text" }, [
-                _vm._v(_vm._s(_vm.studentCounter))
-              ])
-            ])
-          ])
-        ])
-      ])
+      _vm._m(5)
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "classes-grades z-depth-2" }, [
@@ -51100,7 +51089,7 @@ var render = function() {
             staticStyle: { "background-color": "#ffffff" }
           },
           [
-            _vm._m(7),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "tbody",
@@ -51139,9 +51128,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "widget-icon teal" }, [
-      _c("i", { staticClass: "material-icons white-text" }, [
-        _vm._v("account_circle")
-      ])
+      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("subject")])
     ])
   },
   function() {
@@ -51149,7 +51136,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "widget-title " }, [
-      _c("label", { staticClass: "teal-text" }, [_vm._v("Users")])
+      _c("label", { staticClass: "teal-text" }, [_vm._v("Current Subjects")])
     ])
   },
   function() {
@@ -51165,23 +51152,31 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "widget-title " }, [
-      _c("label", { staticClass: "indigo-text" }, [_vm._v("Subjects")])
+      _c("label", { staticClass: "indigo-text" }, [_vm._v("Taken Subjects")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget-icon amber" }, [
-      _c("i", { staticClass: "material-icons white-text" }, [_vm._v("people")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget-title " }, [
-      _c("label", { staticClass: "amber-text" }, [_vm._v("Students")])
+    return _c("div", { staticClass: "my-widget " }, [
+      _c("div", { staticClass: "widget-container white z-depth-1" }, [
+        _c("div", { staticClass: "widget-icon amber" }, [
+          _c("i", { staticClass: "material-icons white-text" }, [
+            _vm._v("subject")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "widget-content" }, [
+          _c("div", { staticClass: "widget-title " }, [
+            _c("label", { staticClass: "amber-text" }, [_vm._v("All subjects")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "widget-data " }, [
+            _c("label", { staticClass: "amber-text" }, [_vm._v("60")])
+          ])
+        ])
+      ])
     ])
   },
   function() {
@@ -51689,6 +51684,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51697,6 +51698,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       student: [],
       course: [],
       year: '',
+      major: '',
       username: '',
       isUpdate: false,
       currentPassword: '',
@@ -51707,7 +51709,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
   mounted: function mounted() {
-    isUpdate: true, this.studentAcademicDetails();
+    this.studentAcademicDetails();
   },
 
 
@@ -51720,25 +51722,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         vm.student = response.data.student;
         vm.course = response.data.course[0].cr_acrnm;
         vm.year = response.data.course[0].pivot.year;
+        vm.major = response.data.course[0].major;
         vm.username = response.data.student.idnum;
       });
     },
+    userCurrentPassword: function userCurrentPassword() {
+      var vm = this;
+      if (this.currentPassword != '') {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('verify-current-password', {
+          'currentPassword': this.currentPassword
+        }).then(function (response) {
+          if (response.data == true) {
+            console.log(response);
+            Materialize.toast('Password verified !', 3000, 'rounded light-blue lighten-1');
+            $('#password').prop("disabled", false);
+            $('#password_confirmation').prop("disabled", false);
+            $('#updateBtn').removeClass("disabled");
+          } else {
+            console.log(response);
+            $('#currentpassword').addClass("invalid").removeClass("valid");
+            Materialize.toast('Invalid password !', 3000, 'rounded red lighten-1');
+          }
+        }).catch(function (error) {
+          Materialize.toast('Something went wrong !', 3000, 'rounded red lighten-1');
+        });
+      } else {
+        Materialize.toast('Fields required !', 3000, 'rounded red lighten-1');
+      }
+    },
     userUpdate: function userUpdate() {
       var vm = this;
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('student-user-update', {
-        'currentPassword': this.currentPassword,
-        'newPassword': this.newPassword,
-        'confirmPassword': this.confirmPassword
-      }).then(function (response) {
-        console.log(response);
-        vm.currentPassword = '';
-        vm.newPassword = '';
-        vm.confirmPassword = '';
-        Materialize.toast('Successfully updated !', 3000, 'rounded light-blue lighten-1');
-      }).catch(function (error) {
-        Materialize.toast('Opps something went wrong !', 3000, 'rounded red lighten-1');
-        console.log(error);
-      });
+      if (this.currentPassword == '' || this.newPassword == '' || this.confirmPassword == '') {
+        Materialize.toast('Fields required !', 3000, 'rounded red lighten-1');
+      } else {
+        if (this.newPassword == this.confirmPassword) {
+          __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('student-user-update', {
+            'newPassword': this.newPassword,
+            'confirmPassword': this.confirmPassword
+          }).then(function (response) {
+            vm.currentPassword = '';
+            $('#password').prop("disabled", true);
+            $('#password_confirmation').prop("disabled", true);
+            $('#updateBtn').addClass("disabled");
+            Materialize.toast('Successfully updated !', 3000, 'rounded light-blue lighten-1');
+          });
+        } else {
+          vm.newPassword = '';
+          vm.confirmPassword = '';
+          $('#password').addClass("invalid").removeClass("valid");
+          $('#password_confirmation').addClass("invalid").removeClass("valid");
+          Materialize.toast('Password dont match !', 3000, 'rounded red lighten-1');
+        }
+      }
     },
     updateAvatar: function updateAvatar() {
       var vm = this;
@@ -51816,6 +51851,8 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "user-details " }, [
+        _c("label", [_vm._v(_vm._s(_vm.major))]),
+        _vm._v(" "),
         _c("label", [
           _vm._v(_vm._s(_vm.student.fname) + " " + _vm._s(_vm.student.lname))
         ]),
@@ -51947,35 +51984,62 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("i", { staticClass: "material-icons prefix" }, [_vm._v("lock")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.currentPassword,
-                expression: "currentPassword"
-              }
-            ],
-            staticClass: "validate",
-            attrs: { id: "currentpassword", required: "", type: "text" },
-            domProps: { value: _vm.currentPassword },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+        _c(
+          "div",
+          { staticClass: "input-field", attrs: { id: "currentPassword" } },
+          [
+            _c("div", { staticClass: "field" }, [
+              _c("i", { staticClass: "material-icons prefix" }, [
+                _vm._v("lock")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.currentPassword,
+                    expression: "currentPassword"
+                  }
+                ],
+                staticClass: "validate",
+                attrs: {
+                  id: "currentpassword",
+                  required: "",
+                  type: "password"
+                },
+                domProps: { value: _vm.currentPassword },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.currentPassword = $event.target.value
+                  }
                 }
-                _vm.currentPassword = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "currentpassword" } }, [
-            _vm._v("Current Password")
-          ])
-        ]),
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "currentpassword" } }, [
+                _vm._v("Current Password")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "currentBtn" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn small blue darken-1",
+                  on: {
+                    click: function($event) {
+                      _vm.userCurrentPassword()
+                    }
+                  }
+                },
+                [_vm._v("Confirm")]
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "input-field" }, [
           _c("i", { staticClass: "material-icons prefix" }, [
@@ -51991,9 +52055,10 @@ var render = function() {
                 expression: "newPassword"
               }
             ],
-            staticClass: "validate",
+            staticClass: "validate ",
             attrs: {
               id: "password",
+              disabled: "",
               required: "",
               name: "password",
               type: "password"
@@ -52029,6 +52094,7 @@ var render = function() {
             staticClass: "validate",
             attrs: {
               id: "password_confirmation",
+              disabled: "",
               required: "",
               name: "password_confirmation",
               type: "password"
@@ -52052,7 +52118,8 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn waves-effect waves-light light-blue",
+            staticClass: "btn waves-effect waves-light blue darken-1 disabled",
+            attrs: { id: "updateBtn" },
             on: {
               click: function($event) {
                 _vm.userUpdate()
@@ -52193,31 +52260,21 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_event_calendar___default.a, { locale: 'e
   data: function data() {
     return {
 
-      events: [{
-        date: '',
-        title: '',
-        description: ''
-      }],
+      eventsCalendar: []
 
-      demoEvents: [{
-        date: '2018/01/12', // Required
-        title: 'Foo' // Required
-      }, {
-        date: '2018/01/15',
-        title: 'Bar',
-        desc: 'description'
-      }]
     };
+  },
+  mounted: function mounted() {
+    this.showEvents();
   },
 
 
   methods: {
-    addEvent: function addEvent() {
+    showEvents: function showEvents() {
       var vm = this;
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('add-event').then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('show-events').then(function (response) {
+        vm.eventsCalendar = response.data;
         console.log(response);
-      }).catch(function (error) {
-        console.log(error);
       });
     }
   }
@@ -52238,7 +52295,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("vue-event-calendar", { attrs: { events: _vm.demoEvents } })
+      _c("vue-event-calendar", { attrs: { events: _vm.eventsCalendar } })
     ],
     1
   )
@@ -52248,9 +52305,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "school-calendar z-depth-1" }, [
-      _c("h5", [_vm._v("School Year Calendar")])
-    ])
+    return _c(
+      "div",
+      { staticClass: "school-calendar white darken-3 z-depth-1 " },
+      [
+        _c("label", { staticClass: "blue-text" }, [
+          _vm._v("School Year Calendar")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -52605,7 +52668,7 @@ var render = function() {
         "ul",
         { staticClass: "collection" },
         _vm._l(_vm.todos, function(todo) {
-          return _c("li", { staticClass: "collection-item avatar" }, [
+          return _c("li", { staticClass: "collection-item avatar " }, [
             _c("i", { staticClass: "material-icons circle green" }, [
               _vm._v("assignment")
             ]),
@@ -52807,6 +52870,434 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(110)
+/* template */
+var __vue_template__ = __webpack_require__(111)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\student\\faqs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-283610f5", Component.options)
+  } else {
+    hotAPI.reload("data-v-283610f5", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(107)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\student\\help.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7a4253ce", Component.options)
+  } else {
+    hotAPI.reload("data-v-7a4253ce", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("h1", [_vm._v("This is the help tab")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7a4253ce", module.exports)
+  }
+}
+
+/***/ }),
+/* 108 */,
+/* 109 */,
+/* 110 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "faqs-container" }, [
+      _c("div", { staticClass: "header-container  white z-depth-1" }, [
+        _c("label", { staticClass: "blue-text" }, [
+          _vm._v("Frequently Asked Questions")
+        ])
+      ]),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "system-identification-container z-depth-1" }, [
+        _c("div", { staticClass: "system-header white" }, [
+          _c("label", { staticClass: "system-name blue white-text" }, [
+            _c("i", { staticClass: "material-icons" }, [
+              _vm._v("account_balance")
+            ]),
+            _vm._v(" MDC Student Portal")
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "left-title blue-text" }, [
+            _vm._v("Overview : ")
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "system-meaning" }, [
+            _vm._v(
+              "A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students."
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "left-title blue-text" }, [
+            _vm._v("Questions : ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "system-content white" }, [
+          _c(
+            "ul",
+            {
+              staticClass: "collapsible",
+              attrs: { "data-collapsible": "accordion" }
+            },
+            [
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v("What devices does the system work on?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v(
+                      "The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v("How does it work ?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v(
+                      "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v("What if I need to change my account details ?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v(
+                      "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v("Does the system support financial ?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v("No. The system didn't support financial .")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v(
+                      "Where did you get all of this information about me ?"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v(
+                      "Once you were enrolled . Your data will be copied to the system where should be use to get an account for you."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "collapsible-header blue-text" }, [
+                  _c("label", { staticClass: "faqs-question blue-text" }, [
+                    _vm._v("Which browser are the best to view the portal ?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "collapsible-body" }, [
+                  _c("label", { staticClass: "faqs-answer" }, [
+                    _vm._v("Google Chrome.")
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "left-title blue-text white" }, [
+          _vm._v("Tips : ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "tips-container white blue-text" }, [
+          _c("label", [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("done")
+            ]),
+            _vm._v("Do not share your password with anyone.")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("label", [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("done")
+            ]),
+            _vm._v("If possible change your password monthly. ")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("label", [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("done")
+            ]),
+            _vm._v("Always log out of a computer when you walk away from it.")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("label", [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("done")
+            ]),
+            _vm._v("Keep a passcode on your phone. ")
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-283610f5", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="dashboard-student-container ">
-    <div class="student-status z-depth-1">
+    <div class="student-status white z-depth-1">
       <div class="student-status-up">
         <label>Major : <b>{{major}}</b></label>
         <label>Course & year : <b>{{course}} - {{year}}</b></label>
@@ -12,46 +12,46 @@
     </div>
     <div class="student-widget">
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon teal">
-            <i class="material-icons white-text">account_circle</i>
+            <i class="material-icons white-text">subject</i>
           </div>
           <div class="widget-content">
             <div class="widget-title ">
-              <label class="teal-text">Users</label>
+              <label class="teal-text">Current Subjects</label>
             </div>
             <div class="widget-data ">
-              <label class="teal-text">{{userCounter}}</label>
+              <label class="teal-text">{{currentSubject}}</label>
             </div>
           </div>
         </div>
       </div>
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon indigo">
             <i class="material-icons white-text">subject</i>
           </div>
           <div class="widget-content">
             <div class="widget-title ">
-              <label class="indigo-text">Subjects</label>
+              <label class="indigo-text">Taken Subjects</label>
             </div>
             <div class="widget-data ">
-              <label class="indigo-text">{{subjectCounter}}</label>
+              <label class="indigo-text">{{takenSubjects}}</label>
             </div>
           </div>
         </div>
       </div>
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon amber">
-            <i class="material-icons white-text">people</i>
+            <i class="material-icons white-text">subject</i>
           </div>
           <div class="widget-content">
             <div class="widget-title ">
-              <label class="amber-text">Students</label>
+              <label class="amber-text">All subjects</label>
             </div>
             <div class="widget-data ">
-              <label class="amber-text">{{studentCounter}}</label>
+              <label class="amber-text">60</label>
             </div>
           </div>
         </div>
@@ -104,12 +104,15 @@
           year:'',
           rating:'',
           weightedAverage:'',
-          numberOfSubject:''
+          currentSubject:'',
+          takenSubjects:''
         }
       },
       mounted(){
         this.showSubjectsWithGrade();
         this.studentStatus();
+        this.currentSubjectCount();
+        this.takenSubjectCount();
       },
       props:['user'],
 
@@ -119,7 +122,6 @@
           axios.get(`list-of-subject-with-grade`).then(function(response){
             vm.subjects = response.data;
             vm.numberOfSubject = vm.subjects.length;
-            console.log(response);
           });
         },
 
@@ -130,7 +132,6 @@
             vm.year = response.data.course[0].pivot.year;
             vm.major = response.data.course[0].major;
             vm.status = response.data.course[0].pivot.en_status;
-            console.log(response);
           });
         },
 
@@ -139,6 +140,20 @@
           axios.get(`student-grade-pdf`).then(function(response){
             location.href="student-grade-pdf";
             Materialize.toast('Grade downloaded !',3000,'rounded light-blue lighten-1');
+          });
+        },
+
+        currentSubjectCount(){
+          var vm = this;
+          axios.get(`count-current-subject`).then(function(response){
+            vm.currentSubject = response.data;
+          });
+        },
+
+        takenSubjectCount(){
+          var vm = this;
+          axios.get(`count-taken-subjects`).then(function(response){
+            vm.takenSubjects = response.data[0].subjects_taken.length;
           });
         }
 

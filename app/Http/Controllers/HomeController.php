@@ -71,7 +71,7 @@ class HomeController extends Controller
         Session::put('username',$username);
         return View::make('loginpassword')->with('student',$student)->with('user',$user);
       }else {
-        $notification =  array('message' => 'User not found' );
+        $notification =  array('message' => 'User not found !' );
         return redirect()->back()->with($notification);
       }
     }

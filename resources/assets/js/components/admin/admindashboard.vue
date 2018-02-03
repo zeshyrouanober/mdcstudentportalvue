@@ -109,7 +109,7 @@
     </div>
     <div class="dashboard-content-down z-depth-2">
       <div class="school-calendar z-depth-1">
-        <h5>School Year Calendar</h5>
+        <label>School Year Calendar</label>
         <a href="#calendar" class="btn-floating btn-small waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
       </div>
 
@@ -120,7 +120,7 @@
       <div id="calendar" class="modal modal-fixed-footer">
         <div class="modal-content">
           <div class="modal-header light-blue ">
-            <h4 id="todos-header ">Add an Event</h4>
+            <h4 id="todos-header ">Add Event</h4>
           </div>
           <div class="modal-fields">
             <div class="input-field">
