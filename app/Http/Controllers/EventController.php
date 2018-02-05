@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class EventController extends Controller
 {
@@ -29,8 +31,7 @@ class EventController extends Controller
   }
 
   public function show(){
-    $event = Event::all();
-    return $event;
+    return Event::all();
   }
 
 }

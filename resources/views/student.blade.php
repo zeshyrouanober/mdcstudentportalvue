@@ -2,7 +2,7 @@
   @extends('layouts.template')
     @section('side-nav')
         <div class="student-nav">
-            <ul class="tabs">
+            <ul class="tabs wow flash">
               <li class="tab" id="usertab" >
                 <div class="avatar">
                   <a href="#userprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/storage/avatars/{{Auth::user()->avatar}}" alt="">
@@ -157,6 +157,7 @@
                 $('ul.tabs').tabs();
                 $('.tooltipped').tooltip({delay: 50});
                 $('.collapsible').collapsible();
+                 $('.scrollspy').scrollSpy();
                 // $('.counters').each(function() {
                 //      var $this = $(this),
                 //          countTo = $this.attr('data-count');

@@ -6,10 +6,10 @@
       <div class="template-container" >
         <div class="template-header">
             <div class="logo">
-                <img src="images/school-logo2.png" alt="" class="animated rollIn">
+                <img src="images/school-logo2.png" alt="" class="wow flash">
             </div>
             <div class="system-info">
-                <h1 class="animated rubberBand">Mater Dei College Student Portal</h1>
+                <h1 class="wow flash">Mater Dei College Student Portal</h1>
             </div>
         </div>
         <div class="template-content">

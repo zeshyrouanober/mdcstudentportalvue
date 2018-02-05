@@ -820,18 +820,17 @@ span{
 }
 .school-calendar{
   display: flex;
-  padding: 25px 20px;
-
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .school-calendar label{
   flex: 1;
 }
 
-.school-calendar a:hover{
-  background-color: #039be5!important;
-}
-.school-calendar a:hover .material-icons{
-  color: #ffffff!important;
+.school-calendar a{
+  margin-top: 10px;
+  position: relative;
 }
 .dashboard-content-up{
   display: flex;
@@ -1403,11 +1402,36 @@ thead tr th{
 .faqs-container{
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 .faqs-container .header-container{
   display: flex;
   justify-content: center;
   padding: 30px;
+}
+.header-container #scroll-spy-container{
+  position: absolute;
+}
+.scroll-fixed{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+#sticky{
+  position: absolute;
+  width: 250px;
+}
+#sticky .table-of-contents a.active{
+  border-left: 2px solid #2196f3!important;
+}
+#sticky .table-of-contents a:hover{
+  border-left: 1px solid #2196f3!important;
+}
+#sticky.stick {
+  position: fixed;
+  top: 12px;
+  z-index: 10000;
 }
 .faqs-container .system-identification-container{
   display: flex;
@@ -1416,6 +1440,7 @@ thead tr th{
 .system-identification-container .system-header{
   display: flex;
   flex-direction: column;
+  padding: 0px;
 }
 .system-identification-container .system-name{
   font-size:25px!important;
@@ -1427,7 +1452,6 @@ thead tr th{
   font-size: 14px!important;
 }
 .system-identification-container .system-meaning{
-  flex: 1;
   font-weight: normal;
   font-size: 16px!important;
   padding: 25px 40px;
@@ -1436,10 +1460,16 @@ thead tr th{
   line-height: 25px;
 }
 .system-identification-container .system-content{
-  flex: 6;
-  padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.system-content .faqs-title{
+  display: flex;
+  padding: 15px;
 }
 .system-content .collapsible{
+  padding: 15px;
   border:none!important;
   border-color: none!important;
   box-shadow: none!important;
@@ -1452,12 +1482,73 @@ thead tr th{
   line-height: 20px;
 }
 .tips-container{
-  padding: 10px 40px;
-  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
 }
-.tips-container label{
+.tips-container .tips-title{
+  display: flex;
+  padding: 15px;
+}
+.tips-container .tips-content{
+  padding: 20px;
+}
+.tips-container .tips-content label{
+  line-height: 30px;
+  font-size: 15px;
+}
+.faqs-container .school-identification-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.school-identification-container .school-header{
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.left-title{
+  padding: 10px;
+  font-size: 14px!important;
+}
+.school-header .school-name{
+  font-size:25px!important;
+  font-weight: 4400;
+  padding: 15px;
+}
+.school-header .school-seal{
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+}
+.school-seal img{
+  margin: auto;
+  height: 120px;
+  width: 120px;
+  padding: 10px;
+}
+.school-seal label{
   line-height: 20px;
   font-size: 15px;
+}
+.school-content .collapsible{
+  padding: 0px 40px;
+}
+.school-content .collapsible{
+  border:none!important;
+  border-color: none!important;
+  box-shadow: none!important;
+}
+.school-content .collapsible .collapsible-body{
+  padding: none!important;
+  display: flex;
+  flex-direction: column;
+}
+.collapsible .collapsible-body .faqs-answer-content{
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 4400;
+  padding-left: 20px;
 }
 .pagination-container{
   display: flex;

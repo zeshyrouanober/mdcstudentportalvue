@@ -108,12 +108,13 @@
       </div> -->
     </div>
     <div class="dashboard-content-down z-depth-2">
-      <div class="school-calendar z-depth-1">
-        <label>School Year Calendar</label>
-        <a href="#calendar" class="btn-floating btn-small waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
+      <div class="school-calendar white z-depth-1">
+        <label> <i class="material-icons">today</i>  School Year Calendar</label>
+        <a href="#calendar" class="btn-floating btn-large waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
       </div>
 
       <vue-event-calendar :events="eventsCalendar"  >
+
 
       </vue-event-calendar>
 

@@ -27,10 +27,10 @@
     <script src = "https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 
-    {{-- <script src="js/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         new WOW().init();
-    </script> --}}
+    </script>
   </head>
   <body>
 

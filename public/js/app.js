@@ -2212,7 +2212,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(90);
+module.exports = __webpack_require__(96);
 
 
 /***/ }),
@@ -2253,8 +2253,8 @@ Vue.component('userprofilevue', __webpack_require__(78));
 Vue.component('calendarvue', __webpack_require__(81));
 Vue.component('upcomingeventsvue', __webpack_require__(84));
 Vue.component('todosvue', __webpack_require__(87));
-Vue.component('faqsvue', __webpack_require__(98));
-Vue.component('helpvue', __webpack_require__(99));
+Vue.component('faqsvue', __webpack_require__(90));
+Vue.component('helpvue', __webpack_require__(93));
 
 var app = new Vue({
   el: '.app'
@@ -44365,6 +44365,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -45260,14 +45261,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "school-calendar z-depth-1" }, [
-      _c("label", [_vm._v("School Year Calendar")]),
+    return _c("div", { staticClass: "school-calendar white z-depth-1" }, [
+      _c("label", [
+        _c("i", { staticClass: "material-icons" }, [_vm._v("today")]),
+        _vm._v("  School Year Calendar")
+      ]),
       _vm._v(" "),
       _c(
         "a",
         {
           staticClass:
-            "btn-floating btn-small waves-effect waves-light  light-blue darken-3 right modal-trigger",
+            "btn-floating btn-large waves-effect waves-light  light-blue darken-3 right modal-trigger",
           attrs: { href: "#calendar" }
         },
         [_c("i", { staticClass: "material-icons" }, [_vm._v("add")])]
@@ -52259,7 +52263,6 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_event_calendar___default.a, { locale: 'e
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-
       eventsCalendar: []
 
     };
@@ -52867,27 +52870,14 @@ if (false) {
 
 /***/ }),
 /* 90 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(110)
+var __vue_script__ = __webpack_require__(91)
 /* template */
-var __vue_template__ = __webpack_require__(111)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52926,15 +52916,732 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 91 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+$(document).ready(function () {
+    function sticky_relocate() {
+        var window_top = $(window).scrollTop();
+        var div_top = $('#sticky-anchor').offset().top;
+        if (window_top > div_top) {
+            $('#sticky').addClass('stick');
+        } else {
+            $('#sticky').removeClass('stick');
+        }
+    }
+
+    $(function () {
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+    });
+});
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "faqs-container" }, [
+      _c("div", { staticClass: "header-container  white z-depth-1" }, [
+        _c("label", { staticClass: "blue-text" }, [
+          _vm._v("Frequently Asked Questions")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { attrs: { id: "sticky-anchor" } }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col hide-on-small-only m3 l2 white z-depth-1",
+              attrs: { id: "sticky" }
+            },
+            [
+              _c("ul", { staticClass: "section table-of-contents" }, [
+                _c("li", { staticClass: "customized" }, [
+                  _c("a", { attrs: { href: "#system-header" } }, [
+                    _vm._v("Portal Overview")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "customized" }, [
+                  _c("a", { attrs: { href: "#system-content" } }, [
+                    _vm._v("Portal Faqs")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "customized" }, [
+                  _c("a", { attrs: { href: "#system-tips" } }, [
+                    _vm._v("Portal Tips")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "customized" }, [
+                  _c("a", { attrs: { href: "#school-header" } }, [
+                    _vm._v("School Information")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "customized" }, [
+                  _c("a", { attrs: { href: "#school-content" } }, [
+                    _vm._v("School Faqs")
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "system-identification-container" }, [
+        _c(
+          "div",
+          {
+            staticClass: "system-header section scrollspy white z-depth-1 ",
+            attrs: { id: "system-header" }
+          },
+          [
+            _c("label", { staticClass: "system-name blue white-text" }, [
+              _c("i", { staticClass: "material-icons" }, [
+                _vm._v("account_balance")
+              ]),
+              _vm._v(" MDC Student Portal")
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "left-title blue-text" }, [
+              _vm._v("Overview : ")
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "system-meaning" }, [
+              _vm._v(
+                "A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students."
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "system-content section scrollspy white animated fadeInUp z-depth-1",
+            attrs: { id: "system-content" }
+          },
+          [
+            _c("div", { staticClass: "faqs-title blue" }, [
+              _c("label", { staticClass: " white-text" }, [
+                _c("i", { staticClass: "material-icons" }, [
+                  _vm._v("info_outline")
+                ]),
+                _vm._v(" Portal Faqs")
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "collapsible",
+                attrs: { "data-collapsible": "accordion" }
+              },
+              [
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("What devices does the system work on?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("How does it work ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("What if I need to change my account details ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("Does the system support financial ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v("No. The system didn't support financial .")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v(
+                        "that did you get all of this information about me ?"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "Once you were enrolled . Your data will be copied to the system that should be use to get an account for you."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("Which browser are the best to view the portal ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v("Google Chrome.")
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "tips-container section scrollspy wow fadeInUp z-depth-1 white",
+            attrs: { id: "system-tips" }
+          },
+          [
+            _c("div", { staticClass: "tips-title blue" }, [
+              _c("label", { staticClass: " white-text" }, [
+                _c("i", { staticClass: "material-icons" }, [_vm._v("done")]),
+                _vm._v(" Portal Tips")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tips-content" }, [
+              _c("label", [
+                _c("i", { staticClass: "material-icons blue-text" }, [
+                  _vm._v("done")
+                ]),
+                _vm._v("Do not share your password with anyone.")
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", [
+                _c("i", { staticClass: "material-icons blue-text" }, [
+                  _vm._v("done")
+                ]),
+                _vm._v("If possible change your password monthly. ")
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", [
+                _c("i", { staticClass: "material-icons blue-text" }, [
+                  _vm._v("done")
+                ]),
+                _vm._v(
+                  "Always log out of a computer when you walk away from it."
+                )
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", [
+                _c("i", { staticClass: "material-icons blue-text" }, [
+                  _vm._v("done")
+                ]),
+                _vm._v("Keep a passcode on your phone. ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "school-identification-container white " }, [
+        _c(
+          "div",
+          {
+            staticClass: "school-header section scrollspy",
+            attrs: { id: "school-header" }
+          },
+          [
+            _c("label", { staticClass: "school-name blue white-text" }, [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
+              _vm._v(" Mater Dei College")
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "left-title blue-text" }, [
+              _vm._v("The College seal :")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "school-seal wow fadeInUp" }, [
+              _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "\n          The college seal is a white circular field surrounded by rosary beads. The upper arc contains the name, MATER DEI COLLEGE. Directly under the arc, is blue triangle with the words\n          in the white print; SAPIENTA , CARITAS, AND ORATIO on each side of the equilateral trianle. Inside is a smaller triangle with M and a cross on its top at the center. Both M and a cross are sorrounded with 15 black dots. On the base of the big triangle\n          is the location of the college, Tubigon, Bohol, Philippines. Beneath it is the foundation date of the college in the symbols; MCMLXXIII (1983), all printed in black.The prominence of the M and the rosary in the logo indicates the role of the College.\n          The words SAPIENTA , "
+                ),
+                _c("b", [_vm._v("wisdom")]),
+                _vm._v(" through Scholarship, CARITAS, "),
+                _c("b", [_vm._v("charity")]),
+                _vm._v(" , through Service, and ORATIO, "),
+                _c("b", [_vm._v("prayer-life")]),
+                _vm._v(
+                  " through living the Gospel are the corporate values that the College upholds.\n        "
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "school-content section scrollspy white wow fadeInUp",
+            attrs: { id: "school-content" }
+          },
+          [
+            _c("label", { staticClass: "left-title blue-text" }, [
+              _vm._v("Faq's :")
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "collapsible",
+                attrs: { "data-collapsible": "accordion" }
+              },
+              [
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("The vision , mission, and goal ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-title blue-text" },
+                      [
+                        _vm._v(
+                          "\n                Vision Statement :\n             "
+                        )
+                      ]
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "faqs-answer-content" }, [
+                      _vm._v(
+                        "\n               Mater Dei College is a community of dedicated educators and community-oriented educands who believe in the search for the truth that leads to "
+                      ),
+                      _c("b", [_vm._v("WISDOM")]),
+                      _vm._v(
+                        "\n               ; in unselfish living through SERVICE as an expression of "
+                      ),
+                      _c("b", [_vm._v("CHARITY")]),
+                      _vm._v("; and in the pursuit of "),
+                      _c("b", [_vm._v("PRAYER LIFE")]),
+                      _vm._v(
+                        " through living the gospel as taught by the Catholic church and as exemplified by Mary, the mother of God\n               in whose honor the college identifies herself.\n            "
+                      )
+                    ]),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-title blue-text" },
+                      [
+                        _vm._v(
+                          "\n               Mission Statement :\n            "
+                        )
+                      ]
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "faqs-answer-content" }, [
+                      _vm._v(
+                        "\n              Mater Dei College commits herself to provide a holistic, Catholic education by sharing her human and material resources primarily with the economically\n              disadvantaged but deserving rural youths. The general well being of these youths is the end of her curricular programs to enable them to live\n              fully as children of the loving father.\n           "
+                      )
+                    ]),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-title blue-text" },
+                      [_vm._v("\n              Goal Statement :\n           ")]
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "faqs-answer-content" }, [
+                      _vm._v("\n             MDC strives to : "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", { staticStyle: { "padding-left": "10px" } }, [
+                        _vm._v(
+                          "\n               Produce graduates who are God-loving , law-abiding, environment-friendly, and morally principled, well-rounded professionals who by their able to response\n               to the call of duty, actively participate in positive transformation of the community.\n              "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("How does it work ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("What if I need to change my account details ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("Does the system support financial ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v("No. The system didn't support financial .")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v(
+                        "Where did you get all of this information about me ?"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v(
+                        "Once you were enrolled . Your data will be copied to the system where should be use to get an account for you."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("div", { staticClass: "collapsible-header blue-text" }, [
+                    _c("label", { staticClass: "faqs-question blue-text" }, [
+                      _vm._v("Which browser are the best to view the portal ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "collapsible-body" }, [
+                    _c("label", { staticClass: "faqs-answer" }, [
+                      _vm._v("Google Chrome.")
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-283610f5", module.exports)
+  }
+}
+
+/***/ }),
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(106)
+var __vue_script__ = __webpack_require__(94)
 /* template */
-var __vue_template__ = __webpack_require__(107)
+var __vue_template__ = __webpack_require__(95)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52973,13 +53680,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52992,7 +53693,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 107 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53012,292 +53713,10 @@ if (false) {
 }
 
 /***/ }),
-/* 108 */,
-/* 109 */,
-/* 110 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 96 */
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "faqs-container" }, [
-      _c("div", { staticClass: "header-container  white z-depth-1" }, [
-        _c("label", { staticClass: "blue-text" }, [
-          _vm._v("Frequently Asked Questions")
-        ])
-      ]),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "system-identification-container z-depth-1" }, [
-        _c("div", { staticClass: "system-header white" }, [
-          _c("label", { staticClass: "system-name blue white-text" }, [
-            _c("i", { staticClass: "material-icons" }, [
-              _vm._v("account_balance")
-            ]),
-            _vm._v(" MDC Student Portal")
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "left-title blue-text" }, [
-            _vm._v("Overview : ")
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "system-meaning" }, [
-            _vm._v(
-              "A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students."
-            )
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "left-title blue-text" }, [
-            _vm._v("Questions : ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "system-content white" }, [
-          _c(
-            "ul",
-            {
-              staticClass: "collapsible",
-              attrs: { "data-collapsible": "accordion" }
-            },
-            [
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v("What devices does the system work on?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v(
-                      "The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above."
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v("How does it work ?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v(
-                      "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v("What if I need to change my account details ?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v(
-                      "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v("Does the system support financial ?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v("No. The system didn't support financial .")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v(
-                      "Where did you get all of this information about me ?"
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v(
-                      "Once you were enrolled . Your data will be copied to the system where should be use to get an account for you."
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("div", { staticClass: "collapsible-header blue-text" }, [
-                  _c("label", { staticClass: "faqs-question blue-text" }, [
-                    _vm._v("Which browser are the best to view the portal ?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "collapsible-body" }, [
-                  _c("label", { staticClass: "faqs-answer" }, [
-                    _vm._v("Google Chrome.")
-                  ])
-                ])
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("label", { staticClass: "left-title blue-text white" }, [
-          _vm._v("Tips : ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "tips-container white blue-text" }, [
-          _c("label", [
-            _c("i", { staticClass: "material-icons blue-text" }, [
-              _vm._v("done")
-            ]),
-            _vm._v("Do not share your password with anyone.")
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("label", [
-            _c("i", { staticClass: "material-icons blue-text" }, [
-              _vm._v("done")
-            ]),
-            _vm._v("If possible change your password monthly. ")
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("label", [
-            _c("i", { staticClass: "material-icons blue-text" }, [
-              _vm._v("done")
-            ]),
-            _vm._v("Always log out of a computer when you walk away from it.")
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("label", [
-            _c("i", { staticClass: "material-icons blue-text" }, [
-              _vm._v("done")
-            ]),
-            _vm._v("Keep a passcode on your phone. ")
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-283610f5", module.exports)
-  }
-}
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
