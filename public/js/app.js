@@ -53110,22 +53110,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 $(document).ready(function () {
-    function sticky_relocate() {
-        var window_top = $(window).scrollTop();
-        var div_top = $('#sticky-anchor').offset().top;
-        if (window_top > div_top) {
-            $('#sticky').addClass('stick');
-        } else {
-            $('#sticky').removeClass('stick');
-        }
+  function sticky_relocate() {
+    var window_top = $(window).scrollTop();
+    var div_top = $('#sticky-anchor').offset().top;
+    if (window_top > div_top) {
+      $('#sticky').addClass('stick');
+    } else {
+      $('#sticky').removeClass('stick');
     }
+  }
 
-    $(function () {
-        $(window).scroll(sticky_relocate);
-        sticky_relocate();
-    });
+  $(function () {
+    $(window).scroll(sticky_relocate);
+    sticky_relocate();
+  });
 });
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
@@ -53182,7 +53185,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("li", { staticClass: "customized" }, [
                   _c("a", { attrs: { href: "#school-header" } }, [
-                    _vm._v("School Information")
+                    _vm._v("The college seal")
                   ])
                 ]),
                 _vm._v(" "),
@@ -53407,11 +53410,11 @@ var staticRenderFns = [
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "school-identification-container white " }, [
+      _c("div", { staticClass: "school-identification-container  " }, [
         _c(
           "div",
           {
-            staticClass: "school-header section scrollspy",
+            staticClass: "school-header section scrollspy white z-depth-1 ",
             attrs: { id: "school-header" }
           },
           [
@@ -53444,21 +53447,30 @@ var staticRenderFns = [
           ]
         ),
         _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
         _c(
           "div",
           {
-            staticClass: "school-content section scrollspy white wow fadeInUp",
+            staticClass:
+              "school-content section scrollspy white z-depth-1 wow fadeInUp",
             attrs: { id: "school-content" }
           },
           [
-            _c("label", { staticClass: "left-title blue-text" }, [
-              _vm._v("Faq's :")
+            _c("div", { staticClass: "faqs-title blue" }, [
+              _c("label", { staticClass: " white-text" }, [
+                _c("i", { staticClass: "material-icons" }, [
+                  _vm._v("info_outline")
+                ]),
+                _vm._v(" School Faqs")
+              ])
             ]),
             _vm._v(" "),
             _c(
               "ul",
               {
-                staticClass: "collapsible",
+                staticClass: "collapsible ",
                 attrs: { "data-collapsible": "accordion" }
               },
               [
@@ -53618,7 +53630,9 @@ var staticRenderFns = [
               ]
             )
           ]
-        )
+        ),
+        _c("br"),
+        _c("br")
       ])
     ])
   }

@@ -9,7 +9,7 @@
             <li class="customized"><a href="#system-header">Portal Overview</a></li>
             <li class="customized"><a href="#system-content">Portal Faqs</a></li>
             <li class="customized"><a href="#system-tips">Portal Tips</a></li>
-            <li class="customized"><a href="#school-header">School Information</a></li>
+            <li class="customized"><a href="#school-header">The college seal</a></li>
             <li class="customized"><a href="#school-content">School Faqs</a></li>
           </ul>
         </div>
@@ -91,8 +91,8 @@
       </div>
     </div>
 
-    <div class="school-identification-container white " >
-      <div class="school-header section scrollspy" id="school-header">
+    <div class="school-identification-container  " >
+      <div class="school-header section scrollspy white z-depth-1 " id="school-header">
         <label class="school-name blue white-text"><i class="material-icons">home</i> Mater Dei College</label>
         <label class="left-title blue-text">The College seal :</label>
         <div class="school-seal wow fadeInUp">
@@ -105,9 +105,12 @@
           </label>
         </div>
       </div>
-      <div class="school-content section scrollspy white wow fadeInUp" id="school-content">
-        <label class="left-title blue-text">Faq's :</label>
-        <ul class="collapsible" data-collapsible="accordion">
+      <br><br>
+      <div class="school-content section scrollspy white z-depth-1 wow fadeInUp" id="school-content">
+        <div class="faqs-title blue">
+          <label class=" white-text"><i class="material-icons">info_outline</i> School Faqs</label>
+        </div>
+        <ul class="collapsible " data-collapsible="accordion">
            <li>
              <div class="collapsible-header blue-text">
                <label class="faqs-question blue-text">The vision , mission, and goal ?</label>
@@ -182,7 +185,7 @@
              </div>
            </li>
         </ul>
-      </div>
+      </div><br><br>
     </div>
   </div>
 </template>
@@ -190,13 +193,13 @@
 <script>
   $(document).ready(function(){
     function sticky_relocate() {
-        var window_top = $(window).scrollTop();
-        var div_top = $('#sticky-anchor').offset().top;
-        if (window_top > div_top) {
-            $('#sticky').addClass('stick');
-        } else {
-            $('#sticky').removeClass('stick');
-        }
+      var window_top = $(window).scrollTop();
+      var div_top = $('#sticky-anchor').offset().top;
+      if (window_top > div_top) {
+          $('#sticky').addClass('stick');
+      } else {
+          $('#sticky').removeClass('stick');
+      }
     }
 
     $(function() {

@@ -1502,10 +1502,25 @@ thead tr th{
   flex-direction: column;
   margin-top: 30px;
 }
+.school-identification-container .school-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
 .school-identification-container .school-header{
   display: flex;
   flex-direction: column;
   padding: 0px;
+}
+.school-content .faqs-title{
+  display: flex;
+  padding: 15px;
+}
+.school-content .collapsible{
+  padding: 15px;
+  border:none!important;
+  border-color: none!important;
+  box-shadow: none!important;
 }
 .left-title{
   padding: 10px;
