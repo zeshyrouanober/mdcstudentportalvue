@@ -5,46 +5,11 @@
       <label>Recent Active Student</label>
     </div>
     <div class="recent-content">
-      <div class="recent-user">
+      <div class="recent-user" v-for="log in logs">
         <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
+        <label>{{log.username}}</label>
         <div class="recent-time">
-          <label>2 minutes ago</label>
-        </div>
-      </div>
-      <div class="recent-user">
-        <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
-        <div class="recent-time">
-          <label>2 minutes ago</label>
-        </div>
-      </div>
-      <div class="recent-user">
-        <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
-        <div class="recent-time">
-          <label>2 minutes ago</label>
-        </div>
-      </div>
-      <div class="recent-user">
-        <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
-        <div class="recent-time">
-          <label>2 minutes ago</label>
-        </div>
-      </div>
-      <div class="recent-user">
-        <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
-        <div class="recent-time">
-          <label>2 minutes ago</label>
-        </div>
-      </div>
-      <div class="recent-user">
-        <img src="images/school-logo2.png" alt="">
-        <label>Zeshyrou Anober BSIT-4</label>
-        <div class="recent-time">
-          <label>2 minutes ago</label>
+          <label>{{log.created_at}}</label>
         </div>
       </div>
     </div>
@@ -52,9 +17,32 @@
 
 </template>
 
-
 <script>
-  export default {
 
+  import axios from 'axios';
+
+  export default {
+    data(){
+      return{
+        logs:[],
+        pagination:[],
+        timer:''
+      }
+    },
+
+    mounted(){
+      this.showLogs()
+    },
+
+    methods:{
+      showLogs(){
+        var vm = this;
+        axios.get(`show-logs`).then(function(response){
+          vm.logs = response.data.logs.data;
+          vm.pagination = response.data;
+        });
+
+      }
+    }
   }
 </script>

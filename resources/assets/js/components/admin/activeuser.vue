@@ -5,29 +5,9 @@
       <label>Active Student</label>
     </div>
     <div class="active-user-content">
-      <div class="active-user-details">
-        <img src="images/school-logo2.png" alt="">
-        <label >Tokomoro dakog olo BSIT-3</label>
-        <label class="active-sign green-text">•</label>
-      </div>
-      <div class="active-user-details">
-        <img src="images/school-logo2.png" alt="">
-        <label>Tokomoro dakog olo BSIT-3</label>
-        <label class="active-sign green-text">•</label>
-      </div>
-      <div class="active-user-details">
-        <img src="images/school-logo2.png" alt="">
-        <label>Tokomoro dakog olo BSIT-3</label>
-        <label class="active-sign green-text">•</label>
-      </div>
-      <div class="active-user-details">
-        <img src="images/school-logo2.png" alt="">
-        <label>Tokomoro dakog olo BSIT-3</label>
-        <label class="active-sign green-text">•</label>
-      </div>
-      <div class="active-user-details">
-        <img src="images/school-logo2.png" alt="">
-        <label>Tokomoro dakog olo BSIT-3</label>
+      <div class="active-user-details" v-for="user in activeuser">
+        <img :src="'/storage/avatars/' + user.avatar + ''" alt="">
+        <label class="user-details" >{{user.student.fname}} {{user.student.lname}}</label>
         <label class="active-sign green-text">•</label>
       </div>
     </div>
@@ -37,12 +17,33 @@
 
 <script>
 
+  import axios from 'axios';
 
   export default{
     data () {
      return {
-
+        activeuser :[],
+        timer:''
      }
-   }
+   },
+
+   mounted(){
+     this.fetchActiveUser()
+   },
+
+   // created: function(){
+   //   this.fetchActiveUser();
+   //   this.timer = setInterval(this.fetchActiveUser, 3000)
+   // },
+
+   methods:{
+     fetchActiveUser(){
+       var vm = this;
+       axios.get(`active-student`).then(function(response){
+         vm.activeuser = response.data;
+        console.log(response);
+       });
+     }
+   },
   }
 </script>

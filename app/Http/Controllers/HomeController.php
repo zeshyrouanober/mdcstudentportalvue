@@ -83,13 +83,21 @@ class HomeController extends Controller
 
       if (Auth::attempt($credentials)) {
 
-        User::where('username',Auth::user()->username)->update(['status' => '1']);
+        if (Auth::user()->role_id == null ) {
 
-        $log = new Log;
-        $log->username = Session::get('username');
-        $log->save();
+          return redirect('dashboard')->with('message','Welcome');
 
-        return redirect('dashboard')->with('message','Welcome');
+        }else {
+
+          User::where('username',Auth::user()->username)->update(['status' => '1']);
+
+          $log = new Log;
+          $log->username = Session::get('username');
+          $log->save();
+
+          return redirect('dashboard')->with('message','Welcome');
+          
+        }
       }else {
         return redirect()->back();
       }

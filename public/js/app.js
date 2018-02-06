@@ -44399,21 +44399,18 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('user-counters').then(function (response) {
         vm.userCounter = response.data;
-        console.log(response);
       });
     },
     subjectCounters: function subjectCounters() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('subject-counters').then(function (response) {
         vm.subjectCounter = response.data;
-        console.log(response);
       });
     },
     studentCounters: function studentCounters() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('student-counters').then(function (response) {
         vm.studentCounter = response.data;
-        console.log(response);
       });
     },
     addEvent: function addEvent() {
@@ -44436,7 +44433,6 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_event_calendar___default.a, { locale: 'e
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-events').then(function (response) {
         vm.eventsCalendar = response.data;
-        console.log(response);
       });
     }
   }
@@ -50086,7 +50082,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vm.verifications = response.data.verifications.data;
         vm.pagination = response.data.verifications;
         vm.allverifications = response.data.verifCount;
-        console.log(response);
       });
     },
     changepage: function changepage(next) {
@@ -50122,7 +50117,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('generate-verification', {
         'generate': this.generate
       }).then(function (response) {
-        console.log(response);
         vm.showVerifications();
         vm.notActivatedVerifications();
         vm.activatedVerifications();
@@ -50757,6 +50751,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
 //
@@ -50774,31 +50770,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      activeuser: [],
+      timer: ''
+    };
+  },
+  mounted: function mounted() {
+    this.fetchActiveUser();
+  },
+
+
+  // created: function(){
+  //   this.fetchActiveUser();
+  //   this.timer = setInterval(this.fetchActiveUser, 3000)
+  // },
+
+  methods: {
+    fetchActiveUser: function fetchActiveUser() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('active-student').then(function (response) {
+        vm.activeuser = response.data;
+        console.log(response);
+      });
+    }
   }
 });
 
@@ -50810,59 +50810,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "active-user-container" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "active-user-content" },
+      _vm._l(_vm.activeuser, function(user) {
+        return _c("div", { staticClass: "active-user-details" }, [
+          _c("img", {
+            attrs: { src: "/storage/avatars/" + user.avatar + "", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "user-details" }, [
+            _vm._v(
+              _vm._s(user.student.fname) + " " + _vm._s(user.student.lname)
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ])
+      })
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "active-user-container" }, [
-      _c("div", { staticClass: "active-user-header z-depth-1" }, [
-        _c("label", [_vm._v("Active Student")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "active-user-content" }, [
-        _c("div", { staticClass: "active-user-details" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "active-user-details" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "active-user-details" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "active-user-details" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "active-user-details" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
-        ])
-      ])
+    return _c("div", { staticClass: "active-user-header z-depth-1" }, [
+      _c("label", [_vm._v("Active Student")])
     ])
   }
 ]
@@ -50928,42 +50906,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
 //
@@ -50984,7 +50928,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      logs: [],
+      pagination: [],
+      timer: ''
+    };
+  },
+  mounted: function mounted() {
+    this.showLogs();
+  },
+
+
+  methods: {
+    showLogs: function showLogs() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-logs').then(function (response) {
+        vm.logs = response.data.logs.data;
+        vm.pagination = response.data;
+      });
+    }
+  }
+});
 
 /***/ }),
 /* 71 */
@@ -50994,79 +50963,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "recent-active-user-container" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "recent-content" },
+      _vm._l(_vm.logs, function(log) {
+        return _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v(_vm._s(log.username))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v(_vm._s(log.created_at))])
+          ])
+        ])
+      })
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "recent-active-user-container" }, [
-      _c("div", { staticClass: "recent-header z-depth-1 " }, [
-        _c("label", [_vm._v("Recent Active Student")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "recent-content" }, [
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v("2 minutes ago")])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "recent-header z-depth-1 " }, [
+      _c("label", [_vm._v("Recent Active Student")])
     ])
   }
 ]
@@ -53405,21 +53328,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-$(document).ready(function () {
-  function sticky_relocate() {
-    var window_top = $(window).scrollTop();
-    var div_top = $('#sticky-anchor').offset().top;
-    if (window_top > div_top) {
-      $('#sticky').addClass('stick');
-    } else {
-      $('#sticky').removeClass('stick');
-    }
-  }
+$(function () // on document.ready()
+{
+  if ($('.faqs-container').length > 0) {
+    var sticky_relocate = function sticky_relocate() {
+      var window_top = $(window).scrollTop();
+      var div_top = $('#sticky-anchor').offset().top;
+      if (window_top > div_top) {
+        $('#sticky').addClass('stick');
+      } else {
+        $('#sticky').removeClass('stick');
+      }
+    };
 
-  $(function () {
-    $(window).scroll(sticky_relocate);
-    sticky_relocate();
-  });
+    $(function () {
+      $(window).scroll(sticky_relocate);
+      sticky_relocate();
+    });
+  }
 });
 
 /* harmony default export */ __webpack_exports__["default"] = ({});

@@ -1582,22 +1582,28 @@ thead tr th{
   align-items: center;
   padding-left: 10px;
   padding-right: 5px;
+  display: flex;
 }
 .active-user-details img{
-  height: 50px;
   width: 50px;
+  height: 50px;
   border-radius: 50%;
   padding: 5px;
+  flex: 1;
 }
-.active-user-details label{
+.active-user-details .user-details{
   padding: 0px 15px;
   font-family: 'Quicksand', sans-serif!important;
   font-size: 14px;
+  flex: 4;
 }
 .active-user-details .active-sign{
   font-family: 'Quicksand', sans-serif!important;
-  font-size: 40px;
-  margin-left: 20px!important;
+  font-size: 30px;
+  justify-content: center;
+  flex:3;
+  align-items: center;
+  padding-bottom: 5px;
 }
 .recent-active-user-container{
   display: flex;

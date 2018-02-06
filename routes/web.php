@@ -90,6 +90,8 @@ Route::get('user-information/{username}','UserController@userInformation');
 Route::put('student-user-update','UserController@studentUserUpdate');
 Route::post('update-avatar','UserController@updateAvatar');
 Route::post('verify-current-password','UserController@verifyCurrentPassword');
+Route::get('active-student','UserController@activeStudent');
+
 
 //Verification
 Route::get('verifsample','VerificationController@create')->name('generate-verification');
@@ -98,3 +100,7 @@ Route::get('show-verifications','VerificationController@showVerifications');
 Route::get('not-activated','VerificationController@notActivated');
 Route::get('activated','VerificationController@activated');
 Route::get('generate-verification-pdf','VerificationController@verificationPDF');
+
+
+//Logs
+Route::get('show-logs','LogController@show');

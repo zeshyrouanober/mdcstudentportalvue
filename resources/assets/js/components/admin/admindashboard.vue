@@ -185,7 +185,6 @@
         var vm = this;
         axios.get(`user-counters`).then(function(response){
           vm.userCounter = response.data;
-          console.log(response);
         });
       },
 
@@ -193,7 +192,6 @@
         var vm = this;
         axios.get(`subject-counters`).then(function(response){
           vm.subjectCounter = response.data;
-          console.log(response);
         });
       },
 
@@ -201,7 +199,6 @@
         var vm = this;
         axios.get(`student-counters`).then(function(response){
           vm.studentCounter = response.data;
-          console.log(response);
         });
       },
 
@@ -226,7 +223,6 @@
         var vm = this;
         axios.get(`show-events`).then(function(response){
           vm.eventsCalendar = response.data;
-          console.log(response);
         });
       }
     }

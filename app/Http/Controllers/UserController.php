@@ -73,7 +73,9 @@ class UserController extends Controller
 
       }
 
-
+    public function  activeStudent(){
+      return User::where('status','1')->with('student')->get();
+    }
 
     public function counters(){
       return User::count();

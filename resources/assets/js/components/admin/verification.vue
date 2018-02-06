@@ -129,7 +129,6 @@
           vm.verifications = response.data.verifications.data;
           vm.pagination = response.data.verifications;
           vm.allverifications = response.data.verifCount;
-          console.log(response);
         });
       },
 
@@ -171,7 +170,6 @@
        axios.post(`generate-verification`,{
          'generate' : this.generate,
        }).then(function(response){
-         console.log(response);
          vm.showVerifications();
          vm.notActivatedVerifications();
          vm.activatedVerifications();
