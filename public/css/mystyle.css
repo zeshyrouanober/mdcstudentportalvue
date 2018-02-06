@@ -296,12 +296,8 @@ form .forgot-password{
 .template-header{
     flex:1.2;
     display: flex;
-    padding:20px 0px;
     background: url(/images/bg3.jpg) center repeat;
-    -webkit-filter: drop-shadow(0 0 4px #969696);
-    -moz-filter: drop-shadow(0 0 4px #969696);
-    -o-filter: drop-shadow(0 0 4px #969696);
-    filter: drop-shadow(0 0 4px #969696);
+    padding: 5px;
 }
 .template-header .logo{
     flex:1;
@@ -820,12 +816,11 @@ span{
 }
 .school-calendar{
   display: flex;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 .school-calendar label{
   flex: 1;
+  padding: 20px;
 }
 
 .school-calendar a{
@@ -1436,6 +1431,7 @@ thead tr th{
 .faqs-container .system-identification-container{
   display: flex;
   flex-direction: column;
+  padding: 0px 30px;
 }
 .system-identification-container .system-header{
   display: flex;
@@ -1500,7 +1496,7 @@ thead tr th{
 .faqs-container .school-identification-container{
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  padding: 0px 30px;
 }
 .school-identification-container .school-content{
   display: flex;
@@ -1564,6 +1560,83 @@ thead tr th{
   font-size: 15px;
   font-weight: 4400;
   padding-left: 20px;
+}
+.active-user-container{
+  display: flex;
+  flex-direction: column;
+}
+.active-user-container .active-user-header {
+  padding: 15px;
+}
+.active-user-header label{
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif!important;
+}
+.active-user-container .active-user-content{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.active-user-content .active-user-details{
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+.active-user-details img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 5px;
+}
+.active-user-details label{
+  padding: 0px 15px;
+  font-family: 'Quicksand', sans-serif!important;
+  font-size: 14px;
+}
+.active-user-details .active-sign{
+  font-family: 'Quicksand', sans-serif!important;
+  font-size: 40px;
+  margin-left: 20px!important;
+}
+.recent-active-user-container{
+  display: flex;
+  flex-direction: column;
+}
+.recent-active-user-container .recent-header{
+  padding: 15px;
+}
+.recent-header label{
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif!important;
+}
+.recent-content{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.recent-content .recent-user{
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.recent-user img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 5px;
+}
+.recent-user label{
+  padding: 0px 15px;
+  font-family: 'Quicksand', sans-serif!important;
+  font-size: 14px;
+}
+.recent-user .recent-time{
+  display: flex;
+  justify-content: flex-end;
+}
+.recent-time label{
+  font-size: 10px!important;
 }
 .pagination-container{
   display: flex;

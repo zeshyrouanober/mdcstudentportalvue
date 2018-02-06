@@ -15,9 +15,8 @@
                     <h1>MDC Student Portal</h1>
                     <div class="avatar-container">
                         @foreach ($user as $u )
-                          <img id="student-avatar" src="/storage/avatars/{{$u->avatar}}" alt="">
+                            <img id="student-avatar" src="/storage/avatars/{{$u->avatar}}" alt="">
                         @endforeach
-                        <img id="admin-avatar" src="images/school-logo2.png" alt="">
                     </div>
                 </div>
                 <div class="title">

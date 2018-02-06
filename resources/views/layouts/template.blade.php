@@ -5,11 +5,11 @@
 @section('body')
       <div class="template-container" >
         <div class="template-header">
-            <div class="logo">
+            <div class="logo ">
                 <img src="images/school-logo2.png" alt="" class="wow flash">
             </div>
-            <div class="system-info">
-                <h1 class="wow flash">Mater Dei College Student Portal</h1>
+            <div class="system-info ">
+                <h1 class="wow flash ">Mater Dei College Student Portal</h1>
             </div>
         </div>
         <div class="template-content">

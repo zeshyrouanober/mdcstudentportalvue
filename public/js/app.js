@@ -2212,7 +2212,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(96);
+module.exports = __webpack_require__(99);
 
 
 /***/ }),
@@ -2243,18 +2243,19 @@ Vue.component('accountvue', __webpack_require__(54));
 Vue.component('subjectvue', __webpack_require__(57));
 Vue.component('studentvue', __webpack_require__(60));
 Vue.component('verificationvue', __webpack_require__(63));
-Vue.component('schoolcalendarvue', __webpack_require__(66));
+Vue.component('activeuservue', __webpack_require__(66));
+Vue.component('recentactiveuservue', __webpack_require__(69));
 
 // STUDENT
-Vue.component('studentdashboardvue', __webpack_require__(69));
-Vue.component('updatesandannouncementvue', __webpack_require__(72));
-Vue.component('evaluationvue', __webpack_require__(75));
-Vue.component('userprofilevue', __webpack_require__(78));
-Vue.component('calendarvue', __webpack_require__(81));
-Vue.component('upcomingeventsvue', __webpack_require__(84));
-Vue.component('todosvue', __webpack_require__(87));
-Vue.component('faqsvue', __webpack_require__(90));
-Vue.component('helpvue', __webpack_require__(93));
+Vue.component('studentdashboardvue', __webpack_require__(72));
+Vue.component('updatesandannouncementvue', __webpack_require__(75));
+Vue.component('evaluationvue', __webpack_require__(78));
+Vue.component('userprofilevue', __webpack_require__(81));
+Vue.component('calendarvue', __webpack_require__(84));
+Vue.component('upcomingeventsvue', __webpack_require__(87));
+Vue.component('todosvue', __webpack_require__(90));
+Vue.component('faqsvue', __webpack_require__(93));
+Vue.component('helpvue', __webpack_require__(96));
 
 var app = new Vue({
   el: '.app'
@@ -50729,7 +50730,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\schoolcalendar.vue"
+Component.options.__file = "resources\\assets\\js\\components\\admin\\activeuser.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -50738,9 +50739,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9846e994", Component.options)
+    hotAPI.createRecord("data-v-eef1e256", Component.options)
   } else {
-    hotAPI.reload("data-v-9846e994", Component.options)
+    hotAPI.reload("data-v-eef1e256", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -50756,6 +50757,39 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50776,15 +50810,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h6", [_vm._v("sidebar 1")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "active-user-container" }, [
+      _c("div", { staticClass: "active-user-header z-depth-1" }, [
+        _c("label", [_vm._v("Active Student")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "active-user-content" }, [
+        _c("div", { staticClass: "active-user-details" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "active-user-details" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "active-user-details" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "active-user-details" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "active-user-details" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Tokomoro dakog olo BSIT-3")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "active-sign green-text" }, [_vm._v("•")])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9846e994", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-eef1e256", module.exports)
   }
 }
 
@@ -50798,6 +50885,210 @@ var normalizeComponent = __webpack_require__(0)
 var __vue_script__ = __webpack_require__(70)
 /* template */
 var __vue_template__ = __webpack_require__(71)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\admin\\recentactiveuser.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-636138f0", Component.options)
+  } else {
+    hotAPI.reload("data-v-636138f0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "recent-active-user-container" }, [
+      _c("div", { staticClass: "recent-header z-depth-1 " }, [
+        _c("label", [_vm._v("Recent Active Student")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "recent-content" }, [
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "recent-user" }, [
+          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Zeshyrou Anober BSIT-4")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "recent-time" }, [
+            _c("label", [_vm._v("2 minutes ago")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-636138f0", module.exports)
+  }
+}
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(73)
+/* template */
+var __vue_template__ = __webpack_require__(74)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50836,7 +51127,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51001,7 +51292,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 71 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51212,15 +51503,15 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(73)
+var __vue_script__ = __webpack_require__(76)
 /* template */
-var __vue_template__ = __webpack_require__(74)
+var __vue_template__ = __webpack_require__(77)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51259,7 +51550,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51311,7 +51602,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51367,15 +51658,15 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(76)
+var __vue_script__ = __webpack_require__(79)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51414,7 +51705,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51474,7 +51765,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51547,15 +51838,15 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(79)
+var __vue_script__ = __webpack_require__(82)
 /* template */
-var __vue_template__ = __webpack_require__(80)
+var __vue_template__ = __webpack_require__(83)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51594,7 +51885,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51812,7 +52103,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 80 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52186,15 +52477,15 @@ if (false) {
 }
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(85)
 /* template */
-var __vue_template__ = __webpack_require__(83)
+var __vue_template__ = __webpack_require__(86)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52233,7 +52524,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52285,7 +52576,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_event_calendar___default.a, { locale: 'e
 });
 
 /***/ }),
-/* 83 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52329,15 +52620,15 @@ if (false) {
 }
 
 /***/ }),
-/* 84 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(85)
+var __vue_script__ = __webpack_require__(88)
 /* template */
-var __vue_template__ = __webpack_require__(86)
+var __vue_template__ = __webpack_require__(89)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52376,7 +52667,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52428,7 +52719,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 86 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52482,15 +52773,15 @@ if (false) {
 }
 
 /***/ }),
-/* 87 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(88)
+var __vue_script__ = __webpack_require__(91)
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52529,7 +52820,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52638,7 +52929,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 89 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52869,15 +53160,15 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(91)
+var __vue_script__ = __webpack_require__(94)
 /* template */
-var __vue_template__ = __webpack_require__(92)
+var __vue_template__ = __webpack_require__(95)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52916,7 +53207,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53134,7 +53425,7 @@ $(document).ready(function () {
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 92 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53221,7 +53512,7 @@ var staticRenderFns = [
               _vm._v("Overview : ")
             ]),
             _vm._v(" "),
-            _c("label", { staticClass: "system-meaning" }, [
+            _c("label", { staticClass: "system-meaning blue-grey-text" }, [
               _vm._v(
                 "A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students."
               )
@@ -53409,6 +53700,9 @@ var staticRenderFns = [
           ]
         )
       ]),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
       _vm._v(" "),
       _c("div", { staticClass: "school-identification-container  " }, [
         _c(
@@ -53647,15 +53941,15 @@ if (false) {
 }
 
 /***/ }),
-/* 93 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(94)
+var __vue_script__ = __webpack_require__(97)
 /* template */
-var __vue_template__ = __webpack_require__(95)
+var __vue_template__ = __webpack_require__(98)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53694,7 +53988,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53707,7 +54001,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 95 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53727,7 +54021,7 @@ if (false) {
 }
 
 /***/ }),
-/* 96 */
+/* 99 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

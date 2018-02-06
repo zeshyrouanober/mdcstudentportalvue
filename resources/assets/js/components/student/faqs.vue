@@ -19,7 +19,7 @@
       <div class="system-header section scrollspy white z-depth-1 " id="system-header">
         <label class="system-name blue white-text"><i class="material-icons">account_balance</i> MDC Student Portal</label>
         <label class="left-title blue-text">Overview : </label>
-        <label class="system-meaning">A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students.</label>
+        <label class="system-meaning blue-grey-text">A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students.</label>
       </div>
       <br><br>
       <div class="system-content section scrollspy white animated fadeInUp z-depth-1" id="system-content">
@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-
+    <br><br>
     <div class="school-identification-container  " >
       <div class="school-header section scrollspy white z-depth-1 " id="school-header">
         <label class="school-name blue white-text"><i class="material-icons">home</i> Mater Dei College</label>

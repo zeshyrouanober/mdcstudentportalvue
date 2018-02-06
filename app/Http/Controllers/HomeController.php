@@ -13,6 +13,7 @@ Use Materialize;
 Use View;
 use Auth;
 use Carbon\Carbon;
+use App\Log;
 
 class HomeController extends Controller
 {
@@ -71,8 +72,7 @@ class HomeController extends Controller
         Session::put('username',$username);
         return View::make('loginpassword')->with('student',$student)->with('user',$user);
       }else {
-        $notification =  array('message' => 'User not found !' );
-        return redirect()->back()->with($notification);
+        return redirect()->back()->with('message','User not found !');
       }
     }
 
@@ -82,6 +82,13 @@ class HomeController extends Controller
       $credentials = array('username' => $username,'password' => $request->input('passwordSignIn') );
 
       if (Auth::attempt($credentials)) {
+
+        User::where('username',Auth::user()->username)->update(['status' => '1']);
+
+        $log = new Log;
+        $log->username = Session::get('username');
+        $log->save();
+
         return redirect('dashboard')->with('message','Welcome');
       }else {
         return redirect()->back();
@@ -101,6 +108,7 @@ class HomeController extends Controller
     }
 
     public function logOut(){
+      User::where('username',Auth::user()->username)->update(['status' => '0']);
       Auth::logout();
       return redirect('/');
     }

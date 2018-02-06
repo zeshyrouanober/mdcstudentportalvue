@@ -154,12 +154,12 @@
           <div class="user-right-nav">
               <div class="side-nav-container">
                 <div class="calendar z-depth-1">
-                  <schoolcalendarvue></schoolcalendarvue>
+                  <activeuservue></activeuservue>
                 </div>
               </div>
               <div class="side-nav-container">
                 <div class="upcoming-events z-depth-1">
-                  <h4>Sidebar 2</h4>
+                  <recentactiveuservue></recentactiveuservue>
                 </div>
               </div>
           </div>

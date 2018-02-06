@@ -42,11 +42,6 @@
    </div>
 </div>
 <script>
-  @if(Session::has('message'))
-       Materialize.toast('Account Updated !', 3000, 'rounded');
-  @endif
-</script>
-<script>
     $(document).ready(function(){
         $('#add').on('click',function(){
             $('.progress').css("display","flex");

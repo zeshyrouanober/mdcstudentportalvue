@@ -42,11 +42,11 @@ class VerificationController extends Controller
 
           }else {
             // Alert::warning('Verification already used !','Oppsss..!')->persistent('close');
-            return redirect('/verification');
+            return redirect()->back();
           }
           }else{
             // Alert::warning('Verification not macth !','Oppsss..!')->persistent('close');
-            return redirect('/verification');
+            return redirect()->back();
         }
       }
 

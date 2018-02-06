@@ -22,7 +22,8 @@ Vue.component('accountvue',require('./components/admin/account.vue'));
 Vue.component('subjectvue',require('./components/admin/subject.vue'));
 Vue.component('studentvue',require('./components/admin/student.vue'));
 Vue.component('verificationvue',require('./components/admin/verification.vue'));
-Vue.component('schoolcalendarvue',require('./components/admin/schoolcalendar.vue'));
+Vue.component('activeuservue',require('./components/admin/activeuser.vue'));
+Vue.component('recentactiveuservue',require('./components/admin/recentactiveuser.vue'));
 
 
 // STUDENT
