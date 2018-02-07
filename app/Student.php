@@ -20,6 +20,7 @@ class Student extends Model
     public function user(){
       return $this->belongsTo('App\User');
     }
+
     public function todos(){
       return $this->hasMany('App\Todo');
     }
@@ -39,5 +40,4 @@ class Student extends Model
     public function studentcourse(){
       return $this->belongsToMany('App\Course','stud_enrol','idnum','course')->withPivot('sem_code','en_status','year');
     }
-
 }

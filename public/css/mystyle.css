@@ -647,7 +647,9 @@ span{
   padding-bottom: 3px;
   padding: 10px;
   font-family: 'Quicksand', sans-serif!important;
-
+}
+.update-announcement-container #upcoming-event{
+  border-bottom: 1px solid #009688!important ;
 }
 .latest-update-content .title{
   display: flex;
@@ -1580,8 +1582,6 @@ thead tr th{
 .active-user-content .active-user-details{
   display: flex;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 5px;
   display: flex;
 }
 .active-user-details img{
@@ -1590,11 +1590,12 @@ thead tr th{
   border-radius: 50%;
   padding: 5px;
   flex: 1;
+  margin-left: 3px;
 }
 .active-user-details .user-details{
   padding: 0px 15px;
   font-family: 'Quicksand', sans-serif!important;
-  font-size: 14px;
+  font-size: 12px;
   flex: 4;
 }
 .active-user-details .active-sign{
@@ -1624,22 +1625,24 @@ thead tr th{
 .recent-content .recent-user{
   display: flex;
   align-items: center;
-  padding-left: 10px;
 }
 .recent-user img{
   height: 50px;
   width: 50px;
   border-radius: 50%;
   padding: 5px;
+  flex:1;
 }
 .recent-user label{
   padding: 0px 15px;
   font-family: 'Quicksand', sans-serif!important;
-  font-size: 14px;
+  font-size: 12px;
+  flex:4;
 }
 .recent-user .recent-time{
   display: flex;
   justify-content: flex-end;
+  flex:3;
 }
 .recent-time label{
   font-size: 10px!important;

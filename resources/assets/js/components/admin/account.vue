@@ -17,8 +17,8 @@
           </thead>
           <tbody>
               <tr id="list-of-users" v-for="u in user">
-                <td id="user-fullname">{{u.student.fname}} {{u.student.lname}}</td>
-                <td id="user-username">{{u.username}}</td>
+                <td id="user-fullname" >{{u.student.fname}} {{u.student.lname}}</td>
+                <td id="user-username" >{{u.username}}</td>
                 <td id="user-password" type="password" >•••••••••••••••••••</td>
                 <td id="actions">
                   <a href="#userEdit" class="modal-trigger" v-on:click="fetchUserData(u.username),isUpdate = true" ><i class="material-icons" style="color:#fb8c00;">edit</i></a>

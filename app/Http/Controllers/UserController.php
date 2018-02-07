@@ -28,7 +28,6 @@ class UserController extends Controller
       return response()->json($response);
     }
 
-
     public function studentuserdata($username){
       return User::where('username',$username)->get();
     }

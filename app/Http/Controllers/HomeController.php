@@ -91,12 +91,8 @@ class HomeController extends Controller
 
           User::where('username',Auth::user()->username)->update(['status' => '1']);
 
-          $log = new Log;
-          $log->username = Session::get('username');
-          $log->save();
-
           return redirect('dashboard')->with('message','Welcome');
-          
+
         }
       }else {
         return redirect()->back();
@@ -116,8 +112,20 @@ class HomeController extends Controller
     }
 
     public function logOut(){
-      User::where('username',Auth::user()->username)->update(['status' => '0']);
-      Auth::logout();
-      return redirect('/');
+
+      if (Auth::user()->role_id == null) {
+        Auth::logout();
+        return redirect('/');
+      }else {
+        $log = new Log;
+        $log->username = Session::get('username');
+        $log->stud_id = Session::get('username');
+        $log->user_id = Session::get('username');
+        $log->save();
+
+        User::where('username',Auth::user()->username)->update(['status' => '0']);
+        Auth::logout();
+        return redirect('/');
+      }
     }
 }

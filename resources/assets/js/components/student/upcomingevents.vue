@@ -3,9 +3,9 @@
     <div class="latest-update-header teal darken-1">
       <h6>Upcoming events</h6>
     </div>
-    <div class="latest-update-content" v-for="ue in upcomingevents">
+    <div class="latest-update-content" id="upcoming-event"  v-for="ue in upcomingevents">
       <div class="title">
-        <label class="announe-title">{{ue.title}}</label>
+        <label class="announe-title ">{{ue.title}}</label>
         <p class="blue-text text-darken-1">{{ue.date}}</p>
       </div>
       <div class="description">

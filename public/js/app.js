@@ -50786,17 +50786,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  // created: function(){
-  //   this.fetchActiveUser();
-  //   this.timer = setInterval(this.fetchActiveUser, 3000)
-  // },
+  created: function created() {
+    this.fetchActiveUser();
+    this.timer = setInterval(this.fetchActiveUser, 3000);
+  },
 
   methods: {
     fetchActiveUser: function fetchActiveUser() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('active-student').then(function (response) {
         vm.activeuser = response.data;
-        console.log(response);
       });
     }
   }
@@ -50822,7 +50821,7 @@ var render = function() {
             attrs: { src: "/storage/avatars/" + user.avatar + "", alt: "" }
           }),
           _vm._v(" "),
-          _c("label", { staticClass: "user-details" }, [
+          _c("label", { staticClass: "user-details blue-grey-text" }, [
             _vm._v(
               _vm._s(user.student.fname) + " " + _vm._s(user.student.lname)
             )
@@ -50840,7 +50839,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "active-user-header z-depth-1" }, [
-      _c("label", [_vm._v("Active Student")])
+      _c("label", { staticClass: "blue-grey-text" }, [_vm._v("Active Student")])
     ])
   }
 ]
@@ -50944,12 +50943,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
+  created: function created() {
+    this.showLogs();
+    this.timer = setInterval(this.showLogs, 3000);
+  },
+
   methods: {
     showLogs: function showLogs() {
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('show-logs').then(function (response) {
         vm.logs = response.data.logs.data;
         vm.pagination = response.data;
+        console.log(response);
       });
     }
   }
@@ -50971,12 +50976,26 @@ var render = function() {
       { staticClass: "recent-content" },
       _vm._l(_vm.logs, function(log) {
         return _c("div", { staticClass: "recent-user" }, [
-          _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
+          _c("img", {
+            attrs: {
+              src: "/storage/avatars/" + log.user_log.avatar + "",
+              alt: ""
+            }
+          }),
           _vm._v(" "),
-          _c("label", [_vm._v(_vm._s(log.username))]),
+          _c("label", { staticClass: "student-info blue-grey-text" }, [
+            _vm._v(
+              _vm._s(log.student_log.fname) +
+                " " +
+                _vm._s(log.student_log.lname) +
+                " "
+            )
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "recent-time" }, [
-            _c("label", [_vm._v(_vm._s(log.created_at))])
+          _c("div", { staticClass: "recent-time " }, [
+            _c("label", { staticClass: "blue-grey-text" }, [
+              _vm._v(_vm._s(log.created_at))
+            ])
           ])
         ])
       })
@@ -50989,7 +51008,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "recent-header z-depth-1 " }, [
-      _c("label", [_vm._v("Recent Active Student")])
+      _c("label", { staticClass: "blue-grey-text" }, [
+        _vm._v("Recent Active Student")
+      ])
     ])
   }
 ]
@@ -52656,21 +52677,28 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.upcomingevents, function(ue) {
-        return _c("div", { staticClass: "latest-update-content" }, [
-          _c("div", { staticClass: "title" }, [
-            _c("label", { staticClass: "announe-title" }, [
-              _vm._v(_vm._s(ue.title))
+        return _c(
+          "div",
+          {
+            staticClass: "latest-update-content",
+            attrs: { id: "upcoming-event" }
+          },
+          [
+            _c("div", { staticClass: "title" }, [
+              _c("label", { staticClass: "announe-title " }, [
+                _vm._v(_vm._s(ue.title))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blue-text text-darken-1" }, [
+                _vm._v(_vm._s(ue.date))
+              ])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "blue-text text-darken-1" }, [
-              _vm._v(_vm._s(ue.date))
+            _c("div", { staticClass: "description" }, [
+              _c("label", [_vm._v(_vm._s(ue.desc))])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("label", [_vm._v(_vm._s(ue.desc))])
-          ])
-        ])
+          ]
+        )
       })
     ],
     2
@@ -53481,7 +53509,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above."
                       )
@@ -53497,7 +53525,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
                       )
@@ -53513,7 +53541,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
                       )
@@ -53529,7 +53557,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v("No. The system didn't support financial .")
                     ])
                   ])
@@ -53545,7 +53573,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "Once you were enrolled . Your data will be copied to the system that should be use to get an account for you."
                       )
@@ -53561,7 +53589,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v("Google Chrome.")
                     ])
                   ])
@@ -53590,7 +53618,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "tips-content" }, [
-              _c("label", [
+              _c("label", { staticClass: "blue-grey-text" }, [
                 _c("i", { staticClass: "material-icons blue-text" }, [
                   _vm._v("done")
                 ]),
@@ -53598,7 +53626,7 @@ var staticRenderFns = [
               ]),
               _c("br"),
               _vm._v(" "),
-              _c("label", [
+              _c("label", { staticClass: "blue-grey-text" }, [
                 _c("i", { staticClass: "material-icons blue-text" }, [
                   _vm._v("done")
                 ]),
@@ -53606,7 +53634,7 @@ var staticRenderFns = [
               ]),
               _c("br"),
               _vm._v(" "),
-              _c("label", [
+              _c("label", { staticClass: "blue-grey-text" }, [
                 _c("i", { staticClass: "material-icons blue-text" }, [
                   _vm._v("done")
                 ]),
@@ -53616,7 +53644,7 @@ var staticRenderFns = [
               ]),
               _c("br"),
               _vm._v(" "),
-              _c("label", [
+              _c("label", { staticClass: "blue-grey-text" }, [
                 _c("i", { staticClass: "material-icons blue-text" }, [
                   _vm._v("done")
                 ]),
@@ -53650,7 +53678,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "school-seal wow fadeInUp" }, [
               _c("img", { attrs: { src: "images/school-logo2.png", alt: "" } }),
               _vm._v(" "),
-              _c("label", [
+              _c("label", { staticClass: "blue-grey-text" }, [
                 _vm._v(
                   "\n          The college seal is a white circular field surrounded by rosary beads. The upper arc contains the name, MATER DEI COLLEGE. Directly under the arc, is blue triangle with the words\n          in the white print; SAPIENTA , CARITAS, AND ORATIO on each side of the equilateral trianle. Inside is a smaller triangle with M and a cross on its top at the center. Both M and a cross are sorrounded with 15 black dots. On the base of the big triangle\n          is the location of the college, Tubigon, Bohol, Philippines. Beneath it is the foundation date of the college in the symbols; MCMLXXIII (1983), all printed in black.The prominence of the M and the rosary in the logo indicates the role of the College.\n          The words SAPIENTA , "
                 ),
@@ -53713,21 +53741,25 @@ var staticRenderFns = [
                     ),
                     _c("br"),
                     _vm._v(" "),
-                    _c("label", { staticClass: "faqs-answer-content" }, [
-                      _vm._v(
-                        "\n               Mater Dei College is a community of dedicated educators and community-oriented educands who believe in the search for the truth that leads to "
-                      ),
-                      _c("b", [_vm._v("WISDOM")]),
-                      _vm._v(
-                        "\n               ; in unselfish living through SERVICE as an expression of "
-                      ),
-                      _c("b", [_vm._v("CHARITY")]),
-                      _vm._v("; and in the pursuit of "),
-                      _c("b", [_vm._v("PRAYER LIFE")]),
-                      _vm._v(
-                        " through living the gospel as taught by the Catholic church and as exemplified by Mary, the mother of God\n               in whose honor the college identifies herself.\n            "
-                      )
-                    ]),
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-content blue-grey-text" },
+                      [
+                        _vm._v(
+                          "\n               Mater Dei College is a community of dedicated educators and community-oriented educands who believe in the search for the truth that leads to "
+                        ),
+                        _c("b", [_vm._v("WISDOM")]),
+                        _vm._v(
+                          "\n               ; in unselfish living through SERVICE as an expression of "
+                        ),
+                        _c("b", [_vm._v("CHARITY")]),
+                        _vm._v("; and in the pursuit of "),
+                        _c("b", [_vm._v("PRAYER LIFE")]),
+                        _vm._v(
+                          " through living the gospel as taught by the Catholic church and as exemplified by Mary, the mother of God\n               in whose honor the college identifies herself.\n            "
+                        )
+                      ]
+                    ),
                     _c("br"),
                     _c("br"),
                     _vm._v(" "),
@@ -53742,11 +53774,15 @@ var staticRenderFns = [
                     ),
                     _c("br"),
                     _vm._v(" "),
-                    _c("label", { staticClass: "faqs-answer-content" }, [
-                      _vm._v(
-                        "\n              Mater Dei College commits herself to provide a holistic, Catholic education by sharing her human and material resources primarily with the economically\n              disadvantaged but deserving rural youths. The general well being of these youths is the end of her curricular programs to enable them to live\n              fully as children of the loving father.\n           "
-                      )
-                    ]),
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-content blue-grey-text" },
+                      [
+                        _vm._v(
+                          "\n              Mater Dei College commits herself to provide a holistic, Catholic education by sharing her human and material resources primarily with the economically\n              disadvantaged but deserving rural youths. The general well being of these youths is the end of her curricular programs to enable them to live\n              fully as children of the loving father.\n           "
+                        )
+                      ]
+                    ),
                     _c("br"),
                     _c("br"),
                     _vm._v(" "),
@@ -53757,16 +53793,24 @@ var staticRenderFns = [
                     ),
                     _c("br"),
                     _vm._v(" "),
-                    _c("label", { staticClass: "faqs-answer-content" }, [
-                      _vm._v("\n             MDC strives to : "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", { staticStyle: { "padding-left": "10px" } }, [
-                        _vm._v(
-                          "\n               Produce graduates who are God-loving , law-abiding, environment-friendly, and morally principled, well-rounded professionals who by their able to response\n               to the call of duty, actively participate in positive transformation of the community.\n              "
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-content blue-grey-text" },
+                      [
+                        _vm._v("\n             MDC strives to : "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticStyle: { "padding-left": "10px" } },
+                          [
+                            _vm._v(
+                              "\n               Produce graduates who are God-loving , law-abiding, environment-friendly, and morally principled, well-rounded professionals who by their able to response\n               to the call of duty, actively participate in positive transformation of the community.\n              "
+                            )
+                          ]
                         )
-                      ])
-                    ])
+                      ]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -53778,7 +53822,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future."
                       )
@@ -53794,7 +53838,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. "
                       )
@@ -53810,7 +53854,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v("No. The system didn't support financial .")
                     ])
                   ])
@@ -53826,7 +53870,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v(
                         "Once you were enrolled . Your data will be copied to the system where should be use to get an account for you."
                       )
@@ -53842,7 +53886,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
-                    _c("label", { staticClass: "faqs-answer" }, [
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
                       _vm._v("Google Chrome.")
                     ])
                   ])

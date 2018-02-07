@@ -15,5 +15,5 @@ class Todo extends Model
     public function getCreatedAtAttribute($date){
       return Carbon::createFromFormat('Y-m-d H:i:s', $date)->diffForHumans();
     }
-
+    
 }

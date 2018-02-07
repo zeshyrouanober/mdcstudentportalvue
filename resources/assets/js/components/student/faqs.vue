@@ -32,7 +32,7 @@
                <label class="faqs-question blue-text">What devices does the system work on?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above.</label>
+               <label class="faqs-answer blue-grey-text">The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above.</label>
              </div>
            </li>
            <li>
@@ -40,7 +40,7 @@
                <label class="faqs-question blue-text">How does it work ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
+               <label class="faqs-answer blue-grey-text">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
              </div>
            </li>
            <li>
@@ -48,7 +48,7 @@
                <label class="faqs-question blue-text">What if I need to change my account details ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
+               <label class="faqs-answer blue-grey-text">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
              </div>
            </li>
            <li>
@@ -56,7 +56,7 @@
                <label class="faqs-question blue-text">Does the system support financial ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">No. The system didn't support financial .</label>
+               <label class="faqs-answer blue-grey-text">No. The system didn't support financial .</label>
              </div>
            </li>
            <li>
@@ -64,7 +64,7 @@
                <label class="faqs-question blue-text">that did you get all of this information about me ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">Once you were enrolled . Your data will be copied to the system that should be use to get an account for you.</label>
+               <label class="faqs-answer blue-grey-text">Once you were enrolled . Your data will be copied to the system that should be use to get an account for you.</label>
              </div>
            </li>
            <li>
@@ -72,7 +72,7 @@
                <label class="faqs-question blue-text">Which browser are the best to view the portal ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">Google Chrome.</label>
+               <label class="faqs-answer blue-grey-text">Google Chrome.</label>
              </div>
            </li>
         </ul>
@@ -83,10 +83,10 @@
           <label class=" white-text"><i class="material-icons">done</i> Portal Tips</label>
         </div>
         <div class="tips-content">
-          <label><i class="material-icons blue-text">done</i>Do not share your password with anyone.</label><br>
-          <label><i class="material-icons blue-text">done</i>If possible change your password monthly. </label><br>
-          <label><i class="material-icons blue-text">done</i>Always log out of a computer when you walk away from it.</label><br>
-          <label><i class="material-icons blue-text">done</i>Keep a passcode on your phone. </label>
+          <label class="blue-grey-text"><i class="material-icons blue-text">done</i>Do not share your password with anyone.</label><br>
+          <label class="blue-grey-text"><i class="material-icons blue-text">done</i>If possible change your password monthly. </label><br>
+          <label class="blue-grey-text"><i class="material-icons blue-text">done</i>Always log out of a computer when you walk away from it.</label><br>
+          <label class="blue-grey-text"><i class="material-icons blue-text">done</i>Keep a passcode on your phone. </label>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
         <label class="left-title blue-text">The College seal :</label>
         <div class="school-seal wow fadeInUp">
           <img src="images/school-logo2.png" alt="">
-          <label>
+          <label class="blue-grey-text">
             The college seal is a white circular field surrounded by rosary beads. The upper arc contains the name, MATER DEI COLLEGE. Directly under the arc, is blue triangle with the words
             in the white print; SAPIENTA , CARITAS, AND ORATIO on each side of the equilateral trianle. Inside is a smaller triangle with M and a cross on its top at the center. Both M and a cross are sorrounded with 15 black dots. On the base of the big triangle
             is the location of the college, Tubigon, Bohol, Philippines. Beneath it is the foundation date of the college in the symbols; MCMLXXIII (1983), all printed in black.The prominence of the M and the rosary in the logo indicates the role of the College.
@@ -119,7 +119,7 @@
                <label class="faqs-answer-title blue-text">
                   Vision Statement :
                </label><br>
-               <label class="faqs-answer-content">
+               <label class="faqs-answer-content blue-grey-text">
                  Mater Dei College is a community of dedicated educators and community-oriented educands who believe in the search for the truth that leads to <b>WISDOM</b>
                  ; in unselfish living through SERVICE as an expression of <b>CHARITY</b>; and in the pursuit of <b>PRAYER LIFE</b> through living the gospel as taught by the Catholic church and as exemplified by Mary, the mother of God
                  in whose honor the college identifies herself.
@@ -127,7 +127,7 @@
               <label class="faqs-answer-title blue-text">
                  Mission Statement :
               </label><br>
-              <label class="faqs-answer-content">
+              <label class="faqs-answer-content blue-grey-text">
                 Mater Dei College commits herself to provide a holistic, Catholic education by sharing her human and material resources primarily with the economically
                 disadvantaged but deserving rural youths. The general well being of these youths is the end of her curricular programs to enable them to live
                 fully as children of the loving father.
@@ -135,7 +135,7 @@
              <label class="faqs-answer-title blue-text">
                 Goal Statement :
              </label><br>
-             <label class="faqs-answer-content">
+             <label class="faqs-answer-content blue-grey-text">
                MDC strives to : <br>
                <span style="padding-left:10px;">
                  Produce graduates who are God-loving , law-abiding, environment-friendly, and morally principled, well-rounded professionals who by their able to response
@@ -149,7 +149,7 @@
                <label class="faqs-question blue-text">How does it work ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
+               <label class="faqs-answer blue-grey-text">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
              </div>
            </li>
            <li>
@@ -157,7 +157,7 @@
                <label class="faqs-question blue-text">What if I need to change my account details ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
+               <label class="faqs-answer blue-grey-text">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
              </div>
            </li>
            <li>
@@ -165,7 +165,7 @@
                <label class="faqs-question blue-text">Does the system support financial ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">No. The system didn't support financial .</label>
+               <label class="faqs-answer blue-grey-text">No. The system didn't support financial .</label>
              </div>
            </li>
            <li>
@@ -173,7 +173,7 @@
                <label class="faqs-question blue-text">Where did you get all of this information about me ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">Once you were enrolled . Your data will be copied to the system where should be use to get an account for you.</label>
+               <label class="faqs-answer blue-grey-text">Once you were enrolled . Your data will be copied to the system where should be use to get an account for you.</label>
              </div>
            </li>
            <li>
@@ -181,7 +181,7 @@
                <label class="faqs-question blue-text">Which browser are the best to view the portal ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer">Google Chrome.</label>
+               <label class="faqs-answer blue-grey-text">Google Chrome.</label>
              </div>
            </li>
         </ul>

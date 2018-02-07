@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="icon" href="images/school-logo.jpg">
+    <link rel="icon" href="images/school-logo2.png">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed|Shadows+Into+Light|Quicksand" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -31,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         new WOW().init();
-        
+
     </script>
   </head>
   <body>
