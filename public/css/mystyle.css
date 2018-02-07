@@ -64,6 +64,61 @@ font-family: 'Quicksand', sans-serif!important;
 .events-wrapper{
   background-color: rgb(21, 101, 192)!important;
   border-radius:0px!important;
+  padding: 30px!important;
+}
+.event-viewer{
+  display: flex;
+  flex-direction: column;
+}
+.event-viewer .event-container{
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.one-event-viewer{
+  display: none;
+  flex-direction: column;
+}
+
+.one-event-viewer .event-container{
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.event-container .event-title-date{
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+.event-title-date .eventitle{
+  font-size: 15px!important;
+  flex: 1;
+  padding-bottom: 3px;
+}
+.event-title-date .eventdate{
+  font-size: 14px!important;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.event-container .event-description{
+  padding-top: 3px;
+  display: flex;
+}
+.event-description .eventdesc{
+    font-size: 12px!important;
+    padding-left: 5px;
+    flex:3;
+}
+.event-description a{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 /* Date picker materialize customized */
 .picker__date-display{
@@ -396,7 +451,7 @@ form .forgot-password{
 }
 .student-nav .tabs .tab a label{
   color:#ffffff;
-  font-size: 13px;
+  font-size: 11px;
   font-family: 'Quicksand', sans-serif!important;
 }
 .student-nav .tabs #usertab a label{
@@ -1268,6 +1323,22 @@ thead tr th{
   width: 100%;
 }
 #updateStudent .modal-fields{
+  padding-top: 60px!important;
+}
+#eventView .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#eventView .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+#eventView .modal-fields{
   padding-top: 60px!important;
 }
 .modal-content .modal-header{

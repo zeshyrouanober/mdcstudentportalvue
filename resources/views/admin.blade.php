@@ -2,46 +2,14 @@
   @extends('layouts.template')
     @section('side-nav')
         <div class="student-nav">
-          <div class="avatar">
-            <a class="tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/images/school-logo2.png" alt=""><br>
-              <label>{{Auth::user()->username}}</label>
-            </a>
-          </div>
-          <div id="profile" class="modal modal-fixed-footer">
-            <div class="modal-content">
-              <div class="modal-header light-blue darken-1">
-                <h5>My Profile</h5>
-              </div>
-              <div class="profile-content">
-                <div class="profile-picture">
-
-                </div>
-                <div class="modal-fields" >
-                  <div class="input-field" >
-                    <input id="student-idnum"  name="student-idnum"type="text" class="validate" >
-                    <label for="student-idnum" >Username</label>
-                  </div>
-                  <div class="input-field" id="acccount-label-active" >
-                    <input id="password"  name="password" type="text" class="validate">
-                    <label for="password" >New Password</label>
-                  </div>
-                  <div class="input-field" id="acccount-label-active" >
-                    <input id="passwordconfirmation" name="passwordconfirmation" type="text" class="validate">
-                    <label for="passwordconfirmation" >Confirmed Password</label>
-                  </div>
-                  <p>
-                   <input type="checkbox" id="test6"/>
-                   <label for="test6"  >I review and remember</label>
-                 </p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <a id="close" class="waves-effect waves-light modal-close light-blue lighten-3 btn-flat " style="color:#ffffff;"><i class="material-icons">close</i></a>
-              <a id="edit" class="waves-effect waves-light modal-close amber lighten-3 btn-flat "   style="color:#ffffff;"><i class="material-icons">edit</i></a>
-            </div>
-         </div>
             <ul class="tabs">
+              <li class="tab" id="usertab">
+                <div class="avatar">
+                  <a href="#adminprofile" class=" tooltipped " data-position="top" data-delay="50" data-tooltip="My Profile"><img src="/storage/avatars/school-logo2.png" alt="">
+                    <label>{{Auth::user()->username}}</label>
+                  </a>
+                </div>
+              </li>
               <li class="tab">
                 <a href="#dashboard"  >
                   <i class="material-icons ">dashboard</i>
@@ -137,11 +105,9 @@
           <div class="user-main-content tab-content" id="students">
             <studentvue></studentvue>
           </div>
-          {{-- <div class="user-main-content tab-content" id="grades">
-            <div class="content-container z-depth-1">
-              <label>Grades</label>
-            </div>
-          </div> --}}
+          <div class="user-main-content tab-content" id="adminprofile">
+            <adminprofilevue></adminprofilevue>
+          </div>
           <div class="user-main-content tab-content" id="news" >
             <announcementvue></announcementvue>
           </div>

@@ -23,13 +23,13 @@
                 </a>
               </li>
               <li class="tab">
-                <a href="#calendar">
+                <a href="#calendar" class="active">
                   <i class="material-icons">today</i>
                   <label>Calendar</label>
                 </a>
               </li>
               <li class="tab">
-                <a href="#faqs" class="active">
+                <a href="#faqs">
                   <i class="material-icons">info_outline</i>
                   <label>faqs</label>
                 </a>
@@ -177,10 +177,20 @@
                 //      });
                 //  });
 
+                $('.datepicker').pickadate({
+                  selectMonths: true,
+                  selectYears: 15,
+                  today: 'Today',
+                  clear: 'Clear',
+                  close: 'Ok',
+                  closeOnSelect: false,
+                  format: 'yyyy-mm-dd'
+                });
+
 
               });
 
-            
+
           </script>
         @endsection
     @endsection

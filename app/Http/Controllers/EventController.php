@@ -31,7 +31,10 @@ class EventController extends Controller
   }
 
   public function show(){
-    return Event::all();
+    return Event::orderBy('date','asc')->get();
   }
 
+  public function viewEvent($id){
+    return Event::where('id',$id)->get();
+  }
 }

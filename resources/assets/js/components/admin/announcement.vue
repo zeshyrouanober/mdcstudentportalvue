@@ -111,7 +111,6 @@ import axios from 'axios';
           var vm = this;
           axios.get(`fetch-data-update/` + id ).then(function(response){
             vm.fetchupdate = response.data[0];
-            console.log(response);
           });
         },
 

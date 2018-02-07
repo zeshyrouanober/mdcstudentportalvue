@@ -24,7 +24,7 @@ Vue.component('studentvue',require('./components/admin/student.vue'));
 Vue.component('verificationvue',require('./components/admin/verification.vue'));
 Vue.component('activeuservue',require('./components/admin/activeuser.vue'));
 Vue.component('recentactiveuservue',require('./components/admin/recentactiveuser.vue'));
-
+Vue.component('adminprofilevue',require('./components/admin/adminprofile.vue'));
 
 // STUDENT
 Vue.component('studentdashboardvue',require('./components/student/dashboard.vue'));

@@ -72,6 +72,8 @@ Route::get('subject-counters','SubjectController@counters');
 Route::get('show-upcomingevents','EventController@showUpcomingEvents');
 Route::post('create-event','EventController@create');
 Route::get('show-events','EventController@show');
+Route::get('view-event/{id}','EventController@viewEvent');
+
 
 //Announcement
 Route::get('view-announcement','AnnouncementController@index');
