@@ -1,15 +1,15 @@
-<template lang="html">
+top<template lang="html">
   <div class="evaluation-container">
     <div class="evaluation z-depth-2">
-      <div class="evaluation-header light-blue ">
+      <div class="evaluation-header blue darken-3 ">
           <label>Taken Subjects</label>
       </div>
       <div class="evaluation-content">
         <table class="striped" style="background-color:#ffffff">
           <thead>
             <tr>
-              <th>Subject</th>
-              <th>Status</th>
+              <th class="blue-text">Subject</th>
+              <th class="blue-text">Status</th>
             </tr>
           </thead>
           <tbody>

@@ -19,7 +19,9 @@
       <div class="system-header section scrollspy white z-depth-1 " id="system-header">
         <label class="system-name blue white-text"><i class="material-icons">account_balance</i> MDC Student Portal</label>
         <label class="left-title blue-text">Overview : </label>
-        <label class="system-meaning blue-grey-text">A student portal is an online gateway where students can access the online registration system (ORS), view their grades, request for documents and update their contact information. It also includes links to the learning management system (MyPortal), library and other online services exclusive for UPOU students.</label>
+        <label class="system-meaning blue-grey-text">
+          Mdc student portal system is an online platform that is designed to give students access to key information about their course of study, updates and announcements , school events  and personal details. Whenever relevant information is updated in MDCSP, it is live immediately in the Student Portal.
+        </label>
       </div>
       <br><br>
       <div class="system-content section scrollspy white animated fadeInUp z-depth-1" id="system-content">
@@ -32,7 +34,9 @@
                <label class="faqs-question blue-text">What devices does the system work on?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">The app works on all Apple devices running iOS7. This includes all iPhones since the iPhone 4, all iPads since the iPad2, and the 5th generation iPod touch and above.</label>
+               <label class="faqs-answer blue-grey-text">
+                 The system works any devices such as laptops,computers ,tablets and mobile phones.
+               </label>
              </div>
            </li>
            <li>
@@ -40,7 +44,7 @@
                <label class="faqs-question blue-text">How does it work ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
+               <label class="faqs-answer blue-grey-text">No answer yet.</label>
              </div>
            </li>
            <li>
@@ -48,7 +52,7 @@
                <label class="faqs-question blue-text">What if I need to change my account details ?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
+               <label class="faqs-answer blue-grey-text">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password in your profile. Go to help tab for assistance. </label>
              </div>
            </li>
            <li>
@@ -146,42 +150,18 @@
            </li>
            <li>
              <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">How does it work ?</label>
+               <label class="faqs-question blue-text">When it is founded?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">We're working hard to bring every piece of content to the apps. Currently there is a very small amount of content that does not work on mobile devices. We hope to change this in the future.</label>
+               <label class="faqs-answer blue-grey-text">No answer yet.</label>
              </div>
            </li>
            <li>
              <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">What if I need to change my account details ?</label>
+               <label class="faqs-question blue-text">Who are the founders?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">You can't change your username bacause it will be assigned as a default by your ID number but you can change your password to you profile. Go to help tab for assistance. </label>
-             </div>
-           </li>
-           <li>
-             <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">Does the system support financial ?</label>
-             </div>
-             <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">No. The system didn't support financial .</label>
-             </div>
-           </li>
-           <li>
-             <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">Where did you get all of this information about me ?</label>
-             </div>
-             <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">Once you were enrolled . Your data will be copied to the system where should be use to get an account for you.</label>
-             </div>
-           </li>
-           <li>
-             <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">Which browser are the best to view the portal ?</label>
-             </div>
-             <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">Google Chrome.</label>
+               <label class="faqs-answer blue-grey-text">No answer yet. </label>
              </div>
            </li>
         </ul>

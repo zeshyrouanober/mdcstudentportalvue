@@ -73,7 +73,9 @@ Route::get('show-upcomingevents','EventController@showUpcomingEvents');
 Route::post('create-event','EventController@create');
 Route::get('show-events','EventController@show');
 Route::get('view-event/{id}','EventController@viewEvent');
-
+Route::get('fetch-event-data/{id}','EventController@fetchEvent');
+Route::put('update-event/{id}','EventController@updateEvent');
+Route::delete('delete-event/{id}','EventController@deleteEvent');
 
 //Announcement
 Route::get('view-announcement','AnnouncementController@index');

@@ -11,7 +11,7 @@
                 </div>
               </li>
               <li class="tab">
-                <a href="#dashboard"  >
+                <a href="#dashboard"  class="active">
                   <i class="material-icons ">dashboard</i>
                   <label>Dashboard</label>
                 </a>
@@ -23,7 +23,7 @@
                 </a>
               </li>
               <li class="tab">
-                <a href="#calendar" class="active">
+                <a href="#calendar" >
                   <i class="material-icons">today</i>
                   <label>Calendar</label>
                 </a>
@@ -44,9 +44,53 @@
         </div>
     @endsection
     @section('content')
+
+      {{-- Side nav mobile --}}
+      <ul id="slide-out" class="side-nav white darken-1 full tabs">
+        <li>
+          <div class="user-view">
+             <div class="background blue darken-3"></div>
+             <img class="circle" src="/storage/avatars/{{Auth::user()->avatar}}">
+             <span class="white-text name">{{Auth::user()->username}}</span>
+             <span class="white-text email">{{Auth::user()->student->fname}} {{Auth::user()->student->mi}}  {{Auth::user()->student->lname}}</span>
+          </div>
+       </li>
+       <li><a href="#userprofile"><i class="material-icons blue-text">account_circle</i>My Profile</a></li>
+       <li><a href=""><i class="material-icons blue-text">exit_to_app</i>Log Out</a></li>
+       <li><div class="divider"></div></li>
+       <li><a class="subheader">Contents</a></li>
+             <li>
+               <a href="#dashboard" class="active"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
+             </li>
+             <li >
+               <a href="#evaluation">
+                 <i class="material-icons blue-text ">subject</i>
+                 Subjects
+               </a>
+             </li>
+             <li >
+               <a href="#calendar" >
+                 <i class="material-icons blue-text">today</i>
+                 Events
+               </a>
+             </li>
+             <li >
+               <a href="#faqs">
+                 <i class="material-icons blue-text">info_outline</i>
+                 faqs
+               </a>
+             </li>
+             <li >
+               <a href="#help">
+                 <i class="material-icons blue-text">help_outline</i>
+                 Help
+               </a>
+             </li>
+      </ul>
       <div class="user-info" >
           <div class="name">
-              <label>{{Auth::user()->student->fname}} {{Auth::user()->student->lname}} </label>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+            <label>{{Auth::user()->student->fname}} {{Auth::user()->student->lname}} </label>
           </div>
           <div class="time-out">
             <label id="time"></label>
@@ -65,19 +109,6 @@
               {{ csrf_field() }}
             </form>
           </div>
-          <script type="text/javascript">
-            $(document).ready(function(){
-                $('.dropdown').dropdown({
-                   inDuration: 300,
-                   outDuration: 225,
-                   hover: true, // Activate on hover
-                   belowOrigin: false, // Displays dropdown below the button
-                   alignment: 'right', // Displays dropdown with edge aligned to the left of button
-                   stopPropagation: false, // Stops event propagation
-                 }
-                );
-            });
-          </script>
       </div>
       <div class="user-content app" >
           <div class="user-main-content tab-content" id="dashboard">
@@ -187,10 +218,9 @@
                   format: 'yyyy-mm-dd'
                 });
 
+                $(".button-collapse").sideNav();
 
               });
-
-
           </script>
         @endsection
     @endsection

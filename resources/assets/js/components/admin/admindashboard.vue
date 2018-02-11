@@ -2,7 +2,7 @@
   <div class="content-container">
     <div class="dashboard-content-up">
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon teal">
             <i class="material-icons white-text">account_circle</i>
           </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon indigo">
             <i class="material-icons white-text">subject</i>
           </div>
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="my-widget ">
-        <div class="widget-container z-depth-1">
+        <div class="widget-container white z-depth-1">
           <div class="widget-icon amber">
             <i class="material-icons white-text">people</i>
           </div>
@@ -112,12 +112,7 @@
         <label> <i class="material-icons">today</i>  School Year Calendar</label>
         <a href="#calendar" class="btn-floating btn-large waves-effect waves-light  light-blue darken-3 right modal-trigger"><i class="material-icons">add</i></a>
       </div>
-
-      <vue-event-calendar :events="eventsCalendar"  >
-
-
-      </vue-event-calendar>
-
+      <!-- Add event modal -->
       <div id="calendar" class="modal modal-fixed-footer">
         <div class="modal-content">
           <div class="modal-header light-blue ">
@@ -146,6 +141,103 @@
           <a class="btn waves-effect waves-light modal-close light-blue" v-on:click="addEvent()">Add</a>
         </div>
       </div>
+
+      <vue-event-calendar :events="eventsCalendar"  @day-changed="handleDayChanged" @month-changed="handleMonthChanged">
+          <a href="#" @click.prevent="showAllEvents()" class="tooltipped" data-position="top" data-delay="20" data-tooltip="All Events" ><i class="material-icons white-text small">event_note</i></a>
+          <div class="event-viewer " v-for="events in eventsCalendar">
+              <div class="event-container white" >
+                  <div class="event-title-date">
+                    <label class="eventitle blue-grey-text">{{events.title}}</label>
+                    <label class="eventdate">{{events.date}}</label>
+                  </div>
+                  <div class="event-description">
+                    <label class="eventdesc grey-text">{{events.desc}}</label>
+                    <div class="event-action">
+                      <a href="#eventview" class="modal-trigger" v-on:click="fetchEventData(events.id), isView = true" ><i class="material-icons">remove_red_eye</i></a>
+                      <a href="#eventupdate" class="modal-trigger" v-on:click="fetchEventData(events.id), isView = true" ><i class="material-icons teal-text ">edit</i></a>
+                      <a href="#" @click.prevent="deleteEvent(events.id)" ><i class="material-icons deep-orange-text">delete</i></a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="one-event-viewer">
+              <div class="event-container white" >
+                  <div class="event-title-date">
+                    <label class="eventitle blue-grey-text">{{oneEventViewer.title}}</label>
+                    <label class="eventdate">{{oneEventViewer.date}}</label>
+                  </div>
+                  <div class="event-description">
+                    <label class="eventdesc grey-text">{{oneEventViewer.desc}}</label>
+                    <div class="event-action">
+                      <a href="#eventview" class="modal-trigger" v-on:click="fetchEventData(oneEventViewer.id), isView = true" ><i class="material-icons">remove_red_eye</i></a>
+                      <a href="#eventupdate" class="modal-trigger" v-on:click="fetchEventData(oneEventViewer.id), isView = true" ><i class="material-icons teal-text ">edit</i></a>
+                      <a href="#" @click.prevent="deleteEvent(oneEventViewer.id)" ><i class="material-icons deep-orange-text">delete</i></a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </vue-event-calendar>
+
+      <!-- View Event Modal -->
+
+      <div id="eventview" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="modal-header light-blue ">
+            <h4 id="todos-header ">Event Details</h4>
+          </div>
+          <div class="modal-fields">
+            <div class="input-field">
+              <i class="material-icons prefix">Date</i>
+              <input id="event-date"  type="text" required v-model="fetchEvent.date" disabled>
+              <label for="event-date" :class="[isView == true ? 'active' : '']" id="label-date">Date</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">title</i>
+              <input id="event-title"  type="text" v-model="fetchEvent.title" required disabled>
+              <label for="event-title" :class="[isView == true ? 'active' : '']" id="label-title">Title</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">description</i>
+              <input id="event-description" type="text" v-model="fetchEvent.desc" required  disabled >
+              <label for="event-description" :class="[isView == true ? 'active' : '']" id="label-desc" >Description</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a id= "close" class="modal-action modal-close waves-effect waves-light light-blue lighten-2 btn-flat" style="color:#ffffff;"><i class="material-icons">close</i></a>
+        </div>
+      </div>
+
+      <!-- Update Event Modal -->
+
+      <div id="eventupdate" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="modal-header light-blue ">
+            <h4 id="todos-header ">Event Update</h4>
+          </div>
+          <div class="modal-fields">
+            <div class="input-field">
+              <i class="material-icons prefix">Date</i>
+              <input id="event-date"  type="text" required v-model="updatedate = fetchEvent.date" >
+              <label for="event-date" :class="[isView == true ? 'active' : '']" id="label-date">Date</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">title</i>
+              <input id="event-title"  type="text" v-model="updatetitle = fetchEvent.title" required >
+              <label for="event-title" :class="[isView == true ? 'active' : '']" id="label-title">Title</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">description</i>
+              <input id="event-description" type="text" v-model="updatedescription = fetchEvent.desc" required   >
+              <label for="event-description" :class="[isView == true ? 'active' : '']" id="label-desc" >Description</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
+          <a id= "update" class="modal-action modal-close waves-effect waves-light teal lighten-2 btn-flat" v-on:click="updateEvent()"style="color:#ffffff;">update</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -165,9 +257,16 @@
         studentCounter : '',
         dataCount : true,
         title:'',
-        date:'',
         description:'',
+        date:'',
+        updatetitle:'',
+        updatedescription:'',
+        updatedate:'',
         eventsCalendar:[],
+        eventView:[],
+        isView : false,
+        oneEventViewer:[],
+        fetchEvent:[],
       }
     },
 
@@ -202,7 +301,17 @@
         });
       },
 
+      showEvents(){
+        var vm = this;
+        axios.get(`show-events`).then(function(response){
+          vm.eventsCalendar = response.data;
+        });
+      },
+
       addEvent(){
+        $('#event-title').val('');
+        $('#event-description').val('');
+        $('#event-date').val('');
         var vm = this;
           axios.post(`create-event`,{
             'title' : this.title,
@@ -212,6 +321,7 @@
             console.log(response);
             Materialize.toast('Event Created !',3000,'rounded light-blue lighten-1');
             vm.showEvents();
+            vm.refreshOneEventView();
           }).catch(function(error){
             console.log(error);
             Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
@@ -219,11 +329,67 @@
           });
       },
 
-      showEvents(){
+      fetchEventData(id){
         var vm = this;
-        axios.get(`show-events`).then(function(response){
-          vm.eventsCalendar = response.data;
+        axios.get(`fetch-event-data/` + id).then(function(response){
+          vm.fetchEvent = response.data[0];
         });
+      },
+
+      updateEvent(){
+        var vm = this;
+        axios.put(`update-event/` + this.fetchEvent.id,{
+          'date' : this.fetchEvent.date,
+          'title' : this.fetchEvent.title,
+          'description' : this.fetchEvent.desc,
+        }).then(function(response){
+          vm.showEvents();
+          vm.refreshOneEventView();
+          Materialize.toast('Event Updated !',3000,'rounded light-blue lighten-1');
+        }).catch(function(error){
+          Materialize.toast('Opps something went wrong !',3000,'rounded red lighten-1');
+        });
+      },
+
+      deleteEvent(id){
+        if(confirm("Are you sure to delete ?")){
+          var vm = this;
+          axios.delete(`delete-event/` + id).then(function(response){
+            vm.showEvents();
+            Materialize.toast('Event deleted !',3000,'rounded light-blue lighten-1');
+          });
+        }
+      },
+
+      viewEvent(id){
+        var vm = this;
+        axios.get(`view-event/` + id).then(function(response){
+          vm.eventView = response.data[0];
+        });
+      },
+
+      showAllEvents(){
+        $(".one-event-viewer").css("display","none");
+        $(".event-viewer").css("display","flex");
+        $(".date").html("All Events");
+      },
+
+      refreshOneEventView(){
+        $(".event-viewer").css("display","flex");
+      },
+
+      handleDayChanged (data) {
+        $(".event-viewer").css("display","none");
+        $(".one-event-viewer").css("display","flex");
+
+        var vm = this;
+        vm.oneEventViewer = data.events[0];
+
+        $(".date").html(vm.oneEventViewer.date);
+      },
+
+      handleMonthChanged (data) {
+        console.log(data);
       }
     }
 

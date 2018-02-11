@@ -30,11 +30,27 @@ class EventController extends Controller
 
   }
 
+  public function updateEvent(Request $request , $id){
+
+    Event::where('id',$id)->update(['title' => $request->title , 'desc' => $request->description , 'date' => $request->date]);
+
+  }
+
+  public function deleteEvent($id){
+    
+    Event::where('id',$id)->delete();
+
+  }
+
   public function show(){
     return Event::orderBy('date','asc')->get();
   }
 
   public function viewEvent($id){
+    return Event::where('id',$id)->get();
+  }
+
+  public function fetchEvent($id){
     return Event::where('id',$id)->get();
   }
 }

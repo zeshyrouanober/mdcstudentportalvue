@@ -96,7 +96,7 @@ font-family: 'Quicksand', sans-serif!important;
   border-bottom: 1px solid #eeeeee;
 }
 .event-title-date .eventitle{
-  font-size: 15px!important;
+  font-size: 17px!important;
   flex: 1;
   padding-bottom: 3px;
 }
@@ -111,7 +111,7 @@ font-family: 'Quicksand', sans-serif!important;
   display: flex;
 }
 .event-description .eventdesc{
-    font-size: 12px!important;
+    font-size: 14px!important;
     padding-left: 5px;
     flex:3;
 }
@@ -119,6 +119,11 @@ font-family: 'Quicksand', sans-serif!important;
   flex: 1;
   display: flex;
   justify-content: flex-end;
+}
+.event-description .event-action{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 /* Date picker materialize customized */
 .picker__date-display{
@@ -145,6 +150,18 @@ font-family: 'Quicksand', sans-serif!important;
 }
 .modal .modal-footer #post:hover{
   background-color: #00e676!important;
+}
+.modal .modal-footer #update:hover{
+  background-color: #009688!important;
+}
+.side-nav{
+  display: flex;
+  flex-direction: column;
+}
+.side-nav .user-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .rounded{
   border-radius: 70px!important;
@@ -211,6 +228,9 @@ font-family: 'Quicksand', sans-serif!important;
 }
 .name{
   font-family: 'Quicksand', sans-serif!important;
+}
+.name a{
+  display: none;
 }
 .school h1{
     flex: 2;
@@ -582,6 +602,9 @@ form .forgot-password{
   flex-direction: column;
   padding-top: 10px;
 }
+.dashboard-student-container .mobile-events{
+  display: none;
+}
 .classes-grades{
   flex: 1;
   margin-bottom: 10px;
@@ -625,6 +648,7 @@ form .forgot-password{
   display: flex;
   margin-bottom: 30px;
 }
+
 .present-subjects{
   flex: 1;
   margin-right: 5px;
@@ -814,6 +838,42 @@ span{
   flex:3!important;
   flex-direction: column;
 }
+#eventview .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#eventview .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.8!important;
+}
+#eventview .modal-content .modal-fields{
+  display: flex;
+  justify-content: center;
+  color:#4caf50!important;
+  flex:3!important;
+  flex-direction: column;
+}
+#eventupdate .modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0px!important;
+}
+#eventupdate .modal-content .modal-header{
+  display: flex;
+  justify-content: center;
+  color:#ffffff!important;
+  flex:.8!important;
+}
+#eventupdate .modal-content .modal-fields{
+  display: flex;
+  justify-content: center;
+  color:#4caf50!important;
+  flex:3!important;
+  flex-direction: column;
+}
 #avatar .modal-content{
   display: flex;
   flex-direction: column;
@@ -890,7 +950,6 @@ span{
 }
 .student-widget{
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 .student-widget .my-widget{
@@ -1325,22 +1384,6 @@ thead tr th{
 #updateStudent .modal-fields{
   padding-top: 60px!important;
 }
-#eventView .modal-content{
-  display: flex;
-  flex-direction: column;
-  padding: 0px!important;
-}
-#eventView .modal-content .modal-header{
-  display: flex;
-  justify-content: center;
-  color:#ffffff!important;
-  position: absolute;
-  height: 50px;
-  width: 100%;
-}
-#eventView .modal-fields{
-  padding-top: 60px!important;
-}
 .modal-content .modal-header{
   flex:1;
   display: flex;
@@ -1477,9 +1520,6 @@ thead tr th{
   display: flex;
   justify-content: center;
   padding: 30px;
-}
-.header-container #scroll-spy-container{
-  position: absolute;
 }
 .scroll-fixed{
   position: fixed;
@@ -1634,6 +1674,23 @@ thead tr th{
   font-weight: 4400;
   padding-left: 20px;
 }
+.help-container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.help-container .header-container{
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.help-container .help-content-container{
+  display: flex;
+  height: 200px;
+  width: 100%;
+  padding: 0px 30px;
+}
 .active-user-container{
   display: flex;
   flex-direction: column;
@@ -1743,7 +1800,6 @@ thead tr th{
 }
 .page-footer .info p{
   padding-top: 10px;
-
 }
 .page-footer .info .strong{
   font-family: 'Shadows Into Light', cursive;
@@ -1756,4 +1812,114 @@ thead tr th{
 }
 .page-footer .links ul li{
   padding: 5px;
+}
+
+/* Media queries Mobile */
+@media only screen and (max-width : 500px) {
+  .template-header{
+    flex:1;
+    padding: 0px;
+  }
+  .template-header .logo{
+    display: flex;
+  }
+  .user-info{
+    height: 0px;
+  }
+  .logo img{
+    width: 50px;
+    height:50px;
+  }
+  .system-info h1{
+    font-size: 18px;
+    margin-left: 5px;
+  }
+  .name {
+    align-items: center;
+    display: flex;
+  }
+  .name a{
+    flex:1;
+    display: inline-block;
+  }
+  .user-info .name label{
+    flex: 15;
+    font-size: 13px;
+  }
+  .user-info .time-out{
+    display: none;
+  }
+  .user-content .user-right-nav{
+    display: none;
+  }
+  .student-status{
+    margin: 0;
+  }
+  .student-status-up label{
+    font-size: 12px;
+  }
+  .student-status-up label b{
+    font-size: 11px;
+  }
+  .student-widget{
+    flex-direction: row;
+    margin: 0;
+  }
+  .my-widget .widget-container{
+    display: block;
+  }
+  .widget-container .widget-icon{
+    padding: 0px;
+  }
+  .widget-title label{
+    font-size: 12px!important;
+  }
+  .widget-container .widget-content{
+    padding: 3px;
+  }
+
+  .classes-grades-header{
+    padding: 5px;
+  }
+
+  table.striped>tbody>tr>td{
+    font-size: 13px;
+  }
+
+  .dashboard-student-container .mobile-events{
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-events .mobile-events-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .mobile-events-container .mobile-header label{
+    font-size: 15px;
+  }
+  .mobile-events-container .mobile-footer label{
+    font-size: 15px;
+  }
+  .mobile-events-container .mobile-content .collapsible{
+    padding: 15px;
+    border:none!important;
+    border-color: none!important;
+    box-shadow: none!important;
+  }
+  .mobile-content .collapsible .collapsible-header{
+    padding: 8px;
+    display: flex;
+  }
+  .collapsible-header label{
+    font-size: 12px;
+    flex:1;
+  }
+  .collapsible-header .date{
+    display: flex;
+    justify-content: center;
+  }
+  .template-content-nav-bar{
+    display: none;
+  }
 }

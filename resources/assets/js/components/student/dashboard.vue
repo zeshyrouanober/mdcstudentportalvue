@@ -57,6 +57,45 @@
         </div>
       </div>
     </div>
+    <div class="mobile-events">
+
+      <div class="mobile-events-container white z-depth-1">
+        <div class="mobile-header">
+          <i class="material-icons blue-text">update</i>
+          <label>  Updates and Announcement</label>
+        </div>
+        <div class="mobile-content">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li v-for="announce in announcement">
+              <div class="collapsible-header">
+                <label class="blue-grey-text">{{announce.title}}</label>
+                <label class="date blue-text">{{announce.created_at}}</label>
+              </div>
+              <div class="collapsible-body blue-grey-text"><span>{{announce.description}}</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <div class="mobile-events-container white z-depth-1">
+        <div class="mobile-header">
+          <i class="material-icons blue-text">event_available</i>
+          <label> Upcoming events</label>
+        </div>
+        <div class="mobile-content">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li v-for="ue in upcomingevents">
+              <div class="collapsible-header ">
+                <label class="blue-grey-text">{{ue.title}}</label>
+                <label class="date blue-text">{{ue.date}}</label>
+              </div>
+              <div class="collapsible-body blue-grey-text"><span>{{ue.desc}}</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br><br>
+    </div>
     <div class="classes-grades z-depth-2" >
       <div class="classes-grades-header blue darken-3">
         <!-- <a class="btn-floating right "><i class="material-icons">print</i></a> -->
@@ -105,7 +144,10 @@
           rating:'',
           weightedAverage:'',
           currentSubject:'',
-          takenSubjects:''
+          takenSubjects:'',
+          upcomingevents:[],
+          pagination:[],
+          announcement:[],
         }
       },
       mounted(){
@@ -113,6 +155,8 @@
         this.studentStatus();
         this.currentSubjectCount();
         this.takenSubjectCount();
+        this.showUpcomingEvents();
+        this.showAnnouncements();
       },
       props:['user'],
 
@@ -154,6 +198,22 @@
           var vm = this;
           axios.get(`count-taken-subjects`).then(function(response){
             vm.takenSubjects = response.data[0].subjects_taken.length;
+          });
+        },
+
+        showUpcomingEvents(){
+          var vm = this;
+          axios.get(`show-upcomingevents`).then(function(response){
+            vm.upcomingevents = response.data.upcomingevents.data;
+            vm.pagination = response.data;
+          });
+        },
+
+        showAnnouncements(){
+          var vm = this;
+          axios.get(`show-announcement`).then(function(response){
+            vm.announcement = response.data.announcement.data;
+            vm.pagination = response.data;
           });
         }
 

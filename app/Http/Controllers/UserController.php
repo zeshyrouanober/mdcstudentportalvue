@@ -73,7 +73,10 @@ class UserController extends Controller
       }
 
     public function  activeStudent(){
-      return User::where('status','1')->with('student')->get();
+      $user =  User::where('status','1')->with('student')->get();
+
+
+      return response()->json($user);
     }
 
     public function counters(){

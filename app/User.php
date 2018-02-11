@@ -30,8 +30,11 @@ class User extends Authenticatable
     public function student(){
       return $this->hasOne('App\Student','idnum','student_id');
     }
+
+
     public function role(){
       return $this->hasOne('App\Role');
     }
+
 
 }

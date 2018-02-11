@@ -11,7 +11,7 @@
                 </div>
               </li>
               <li class="tab">
-                <a href="#dashboard"  >
+                <a href="#dashboard"  class="active">
                   <i class="material-icons ">dashboard</i>
                   <label>Dashboard</label>
                 </a>
