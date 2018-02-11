@@ -46,7 +46,7 @@
     @section('content')
 
       {{-- Side nav mobile --}}
-      <ul id="slide-out" class="side-nav white darken-1 full tabs">
+      <ul id="slide-out" class="side-nav white darken-1 full ">
         <li>
           <div class="user-view">
              <div class="background blue darken-3"></div>
@@ -60,7 +60,7 @@
        <li><div class="divider"></div></li>
        <li><a class="subheader">Contents</a></li>
              <li>
-               <a href="#dashboard" class="active"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
+               <a href="#dashboard"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
              </li>
              <li >
                <a href="#evaluation">

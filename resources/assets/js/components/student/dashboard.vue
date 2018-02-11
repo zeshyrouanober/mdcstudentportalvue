@@ -58,9 +58,8 @@
       </div>
     </div>
     <div class="mobile-events">
-
       <div class="mobile-events-container white z-depth-1">
-        <div class="mobile-header">
+        <div class="mobile-header z-depth-1">
           <i class="material-icons blue-text">update</i>
           <label>  Updates and Announcement</label>
         </div>
@@ -78,7 +77,7 @@
       </div>
       <br>
       <div class="mobile-events-container white z-depth-1">
-        <div class="mobile-header">
+        <div class="mobile-header z-depth-1">
           <i class="material-icons blue-text">event_available</i>
           <label> Upcoming events</label>
         </div>
@@ -99,8 +98,8 @@
     <div class="classes-grades z-depth-2" >
       <div class="classes-grades-header blue darken-3">
         <!-- <a class="btn-floating right "><i class="material-icons">print</i></a> -->
-        <label class="tabs-content-header">Present Subjects</label>
-        <a  v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light "><i class="material-icons">print</i></a>
+        <label class="tabs-content-header white-text">Present Subjects</label>
+        <a  v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light white "><i class="material-icons blue-text">print</i></a>
 
       </div>
       <div class="classes-grades-content">

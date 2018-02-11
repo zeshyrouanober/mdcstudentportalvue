@@ -155,7 +155,7 @@ font-family: 'Quicksand', sans-serif!important;
   background-color: #009688!important;
 }
 .side-nav{
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .side-nav .user-view{
@@ -619,7 +619,6 @@ form .forgot-password{
   padding: 15px;
 }
 .classes-grades-header label{
-  color: #ffffff!important;
   margin-right: 5px;
 }
 .classes-grades-content{
@@ -1880,12 +1879,11 @@ thead tr th{
 
   .classes-grades-header{
     padding: 5px;
-  }
 
+  }
   table.striped>tbody>tr>td{
     font-size: 13px;
   }
-
   .dashboard-student-container .mobile-events{
     display: flex;
     flex-direction: column;
@@ -1893,6 +1891,8 @@ thead tr th{
   .mobile-events .mobile-events-container{
     display: flex;
     flex-direction: column;
+  }
+  .mobile-events-container .mobile-header {
     padding: 10px;
   }
   .mobile-events-container .mobile-header label{

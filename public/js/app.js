@@ -52285,7 +52285,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -52506,21 +52505,25 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "classes-grades z-depth-2" }, [
       _c("div", { staticClass: "classes-grades-header blue darken-3" }, [
-        _c("label", { staticClass: "tabs-content-header" }, [
+        _c("label", { staticClass: "tabs-content-header white-text" }, [
           _vm._v("Present Subjects")
         ]),
         _vm._v(" "),
         _c(
           "a",
           {
-            staticClass: "btn-floating waves-effect waves-light ",
+            staticClass: "btn-floating waves-effect waves-light white ",
             on: {
               click: function($event) {
                 _vm.gradePDF()
               }
             }
           },
-          [_c("i", { staticClass: "material-icons" }, [_vm._v("print")])]
+          [
+            _c("i", { staticClass: "material-icons blue-text" }, [
+              _vm._v("print")
+            ])
+          ]
         )
       ]),
       _vm._v(" "),
@@ -52626,22 +52629,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mobile-header" }, [
+    return _c("div", { staticClass: "mobile-header z-depth-1" }, [
       _c("i", { staticClass: "material-icons blue-text" }, [_vm._v("update")]),
       _vm._v(" "),
-      _c("label", [_vm._v("Updates and Announcement")])
+      _c("label", [_vm._v("  Updates and Announcement")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mobile-header" }, [
+    return _c("div", { staticClass: "mobile-header z-depth-1" }, [
       _c("i", { staticClass: "material-icons blue-text" }, [
         _vm._v("event_available")
       ]),
       _vm._v(" "),
-      _c("label", [_vm._v("Upcoming events")])
+      _c("label", [_vm._v(" Upcoming events")])
     ])
   },
   function() {
