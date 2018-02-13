@@ -52541,15 +52541,25 @@ var render = function() {
               "tbody",
               _vm._l(_vm.subjects, function(subject) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(subject.descript))]),
+                  _c("td", { attrs: { "data-label": "Subject :" } }, [
+                    _vm._v(_vm._s(subject.descript))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(subject.pivot.mgrade))]),
+                  _c("td", { attrs: { "data-label": "Midterm :" } }, [
+                    _vm._v(_vm._s(subject.pivot.mgrade))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(subject.pivot.fgrade))]),
+                  _c("td", { attrs: { "data-label": "Final :" } }, [
+                    _vm._v(_vm._s(subject.pivot.fgrade))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(subject.pivot.rating))]),
+                  _c("td", { attrs: { "data-label": "Rating :" } }, [
+                    _vm._v(_vm._s(subject.pivot.rating))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v("Teacher name")])
+                  _c("td", { attrs: { "data-label": "Teacher :" } }, [
+                    _vm._v("Teacher name")
+                  ])
                 ])
               })
             )
@@ -52615,7 +52625,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "widget-content" }, [
           _c("div", { staticClass: "widget-title " }, [
-            _c("label", { staticClass: "amber-text" }, [_vm._v("All subjects")])
+            _c("label", { staticClass: "amber-text" }, [
+              _vm._v("All "),
+              _c("br"),
+              _vm._v(" subjects")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "widget-data " }, [
@@ -52963,13 +52977,27 @@ var render = function() {
               "tbody",
               _vm._l(_vm.takensubjects, function(takensubject) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(takensubject.descript))]),
+                  _c("td", { attrs: { "data-label": "Subject :" } }, [
+                    _vm._v(_vm._s(takensubject.descript))
+                  ]),
                   _vm._v(" "),
                   takensubject.pivot.rating <= 2.0
-                    ? _c("td", { staticClass: "green-text" }, [
-                        _vm._v("Passed")
-                      ])
-                    : _c("td", { staticClass: "red-text" }, [_vm._v("Failed")])
+                    ? _c(
+                        "td",
+                        {
+                          staticClass: "green-text",
+                          attrs: { "data-label": "Status :" }
+                        },
+                        [_vm._v("Passed")]
+                      )
+                    : _c(
+                        "td",
+                        {
+                          staticClass: "red-text",
+                          attrs: { "data-label": "Status :" }
+                        },
+                        [_vm._v("Failed")]
+                      )
                 ])
               })
             )
@@ -53065,10 +53093,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
-//
-//
 //
 //
 //
@@ -53318,7 +53342,7 @@ var render = function() {
         _c("label", [_vm._v(_vm._s(_vm.student.idnum))])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user-details " }, [
+      _c("div", { staticClass: "user-details z-depth-1" }, [
         _c("label", [_vm._v(_vm._s(_vm.major))]),
         _vm._v(" "),
         _c("label", [
@@ -53338,6 +53362,193 @@ var render = function() {
               _vm._s(_vm.student.addt) +
               "," +
               _vm._s(_vm.student.addp)
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "account-details z-depth-1" }, [
+        _c("div", { staticClass: "account-content " }, [
+          _c("label", { staticClass: "header" }, [
+            _vm._v("Update your account")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-field" }, [
+            _c("i", { staticClass: "material-icons prefix" }, [
+              _vm._v("account_circle")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.username,
+                  expression: "username"
+                }
+              ],
+              staticClass: "validate",
+              attrs: { id: "username", disabled: "", type: "text" },
+              domProps: { value: _vm.username },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.username = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "input-field", attrs: { id: "currentPassword" } },
+            [
+              _c("div", { staticClass: "field" }, [
+                _c("i", { staticClass: "material-icons prefix" }, [
+                  _vm._v("lock")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.currentPassword,
+                      expression: "currentPassword"
+                    }
+                  ],
+                  staticClass: "validate",
+                  attrs: {
+                    id: "currentpassword",
+                    required: "",
+                    type: "password"
+                  },
+                  domProps: { value: _vm.currentPassword },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.currentPassword = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "currentpassword" } }, [
+                  _vm._v("Current Password")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "currentBtn" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn small blue darken-1",
+                    on: {
+                      click: function($event) {
+                        _vm.userCurrentPassword()
+                      }
+                    }
+                  },
+                  [_vm._v("Confirm")]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-field" }, [
+            _c("i", { staticClass: "material-icons prefix" }, [
+              _vm._v("lock_open")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newPassword,
+                  expression: "newPassword"
+                }
+              ],
+              staticClass: "validate ",
+              attrs: {
+                id: "password",
+                disabled: "",
+                required: "",
+                name: "password",
+                type: "password"
+              },
+              domProps: { value: _vm.newPassword },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newPassword = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "password" } }, [
+              _vm._v("New Password")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-field" }, [
+            _c("i", { staticClass: "material-icons prefix" }, [
+              _vm._v("lock_outline")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.confirmPassword,
+                  expression: "confirmPassword"
+                }
+              ],
+              staticClass: "validate",
+              attrs: {
+                id: "password_confirmation",
+                disabled: "",
+                required: "",
+                name: "password_confirmation",
+                type: "password"
+              },
+              domProps: { value: _vm.confirmPassword },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.confirmPassword = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "password_confirmation" } }, [
+              _vm._v("Confirm Password")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "btn waves-effect waves-light blue darken-1 disabled",
+              attrs: { id: "updateBtn" },
+              on: {
+                click: function($event) {
+                  _vm.userUpdate()
+                }
+              }
+            },
+            [
+              _vm._v("update\n          "),
+              _c("i", { staticClass: "material-icons right" }, [_vm._v("send")])
+            ]
           )
         ])
       ])
@@ -53418,191 +53629,7 @@ var render = function() {
           )
         ])
       ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "account-details " }, [
-      _c("div", { staticClass: "account-content z-depth-1" }, [
-        _c("label", { staticClass: "header" }, [_vm._v("Update your account")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("i", { staticClass: "material-icons prefix" }, [
-            _vm._v("account_circle")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.username,
-                expression: "username"
-              }
-            ],
-            staticClass: "validate",
-            attrs: { id: "username", disabled: "", type: "text" },
-            domProps: { value: _vm.username },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.username = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "input-field", attrs: { id: "currentPassword" } },
-          [
-            _c("div", { staticClass: "field" }, [
-              _c("i", { staticClass: "material-icons prefix" }, [
-                _vm._v("lock")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.currentPassword,
-                    expression: "currentPassword"
-                  }
-                ],
-                staticClass: "validate",
-                attrs: {
-                  id: "currentpassword",
-                  required: "",
-                  type: "password"
-                },
-                domProps: { value: _vm.currentPassword },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.currentPassword = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "currentpassword" } }, [
-                _vm._v("Current Password")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "currentBtn" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn small blue darken-1",
-                  on: {
-                    click: function($event) {
-                      _vm.userCurrentPassword()
-                    }
-                  }
-                },
-                [_vm._v("Confirm")]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("i", { staticClass: "material-icons prefix" }, [
-            _vm._v("lock_open")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newPassword,
-                expression: "newPassword"
-              }
-            ],
-            staticClass: "validate ",
-            attrs: {
-              id: "password",
-              disabled: "",
-              required: "",
-              name: "password",
-              type: "password"
-            },
-            domProps: { value: _vm.newPassword },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.newPassword = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "password" } }, [_vm._v("New Password")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("i", { staticClass: "material-icons prefix" }, [
-            _vm._v("lock_outline")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.confirmPassword,
-                expression: "confirmPassword"
-              }
-            ],
-            staticClass: "validate",
-            attrs: {
-              id: "password_confirmation",
-              disabled: "",
-              required: "",
-              name: "password_confirmation",
-              type: "password"
-            },
-            domProps: { value: _vm.confirmPassword },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.confirmPassword = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "password_confirmation" } }, [
-            _vm._v("Confirm Password")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn waves-effect waves-light blue darken-1 disabled",
-            attrs: { id: "updateBtn" },
-            on: {
-              click: function($event) {
-                _vm.userUpdate()
-              }
-            }
-          },
-          [
-            _vm._v("update\n        "),
-            _c("i", { staticClass: "material-icons right" }, [_vm._v("send")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
+    )
   ])
 }
 var staticRenderFns = [
@@ -53610,7 +53637,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header light-blue " }, [
+    return _c("div", { staticClass: "modal-header blue darken-3" }, [
       _c("h4", { attrs: { id: "todos-header " } }, [_vm._v("Update Avatar")])
     ])
   },
@@ -53623,20 +53650,6 @@ var staticRenderFns = [
         staticClass: "file-path validate",
         attrs: { type: "text" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right-profile" }, [
-      _c("div", { staticClass: "right-profile-one  z-depth-1" }, [
-        _c("label", { staticClass: "header" }, [_vm._v("Something to put")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "right-profile-one  z-depth-1" }, [
-        _c("label", { staticClass: "header" }, [_vm._v("Something to put")])
-      ])
     ])
   }
 ]
@@ -53834,7 +53847,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "calendar-container z-depth-2" },
+    { staticClass: "calendar-container z-depth-1" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -54099,15 +54112,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "school-calendar white darken-3 z-depth-1 " },
-      [
-        _c("label", { staticClass: "blue-text" }, [
-          _vm._v("School Year Calendar")
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "school-calendar blue darken-3" }, [
+      _c("label", { staticClass: "white-text" }, [
+        _vm._v("School Year Calendar")
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -54955,8 +54964,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "faqs-container" }, [
-      _c("div", { staticClass: "header-container  white z-depth-1" }, [
-        _c("label", { staticClass: "blue-text" }, [
+      _c("div", { staticClass: "header-container  blue darken-3 z-depth-1" }, [
+        _c("label", { staticClass: "white-text" }, [
           _vm._v("Frequently Asked Questions")
         ]),
         _vm._v(" "),

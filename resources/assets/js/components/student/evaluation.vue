@@ -14,9 +14,9 @@ top<template lang="html">
           </thead>
           <tbody>
             <tr v-for="takensubject in takensubjects">
-              <td>{{takensubject.descript}}</td>
-              <td class="green-text" v-if="takensubject.pivot.rating <= 2.0 ">Passed</td>
-              <td v-else class="red-text">Failed</td>
+              <td data-label="Subject :" >{{takensubject.descript}}</td>
+              <td data-label="Status :" class="green-text" v-if="takensubject.pivot.rating <= 2.0 ">Passed</td>
+              <td data-label="Status :" v-else class="red-text">Failed</td>
             </tr>
           </tbody>
         </table>

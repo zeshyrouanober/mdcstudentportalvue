@@ -7,7 +7,7 @@
           <img :src="'/storage/avatars/' + user.avatar + ''" alt="">
           <label >{{student.idnum}}</label>
       </div>
-      <div class="user-details ">
+      <div class="user-details z-depth-1" >
           <label>{{major}}</label>
           <label >{{student.fname}} {{student.lname}}</label>
           <label >{{course}} - {{year}}</label>
@@ -15,10 +15,44 @@
           <label >{{student.gender}}</label>
           <label >{{student.addb}},{{student.addt}},{{student.addp}}</label>
       </div>
+
+      <div class="account-details z-depth-1">
+        <div class="account-content ">
+          <label class="header">Update your account</label>
+          <div class="input-field">
+             <i class="material-icons prefix">account_circle</i>
+             <input id="username" disabled type="text" v-model="username" class="validate">
+             <!-- <label for="username" :class="[isUpdate == true ? 'active' : '']" >Username</label> -->
+           </div>
+           <div class="input-field" id="currentPassword">
+              <div class="field">
+                <i class="material-icons prefix">lock</i>
+                <input id="currentpassword"  required v-model="currentPassword" type="password" class="validate">
+                <label for="currentpassword">Current Password</label>
+              </div>
+              <div class="currentBtn">
+                <a  v-on:click="userCurrentPassword()" class="btn small blue darken-1">Confirm</a>
+              </div>
+          </div>
+          <div class="input-field">
+             <i class="material-icons prefix">lock_open</i>
+             <input id="password" disabled required v-model="newPassword" name="password" type="password"  class="validate ">
+             <label for="password" >New Password</label>
+         </div>
+         <div class="input-field">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="password_confirmation" disabled required v-model="confirmPassword" name="password_confirmation" type="password" class="validate">
+            <label for="password_confirmation">Confirm Password</label>
+          </div>
+          <button class="btn waves-effect waves-light blue darken-1 disabled" id="updateBtn" v-on:click="userUpdate()">update
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
     </div>
       <div id="avatar" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <div class="modal-header light-blue ">
+          <div class="modal-header blue darken-3">
             <h4 id="todos-header ">Update Avatar</h4>
           </div>
           <div class="modal-fields">
@@ -45,48 +79,10 @@
           <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
           <a class="btn btn-flat waves-effect waves-light modal-close white-text light-blue" v-on:click="updateAvatar()">Update</a>
         </div>
+
+
       </div>
-    <div class="account-details ">
-      <div class="account-content z-depth-1">
-        <label class="header">Update your account</label>
-          <div class="input-field">
-           <i class="material-icons prefix">account_circle</i>
-           <input id="username" disabled type="text" v-model="username" class="validate">
-           <!-- <label for="username" :class="[isUpdate == true ? 'active' : '']" >Username</label> -->
-         </div>
-         <div class="input-field" id="currentPassword">
-            <div class="field">
-              <i class="material-icons prefix">lock</i>
-              <input id="currentpassword"  required v-model="currentPassword" type="password" class="validate">
-              <label for="currentpassword">Current Password</label>
-            </div>
-            <div class="currentBtn">
-              <a  v-on:click="userCurrentPassword()" class="btn small blue darken-1">Confirm</a>
-            </div>
-        </div>
-        <div class="input-field">
-           <i class="material-icons prefix">lock_open</i>
-           <input id="password" disabled required v-model="newPassword" name="password" type="password"  class="validate ">
-           <label for="password" >New Password</label>
-       </div>
-       <div class="input-field">
-          <i class="material-icons prefix">lock_outline</i>
-          <input id="password_confirmation" disabled required v-model="confirmPassword" name="password_confirmation" type="password" class="validate">
-          <label for="password_confirmation">Confirm Password</label>
-        </div>
-        <button class="btn waves-effect waves-light blue darken-1 disabled" id="updateBtn" v-on:click="userUpdate()">update
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-      <div class="right-profile">
-        <div class="right-profile-one  z-depth-1">
-          <label class="header">Something to put</label>
-        </div>
-        <div class="right-profile-one  z-depth-1">
-          <label class="header">Something to put</label>
-        </div>
-      </div>
-    </div>
+
   </div>
 
 </template>

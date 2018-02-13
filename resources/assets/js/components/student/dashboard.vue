@@ -48,7 +48,7 @@
           </div>
           <div class="widget-content">
             <div class="widget-title ">
-              <label class="amber-text">All subjects</label>
+              <label class="amber-text">All <br> subjects</label>
             </div>
             <div class="widget-data ">
               <label class="amber-text">60</label>
@@ -115,11 +115,11 @@
           </thead>
           <tbody>
             <tr v-for="subject in subjects">
-              <td>{{subject.descript}}</td>
-              <td>{{subject.pivot.mgrade}}</td>
-              <td>{{subject.pivot.fgrade}}</td>
-              <td>{{subject.pivot.rating}}</td>
-              <td>Teacher name</td>
+              <td data-label="Subject :">{{subject.descript}}</td>
+              <td data-label="Midterm :">{{subject.pivot.mgrade}}</td>
+              <td data-label="Final :">{{subject.pivot.fgrade}}</td>
+              <td data-label="Rating :">{{subject.pivot.rating}}</td>
+              <td data-label="Teacher :">Teacher name</td>
             </tr>
           </tbody>
         </table>

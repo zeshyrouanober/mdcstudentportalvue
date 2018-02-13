@@ -34,7 +34,7 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <input id="passwordSignIn" type="password" required name="passwordSignIn" >
-                    <label for="passord">Password</label>
+                    <label for="passord" class="passwordlabel">Password</label>
                   </div>
                   {{-- <a href="#" class="forgot-password">Forgot Password ?</a> --}}
                 </div>
@@ -47,6 +47,15 @@
                 <label>MDC,Tubigon,Bohol.</label>
             </div>
         </div>
+        <div class="input-form wow fadeInUp">
+          <div class="input-field col s12">
+            <input id="passwordInput" name="password" type="password" required>
+            <label for="passwordInput" class="passwordlabel">Password </label>
+            <button class="btn waves-effect waves-light white darken-3 right blue-text pulse" type="submit" id="passwordButton">Go
+              <i class="material-icons right blue-text">send</i>
+            </button>
+          </div>
+      </div>
       </div>
    </div>
 </div>
@@ -64,6 +73,22 @@
       }else{
         $('#admin-avatar').css("display","flex");
       }
+
+      $('#passwordSignIn').on('click',function(){
+        $('.content').css("display","none");
+        $('.bg1').css("background-color","#1565C0");
+        $('.input-form').css("display","flex");
+        $('#passwordInput').focus();
+      });
+
+      $('#passwordButton').on('click',function(){
+        var password = $('#passwordInput').val();
+        $('.input-form').css("display","none");
+        $('.content').css("display","flex");
+        $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
+        $('#passwordSignIn').val(password);
+        $('.passwordlabel').addClass("active");
+      });
   });
 </script>
 @endsection

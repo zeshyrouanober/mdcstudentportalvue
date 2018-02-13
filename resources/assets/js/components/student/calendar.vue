@@ -1,7 +1,7 @@
 <template lang="html">
-  <div class="calendar-container z-depth-2">
-    <div class="school-calendar white darken-3 z-depth-1 ">
-      <label class="blue-text">School Year Calendar</label>
+  <div class="calendar-container z-depth-1">
+    <div class="school-calendar blue darken-3">
+      <label class="white-text">School Year Calendar</label>
     </div>
     <vue-event-calendar :events="eventsCalendar"  @day-changed="handleDayChanged" @month-changed="handleMonthChanged">
         <a href="#" @click.prevent="showAllEvents()" class="tooltipped" data-position="top" data-delay="20" data-tooltip="All Events" ><i class="material-icons white-text small">event_note</i></a>

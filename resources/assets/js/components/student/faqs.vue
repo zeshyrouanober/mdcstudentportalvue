@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="faqs-container">
-    <div class="header-container  white z-depth-1">
-      <label class="blue-text">Frequently Asked Questions</label>
+    <div class="header-container  blue darken-3 z-depth-1">
+      <label class="white-text">Frequently Asked Questions</label>
       <div class="row">
         <div id="sticky-anchor"></div>
         <div class="col hide-on-small-only m3 l2 white z-depth-1" id="sticky">

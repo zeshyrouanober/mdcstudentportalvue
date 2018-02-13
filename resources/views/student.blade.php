@@ -46,42 +46,47 @@
     @section('content')
 
       {{-- Side nav mobile --}}
-      <ul id="slide-out" class="side-nav white darken-1 full ">
+      <ul id="slide-out" class="side-nav white darken-1 full tabs">
         <li>
           <div class="user-view">
-             <div class="background blue darken-3"></div>
+             <div class="background blue" ></div>
              <img class="circle" src="/storage/avatars/{{Auth::user()->avatar}}">
              <span class="white-text name">{{Auth::user()->username}}</span>
              <span class="white-text email">{{Auth::user()->student->fname}} {{Auth::user()->student->mi}}  {{Auth::user()->student->lname}}</span>
           </div>
        </li>
-       <li><a href="#userprofile"><i class="material-icons blue-text">account_circle</i>My Profile</a></li>
-       <li><a href=""><i class="material-icons blue-text">exit_to_app</i>Log Out</a></li>
+       <li class="tab"><a href="#userprofile" class="side-nav-clear"><i class="material-icons blue-text">account_circle</i>My Profile</a></li>
+       <li><a href="#" onclick="event.preventDefault(); document.getElementById('logoutformMobile').submit()"><i class="material-icons blue-text">exit_to_app</i>Log Out</a></li>
+
+       <form id="logoutformMobile"  method="post" style="display:none;" action="log-out">
+         {{ csrf_field() }}
+       </form>
+
        <li><div class="divider"></div></li>
        <li><a class="subheader">Contents</a></li>
-             <li>
-               <a href="#dashboard"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
+             <li class="tab">
+               <a href="#dashboard" class="active side-nav-clear"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
              </li>
-             <li >
-               <a href="#evaluation">
+             <li class="tab">
+               <a href="#evaluation" class="side-nav-clear">
                  <i class="material-icons blue-text ">subject</i>
                  Subjects
                </a>
              </li>
-             <li >
-               <a href="#calendar" >
+             <li class="tab">
+               <a href="#calendar" class="side-nav-clear">
                  <i class="material-icons blue-text">today</i>
                  Events
                </a>
              </li>
-             <li >
-               <a href="#faqs">
+             <li class="tab">
+               <a href="#faqs" class="side-nav-clear">
                  <i class="material-icons blue-text">info_outline</i>
                  faqs
                </a>
              </li>
-             <li >
-               <a href="#help">
+             <li class="tab">
+               <a href="#help" class="side-nav-clear">
                  <i class="material-icons blue-text">help_outline</i>
                  Help
                </a>
@@ -219,6 +224,10 @@
                 });
 
                 $(".button-collapse").sideNav();
+                $(".side-nav-clear").on("click", function() {
+                    $("#sidenav-overlay").trigger("click");
+                    return true;
+                });
 
               });
           </script>
