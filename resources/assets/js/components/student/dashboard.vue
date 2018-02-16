@@ -48,7 +48,7 @@
           </div>
           <div class="widget-content">
             <div class="widget-title ">
-              <label class="amber-text">All <br> subjects</label>
+              <label class="amber-text">All subjects</label>
             </div>
             <div class="widget-data ">
               <label class="amber-text">60</label>
@@ -61,7 +61,7 @@
       <div class="mobile-events-container white z-depth-1">
         <div class="mobile-header z-depth-1">
           <i class="material-icons blue-text">update</i>
-          <label>  Updates and Announcement</label>
+          <label>Updates and Announcement</label>
         </div>
         <div class="mobile-content">
           <ul class="collapsible" data-collapsible="accordion">

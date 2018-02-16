@@ -16,8 +16,8 @@
           <label >{{student.addb}},{{student.addt}},{{student.addp}}</label>
       </div>
 
-      <div class="account-details z-depth-1">
-        <div class="account-content ">
+      <div class="account-details">
+        <div class="account-content  z-depth-1 ">
           <label class="header">Update your account</label>
           <div class="input-field">
              <i class="material-icons prefix">account_circle</i>

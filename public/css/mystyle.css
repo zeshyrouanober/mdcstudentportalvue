@@ -157,6 +157,10 @@ font-family: 'Quicksand', sans-serif!important;
   display: flex;
   flex-direction: column;
 }
+.side-nav .user-view .circle{
+  height: 90px!important;
+  width: 90px!important;
+}
 .side-nav li .subheader{
   margin-left: 5px!important;
 }
@@ -165,7 +169,6 @@ font-family: 'Quicksand', sans-serif!important;
 }
 .side-nav li>a{
   padding: 0px!important;
-  font-size: 12px!important;
   font-weight: normal!important;
   font-family: 'Quicksand', sans-serif!important;
 }
@@ -207,6 +210,16 @@ font-family: 'Quicksand', sans-serif!important;
   display: flex;
   justify-content: center;
   font-family: 'Quicksand', sans-serif!important;
+}
+#passwordForm{
+  display: none;
+  margin: auto;
+  padding: 10px;
+}
+#passwordConfirmForm{
+  display: none;
+  margin: auto;
+  padding: 10px;
 }
 .input-form{
   display: none;
@@ -274,10 +287,11 @@ font-family: 'Quicksand', sans-serif!important;
     padding: 0px;
     margin: 0px;
     flex:.13;
-    display: none;
+    visibility: hidden;
 }
 .progress .indeterminate{
     background-color: #ffffff!important;
+    visibility: hidden;
 }
 .content-title .school{
     flex:5;
@@ -309,7 +323,7 @@ font-family: 'Quicksand', sans-serif!important;
 .content-title .title{
     flex:1;
     font-weight: 100;
-    padding:10px 20px;
+    padding:15px 20px;
     display: flex;
 }
 .title label{
@@ -1481,12 +1495,13 @@ thead tr th{
 .user-profile-container{
   display: flex;
   flex-direction: column;
-  padding: 10px 50px;
+  padding: 50px 100px;
 }
 .user-profile-details{
   display: flex;
   justify-content: center;
-  padding: 5px;
+  padding: 20px;
+  flex-direction: column;
 }
 .user-picture{
   flex: 1;
@@ -1856,7 +1871,907 @@ thead tr th{
 }
 
 /* Media queries Mobile */
-@media only screen and (max-width : 320px){
+@media only screen and (max-width : 1440px) {
+  .bg1{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .title .stud_id{
+    padding-left: 30px;
+  }
+  .user-details{
+    padding: 10px;
+  }
+  .account-details{
+    padding: 20px 100px;
+  }
+}
+@media only screen and (max-width : 1390px) {
+  .bg1{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .title .stud_id{
+    padding-left: 0px;
+    margin-top: 10px;
+  }
+  .title .stud_info{
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width : 1271px) {
+  .bg1{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media only screen and (max-width : 1024px) {
+  .bg1{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .user-profile-container{
+    padding: 10px 30px;
+  }
+  .user-details{
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 992px){
+  .tabs .tab{
+    text-transform: none!important;
+    text-align: left!important;
+  }
+  .tabs .tab a{
+    color: rgba(0,0,0,0.87)!important;
+  }
+}
+@media only screen and (max-width : 872px) {
+  .bg1{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (max-width : 768px){
+  .template-header{
+    flex:1;
+    padding: 0px;
+  }
+  .template-header .logo{
+    display: flex;
+  }
+  .user-info{
+    height: 0px;
+  }
+  .logo img{
+    width: 70px;
+    height:70px;
+  }
+  .system-info h1{
+    font-size: 25px;
+    margin-left: 5px;
+  }
+  .name {
+    align-items: center;
+    display: flex;
+  }
+  .name a{
+    flex:1;
+    display: inline-block;
+  }
+  .user-info .name label{
+    flex: 15;
+    font-size: 12px;
+  }
+  .user-info .time-out{
+    display: none;
+  }
+  .user-content .user-main-content{
+    padding: 0px;
+  }
+  .user-content .user-right-nav{
+    display: none;
+  }
+  .student-status{
+    margin: 0;
+  }
+  .student-status-up{
+    flex-direction: row;
+  }
+  .student-widget{
+    flex-direction: row;
+    margin: 0;
+  }
+  .my-widget .widget-container{
+    display: block;
+  }
+  .widget-container .widget-icon{
+    padding: 0px;
+  }
+  .widget-title label{
+    font-size: 12px!important;
+  }
+  .widget-container .widget-content{
+    padding: 3px;
+  }
+  .classes-grades-header{
+    padding: 5px;
+  }
+  /* table>tbody>tr>td{
+    font-size: 12px;
+  }
+  table {
+      border: 0;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    table tr {
+      border-bottom: 2px solid #1565c0 ;
+      display: block;
+      margin-bottom: .625em;
+    }
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      text-align: right;
+      color:#2196f3;
+    }
+    table td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      color: #607d8b ;
+    }
+    table td:last-child {
+      border-bottom: 0;
+    } */
+
+  .dashboard-student-container .mobile-events{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-events .mobile-events-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-events-container .mobile-header {
+    padding: 10px;
+  }
+  .mobile-events-container .mobile-header label{
+    font-size: 17px;
+  }
+  .mobile-events-container .mobile-content .collapsible{
+    padding: 15px;
+    border:none!important;
+    border-color: none!important;
+    box-shadow: none!important;
+  }
+  .mobile-content .collapsible .collapsible-header{
+    padding: 8px;
+    display: flex;
+  }
+  .collapsible-header label{
+    font-size: 13px;
+    flex:1;
+  }
+  .collapsible-header .date{
+    display: flex;
+    justify-content: center;
+  }
+  .collapsible-body span{
+    font-family: 'Quicksand', sans-serif!important;
+  }
+  .side-nav li>a{
+    font-size: 13px!important;
+  }
+  #bg{
+    /* background:  #1a237e; */
+  }
+  .bg1{
+     display: flex;
+     padding-left: 240px;
+     padding-right: 240px;
+   }
+   .log-in-container{
+     height: 325px!important;
+     margin: auto;
+   }
+  .content{
+    flex: 1;
+    border-radius: 5px;
+  }
+  .content .content-title{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .content-title .school{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .school h1{
+    font-size: 15px!important;
+  }
+  .title label{
+    font-size: 12px;
+    flex:2;
+  }
+  .content .name{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px 0px;
+  }
+  .content-content .input-field label{
+    font-size: 12px;
+  }
+  .school .avatar-container{
+    padding-top: 10px;
+  }
+  .content .avatar-container img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  .title .stud_info{
+    font-size: 12px;
+    flex: 4;
+  }
+  .title .stud_id{
+    font-size: 12px;
+    flex: 1.5;
+    padding-left: 70px;
+ }
+ .user-picture .header{
+   font-size: 15px;
+ }
+ .user-picture img{
+   height: 100px;
+   width: 100px;
+ }
+ .user-profile-details{
+   flex-direction: column;
+   padding-bottom: 10px;
+ }
+ .user-profile-container{
+   padding: 10px;
+ }
+ .user-picture label{
+   font-size: 13px;
+   color:#2196f3;
+ }
+ .user-details{
+   padding: 10px;
+ }
+ .user-details label{
+   font-size: 13px;
+ }
+ .account-details{
+   padding: 2px;
+ }
+ .account-content .header{
+   font-size: 13px;
+ }
+ .account-content .input-field input{
+   font-size: 13px!important;
+ }
+ .account-content .input-field label{
+   font-size: 13px!important;
+ }
+ .evaluation-header{
+   padding: 10px;
+ }
+ .evaluation-header label{
+   font-size: 15px;
+ }
+ .calendar-container{
+   margin-top: 5px;
+   margin-bottom: 10px;
+ }
+ .school-calendar label{
+   font-size: 15px;
+   padding: 10px;
+ }
+ .events-wrapper{
+   padding: 10px!important;
+ }
+ .modal-content .modal-header h4{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   margin-top: 5px;
+ }
+ #eventview .modal-content .modal-header{
+   flex: .5!important;
+ }
+ #eventview .modal-content .modal-fields{
+   padding: 5px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field i{
+   font-size: 20px;
+   margin-left: 13px;
+ }
+ #eventview .modal-content .modal-fields .input-field input{
+   font-size: 13px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field label{
+   font-size: 13px!important;
+ }
+ .__vev_calendar-wrapper .cal-wrapper{
+   font-family: 'Quicksand', sans-serif!important;
+ }
+ .__vev_calendar-wrapper .events-wrapper .date{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   padding: 5px!important;
+ }
+ .event-title-date .eventitle{
+   font-size: 15px!important;
+ }
+ .event-title-date .eventdate{
+   font-size: 13px!important;
+ }
+ .event-description .eventdesc{
+   font-size: 14px!important;
+ }
+
+ .faqs-container{
+   margin-top: 5px;
+ }
+ .faqs-container .header-container{
+   padding: 10px;
+ }
+ .faqs-container .header-container label{
+   font-size: 15px;
+ }
+ .faqs-container .system-identification-container{
+   padding: 0px 5px;
+ }
+ .system-identification-container .system-name{
+   font-size: 15px!important;
+   padding:10px;
+ }
+  .system-content .faqs-title {
+    padding: 10px;
+  }
+ .system-content .faqs-title label{
+   font-size: 15px!important;
+ }
+ .system-identification-container .system-meaning{
+   padding: 5px;
+   font-size: 13px!important;
+ }
+  .collapsible .collapsible-header .faqs-question{
+    font-size: 13px!important;
+  }
+  .collapsible-header{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title label{
+    font-size: 15px!important;
+  }
+  .tips-container .tips-content{
+    padding: 10px;
+  }
+  .tips-container .tips-content label{
+    font-size: 13px!important;
+  }
+  .faqs-container .school-identification-container{
+    padding: 5px;
+  }
+  .school-header .school-name{
+    font-size: 15px!important;
+    padding: 10px;
+  }
+  .school-header .school-seal{
+    padding: 10px;
+    flex-direction: column;
+  }
+  .school-seal label{
+    font-size: 15px!important;
+  }
+  .school-content .collapsible{
+    padding: 20px 10px;
+  }
+  .collapsible .collapsible-body .faqs-answer-title {
+    font-size: 15px;
+  }
+  .collapsible .collapsible-body .faqs-answer-content{
+    font-size: 15px;
+  }
+  .template-content-nav-bar{
+    display: none;
+  }
+}
+@media only screen and (max-width : 740px){
+  .title .stud_id{
+    padding-left: 70px;
+  }
+}
+@media only screen and (max-width : 734px){
+  .title .stud_id{
+    padding-left: 100px;
+  }
+  .bg1{
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+@media only screen and (max-width : 726px){
+  .title .stud_id{
+    padding-left: 60px;
+  }
+}
+@media only screen and (max-width : 722px){
+  .title .stud_id{
+    padding-left: 100px;
+  }
+  .bg1{
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+@media only screen and (max-width : 720px){
+  .title .stud_id{
+    padding-left: 40px;
+  }
+}
+@media only screen and (max-width : 716px){
+  .title .stud_id{
+    padding-left: 90px;
+  }
+}
+@media only screen and (max-width : 682px){
+  .title .stud_id{
+    padding-left: 50px;
+  }
+}
+@media only screen and (max-width : 678px){
+  .title .stud_id{
+    padding-left: 30px;
+  }
+  .bg1{
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+@media only screen and (max-width : 660px){
+  .title .stud_id{
+    padding-left: 80px;
+  }
+  .bg1{
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+@media only screen and (max-width : 614px){
+  .title .stud_id{
+    padding-left: 50px;
+  }
+  .bg1{
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+@media only screen and (max-width : 586px){
+  .title .stud_id{
+    padding-left: 30px;
+  }
+  .bg1{
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+@media only screen and (max-width : 566px){
+  .title .stud_id{
+    padding-left: 90px;
+  }
+  .bg1{
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+  .student-status-up{
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width : 522px){
+  .title .stud_id{
+    padding-left: 70px;
+  }
+}
+@media only screen and (max-width : 496px){
+  .title .stud_id{
+    padding-left: 50px;
+  }
+}
+@media only screen and (max-width : 488px){
+  .title .stud_id{
+    padding-left: 40px;
+  }
+  .bg1{
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+@media only screen and (max-width : 458px){
+  .title .stud_id{
+    padding-left: 50px;
+  }
+  .bg1{
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}
+@media only screen and (max-width : 425px){
+  .template-header{
+    flex:1;
+    padding: 0px;
+  }
+  .template-header .logo{
+    display: flex;
+  }
+  .user-info{
+    height: 0px;
+  }
+  .logo img{
+    width: 50px;
+    height:50px;
+  }
+  .system-info h1{
+    font-size: 18px;
+    margin-left: 5px;
+  }
+  .name {
+    align-items: center;
+    display: flex;
+  }
+  .name a{
+    flex:1;
+    display: inline-block;
+  }
+  .user-info .name label{
+    flex: 15;
+    font-size: 12px;
+    padding-left: 8px;
+  }
+  .user-info .time-out{
+    display: none;
+  }
+  .user-content .user-main-content{
+    padding: 0px;
+  }
+  .user-content .user-right-nav{
+    display: none;
+  }
+  .student-status{
+    margin: 0;
+  }
+  .student-status-up{
+    flex-direction: column;
+  }
+  .student-widget{
+    flex-direction: row;
+    margin: 0;
+  }
+  .my-widget .widget-container{
+    display: block;
+  }
+  .widget-container .widget-icon{
+    padding: 0px;
+  }
+  .widget-title label{
+    font-size: 12px!important;
+  }
+  .widget-container .widget-content{
+    padding: 3px;
+  }
+  .classes-grades-header{
+    padding: 5px;
+  }
+  table>tbody>tr>td{
+    font-size: 12px;
+  }
+  table {
+      border: 0;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    table tr {
+      border-bottom: 2px solid #1565c0 ;
+      display: block;
+      margin-bottom: .625em;
+    }
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      text-align: right;
+      color:#2196f3;
+    }
+    table td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      color: #607d8b ;
+    }
+    table td:last-child {
+      border-bottom: 0;
+    }
+
+  .dashboard-student-container .mobile-events{
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-events .mobile-events-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-events-container .mobile-header {
+    padding: 10px;
+  }
+  .mobile-events-container .mobile-content .collapsible{
+    padding: 15px;
+    border:none!important;
+    border-color: none!important;
+    box-shadow: none!important;
+  }
+  .mobile-content .collapsible .collapsible-header{
+    padding: 8px;
+    display: flex;
+  }
+  .collapsible-header label{
+    font-size: 13px;
+    flex:1;
+  }
+  .collapsible-header .date{
+    display: flex;
+    justify-content: center;
+  }
+  .collapsible-body span{
+    font-family: 'Quicksand', sans-serif!important;
+  }
+  .side-nav li>a{
+    font-size: 12px!important;
+  }
+  #bg{
+    /* background:  #1a237e; */
+  }
+  .bg1{
+     display: flex;
+     padding: 75px;
+   }
+   .log-in-container{
+     height: 325px!important;
+     margin: auto;
+   }
+  .content{
+    flex: 1;
+    border-radius: 5px;
+  }
+  .content .content-title{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .content-title .school{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .school h1{
+    font-size: 15px!important;
+  }
+  .title label{
+    font-size: 12px;
+    flex:2;
+  }
+  .content .name{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px 0px;
+  }
+  .content-content .input-field label{
+    font-size: 12px;
+  }
+  .school .avatar-container{
+    padding-top: 10px;
+  }
+  .content .avatar-container img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  .title .stud_info{
+    font-size: 12px;
+    flex: 4;
+  }
+  .title .stud_id{
+    font-size: 12px;
+    flex: 1.5;
+ }
+ .user-picture .header{
+   font-size: 15px;
+ }
+ .user-picture img{
+   height: 100px;
+   width: 100px;
+ }
+ .user-profile-details{
+   flex-direction: column;
+   padding-bottom: 10px;
+ }
+ .user-profile-container{
+   padding: 10px;
+ }
+ .user-picture label{
+   font-size: 13px;
+   color:#2196f3;
+ }
+ .user-details{
+   padding: 10px;
+ }
+ .user-details label{
+   font-size: 13px;
+ }
+ .account-details{
+   padding: 2px;
+ }
+ .account-content .header{
+   font-size: 13px;
+ }
+ .account-content .input-field input{
+   font-size: 13px!important;
+ }
+ .account-content .input-field label{
+   font-size: 13px!important;
+ }
+ .evaluation-header{
+   padding: 10px;
+ }
+ .evaluation-header label{
+   font-size: 15px;
+ }
+ .calendar-container{
+   margin-top: 5px;
+   margin-bottom: 10px;
+ }
+ .school-calendar label{
+   font-size: 15px;
+   padding: 10px;
+ }
+ .events-wrapper{
+   padding: 10px!important;
+ }
+ .modal-content .modal-header h4{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   margin-top: 5px;
+ }
+ #eventview .modal-content .modal-header{
+   flex: .5!important;
+ }
+ #eventview .modal-content .modal-fields{
+   padding: 5px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field i{
+   font-size: 20px;
+   margin-left: 13px;
+ }
+ #eventview .modal-content .modal-fields .input-field input{
+   font-size: 13px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field label{
+   font-size: 13px!important;
+ }
+ .__vev_calendar-wrapper .cal-wrapper{
+   font-family: 'Quicksand', sans-serif!important;
+ }
+ .__vev_calendar-wrapper .events-wrapper .date{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   padding: 5px!important;
+ }
+ .event-title-date .eventitle{
+   font-size: 15px!important;
+ }
+ .event-title-date .eventdate{
+   font-size: 13px!important;
+ }
+ .event-description .eventdesc{
+   font-size: 14px!important;
+ }
+
+ .faqs-container{
+   margin-top: 5px;
+ }
+ .faqs-container .header-container{
+   padding: 10px;
+ }
+ .faqs-container .header-container label{
+   font-size: 15px;
+ }
+ .faqs-container .system-identification-container{
+   padding: 0px 5px;
+ }
+ .system-identification-container .system-name{
+   font-size: 15px!important;
+   padding:10px;
+ }
+  .system-content .faqs-title {
+    padding: 10px;
+  }
+ .system-content .faqs-title label{
+   font-size: 15px!important;
+ }
+ .system-identification-container .system-meaning{
+   padding: 5px;
+   font-size: 13px!important;
+ }
+  .collapsible .collapsible-header .faqs-question{
+    font-size: 13px!important;
+  }
+  .collapsible-header{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title label{
+    font-size: 15px!important;
+  }
+  .tips-container .tips-content{
+    padding: 10px;
+  }
+  .tips-container .tips-content label{
+    font-size: 13px!important;
+  }
+  .faqs-container .school-identification-container{
+    padding: 5px;
+  }
+  .school-header .school-name{
+    font-size: 15px!important;
+    padding: 10px;
+  }
+  .school-header .school-seal{
+    padding: 10px;
+    flex-direction: column;
+  }
+  .school-seal label{
+    font-size: 15px!important;
+  }
+  .school-content .collapsible{
+    padding: 20px 10px;
+  }
+  .collapsible .collapsible-body .faqs-answer-title {
+    font-size: 15px;
+  }
+  .collapsible .collapsible-body .faqs-answer-content{
+    font-size: 15px;
+  }
+  .template-content-nav-bar{
+    display: none;
+  }
+}
+@media only screen and (max-width : 393px){
+  .title .stud_id{
+    padding-left: 20px;
+  }
+}
+@media only screen and (max-width : 375px) {
   .template-header{
     flex:1;
     padding: 0px;
@@ -2009,7 +2924,7 @@ thead tr th{
   }
   .bg1{
      display: flex;
-     padding: 20px;
+     padding: 40px;
    }
    .log-in-container{
      height: 325px!important;
@@ -2057,6 +2972,7 @@ thead tr th{
   .title .stud_id{
     font-size: 12px;
     flex: 1.5;
+    padding-left: 78px;
  }
  .user-picture .header{
    font-size: 12px;
@@ -2149,6 +3065,7 @@ thead tr th{
  .event-description .eventdesc{
    font-size: 12px!important;
  }
+
  .faqs-container{
    margin-top: 5px;
  }
@@ -2158,11 +3075,79 @@ thead tr th{
  .faqs-container .header-container label{
    font-size: 15px;
  }
+ .faqs-container .system-identification-container{
+   padding: 0px 5px;
+ }
+ .system-identification-container .system-name{
+   font-size: 15px!important;
+   padding:10px;
+ }
+  .system-content .faqs-title {
+    padding: 10px;
+  }
+ .system-content .faqs-title label{
+   font-size: 15px!important;
+ }
+ .system-identification-container .system-meaning{
+   padding: 5px;
+   font-size: 13px!important;
+ }
+  .collapsible .collapsible-header .faqs-question{
+    font-size: 13px!important;
+  }
+  .collapsible-header{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title label{
+    font-size: 15px!important;
+  }
+  .tips-container .tips-content{
+    padding: 10px;
+  }
+  .tips-container .tips-content label{
+    font-size: 13px!important;
+  }
+  .faqs-container .school-identification-container{
+    padding: 5px;
+  }
+  .school-header .school-name{
+    font-size: 15px!important;
+    padding: 10px;
+  }
+  .school-header .school-seal{
+    padding: 10px;
+    flex-direction: column;
+  }
+  .school-seal label{
+    font-size: 15px!important;
+  }
+  .school-content .collapsible{
+    padding: 20px 10px;
+  }
+  .collapsible .collapsible-body .faqs-answer-title {
+    font-size: 15px;
+  }
+  .collapsible .collapsible-body .faqs-answer-content{
+    font-size: 15px;
+  }
   .template-content-nav-bar{
     display: none;
   }
 }
-/* @media only screen and (min-width : 375px) {
+@media only screen and (max-width : 361px){
+  .title .stud_id{
+    padding-left: 60px;
+  }
+}
+@media only screen and (max-width : 351px){
+  .title .stud_id{
+    padding-left: 50px;
+  }
+}
+@media only screen and (max-width : 330px){
   .template-header{
     flex:1;
     padding: 0px;
@@ -2192,6 +3177,7 @@ thead tr th{
   .user-info .name label{
     flex: 15;
     font-size: 13px;
+    padding-left: 8px;
   }
   .user-info .time-out{
     display: none;
@@ -2204,6 +3190,9 @@ thead tr th{
   }
   .student-status{
     margin: 0;
+  }
+  .student-status-up{
+    flex-direction: column;
   }
   .student-status-up label{
     font-size: 12px;
@@ -2279,10 +3268,10 @@ thead tr th{
     padding: 10px;
   }
   .mobile-events-container .mobile-header label{
-    font-size: 15px;
+    font-size: 12px;
   }
   .mobile-events-container .mobile-footer label{
-    font-size: 15px;
+    font-size: 12px;
   }
   .mobile-events-container .mobile-content .collapsible{
     padding: 15px;
@@ -2302,17 +3291,21 @@ thead tr th{
     display: flex;
     justify-content: center;
   }
-  #bg{
+  .collapsible-body span{
+    font-family: 'Quicksand', sans-serif!important;
+  }
 
+  #bg{
+    /* background:  #1a237e; */
   }
- .bg1{
-    display: flex;
-    padding: 50px;
-  }
-  .log-in-container{
-    height: 325px!important;
-    margin: auto;
-  }
+  .bg1{
+     display: flex;
+     padding: 15px;
+   }
+   .log-in-container{
+     height: 340px!important;
+     margin: auto;
+   }
   .content{
     flex: 1;
     border-radius: 5px;
@@ -2349,15 +3342,16 @@ thead tr th{
     border-radius: 50%;
   }
   .title .stud_info{
-    font-size: 10px;
+    font-size: 12px;
     flex: 4;
   }
   .title .stud_id{
-    font-size: 10px;
+    font-size: 12px;
     flex: 1.5;
+    padding-left: 80px;
  }
  .user-picture .header{
-   font-size: 10px;
+   font-size: 12px;
  }
  .user-picture img{
    height: 100px;
@@ -2365,29 +3359,157 @@ thead tr th{
  }
  .user-profile-details{
    flex-direction: column;
+   padding-bottom: 10px;
  }
  .user-profile-container{
-   padding: 10px 0px;
+   padding: 10px;
  }
  .user-picture label{
    font-size: 10px;
    color:#2196f3;
  }
+ .user-details{
+   padding: 10px;
+ }
  .user-details label{
    font-size: 10px;
  }
+ .account-details{
+   padding: 2px;
+ }
+ .account-content .header{
+   font-size: 12px;
+ }
+ .account-content .input-field input{
+   font-size: 12px!important;
+ }
+ .account-content .input-field label{
+   font-size: 12px!important;
+ }
+ .evaluation-header{
+   padding: 10px;
+ }
+ .evaluation-header label{
+   font-size: 15px;
+ }
+ .calendar-container{
+   margin-top: 5px;
+   margin-bottom: 10px;
+ }
+ .school-calendar label{
+   font-size: 15px;
+   padding: 10px;
+ }
+ .events-wrapper{
+   padding: 10px!important;
+ }
+ .modal-content .modal-header h4{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   margin-top: 5px;
+ }
+ #eventview .modal-content .modal-header{
+   flex: .5!important;
+ }
+ #eventview .modal-content .modal-fields{
+   padding: 5px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field i{
+   font-size: 20px;
+   margin-left: 13px;
+ }
+ #eventview .modal-content .modal-fields .input-field input{
+   font-size: 13px!important;
+ }
+ #eventview .modal-content .modal-fields .input-field label{
+   font-size: 13px!important;
+ }
+ .__vev_calendar-wrapper .cal-wrapper{
+   font-family: 'Quicksand', sans-serif!important;
+ }
+ .__vev_calendar-wrapper .events-wrapper .date{
+   font-size: 15px!important;
+   font-family: 'Quicksand', sans-serif!important;
+   padding: 5px!important;
+ }
+ .event-title-date .eventitle{
+   font-size: 14px!important;
+ }
+ .event-title-date .eventdate{
+   font-size: 13px!important;
+ }
+ .event-description .eventdesc{
+   font-size: 12px!important;
+ }
 
+ .faqs-container{
+   margin-top: 5px;
+ }
+ .faqs-container .header-container{
+   padding: 10px;
+ }
+ .faqs-container .header-container label{
+   font-size: 15px;
+ }
+ .faqs-container .system-identification-container{
+   padding: 0px 5px;
+ }
+ .system-identification-container .system-name{
+   font-size: 15px!important;
+   padding:10px;
+ }
+  .system-content .faqs-title {
+    padding: 10px;
+  }
+ .system-content .faqs-title label{
+   font-size: 15px!important;
+ }
+ .system-identification-container .system-meaning{
+   padding: 5px;
+   font-size: 13px!important;
+ }
+  .collapsible .collapsible-header .faqs-question{
+    font-size: 13px!important;
+  }
+  .collapsible-header{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title{
+    padding: 8px!important;
+  }
+  .tips-container .tips-title label{
+    font-size: 15px!important;
+  }
+  .tips-container .tips-content{
+    padding: 10px;
+  }
+  .tips-container .tips-content label{
+    font-size: 13px!important;
+  }
+  .faqs-container .school-identification-container{
+    padding: 5px;
+  }
+  .school-header .school-name{
+    font-size: 15px!important;
+    padding: 10px;
+  }
+  .school-header .school-seal{
+    padding: 10px;
+    flex-direction: column;
+  }
+  .school-seal label{
+    font-size: 12px!important;
+  }
+  .school-content .collapsible{
+    padding: 20px 10px;
+  }
+  .collapsible .collapsible-body .faqs-answer-title {
+    font-size: 15px;
+  }
+  .collapsible .collapsible-body .faqs-answer-content{
+    font-size: 15px;
+  }
   .template-content-nav-bar{
     display: none;
-  }
-} */
-
-@media only screen and (max-width: 992px){
-  .tabs .tab{
-    text-transform: none!important;
-    text-align: left!important;
-  }
-  .tabs .tab a{
-    color: rgba(0,0,0,0.87)!important;
   }
 }

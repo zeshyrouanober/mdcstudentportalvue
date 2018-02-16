@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use Input;
 use App\Verification;
-use Alert;
+use Session;
 use Auth;
 use PDF;
 
@@ -38,15 +38,16 @@ class VerificationController extends Controller
             $status = DB::table('verifications')->where('verification',$requestData)->update(['status' => 1]);
             // Alert::success('You can now continue','Verification Success !')->persistent('close');
 
-            return view('/signup')->with('verif','Verified');
+            Session::flash('message', 'This is a message!');
+            return view('/signup')->with('message','Verified');
 
           }else {
-            // Alert::warning('Verification already used !','Oppsss..!')->persistent('close');
-            return redirect()->back();
+            Session::flash('message', 'This is a message!');
+            return redirect()->back()->with('message','Verification Already taken !');
           }
           }else{
-            // Alert::warning('Verification not macth !','Oppsss..!')->persistent('close');
-            return redirect()->back();
+            Session::flash('messagenotfound', 'This is a message!');
+            return redirect()->back()->with('messagenotfound','Verification Not Found !');
         }
       }
 

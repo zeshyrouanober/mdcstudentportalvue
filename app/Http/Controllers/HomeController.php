@@ -19,18 +19,17 @@ class HomeController extends Controller
 {
     //FOR REGISTRATION
     public function signUp(Request $request){
-        $requestData = $request->input('idnumber');
-          $student_id = DB::table('students')->select('idnum')->where('idnum',$requestData)->value('verification');
-          if ($requestData == $student_id) {
-            $student = DB::table('students')->where('idnum',$student_id)->take('1')->get();
-            Session::put('username',$student_id);
-            return View::make("password")->with('student',$student);
-          }else{
-            $notification =  array('message' => 'ID not found' );
-            return redirect()->back()->with($notification);
-          }
-        }
-
+      $requestData = $request->input('idnumber');
+      $student_id = DB::table('students')->select('idnum')->where('idnum',$requestData)->value('verification');
+      if ($requestData == $student_id) {
+        $student = DB::table('students')->where('idnum',$student_id)->take('1')->get();
+        Session::put('username',$student_id);
+        return View::make("password")->with('student',$student);
+      }else{
+        Session::flash('idnumbernotfound', 'This is a message!');
+        return redirect()->back()->with('idnumbernotfound','Password dont match !');
+      }
+    }
     public function passwordSignUp(Request $request){
       $student_role_id = DB::table('roles')->select('id')->where('id','=','1')->value('id');
       $password = $request->input('password');
@@ -57,8 +56,8 @@ class HomeController extends Controller
             }
           }
         }else{
-          $notification =  array('message' => 'Password dont match' );
-          return redirect()->back()->with($notification);
+          Session::flash('passworddontmatch', 'This is a message!');
+          return redirect()->back()->with('passworddontmatch','Password dont match !');
         }
       }
 
@@ -72,6 +71,7 @@ class HomeController extends Controller
         Session::put('username',$username);
         return View::make('loginpassword')->with('student',$student)->with('user',$user);
       }else {
+        Session::flash('message', 'This is a message!');
         return redirect()->back()->with('message','User not found !');
       }
     }
@@ -91,11 +91,13 @@ class HomeController extends Controller
 
           User::where('username',Auth::user()->username)->update(['status' => '1']);
 
+          Session::flash('message', 'This is a message!');
           return redirect('dashboard')->with('message','Welcome');
 
         }
       }else {
-        return redirect()->back();
+        Session::flash('message', 'This is a message!');
+        return redirect()->back()->with('message','Wrong Password !');
       }
     }
 
@@ -107,10 +109,10 @@ class HomeController extends Controller
         $students = Student::all();
         $announcements = Announcement::all();
         $users = DB::table('users')->where('role_id','1')->get();
-        return view::make('admin')->with('announcements',$announcements)->with('students',$students)->with('users',$users);
+        return View::make('admin')->with('announcements',$announcements)->with('students',$students)->with('users',$users);
       }
     }
-
+    
     public function logOut(){
 
       if (Auth::user()->role_id == null) {
@@ -125,6 +127,7 @@ class HomeController extends Controller
 
         User::where('username',Auth::user()->username)->update(['status' => '0']);
         Auth::logout();
+        Session::flush();
         return redirect('/');
       }
     }

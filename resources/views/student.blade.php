@@ -31,7 +31,7 @@
               <li class="tab">
                 <a href="#faqs">
                   <i class="material-icons">info_outline</i>
-                  <label>faqs</label>
+                  <label>Faqs</label>
                 </a>
               </li>
               <li class="tab">
@@ -82,7 +82,7 @@
              <li class="tab">
                <a href="#faqs" class="side-nav-clear">
                  <i class="material-icons blue-text">info_outline</i>
-                 faqs
+                 Faqs
                </a>
              </li>
              <li class="tab">

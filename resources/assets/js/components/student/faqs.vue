@@ -14,7 +14,8 @@
           </ul>
         </div>
       </div>
-    </div><br><br>
+    </div>
+    <br><br>
     <div class="system-identification-container" >
       <div class="system-header section scrollspy white z-depth-1 " id="system-header">
         <label class="system-name blue white-text"><i class="material-icons">account_balance</i> MDC Student Portal</label>

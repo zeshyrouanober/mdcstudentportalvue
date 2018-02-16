@@ -52625,11 +52625,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "widget-content" }, [
           _c("div", { staticClass: "widget-title " }, [
-            _c("label", { staticClass: "amber-text" }, [
-              _vm._v("All "),
-              _c("br"),
-              _vm._v(" subjects")
-            ])
+            _c("label", { staticClass: "amber-text" }, [_vm._v("All subjects")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "widget-data " }, [
@@ -52646,7 +52642,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "mobile-header z-depth-1" }, [
       _c("i", { staticClass: "material-icons blue-text" }, [_vm._v("update")]),
       _vm._v(" "),
-      _c("label", [_vm._v("  Updates and Announcement")])
+      _c("label", [_vm._v("Updates and Announcement")])
     ])
   },
   function() {
@@ -53366,8 +53362,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "account-details z-depth-1" }, [
-        _c("div", { staticClass: "account-content " }, [
+      _c("div", { staticClass: "account-details" }, [
+        _c("div", { staticClass: "account-content  z-depth-1 " }, [
           _c("label", { staticClass: "header" }, [
             _vm._v("Update your account")
           ]),
@@ -54925,6 +54921,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 $(function () // on document.ready()
 {
@@ -55014,6 +55011,7 @@ var staticRenderFns = [
           )
         ])
       ]),
+      _vm._v(" "),
       _c("br"),
       _c("br"),
       _vm._v(" "),

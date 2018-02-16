@@ -58,15 +58,26 @@
       </div>
       </div>
    </div>
+   @if (Session::has('message'))
+     <script type="text/javascript">
+       $(document).ready(function(){
+          Materialize.toast('Wrong Password !', 3000, 'rounded red lighten-1');
+          $('.content').addClass('animated shake');
+       });
+     </script>
+   @endif
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
-      $('#next').on('click',function(){
-          // if(($.trim($('#password').val()) != '') && ($.trim($('#passwordconfirmation').val()) != '') ){
-            $('.progress').css("display","flex");
-            $('.indeterminate').css("display","flex");
-         // }
-      });
+    $('#next').on('click',function(){
+      if ($.trim($('#passwordSignIn').val()) == '') {
+        $('.progress').css("visibility","hidden");
+        $('.indeterminate').css("visibility","hidden");
+      }else {
+        $('.progress').css("visibility","visible");
+        $('.indeterminate').css("visibility","visible");
+      }
+    });
 
       if ($('.student_info').text() != null) {
         $('#admin-avatar').css("display","none");
@@ -74,21 +85,23 @@
         $('#admin-avatar').css("display","flex");
       }
 
-      $('#passwordSignIn').on('click',function(){
-        $('.content').css("display","none");
-        $('.bg1').css("background-color","#1565C0");
-        $('.input-form').css("display","flex");
-        $('#passwordInput').focus();
-      });
+      if ($(window).width() < 1024) {
+        $('#passwordSignIn').on('click',function(){
+          $('.content').css("display","none");
+          $('.bg1').css("background-color","#1565C0");
+          $('.input-form').css("display","flex");
+          $('#passwordInput').focus();
+        });
 
-      $('#passwordButton').on('click',function(){
-        var password = $('#passwordInput').val();
-        $('.input-form').css("display","none");
-        $('.content').css("display","flex");
-        $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
-        $('#passwordSignIn').val(password);
-        $('.passwordlabel').addClass("active");
-      });
+        $('#passwordButton').on('click',function(){
+          var password = $('#passwordInput').val();
+          $('.input-form').css("display","none");
+          $('.content').css("display","flex");
+          $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
+          $('#passwordSignIn').val(password);
+          $('.passwordlabel').addClass("active");
+        });
+      }
   });
 </script>
 @endsection

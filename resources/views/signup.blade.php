@@ -24,7 +24,7 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <input id="idnumber" type="text" name="idnumber" required>
-                    <label for="idnumber">ID Number</label>
+                    <label for="idnumber" class="idnumberLabel">ID Number</label>
                   </div>
                   {{-- <a href="#" class="forgot-password">Forgot Password ?</a> --}}
                 </div>
@@ -38,23 +38,55 @@
             </div>
         </div>
       </div>
+      <div class="input-form wow fadeInUp">
+        <div class="input-field col s12">
+          <input id="studentID" name="studentID" type="text" required>
+          <label for="studentID" class="studentIDLabel">ID Number</label>
+          <button class="btn waves-effect waves-light white darken-3 right blue-text pulse" type="submit" id="studentIDButton">Go
+            <i class="material-icons right blue-text">send</i>
+          </button>
+        </div>
+      </div>
    </div>
 </div>
-@if (Session::has('verif'))
+@if (Session::has('idnumbernotfound'))
   <script type="text/javascript">
-      $(document).ready(function(){
-         Materialize.toast('Verified', 3000, 'rounded');
-      });
+    $(document).ready(function(){
+       Materialize.toast('Id Number Not Found !', 3000, 'rounded red lighten-1');
+       $('.content').addClass('animated shake');
+    });
   </script>
 @endif
 <script type="text/javascript">
   $(document).ready(function(){
+
       $('#next').on('click',function(){
-        if($.trim($('#idnumber').val()) != ''){
-          $('.progress').css("display","flex");
-          $('.indeterminate').css("display","flex");
-       }
+        if ($.trim($('#idnumber').val()) == '') {
+          $('.progress').css("visibility","hidden");
+          $('.indeterminate').css("visibility","hidden");
+        }else {
+          $('.progress').css("visibility","visible");
+          $('.indeterminate').css("visibility","visible");
+        }
       });
+
+      if ($(window).width() < 1024) {
+        $('#idnumber').on('click',function(){
+          $('.content').css("display","none");
+          $('.bg1').css("background-color","#1565C0");
+          $('.input-form').css("display","flex");
+          $('#studentID').focus();
+        });
+
+        $('#studentIDButton').on('click',function(){
+          var studentID = $('#studentID').val();
+          $('.input-form').css("display","none");
+          $('.content').css("display","flex");
+          $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
+          $('#idnumber').val(studentID);
+          $('.idnumberLabel').addClass("active");
+        });
+      }
   });
 </script>
 @endsection

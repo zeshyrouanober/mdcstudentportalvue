@@ -48,38 +48,50 @@
           </div>
       </div>
    </div>
+   @if (Session::has('message'))
+     <script type="text/javascript">
+       $(document).ready(function(){
+          Materialize.toast('User Not Found !', 3000, 'rounded red lighten-1');
+          $('.content').addClass('animated shake');
+       });
+     </script>
+   @endif
 </div>
 <script>
     $(document).ready(function(){
 
-        $('#add').on('click',function(){
-            $('.progress').css("display","flex");
-            $('.indeterminate').css("display","flex");
-        });
-
         $('#next').on('click',function(){
-            $('.progress').css("display","flex");
-            $('.indeterminate').css("display","flex");
+          if ($.trim($('#idnumber').val()) == '') {
+            $('.progress').css("visibility","hidden");
+            $('.indeterminate').css("visibility","hidden");
+          }else {
+            $('.progress').css("visibility","visible");
+            $('.indeterminate').css("visibility","visible");
+          }
         });
 
-
-
-        $('#idnumber').on('click',function(){
-          $('.content').css("display","none");
-          $('.bg1').css("background-color","#1565C0");
-          $('.input-form').css("display","flex");
-          $('#idnumberInput').focus();
+        $('#add').on('click',function(){
+          $('.progress').css("visibility","visible");
+          $('.indeterminate').css("visibility","visible");
         });
 
-        $('#idnumberButton').on('click',function(){
-          var idnumber = $('#idnumberInput').val();
-          $('.input-form').css("display","none");
-          $('.content').css("display","flex");
-          $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
-          $('#idnumber').val(idnumber);
-          $('.idnumberlabel').addClass("active");
+        if ($(window).width() < 1024) {
+          $('#idnumber').on('click',function(){
+            $('.content').css("display","none");
+            $('.bg1').css("background-color","#1565C0");
+            $('.input-form').css("display","flex");
+            $('#idnumberInput').focus();
+          });
 
-        });
+          $('#idnumberButton').on('click',function(){
+            var idnumber = $('#idnumberInput').val();
+            $('.input-form').css("display","none");
+            $('.content').css("display","flex");
+            $('.bg1').css("background-color","rgba(0, 0, 0, 0.529)");
+            $('#idnumber').val(idnumber);
+            $('.idnumberlabel').addClass("active");
+          });
+        }
     });
 
 </script>

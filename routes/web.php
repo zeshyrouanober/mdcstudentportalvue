@@ -26,10 +26,6 @@ Route::get('verification-index',function(){
   return view('verification');
 })->name('verification-index');
 
-Route::get('sign-up', function () {
-    return view('signup');
-})->middleware('HomeMiddleware');
-
 //Home
 Route::get('password','HomeController@signUp')->name('signup');
 Route::post('/sign-up-user','HomeController@passwordSignUp');
@@ -37,7 +33,6 @@ Route::get('signin','HomeController@signIn')->name('signin');
 Route::post('sign-in','HomeController@passwordSignIn')->name('passwordSignIn');
 Route::post('log-out','HomeController@logOut');
 Route::post('sign-up','VerificationController@verify')->name('verify');
-
 
 Route::get('/dashboard','HomeController@index');
 Route::get('update-student','StudentController@update');
