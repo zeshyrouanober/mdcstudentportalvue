@@ -17,7 +17,7 @@ class VerificationController extends Controller
     public function create(){
 
       $verif = new Verification;
-      $verif->verification = str_random(25);
+      $verif->verification = str_random(10);
       $verif->save();
 
       return $verif->verification;
@@ -55,13 +55,13 @@ class VerificationController extends Controller
         $length = intval($request->generate);
         for ($i=0; $i < $length ; $i++) {
           $generatedVerification = new Verification;
-          $generatedVerification->verification = str_random(25);
+          $generatedVerification->verification = str_random(10);
           $generatedVerification->save();
         }
       }
 
       public function showVerifications(){
-        $verifications = Verification::orderBy('id','asc')->paginate(20);
+        $verifications = Verification::orderBy('created_at','desc')->paginate(20);
         $verifCount = Verification::count();
         $response = array('verifications' => $verifications,'verifCount' => $verifCount);
         return response()->json($response);

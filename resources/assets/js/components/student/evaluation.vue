@@ -2,7 +2,7 @@ top<template lang="html">
   <div class="evaluation-container">
     <div class="evaluation z-depth-2">
       <div class="evaluation-header blue darken-3 ">
-          <label>Taken Subjects</label>
+          <label>Subjects Enrolled</label>
       </div>
       <div class="evaluation-content">
         <table class="striped" style="background-color:#ffffff">

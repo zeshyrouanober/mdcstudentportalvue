@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="user-profile-container ">
-    <div class="user-profile-details z-depth-1">
-      <div class="user-picture ">
+    <div class="user-profile-details">
+      <div class="user-picture">
           <label class="header">Basic profile</label>
           <a href="#avatar" class="tooltipped modal-trigger" v-on:click="imagePreview = true"data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
           <img :src="'/storage/avatars/' + user.avatar + ''" alt="">
           <label >{{student.idnum}}</label>
-      </div>
-      <div class="user-details z-depth-1" >
+      </div><br><br>
+      <div class="user-details z-depth-1 white" >
           <label>{{major}}</label>
           <label >{{student.fname}} {{student.lname}}</label>
           <label >{{course}} - {{year}}</label>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="account-details">
-        <div class="account-content  z-depth-1 ">
+        <div class="account-content white z-depth-1 ">
           <label class="header">Update your account</label>
           <div class="input-field">
              <i class="material-icons prefix">account_circle</i>
@@ -52,7 +52,7 @@
     </div>
       <div id="avatar" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <div class="modal-header blue darken-3">
+          <div class="modal-header light-blue">
             <h4 id="todos-header ">Update Avatar</h4>
           </div>
           <div class="modal-fields">

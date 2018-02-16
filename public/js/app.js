@@ -52506,7 +52506,7 @@ var render = function() {
     _c("div", { staticClass: "classes-grades z-depth-2" }, [
       _c("div", { staticClass: "classes-grades-header blue darken-3" }, [
         _c("label", { staticClass: "tabs-content-header white-text" }, [
-          _vm._v("Present Subjects")
+          _vm._v("Subject Currently Enrolled")
         ]),
         _vm._v(" "),
         _c(
@@ -53009,7 +53009,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "evaluation-header blue darken-3 " }, [
-      _c("label", [_vm._v("Taken Subjects")])
+      _c("label", [_vm._v("Subjects Enrolled")])
     ])
   },
   function() {
@@ -53304,8 +53304,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "user-profile-container " }, [
-    _c("div", { staticClass: "user-profile-details z-depth-1" }, [
-      _c("div", { staticClass: "user-picture " }, [
+    _c("div", { staticClass: "user-profile-details" }, [
+      _c("div", { staticClass: "user-picture" }, [
         _c("label", { staticClass: "header" }, [_vm._v("Basic profile")]),
         _vm._v(" "),
         _c(
@@ -53337,8 +53337,10 @@ var render = function() {
         _vm._v(" "),
         _c("label", [_vm._v(_vm._s(_vm.student.idnum))])
       ]),
+      _c("br"),
+      _c("br"),
       _vm._v(" "),
-      _c("div", { staticClass: "user-details z-depth-1" }, [
+      _c("div", { staticClass: "user-details z-depth-1 white" }, [
         _c("label", [_vm._v(_vm._s(_vm.major))]),
         _vm._v(" "),
         _c("label", [
@@ -53363,7 +53365,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "account-details" }, [
-        _c("div", { staticClass: "account-content  z-depth-1 " }, [
+        _c("div", { staticClass: "account-content white z-depth-1 " }, [
           _c("label", { staticClass: "header" }, [
             _vm._v("Update your account")
           ]),
@@ -53633,7 +53635,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header blue darken-3" }, [
+    return _c("div", { staticClass: "modal-header light-blue" }, [
       _c("h4", { attrs: { id: "todos-header " } }, [_vm._v("Update Avatar")])
     ])
   },

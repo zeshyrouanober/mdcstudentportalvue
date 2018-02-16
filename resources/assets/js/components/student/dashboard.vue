@@ -98,7 +98,7 @@
     <div class="classes-grades z-depth-2" >
       <div class="classes-grades-header blue darken-3">
         <!-- <a class="btn-floating right "><i class="material-icons">print</i></a> -->
-        <label class="tabs-content-header white-text">Present Subjects</label>
+        <label class="tabs-content-header white-text">Subject Currently Enrolled</label>
         <a  v-on:click="gradePDF()"  class="btn-floating waves-effect waves-light white "><i class="material-icons blue-text">print</i></a>
 
       </div>

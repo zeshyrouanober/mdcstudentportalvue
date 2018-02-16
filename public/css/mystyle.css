@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'canterbury';
+  src: url(/fonts/Canterbury.ttf) format('truetype');
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -42,7 +46,6 @@ table {
 border-collapse: collapse;
 border-spacing: 0;
 font-family: 'Quicksand', sans-serif!important;
-
 }
 * {
   box-sizing: border-box;
@@ -309,10 +312,10 @@ font-family: 'Quicksand', sans-serif!important;
   display: none;
 }
 .school h1{
-    flex: 2;
-    color: #ffffff;
-    font-size: 20px!important;
-    font-family: 'Quicksand', sans-serif!important;
+  flex: 2;
+  color: #e3f2fd ;
+  font-size: 30px!important;
+  font-family: 'canterbury';
 }
 .school .avatar-container{
   flex:2;
@@ -467,9 +470,9 @@ form .forgot-password{
     margin: auto;
 }
 .system-info h1{
-    font-size: 40px;
+    font-size: 50px;
     font-weight: normal;
-    font-family: 'Quicksand', sans-serif!important;
+    font-family: 'canterbury';
     color: #1565c0;
     margin-left: 20px;
 }
@@ -917,6 +920,8 @@ span{
   display: flex;
   flex-direction: column;
   padding: 0px!important;
+  font-family: 'Quicksand', sans-serif!important;
+
 }
 #eventview .modal-content .modal-header{
   display: flex;
@@ -953,12 +958,16 @@ span{
   display: flex;
   flex-direction: column;
   padding: 0px!important;
+  font-family: 'Quicksand', sans-serif!important;
 }
 #avatar .modal-content .modal-header{
   display: flex;
   justify-content: center;
   color:#ffffff!important;
   flex:.8!important;
+}
+#avatar .modal-content .modal-header h4{
+
 }
 #avatar .modal-content .modal-fields{
   display: flex;
@@ -1559,7 +1568,6 @@ thead tr th{
   justify-content: center;
   padding: 10px;
   flex-direction: column;
-  margin-right: 5px;
 }
 .account-content .header{
   margin: inherit;
@@ -1854,6 +1862,9 @@ thead tr th{
 .page-footer{
   font-family: 'Quicksand', sans-serif!important;
 }
+.page-footer h4{
+  font-family: 'canterbury';
+}
 .page-footer .info p{
   padding-top: 10px;
 }
@@ -2098,7 +2109,7 @@ thead tr th{
     border-top-right-radius: 5px;
   }
   .school h1{
-    font-size: 15px!important;
+    font-size: 20px!important;
   }
   .title label{
     font-size: 12px;
@@ -2176,7 +2187,7 @@ thead tr th{
    margin-bottom: 10px;
  }
  .school-calendar label{
-   font-size: 15px;
+   font-size: 15px;.account-content
    padding: 10px;
  }
  .events-wrapper{
@@ -2186,6 +2197,13 @@ thead tr th{
    font-size: 15px!important;
    font-family: 'Quicksand', sans-serif!important;
    margin-top: 5px;
+ }
+ #avatar .modal-content .modal-fields .input-field .preview img{
+   height: 250px;
+   width: 250px;
+ }
+ .input-field .file-path-wrapper{
+   display: none;
  }
  #eventview .modal-content .modal-header{
    flex: .5!important;
@@ -2573,7 +2591,7 @@ thead tr th{
     border-top-right-radius: 5px;
   }
   .school h1{
-    font-size: 15px!important;
+    font-size: 18px!important;
   }
   .title label{
     font-size: 12px;
@@ -2660,6 +2678,16 @@ thead tr th{
    font-size: 15px!important;
    font-family: 'Quicksand', sans-serif!important;
    margin-top: 5px;
+ }
+ #avatar .modal-content .modal-fields {
+   padding: 10px 50px 10px 50px;
+ }
+ #avatar .modal-content .modal-fields .input-field .preview img{
+   height: 100%;
+   width: 100%;
+ }
+ .input-field .file-path-wrapper{
+   display: none;
  }
  #eventview .modal-content .modal-header{
    flex: .5!important;
@@ -3032,6 +3060,16 @@ thead tr th{
    font-family: 'Quicksand', sans-serif!important;
    margin-top: 5px;
  }
+ #avatar .modal-content .modal-fields {
+   padding: 10px 30px 10px 30px;
+ }
+ #avatar .modal-content .modal-fields .input-field .preview img{
+   height: 100%;
+   width: 100%;
+ }
+ .input-field .file-path-wrapper{
+   display: none;
+ }
  #eventview .modal-content .modal-header{
    flex: .5!important;
  }
@@ -3219,6 +3257,9 @@ thead tr th{
   .classes-grades-header{
     padding: 5px;
   }
+  .classes-grades-header label{
+    font-size: 15px;
+  }
   table>tbody>tr>td{
     font-size: 12px;
   }
@@ -3319,7 +3360,7 @@ thead tr th{
     border-top-right-radius: 5px;
   }
   .school h1{
-    font-size: 15px!important;
+    font-size: 17px!important;
   }
   .title label{
     font-size: 12px;
@@ -3343,12 +3384,12 @@ thead tr th{
   }
   .title .stud_info{
     font-size: 12px;
-    flex: 4;
+    flex: 5;
   }
   .title .stud_id{
     font-size: 12px;
     flex: 1.5;
-    padding-left: 80px;
+    padding-left: 50px;
  }
  .user-picture .header{
    font-size: 12px;
@@ -3359,7 +3400,7 @@ thead tr th{
  }
  .user-profile-details{
    flex-direction: column;
-   padding-bottom: 10px;
+   padding: 10px;
  }
  .user-profile-container{
    padding: 10px;
@@ -3408,6 +3449,16 @@ thead tr th{
    font-family: 'Quicksand', sans-serif!important;
    margin-top: 5px;
  }
+ #avatar .modal-content .modal-fields {
+   padding: 10px;
+ }
+ #avatar .modal-content .modal-fields .input-field .preview img{
+   width: 200px;
+   height: 200px;
+ }
+ .input-field .file-path-wrapper{
+   display: none;
+ }
  #eventview .modal-content .modal-header{
    flex: .5!important;
  }
@@ -3441,7 +3492,6 @@ thead tr th{
  .event-description .eventdesc{
    font-size: 12px!important;
  }
-
  .faqs-container{
    margin-top: 5px;
  }
