@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="user-profile-container ">
-    <div class="user-profile-details">
+    <div class="user-profile-details z-depth-1">
       <div class="user-picture">
           <label class="header">Basic profile</label>
           <a href="#avatar" class="tooltipped modal-trigger" v-on:click="imagePreview = true"data-position="bottom" data-delay="50" data-tooltip="Update your photo" ><i class="material-icons blue-text">settings</i></a>
           <img :src="'/storage/avatars/' + user.avatar + ''" alt="">
-          <label >{{student.idnum}}</label>
+          <label class="blue-text">{{student.idnum}}</label>
       </div><br><br>
       <div class="user-details z-depth-1 white" >
           <label>{{major}}</label>
@@ -15,7 +15,6 @@
           <label >{{student.gender}}</label>
           <label >{{student.addb}},{{student.addt}},{{student.addp}}</label>
       </div>
-
       <div class="account-details">
         <div class="account-content white z-depth-1 ">
           <label class="header">Update your account</label>

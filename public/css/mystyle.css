@@ -271,14 +271,14 @@ font-family: 'Quicksand', sans-serif!important;
     flex-direction: column;
     font-weight: normal;
     /* background-color: rgb(255, 251, 251); */
-    background: url(/images/bg3.jpg) no-repeat center !important;
-
 }
 .content .content-title{
     flex:1;
     display: flex;
     font-size: 10px;
     flex-direction: column;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 .content .avatar-container img{
   height: 100px;
@@ -437,6 +437,8 @@ form .forgot-password{
     font-weight: normal;
     background-color: #039be5;
     align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .name label{
     color:#ffffff;
@@ -1894,7 +1896,9 @@ thead tr th{
     padding: 10px;
   }
   .account-details{
-    padding: 20px 100px;
+    padding-top: 20px ;
+    padding-right: 150px;
+
   }
 }
 @media only screen and (max-width : 1390px) {

@@ -53177,7 +53177,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53304,7 +53303,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "user-profile-container " }, [
-    _c("div", { staticClass: "user-profile-details" }, [
+    _c("div", { staticClass: "user-profile-details z-depth-1" }, [
       _c("div", { staticClass: "user-picture" }, [
         _c("label", { staticClass: "header" }, [_vm._v("Basic profile")]),
         _vm._v(" "),
@@ -53335,7 +53334,9 @@ var render = function() {
           attrs: { src: "/storage/avatars/" + _vm.user.avatar + "", alt: "" }
         }),
         _vm._v(" "),
-        _c("label", [_vm._v(_vm._s(_vm.student.idnum))])
+        _c("label", { staticClass: "blue-text" }, [
+          _vm._v(_vm._s(_vm.student.idnum))
+        ])
       ]),
       _c("br"),
       _c("br"),
