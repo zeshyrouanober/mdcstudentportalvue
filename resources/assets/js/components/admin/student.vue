@@ -7,7 +7,7 @@
     </div>
     <div class="departmentOption"></div>
     <div class="student-list z-depth-2">
-      <div class="select-container">
+      <!-- <div class="select-container">
         <div class="input-field">
           <select>
             <option value="" disabled selected> Department</option>
@@ -30,7 +30,7 @@
           </select>
           <label>By Year</label>
         </div>
-      </div>
+      </div> -->
 
       <table class="striped">
         <thead>

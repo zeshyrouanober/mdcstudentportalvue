@@ -117,7 +117,7 @@
           <div class="user-main-content tab-content" id="verifications">
             <verificationvue></verificationvue>
          </div>
-          <div class="user-right-nav">
+          <div class="user-right-nav white">
               <div class="side-nav-container">
                 <div class="calendar z-depth-1">
                   <activeuservue></activeuservue>

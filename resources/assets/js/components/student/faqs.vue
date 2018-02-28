@@ -27,7 +27,7 @@
       <br><br>
       <div class="system-content section scrollspy white animated fadeInUp z-depth-1" id="system-content">
         <div class="faqs-title blue">
-          <label class=" white-text"><i class="material-icons">info_outline</i> Portal Faqs</label>
+          <label class="white-text"><i class="material-icons">info_outline</i> Portal Faqs</label>
         </div>
         <ul class="collapsible" data-collapsible="accordion">
            <li>
@@ -66,7 +66,7 @@
            </li>
            <li>
              <div class="collapsible-header blue-text">
-               <label class="faqs-question blue-text">that did you get all of this information about me ?</label>
+               <label class="faqs-question blue-text">How did you get all of this information about me ?</label>
              </div>
              <div class="collapsible-body">
                <label class="faqs-answer blue-grey-text">Once you were enrolled . Your data will be copied to the system that should be use to get an account for you.</label>
@@ -162,7 +162,23 @@
                <label class="faqs-question blue-text">Who are the founders?</label>
              </div>
              <div class="collapsible-body">
-               <label class="faqs-answer blue-grey-text">No answer yet. </label>
+               <label class="faqs-answer blue-grey-text">
+                  Fr. Luengo, in turn, asked Dr. Lourdes H. Torrefranca, a native of Clarin, Bohol who is also a very prominent educator, the Dean of USJR Graduate School at the time, to join him in this project. Then Dr. Rose Alfafara, a popular optometrist from Tubigon, who is also a known benefactress of seminarians and other church related activities, was the next one invited. Finally, the trio succeded in soliciting the initial investment of around Php100,000.00 from pro-poor local patrons. These original investors became the first set of the Members of the Board of Trustees and Incorporators:
+               </label>
+              <label class="faqs-answer-extension blue-grey-text">
+                  • Rev. Fr. Josemaria S. Luengo, Ph.D. (deceased)<br>
+                  • Lourdes H. Torrefranca, Ph.D.<br>
+                  • Most Rev. Felix S. Zafra, D.D. (deceased)<br>
+                  • Benjamin L. Mejorada, Ph.D. (deceased)<br>
+                  • Msgr. Camilo V. Auza, H.P. (deceased)<br>
+                  • Rose P. Alfafara, O.D.<br>
+                  • Mariano M. Lerin, Ph.D.; CPA<br>
+                  • Cesar C. Mascarinas, M.A.
+              </label>
+              <label class="faqs-answer blue-grey-text">
+                After a series of meetings, the rites and laying of the foundation stone for the construction of Mater Dei College building led by Msgr. Auza was finally done in February 1983. The first wing of the M structure of the building was constructed by obtaining credit lines from various sources. Although the funds were very low, the first modest Mater Dei College building stood proudly.
+                The first biggest problem encountered by the founders was the difficulty of securing a government permit to operate. The Secretary of Education and the Director of Private Schools at the time disapproved of the application for permit because of a moratorium prohibiting the opening of a college. Fortunately, a certain unknown boatman from Tubigon, Mr. Gulayan, was discovered to be an effective bridge to facilitate fast approval by his seeing Pres. Ferdinand Marcos, whom he helped escape from the Japanese through his boat. The very brief scribbling of Pres. Marcos to release the permit handcarried by Mr. Gulayan cut short all red tape for approval.
+              </label>
              </div>
            </li>
         </ul>

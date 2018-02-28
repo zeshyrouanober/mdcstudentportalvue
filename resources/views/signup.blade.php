@@ -49,6 +49,14 @@
       </div>
    </div>
 </div>
+@if (Session::has('accountalreadyexist'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+      Materialize.toast('Account already exist !', 3000, 'rounded orange lighten-1');
+      $('.content').addClass('animated shake');
+    });
+  </script>
+@endif
 @if (Session::has('idnumbernotfound'))
   <script type="text/javascript">
     $(document).ready(function(){

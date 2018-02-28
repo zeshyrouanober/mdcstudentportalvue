@@ -65,7 +65,7 @@ font-family: 'Quicksand', sans-serif!important;
 /* Event Calendar Customize */
 .events-wrapper{
   background-color: rgb(21, 101, 192)!important;
-  border-radius:0px!important;
+  border-radius:2px!important;
   padding: 30px!important;
 }
 .event-viewer{
@@ -79,7 +79,10 @@ font-family: 'Quicksand', sans-serif!important;
   border-radius: 3px;
   margin-bottom: 10px;
 }
-
+.__vev_calendar-wrapper .cal-wrapper .cal-header{
+  background-color: #f5f5f5!important;
+  border-bottom: 2px solid #039be5;
+}
 .one-event-viewer{
   display: none;
   flex-direction: column;
@@ -261,7 +264,16 @@ font-family: 'Quicksand', sans-serif!important;
    box-shadow: 0 1px 0 0 #ffffff !important;
    color:#ffffff;
 }
-
+.tips{
+  display: flex;
+  flex-direction: row;
+}
+#info{
+  cursor: pointer;
+}
+#info-label{
+  padding: 3px;
+}
 #error{
   display: none;
 }
@@ -968,9 +980,6 @@ span{
   color:#ffffff!important;
   flex:.8!important;
 }
-#avatar .modal-content .modal-header h4{
-
-}
 #avatar .modal-content .modal-fields{
   display: flex;
   justify-content: center;
@@ -986,11 +995,22 @@ span{
   display: flex;
 }
 #avatar .modal-content .modal-fields .input-field .preview img{
-  width: 300px;
-  height: 250px;
+  width: 250px;
+  height: 180px;
 }
 #avatar .modal-content .modal-fields .input-field .input-file-container{
   flex:1;
+}
+#avatar .modal-content .modal-fields .input-field .input-file-container .file-field .btn-flat{
+  border:1px solid #ffffff;
+  background-color: #03a9f4;
+  border-radius: 3px;
+  color: #ffffff;
+}  
+#avatar .modal-content .modal-fields .input-field .input-file-container .file-field:hover .btn-flat {
+  border: 1px solid #03a9f4;
+  background-color: #fafafa;
+  color: #03a9f4;
 }
 .modal-content .modal-fields{
   padding: 10px 50px 10px 50px;
@@ -1000,6 +1020,9 @@ span{
 }
 .modal-footer #cancel{
   color:#757575;
+}
+.modal-footer #cancel:hover{
+  background-color: #fafafa!important;
 }
 /* ADMIN CSS */
 .content-container{
@@ -1025,7 +1048,9 @@ span{
   flex: 1;
   padding: 20px;
 }
-
+.vue-event-calendar-container{
+  padding: 10px;
+}
 .school-calendar a{
   margin-top: 10px;
   position: relative;
@@ -1656,6 +1681,12 @@ thead tr th{
   font-size: 15px!important;
   line-height: 20px;
 }
+.collapsible .collapsible-body .faqs-answer-extension{
+  font-size: 15px!important;
+  line-height: 20px;
+  padding: 10px;
+  padding-left: 20px;
+}
 .tips-container{
   display: flex;
   flex-direction: column;
@@ -1740,22 +1771,40 @@ thead tr th{
   font-weight: 4400;
   padding-left: 20px;
 }
-.help-container{
+.feedback-container{
   display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  flex-direction: column; 
 }
-.help-container .header-container{
+.feedback-container .header-container{
   display: flex;
-  justify-content: center;
-  padding: 30px;
+  padding: 25px;
 }
-.help-container .help-content-container{
+.feedback-content-container{
+  padding: 10px 50px;
+}
+.feedback-content-container .blue-grey-text{
+  font-size: 12px;
+}
+.feedback-content{
+  padding: 10px;
+}
+.feedback-button{
   display: flex;
-  height: 200px;
-  width: 100%;
-  padding: 0px 30px;
+  justify-content:flex-end;
+}
+.feedback-content .feedback-select{
+  padding-right: 50%;
+}
+.feedback-content .feedback-select .select-wrapper input.select-dropdown{
+  font-family: 'Quicksand', sans-serif!important;
+  color: #03a9f4 !important;
+}
+.feedback-content .feedback-select .select-wrapper .select-dropdown{
+  font-family: 'Quicksand', sans-serif!important;
+  color: #03a9f4 !important;
+}  
+.feedback-content .feedback-message .input-field textarea{
+  color: #607d8b !important;
 }
 .active-user-container{
   display: flex;

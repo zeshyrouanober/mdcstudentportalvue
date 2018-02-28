@@ -35,7 +35,7 @@ Vue.component('calendarvue',require('./components/student/calendar.vue'));
 Vue.component('upcomingeventsvue',require('./components/student/upcomingevents.vue'));
 Vue.component('todosvue',require('./components/student/todos.vue'));
 Vue.component('faqsvue',require('./components/student/faqs.vue'));
-Vue.component('helpvue',require('./components/student/help.vue'));
+Vue.component('feedbackvue',require('./components/student/feedback.vue'));
 
 
 const app = new Vue({

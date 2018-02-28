@@ -22,12 +22,19 @@
             <div class="content-content">
               <form class="col s12" method="get" action="{{route('signin')}}">
                 {{ csrf_field() }}
+                <div class="tips">
+                    <i id="info" class="material-icons orange-text">info_outline</i>
+                    <div id="info-label">
+                        <label >Use your student ID</label>    
+                    </div>    
+                </div>                
+                <br>
                 <div class="row">
                   <div class="input-field col s12">
                     <input id="idnumber" name="idnumber" type="text" required>
                     <label for="idnumber" class="idnumberlabel">ID Number</label>
                   </div>
-                  {{-- <a href="#" class="forgot-password">Forgot Password ?</a> --}}
+                  {{--  <a href="#" class="forgot-password">Forgot Password ?</a>  --}}
                 </div>
                 <button class="btn waves-effect waves-light blue darken-3 right" type="submit" id="next">Next
                   <i class="material-icons right">send</i>
@@ -92,6 +99,10 @@
             $('.idnumberlabel').addClass("active");
           });
         }
+
+        $('#info').click(function(){
+            $('#info-label').addClass('animated swing');
+        });
     });
 
 </script>

@@ -2338,7 +2338,7 @@ Vue.component('calendarvue', __webpack_require__(91));
 Vue.component('upcomingeventsvue', __webpack_require__(94));
 Vue.component('todosvue', __webpack_require__(97));
 Vue.component('faqsvue', __webpack_require__(100));
-Vue.component('helpvue', __webpack_require__(103));
+Vue.component('feedbackvue', __webpack_require__(103));
 
 var app = new Vue({
   el: '.app'
@@ -49186,10 +49186,8 @@ var render = function() {
     _c("div", { staticClass: "departmentOption" }),
     _vm._v(" "),
     _c("div", { staticClass: "student-list z-depth-2" }, [
-      _vm._m(0),
-      _vm._v(" "),
       _c("table", { staticClass: "striped" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "tbody",
@@ -49278,7 +49276,7 @@ var render = function() {
       { staticClass: "modal modal-fixed-footer", attrs: { id: "viewStudent" } },
       [
         _c("div", { staticClass: "modal-content" }, [
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "modal-fields" }, [
             _c("div", { staticClass: "input-field" }, [
@@ -49811,7 +49809,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(2)
       ]
     ),
     _vm._v(" "),
@@ -49823,7 +49821,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "modal-content" }, [
-          _vm._m(4),
+          _vm._m(3),
           _vm._v(" "),
           _c("div", { staticClass: "modal-fields" }, [
             _c("div", { staticClass: "input-field" }, [
@@ -50363,7 +50361,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "modal-footer" }, [
-          _vm._m(5),
+          _vm._m(4),
           _vm._v(" "),
           _c(
             "a",
@@ -50464,52 +50462,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "select-container" }, [
-      _c("div", { staticClass: "input-field" }, [
-        _c("select", [
-          _c("option", { attrs: { value: "", disabled: "", selected: "" } }, [
-            _vm._v(" Department")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("CBA")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("CCICT")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("CRIM")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("CON")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("COE")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("HRM")])
-        ]),
-        _vm._v(" "),
-        _c("label", [_vm._v("By Department")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-field" }, [
-        _c("select", [
-          _c("option", { attrs: { value: "", disabled: "", selected: "" } }, [
-            _vm._v(" Year")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "4" } }, [_vm._v("4")])
-        ]),
-        _vm._v(" "),
-        _c("label", [_vm._v("By Year")])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -51485,10 +51437,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  // created: function(){
-  //   this.fetchActiveUser();
-  //   this.timer = setInterval(this.fetchActiveUser, 3000)
-  // },
+  created: function created() {
+    this.fetchActiveUser();
+    this.timer = setInterval(this.fetchActiveUser, 3000);
+  },
 
   methods: {
     fetchActiveUser: function fetchActiveUser() {
@@ -51508,14 +51460,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "active-user-container" }, [
+  return _c("div", { staticClass: "active-user-container white" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "active-user-content" },
       _vm._l(_vm.activeuser, function(user) {
-        return _c("div", { staticClass: "active-user-details white" }, [
+        return _c("div", { staticClass: "active-user-details" }, [
           _c("img", {
             attrs: { src: "/storage/avatars/" + user.avatar + "", alt: "" }
           }),
@@ -51642,10 +51594,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  // created: function(){
-  //   this.showLogs();
-  //   this.timer = setInterval(this.showLogs, 3000)
-  // },
+  created: function created() {
+    this.showLogs();
+    this.timer = setInterval(this.showLogs, 3000);
+  },
 
   methods: {
     showLogs: function showLogs() {
@@ -51667,14 +51619,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "recent-active-user-container" }, [
+  return _c("div", { staticClass: "recent-active-user-container white" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "recent-content" },
       _vm._l(_vm.logs, function(log) {
-        return _c("div", { staticClass: "recent-user white" }, [
+        return _c("div", { staticClass: "recent-user" }, [
           _c("img", {
             attrs: {
               src: "/storage/avatars/" + log.user_log.avatar + "",
@@ -53175,8 +53127,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53578,7 +53528,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "btn-flat light-blue center white-text",
+                      staticClass: "btn-flat  center",
                       on: {
                         click: function($event) {
                           _vm.imagePreview = false
@@ -53606,8 +53556,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass:
-                "btn btn-flat waves-effect waves-light white modal-close",
+              staticClass: "btn btn-flat waves-effect waves-light modal-close",
               attrs: { id: "cancel" }
             },
             [_vm._v("Cancel")]
@@ -53617,7 +53566,7 @@ var render = function() {
             "a",
             {
               staticClass:
-                "btn btn-flat waves-effect waves-light modal-close white-text light-blue",
+                "btn  waves-effect modal-close white-text light-blue",
               on: {
                 click: function($event) {
                   _vm.updateAvatar()
@@ -53783,6 +53732,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -53844,62 +53796,104 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "calendar-container z-depth-1" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "vue-event-calendar",
-        {
-          attrs: { events: _vm.eventsCalendar },
-          on: {
-            "day-changed": _vm.handleDayChanged,
-            "month-changed": _vm.handleMonthChanged
-          }
-        },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "tooltipped",
-              attrs: {
-                href: "#",
-                "data-position": "top",
-                "data-delay": "20",
-                "data-tooltip": "All Events"
-              },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.showAllEvents()
+  return _c("div", { staticClass: "calendar-container z-depth-1" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "vue-event-calendar-container" },
+      [
+        _c(
+          "vue-event-calendar",
+          {
+            attrs: { events: _vm.eventsCalendar },
+            on: {
+              "day-changed": _vm.handleDayChanged,
+              "month-changed": _vm.handleMonthChanged
+            }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "tooltipped",
+                attrs: {
+                  href: "#",
+                  "data-position": "top",
+                  "data-delay": "20",
+                  "data-tooltip": "All Events"
+                },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.showAllEvents()
+                  }
                 }
-              }
-            },
-            [
-              _c("i", { staticClass: "material-icons white-text small" }, [
-                _vm._v("event_note")
+              },
+              [
+                _c("i", { staticClass: "material-icons white-text small" }, [
+                  _vm._v("event_note")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.eventsCalendar, function(events) {
+              return _c("div", { staticClass: "event-viewer " }, [
+                _c("div", { staticClass: "event-container white" }, [
+                  _c("div", { staticClass: "event-title-date" }, [
+                    _c("label", { staticClass: "eventitle blue-grey-text" }, [
+                      _vm._v(_vm._s(events.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "eventdate" }, [
+                      _vm._v(_vm._s(events.date))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "event-description" }, [
+                    _c("label", { staticClass: "eventdesc" }, [
+                      _vm._v(_vm._s(events.desc))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "modal-trigger",
+                        attrs: { href: "#eventview" },
+                        on: {
+                          click: function($event) {
+                            _vm.viewEvent(events.id), (_vm.isView = true)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("remove_red_eye")
+                        ])
+                      ]
+                    )
+                  ])
+                ])
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._l(_vm.eventsCalendar, function(events) {
-            return _c("div", { staticClass: "event-viewer " }, [
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "one-event-viewer" }, [
               _c("div", { staticClass: "event-container white" }, [
                 _c("div", { staticClass: "event-title-date" }, [
                   _c("label", { staticClass: "eventitle blue-grey-text" }, [
-                    _vm._v(_vm._s(events.title))
+                    _vm._v(_vm._s(_vm.oneEventViewer.title))
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "eventdate" }, [
-                    _vm._v(_vm._s(events.date))
+                    _vm._v(_vm._s(_vm.oneEventViewer.date))
                   ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "event-description" }, [
                   _c("label", { staticClass: "eventdesc" }, [
-                    _vm._v(_vm._s(events.desc))
+                    _vm._v(_vm._s(_vm.oneEventViewer.desc))
                   ]),
                   _vm._v(" "),
                   _c(
@@ -53909,7 +53903,8 @@ var render = function() {
                       attrs: { href: "#eventview" },
                       on: {
                         click: function($event) {
-                          _vm.viewEvent(events.id), (_vm.isView = true)
+                          _vm.viewEvent(_vm.oneEventViewer.id),
+                            (_vm.isView = true)
                         }
                       }
                     },
@@ -53922,189 +53917,150 @@ var render = function() {
                 ])
               ])
             ])
-          }),
+          ],
+          2
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal modal-fixed-footer", attrs: { id: "eventview" } },
+      [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(1),
           _vm._v(" "),
-          _c("div", { staticClass: "one-event-viewer" }, [
-            _c("div", { staticClass: "event-container white" }, [
-              _c("div", { staticClass: "event-title-date" }, [
-                _c("label", { staticClass: "eventitle blue-grey-text" }, [
-                  _vm._v(_vm._s(_vm.oneEventViewer.title))
-                ]),
-                _vm._v(" "),
-                _c("label", { staticClass: "eventdate" }, [
-                  _vm._v(_vm._s(_vm.oneEventViewer.date))
-                ])
+          _c("div", { staticClass: "modal-fields" }, [
+            _c("div", { staticClass: "input-field" }, [
+              _c("i", { staticClass: "material-icons prefix" }, [
+                _vm._v("Date")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "event-description" }, [
-                _c("label", { staticClass: "eventdesc" }, [
-                  _vm._v(_vm._s(_vm.oneEventViewer.desc))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
+              _c("input", {
+                directives: [
                   {
-                    staticClass: "modal-trigger",
-                    attrs: { href: "#eventview" },
-                    on: {
-                      click: function($event) {
-                        _vm.viewEvent(_vm.oneEventViewer.id),
-                          (_vm.isView = true)
-                      }
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.eventView.date,
+                    expression: "eventView.date"
+                  }
+                ],
+                attrs: {
+                  id: "event-date",
+                  type: "text",
+                  required: "",
+                  disabled: ""
+                },
+                domProps: { value: _vm.eventView.date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  },
-                  [
-                    _c("i", { staticClass: "material-icons" }, [
-                      _vm._v("remove_red_eye")
-                    ])
-                  ]
-                )
-              ])
+                    _vm.$set(_vm.eventView, "date", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  class: [_vm.isView == true ? "active" : ""],
+                  attrs: { for: "event-date", id: "label-date" }
+                },
+                [_vm._v("Date")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-field" }, [
+              _c("i", { staticClass: "material-icons prefix" }, [
+                _vm._v("title")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.eventView.title,
+                    expression: "eventView.title"
+                  }
+                ],
+                attrs: {
+                  id: "event-title",
+                  type: "text",
+                  required: "",
+                  disabled: ""
+                },
+                domProps: { value: _vm.eventView.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.eventView, "title", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  class: [_vm.isView == true ? "active" : ""],
+                  attrs: { for: "event-title", id: "label-title" }
+                },
+                [_vm._v("Title")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-field" }, [
+              _c("i", { staticClass: "material-icons prefix" }, [
+                _vm._v("description")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.eventView.desc,
+                    expression: "eventView.desc"
+                  }
+                ],
+                attrs: {
+                  id: "event-description",
+                  type: "text",
+                  required: "",
+                  disabled: ""
+                },
+                domProps: { value: _vm.eventView.desc },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.eventView, "desc", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  class: [_vm.isView == true ? "active" : ""],
+                  attrs: { for: "event-description", id: "label-desc" }
+                },
+                [_vm._v("Description")]
+              )
             ])
           ])
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "modal modal-fixed-footer", attrs: { id: "eventview" } },
-        [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-fields" }, [
-              _c("div", { staticClass: "input-field" }, [
-                _c("i", { staticClass: "material-icons prefix" }, [
-                  _vm._v("Date")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.eventView.date,
-                      expression: "eventView.date"
-                    }
-                  ],
-                  attrs: {
-                    id: "event-date",
-                    type: "text",
-                    required: "",
-                    disabled: ""
-                  },
-                  domProps: { value: _vm.eventView.date },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.eventView, "date", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    class: [_vm.isView == true ? "active" : ""],
-                    attrs: { for: "event-date", id: "label-date" }
-                  },
-                  [_vm._v("Date")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "input-field" }, [
-                _c("i", { staticClass: "material-icons prefix" }, [
-                  _vm._v("title")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.eventView.title,
-                      expression: "eventView.title"
-                    }
-                  ],
-                  attrs: {
-                    id: "event-title",
-                    type: "text",
-                    required: "",
-                    disabled: ""
-                  },
-                  domProps: { value: _vm.eventView.title },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.eventView, "title", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    class: [_vm.isView == true ? "active" : ""],
-                    attrs: { for: "event-title", id: "label-title" }
-                  },
-                  [_vm._v("Title")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "input-field" }, [
-                _c("i", { staticClass: "material-icons prefix" }, [
-                  _vm._v("description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.eventView.desc,
-                      expression: "eventView.desc"
-                    }
-                  ],
-                  attrs: {
-                    id: "event-description",
-                    type: "text",
-                    required: "",
-                    disabled: ""
-                  },
-                  domProps: { value: _vm.eventView.desc },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.eventView, "desc", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    class: [_vm.isView == true ? "active" : ""],
-                    attrs: { for: "event-description", id: "label-desc" }
-                  },
-                  [_vm._v("Description")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(2)
-        ]
-      )
-    ],
-    1
-  )
+        ]),
+        _vm._v(" "),
+        _vm._m(2)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -54925,6 +54881,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 $(function () // on document.ready()
 {
@@ -55057,7 +55029,7 @@ var staticRenderFns = [
           },
           [
             _c("div", { staticClass: "faqs-title blue" }, [
-              _c("label", { staticClass: " white-text" }, [
+              _c("label", { staticClass: "white-text" }, [
                 _c("i", { staticClass: "material-icons" }, [
                   _vm._v("info_outline")
                 ]),
@@ -55136,7 +55108,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "collapsible-header blue-text" }, [
                     _c("label", { staticClass: "faqs-question blue-text" }, [
                       _vm._v(
-                        "that did you get all of this information about me ?"
+                        "How did you get all of this information about me ?"
                       )
                     ])
                   ]),
@@ -55406,7 +55378,51 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("div", { staticClass: "collapsible-body" }, [
                     _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
-                      _vm._v("No answer yet. ")
+                      _vm._v(
+                        "\n                Fr. Luengo, in turn, asked Dr. Lourdes H. Torrefranca, a native of Clarin, Bohol who is also a very prominent educator, the Dean of USJR Graduate School at the time, to join him in this project. Then Dr. Rose Alfafara, a popular optometrist from Tubigon, who is also a known benefactress of seminarians and other church related activities, was the next one invited. Finally, the trio succeded in soliciting the initial investment of around Php100,000.00 from pro-poor local patrons. These original investors became the first set of the Members of the Board of Trustees and Incorporators:\n             "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "faqs-answer-extension blue-grey-text" },
+                      [
+                        _vm._v(
+                          "\n                • Rev. Fr. Josemaria S. Luengo, Ph.D. (deceased)"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Lourdes H. Torrefranca, Ph.D."
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Most Rev. Felix S. Zafra, D.D. (deceased)"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Benjamin L. Mejorada, Ph.D. (deceased)"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Msgr. Camilo V. Auza, H.P. (deceased)"
+                        ),
+                        _c("br"),
+                        _vm._v("\n                • Rose P. Alfafara, O.D."),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Mariano M. Lerin, Ph.D.; CPA"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                • Cesar C. Mascarinas, M.A.\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "faqs-answer blue-grey-text" }, [
+                      _vm._v(
+                        "\n              After a series of meetings, the rites and laying of the foundation stone for the construction of Mater Dei College building led by Msgr. Auza was finally done in February 1983. The first wing of the M structure of the building was constructed by obtaining credit lines from various sources. Although the funds were very low, the first modest Mater Dei College building stood proudly.\n              The first biggest problem encountered by the founders was the difficulty of securing a government permit to operate. The Secretary of Education and the Director of Private Schools at the time disapproved of the application for permit because of a moratorium prohibiting the opening of a college. Fortunately, a certain unknown boatman from Tubigon, Mr. Gulayan, was discovered to be an effective bridge to facilitate fast approval by his seeing Pres. Ferdinand Marcos, whom he helped escape from the Japanese through his boat. The very brief scribbling of Pres. Marcos to release the permit handcarried by Mr. Gulayan cut short all red tape for approval.\n            "
+                      )
                     ])
                   ])
                 ])
@@ -55455,7 +55471,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\student\\help.vue"
+Component.options.__file = "resources\\assets\\js\\components\\student\\feedback.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -55464,9 +55480,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7a4253ce", Component.options)
+    hotAPI.createRecord("data-v-3e505f46", Component.options)
   } else {
-    hotAPI.reload("data-v-7a4253ce", Component.options)
+    hotAPI.reload("data-v-3e505f46", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -55482,6 +55498,17 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55512,27 +55539,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-$(function () // on document.ready()
-{
-    if ($('.help-container').length > 0) {
-        var sticky_relocate = function sticky_relocate() {
-            var window_top = $(window).scrollTop();
-            var div_top = $('#sticky-anchor').offset().top;
-            if (window_top > div_top) {
-                $('#sticky').addClass('stick');
-            } else {
-                $('#sticky').removeClass('stick');
-            }
-        };
 
-        $(function () {
-            $(window).scroll(sticky_relocate);
-            sticky_relocate();
-        });
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      type: '',
+      content: ''
+
+    };
+  },
+
+
+  methods: {
+    createFeedback: function createFeedback() {
+      var vm = this;
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('create-feedback', {
+        'type': this.type,
+        'content': this.content
+      }).then(function (response) {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
     }
+  }
 });
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 /* 105 */
@@ -55542,72 +55573,159 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "feedback-container" }, [
+    _vm._m(0),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "feedback-content-container " }, [
+      _c("i", { staticClass: "material-icons amber-text" }, [
+        _vm._v("info_outline")
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "blue-grey-text" }, [
+        _vm._v(
+          "Choose what type of feedback and fill the fields then click the button below to complete feedbac.k"
+        )
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "feedback-content white z-depth-1" }, [
+        _c("div", { staticClass: "feedback-select" }, [
+          _c("select", [
+            _c("option", { attrs: { value: "", disabled: "", selected: "" } }, [
+              _vm._v("Select feedback type")
+            ]),
+            _vm._v(" "),
+            _c(
+              "option",
+              {
+                attrs: { value: "Compliment" },
+                model: {
+                  value: _vm.type,
+                  callback: function($$v) {
+                    _vm.type = $$v
+                  },
+                  expression: "type"
+                }
+              },
+              [_vm._v("Compliment")]
+            ),
+            _vm._v(" "),
+            _c(
+              "option",
+              {
+                attrs: { value: "Enhancement Request" },
+                model: {
+                  value: _vm.type,
+                  callback: function($$v) {
+                    _vm.type = $$v
+                  },
+                  expression: "type"
+                }
+              },
+              [_vm._v("Enhancement Request")]
+            ),
+            _vm._v(" "),
+            _c(
+              "option",
+              {
+                attrs: { value: "Bug Report" },
+                model: {
+                  value: _vm.type,
+                  callback: function($$v) {
+                    _vm.type = $$v
+                  },
+                  expression: "type"
+                }
+              },
+              [_vm._v("Bug Report")]
+            ),
+            _vm._v(" "),
+            _c(
+              "option",
+              {
+                attrs: { value: "Design | Ease Of Use" },
+                model: {
+                  value: _vm.type,
+                  callback: function($$v) {
+                    _vm.type = $$v
+                  },
+                  expression: "type"
+                }
+              },
+              [_vm._v("Design | Ease Of Use")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", [_vm._v("Materialize Select")])
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "feedback-message" }, [
+          _c("div", { staticClass: "input-field col s12" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.content,
+                  expression: "content"
+                }
+              ],
+              staticClass: "materialize-textarea",
+              attrs: { id: "textarea1", required: "" },
+              domProps: { value: _vm.content },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.content = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "textarea1" } }, [
+              _vm._v("Your feedback")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "feedback-button" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn waves-effect waves-light blue darken-3 right",
+              on: {
+                click: function($event) {
+                  _vm.createFeedback()
+                }
+              }
+            },
+            [_vm._v("feedback")]
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "help-container" }, [
-      _c("div", { staticClass: "header-container  white z-depth-1" }, [
-        _c("label", { staticClass: "blue-text" }, [
-          _vm._v("My pleasure to help you dear")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { attrs: { id: "sticky-anchor" } }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col hide-on-small-only m3 l2 white z-depth-1",
-              attrs: { id: "sticky" }
-            },
-            [
-              _c("ul", { staticClass: "section table-of-contents" }, [
-                _c("li", { staticClass: "customized" }, [
-                  _c("a", { attrs: { href: "#system-header" } }, [
-                    _vm._v("Portal Overview")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "customized" }, [
-                  _c("a", { attrs: { href: "#system-content" } }, [
-                    _vm._v("Portal Faqs")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "customized" }, [
-                  _c("a", { attrs: { href: "#system-tips" } }, [
-                    _vm._v("Portal Tips")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "customized" }, [
-                  _c("a", { attrs: { href: "#school-header" } }, [
-                    _vm._v("The college seal")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "customized" }, [
-                  _c("a", { attrs: { href: "#school-content" } }, [
-                    _vm._v("School Faqs")
-                  ])
-                ])
-              ])
-            ]
-          )
+    return _c(
+      "div",
+      { staticClass: "header-container  blue darken-3 z-depth-1" },
+      [
+        _c("label", { staticClass: "white-text" }, [
+          _vm._v("We've like to hear your feedback")
         ])
-      ]),
-      _c("br"),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "help-content-container white" }, [
-        _c("div", { staticClass: "help-content" })
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -55615,7 +55733,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7a4253ce", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3e505f46", module.exports)
   }
 }
 

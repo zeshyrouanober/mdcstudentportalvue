@@ -1,11 +1,11 @@
 <template lang="html">
 
-  <div class="recent-active-user-container">
+  <div class="recent-active-user-container white">
     <div class="recent-header z-depth-1 ">
       <label class="blue-grey-text">Recent Active Student</label>
     </div>
     <div class="recent-content">
-      <div class="recent-user white" v-for="log in logs">
+      <div class="recent-user" v-for="log in logs">
         <img :src="'/storage/avatars/' + log.user_log.avatar + ''" alt="">
         <label class="student-info blue-grey-text">{{log.student_log.fname}} {{log.student_log.lname}} </label>
         <div class="recent-time ">
@@ -34,10 +34,10 @@
       this.showLogs()
     },
 
-    // created: function(){
-    //   this.showLogs();
-    //   this.timer = setInterval(this.showLogs, 3000)
-    // },
+    created: function(){
+      this.showLogs();
+      this.timer = setInterval(this.showLogs, 3000)
+    },
 
     methods:{
       showLogs(){

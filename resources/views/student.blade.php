@@ -30,14 +30,14 @@
               </li>
               <li class="tab">
                 <a href="#faqs">
-                  <i class="material-icons">info_outline</i>
+                  <i class="material-icons">help_outline</i>
                   <label>Faqs</label>
                 </a>
               </li>
               <li class="tab">
-                <a href="#help">
-                  <i class="material-icons">help_outline</i>
-                  <label>Help</label>
+                <a href="#feedback">
+                  <i class="material-icons">feedback</i>
+                  <label>Feedback</label>
                 </a>
               </li>
             </ul>
@@ -131,8 +131,8 @@
           <div class="user-main-content tab-content" id="faqs">
             <faqsvue></faqsvue>
           </div>
-          <div class="user-main-content tab-content" id="help">
-            <helpvue></helpvue>
+          <div class="user-main-content tab-content" id="feedback">
+            <feedbackvue></feedbackvue>
           </div>
           <div class="user-right-nav white">
             <div class="side-nav-container">
@@ -165,7 +165,7 @@
                 <h5 class="white-text">Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">mdc.com.ph</a></li>
-
+                  <li><a class="grey-text text-lighten-3" href="#!">facebook.com</a></li>   
                 </ul>
               </div>
             </div>

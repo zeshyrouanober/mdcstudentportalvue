@@ -31,6 +31,13 @@
             <div class="content-content">
               <form class="col s12"  method="post" action="{{route('passwordSignIn')}}">
                 {{ csrf_field() }}
+                <div class="tips">
+                    <i id="info" class="material-icons orange-text">info_outline</i>
+                    <div id="info-label">
+                        <label >Your personal pin</label>    
+                    </div>    
+                </div>                
+                <br>
                 <div class="row">
                   <div class="input-field col s12">
                     <input id="passwordSignIn" type="password" required name="passwordSignIn" >
@@ -102,6 +109,10 @@
           $('.passwordlabel').addClass("active");
         });
       }
+
+      $('#info').on('click',function(){
+        $('#info-label').css("visibility","visible").addClass('animated swing');
+      });
   });
 </script>
 @endsection

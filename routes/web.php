@@ -103,3 +103,6 @@ Route::get('generate-verification-pdf','VerificationController@verificationPDF')
 
 //Logs
 Route::get('show-logs','LogController@show');
+
+//Feedbacks
+Route::post('create-feedback','FeedbackController@create');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+
 use App\User;
 use App\Announcement;
 use App\Student;
@@ -20,14 +22,20 @@ class HomeController extends Controller
     //FOR REGISTRATION
     public function signUp(Request $request){
       $requestData = $request->input('idnumber');
-      $student_id = DB::table('students')->select('idnum')->where('idnum',$requestData)->value('verification');
-      if ($requestData == $student_id) {
-        $student = DB::table('students')->where('idnum',$student_id)->take('1')->get();
-        Session::put('username',$student_id);
-        return View::make("password")->with('student',$student);
+
+      if (User::where('username',$requestData)->exists()) {
+        Session::flash('accountalreadyexist', 'This is a message!');
+        return redirect()->back()->with('accountalreadyexist','Account already exist !');
       }else{
-        Session::flash('idnumbernotfound', 'This is a message!');
-        return redirect()->back()->with('idnumbernotfound','Password dont match !');
+        $student_id = DB::table('students')->select('idnum')->where('idnum',$requestData)->value('verification');
+        if ($requestData == $student_id) {
+          $student = DB::table('students')->where('idnum',$student_id)->take('1')->get();
+          Session::put('username',$student_id);
+          return View::make("password")->with('student',$student);
+        }else{
+          Session::flash('idnumbernotfound', 'This is a message!');
+          return redirect()->back()->with('idnumbernotfound','Password dont match !');
+        }
       }
     }
     public function passwordSignUp(Request $request){

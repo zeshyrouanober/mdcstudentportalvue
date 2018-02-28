@@ -7,7 +7,7 @@
   <body>
       <div class="student-grade-pdf">
         <div class="header">
-          <img src="C:\xampp\htdocs\mdcstudentportalvue\public\images\school-logo2.png" alt="">
+          <img src="C:\xampp\htdocs\mdcstudentportal\public\images\school-logo2.png" alt="">
           <h5>MATER DEI COLLEGE</h5>
           <label>Tubigon,Bohol.</label>
           <br><br>

@@ -1,9 +1,11 @@
 <template lang="html">
   <div class="calendar-container z-depth-1">
     <div class="school-calendar blue darken-3">
-      <label class="white-text">School Year Calendar</label>
+      <label class="white-text" >School Year Calendar</label>
     </div>
-    <vue-event-calendar :events="eventsCalendar"  @day-changed="handleDayChanged" @month-changed="handleMonthChanged">
+    <br>
+    <div class="vue-event-calendar-container">
+      <vue-event-calendar :events="eventsCalendar"  @day-changed="handleDayChanged" @month-changed="handleMonthChanged">
         <a href="#" @click.prevent="showAllEvents()" class="tooltipped" data-position="top" data-delay="20" data-tooltip="All Events" ><i class="material-icons white-text small">event_note</i></a>
         <div class="event-viewer " v-for="events in eventsCalendar">
             <div class="event-container white" >
@@ -29,7 +31,8 @@
                 </div>
             </div>
         </div>
-    </vue-event-calendar>
+      </vue-event-calendar>
+    </div>
     <!-- Event view modal -->
     <div id="eventview" class="modal modal-fixed-footer">
       <div class="modal-content">

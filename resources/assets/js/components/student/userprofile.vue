@@ -62,7 +62,7 @@
               </div>
               <div class="input-file-container">
                   <div class="file-field input-field">
-                    <div class="btn-flat light-blue center white-text" v-on:click="imagePreview = false">
+                    <div class="btn-flat  center" v-on:click="imagePreview = false">
                         <span>Select file</span>
                         <input type="file" @change="onFileChange"  >
                     </div>
@@ -75,11 +75,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a id="cancel" class="btn btn-flat waves-effect waves-light white modal-close">Cancel</a>
-          <a class="btn btn-flat waves-effect waves-light modal-close white-text light-blue" v-on:click="updateAvatar()">Update</a>
+          <a id="cancel" class="btn btn-flat waves-effect waves-light modal-close">Cancel</a>
+          <a class="btn  waves-effect modal-close white-text light-blue" v-on:click="updateAvatar()">Update</a>
         </div>
-
-
       </div>
 
   </div>
