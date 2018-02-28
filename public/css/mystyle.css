@@ -2152,6 +2152,7 @@ thead tr th{
   .content{
     flex: 1;
     border-radius: 5px;
+    height: 400px;
   }
   .content .content-title{
     border-top-left-radius: 5px;
@@ -2366,6 +2367,9 @@ thead tr th{
 @media only screen and (max-width : 740px){
   .title .stud_id{
     padding-left: 70px;
+  }
+  .content{
+    height: 400px;
   }
 }
 @media only screen and (max-width : 734px){
@@ -3403,6 +3407,7 @@ thead tr th{
   .content{
     flex: 1;
     border-radius: 5px;
+    height: 400px;
   }
   .content .content-title{
     border-top-left-radius: 5px;
